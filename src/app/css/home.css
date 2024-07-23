@@ -1,0 +1,54 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.hack-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: px;
+}
+
+.text-height {
+    padding-bottom: 130px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 100px;
+    padding: 1rem;
+}
+
+/* link box component*/
+.link-box-container {
+    display: flex;
+    justify-content: bottom;
+    align-items: bottom;
+}
+
+.link-box a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-box h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.link-box p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.7;
+}
