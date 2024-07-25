@@ -1,13 +1,15 @@
 import React from 'react';
 import "../css/home.css"
 
-export default function LinkBox({ href, title, desc, color }) {
+export default function LinkBox({ href, title, desc, color, offSite }) {
   return (
     <div className="link-box-container ">
     <a
       href={href}
-className="rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"      target="_blank"
-      rel="noopener noreferrer"
+      className="rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 
+      hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"      
+      target={offSite ? "_blank" : "_self"}
+      rel={offSite ? "noopener noreferrer" : undefined}
     >
       <h2 className="mb-3 text-2xl font-semibold">
         {title}

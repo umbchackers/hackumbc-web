@@ -28,7 +28,7 @@ export default function Navbar() {
             smooth="true"
             duration={500}
             className="nav-link"
-                        href=""
+                        href="https://www.hackumbc.tech/"
           >
             About
           </Link>
@@ -39,7 +39,7 @@ export default function Navbar() {
             smooth="true"
             duration={500}
             className="nav-link"
-                        href=""
+                        href="https://www.hackumbc.tech/"
           >
             FAQ
           </Link>
@@ -50,7 +50,7 @@ export default function Navbar() {
             smooth="true"
             duration={500}
             className="nav-link"
-            href=""
+            href="https://www.hackumbc.tech/"
           >
             Sponsors
           </Link>
