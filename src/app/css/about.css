@@ -1,0 +1,4 @@
+.about_images {
+    display: grid;
+    place-items: center;
+}

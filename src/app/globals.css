@@ -22,10 +22,24 @@ body {
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+  scrollbar-color: red yellow;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.before-content::before {
+  content: "{";
+  color: #669BBC;
+  margin-right: 14px;
+}
+
+.before-content::after {
+  content: "}";
+  color: #669BBC;
+  margin-left: 14px;
 }
