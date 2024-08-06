@@ -2,10 +2,7 @@
 // have to use client for cao
 import "../css/about.css";
 import Image from "next/image";
-import { Carousel } from "@material-tailwind/react";
 import SectionTitle from  "../components/title";
-// import { Track } from "../components/tracks"
-
 
 export default function About() {
     function Track({ title, desc, children }) {
@@ -19,17 +16,31 @@ export default function About() {
     }
     
     return (
-        <div className="h-screen [background:radial-gradient(125%_125%_at_50%_90%,#000_40%,#63e_100%)]">
+        <div className="h-screen absolute [background:radial-gradient(125%_125%_at_50%_90%,#000_40%,#63e_100%)]">
+            <div className="about-content">
 
-            <div className="relative h-32 w-32">
-                <SectionTitle title="About" className="absolute bottom-0 left-0"/>
-                <Carousel className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                <Track
+                <div className="title">
+                    <SectionTitle title="About"/>
+                </div>
+                <div className="about-text">
+                    <p>
+                    Join hackUMBC for our 24-hour hackathon event where we challenge
+                    our ideas to come to life! Collaborate with other students and
+                    pick up some new skills in our workshop sessions!
+                    </p>
+
+                    <p>
+                     With lots of fun activities, over $5,000 in prizes, and swag for
+                    all participants youll be in for an exciting weekend!
+                    </p>
+                </div>
+                <div className="tracks flex space-x-40 items-center">
+                    <Track
                         title="General"
                         desc="Whatever you want! These are hacks that don't fit under any specific category."
                     >
                         <img
-                            src="/Dog_General.png"
+                            src="/sticker1.png"
                             alt="track-image"
                             className="w-36 h-auto"
                         />
@@ -39,53 +50,23 @@ export default function About() {
                         desc="Hacks that focus on learning and education."
                     >
                         <img
-                            src="/Dog_Education.png"
+                            src="/sticker2.png"
                             alt="track-image"
                             className="w-36 h-auto"
                         />
                     </Track>
                     <Track
-                        title="Equity"
-                        desc="Hacks that promote equality and inclusiveness."
+                        title="Technology"
+                        desc="Hacks that focus on technology and innovation."
                     >
                         <img
-                            src="/Dog_Equity.png"
+                            src="/sticker3.png"
                             alt="track-image"
                             className="w-36 h-auto"
                         />
                     </Track>
-                    <Track
-                        title="Healthcare"
-                        desc="Hacks that aim to improve health and wellness."
-                    >
-                        <img
-                            src="/Dog_Healthcare.png"
-                            alt="track-image"
-                            className="w-36 h-auto"
-                        />
-                    </Track>
-                    <Track
-                        title="Hobbies"
-                        desc="Hacks that focus on hobbies and leisure activities."
-                    >
-                        <img
-                            src="/Dog_Hobbies.png"
-                            alt="track-image"
-                            className="w-36 h-auto"
-                        />
-                    </Track>
-                    <Track
-                        title="Wifi"
-                        desc="Hacks that focus on connectivity and network improvements."
-                    >
-                        <img
-                            src="/Dog_Wifi.png"
-                            alt="track-image"
-                            className="w-36 h-auto"
-                        />
-                    </Track>
-                </Carousel>
-            </div>
+                </div>
+            </div>    
         </div>
-    )
+    );
 }
