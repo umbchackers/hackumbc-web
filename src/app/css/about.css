@@ -3,15 +3,20 @@
     place-items: center;
 }
 
-/* .about-content {
-    padding-left: 7vw;
-    padding-right: 91vw;
-} */
+.about-content {
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+    margin-left: 7vw;
+    margin-right: 7vw;
+    /*uncommented this for sponsors page*/
+}
+
 
 .title {
     padding-top: 15vh;
     padding-left: 7vw;
     padding-right: 91vw;
+    justify-content: center;
 }
 
 .about-text {
@@ -35,4 +40,13 @@
     margin-left: 15vw;
     margin-right: 15vw;
     margin-bottom: 10vh;
+}
+
+.about-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*center content*/
+    align-items: center;
+    min-height: 100vh; /*fill page*/
+    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%); /*for blend*/
 }

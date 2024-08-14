@@ -2,7 +2,7 @@
 // have to use client for cao
 import "../css/about.css";
 import Image from "next/image";
-import SectionTitle from  "../components/title";
+import SectionTitle from "../components/title";
 
 export default function About() {
     function Track({ title, desc, children }) {
@@ -16,22 +16,22 @@ export default function About() {
     }
     
     return (
-        <div className="h-screen absolute [background:radial-gradient(125%_125%_at_50%_90%,#000_40%,#63e_100%)]">
+        <div className="about-page">
             <div className="about-content">
 
                 <div className="title">
-                    <SectionTitle title="About"/>
+                    <SectionTitle title="About" />
                 </div>
                 <div className="about-text">
                     <p>
-                    Join hackUMBC for our 24-hour hackathon event where we challenge
-                    our ideas to come to life! Collaborate with other students and
-                    pick up some new skills in our workshop sessions!
+                        Join hackUMBC for our 24-hour hackathon event where we challenge
+                        our ideas to come to life! Collaborate with other students and
+                        pick up some new skills in our workshop sessions!
                     </p>
 
                     <p>
-                     With lots of fun activities, over $5,000 in prizes, and swag for
-                    all participants youll be in for an exciting weekend!
+                        With lots of fun activities, over $5,000 in prizes, and swag for
+                        all participants, you'll be in for an exciting weekend!
                     </p>
                 </div>
                 <div className="tracks flex space-x-40 items-center">
