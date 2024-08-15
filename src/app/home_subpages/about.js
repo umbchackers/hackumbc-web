@@ -14,11 +14,9 @@ export default function About() {
             </div>
         );
     }
-    
     return (
         <div className="about-page">
             <div className="about-content">
-
                 <div className="title">
                     <SectionTitle title="About" />
                 </div>
@@ -34,7 +32,7 @@ export default function About() {
                         all participants, you'll be in for an exciting weekend!
                     </p>
                 </div>
-                <div className="tracks flex space-x-40 items-center">
+                <div className="tracks flex"> {/* adjusted the className styling for centering on mobile for tracks */}
                     <Track
                         title="General"
                         desc="Whatever you want! These are hacks that don't fit under any specific category."

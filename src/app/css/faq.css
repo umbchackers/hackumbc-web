@@ -1,0 +1,99 @@
+.faq-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    min-height: 100vh;
+    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+    margin-top: -35vh;
+    padding-bottom: 20vh;
+    /*spacing really needs to be fixed for all of the pages*/
+  }
+  
+  .title {
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .faq-content {
+    max-width: 800px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .faq-item {
+    margin-bottom: 10px;
+  }
+  
+  .faq-question {
+    display: block;
+    padding: 15px; 
+    background-color: #f1f1f1; 
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid #ddd; 
+    border-radius: 4px;
+    position: relative;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s; 
+  }
+  
+  .faq-question:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .faq-answer {
+    padding: 15px;
+    display: none;
+    background-color: #fafafa; 
+    border-top: 1px solid #ddd; 
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: #333;
+  }
+  
+  .faq-toggle:checked + .faq-question + .faq-answer {
+    display: block;
+  }
+  
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 10px;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+  }
+  
+  .faq-toggle:checked + .faq-question::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .faq-content {
+      padding: 10px;
+    }
+  
+    .faq-question {
+      font-size: 1rem; 
+    }
+  
+    .faq-answer {
+      font-size: 0.9rem; 
+    }
+
+    /*mobile view adjusting*/
+  }
+  

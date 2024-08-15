@@ -2,6 +2,7 @@ import React from "react";
 import "../css/Navbar.css";
 import Link from 'next/link'
 
+//fixed hrefs for navbar
 
 export default function Navbar() {
   return (<>
@@ -28,7 +29,7 @@ export default function Navbar() {
             smooth="true"
             duration={500}
             className="nav-link"
-                        href=""
+                        href="#about"
           >
             About
           </Link>
@@ -39,7 +40,7 @@ export default function Navbar() {
             smooth="true"
             duration={500}
             className="nav-link"
-                        href=""
+                        href="#faq"
           >
             FAQ
           </Link>
@@ -50,7 +51,7 @@ export default function Navbar() {
             smooth="true"
             duration={500}
             className="nav-link"
-            href=""
+            href="#sponsors"
           >
             Sponsors
           </Link>

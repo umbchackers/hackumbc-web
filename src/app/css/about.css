@@ -4,19 +4,27 @@
 }
 
 .about-content {
-    padding-top: 15vh;
     padding-bottom: 10vh;
     margin-left: 7vw;
     margin-right: 7vw;
+    margin-top: 5vh;
+    margin-bottom: 20vh;
     /*uncommented this for sponsors page*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /*all added for centering*/
 }
 
 
 .title {
     padding-top: 15vh;
-    padding-left: 7vw;
-    padding-right: 91vw;
+    text-align: center;
+    width: 100%;
+    display: flex;
     justify-content: center;
+    /* trying to center title*/
 }
 
 .about-text {
@@ -33,6 +41,7 @@
 .about-text p {
     margin-bottom: 15px;
     line-height: 30px;
+    justify-content: center;
 }
 
 .tracks {
@@ -40,6 +49,15 @@
     margin-left: 15vw;
     margin-right: 15vw;
     margin-bottom: 10vh;
+    justify-items: center;
+    justify-content: space-between;
+    gap: 200px;
+    font-size: 1.2rem;
+}
+
+.tracks img {
+    width: 200px;
+    /*make images bigger for desktop*/
 }
 
 .about-page {
@@ -49,4 +67,59 @@
     align-items: center;
     min-height: 100vh; /*fill page*/
     background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%); /*for blend*/
+}
+
+
+@media (max-width: 768px) {
+    .about-content {
+        padding-top: 10vh;
+        padding-bottom: 5vh;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        text-align: center;
+    }
+
+    .title {
+        padding-top: 10vh;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .about-text {
+        font-size: 18px;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        width: 90vw;
+        line-height: 28px;
+        text-align: center;
+    }
+
+    .tracks {
+        flex-direction: column;
+        align-items: center;    
+        text-align: center;
+        gap: 20px;
+    }
+
+    .tracks div {
+        width: 90%; 
+        margin-bottom: 10px; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* centering for mobile, also scaling for view*/
+    }
+
+    .tracks img {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /*scale down images for mobile, this might need to be adjusted*/
+    }
+
+    .tracks h1, p {
+        text-align: center;
+    }
+
 }
