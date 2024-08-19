@@ -23,7 +23,7 @@
     max-width: 800px;
     width: 100%;
     padding: 20px;
-    background-color: #63e; /*matching background*/
+    background-color: rgb(48, 12, 139); /*matching background*/
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
