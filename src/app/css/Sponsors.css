@@ -40,7 +40,10 @@
     width: 100%;
     max-width: 350px; /*adjust to fit stuff in grid if need be*/
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+    /*adding soft glow to make content pop more*/
 }
 
 .sponsor-tier-container:hover {
