@@ -48,7 +48,9 @@
 
 .sponsor-tier-container:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+    /*adding soft glow to make content pop more*/
 }
 
 .sponsor-tier-title {
