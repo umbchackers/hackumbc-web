@@ -34,7 +34,7 @@
 }
 
 .sponsor-tier-container {
-    background: rgba(93, 13, 164, 0.6); /*adjusting color for grids, this could be a better color tbh*/
+    background: rgb(92, 50, 209); /*adjusting color for grids, this could be a better color tbh*/
     border-radius: 10px;
     padding: 30px;
     width: 100%;
