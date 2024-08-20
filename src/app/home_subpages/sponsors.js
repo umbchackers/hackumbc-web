@@ -3,10 +3,14 @@ import "../css/Sponsors.css";
 import SectionTitle from "../components/title";
 
 export default function Sponsors() {
-    function SponsorTier({ title, children }) {
+    function SponsorTier({ title, iconSrc, children }) {
         return (
             <div className="sponsor-tier-container">
-                <h1 className="sponsor-tier-title">{title}</h1>
+                <h1 className="sponsor-tier-title">
+                    <img src={iconSrc} alt="icon" className="sponsor-icon" /> {/* modified the  titles to include the image icons */}
+                    {title}
+                    <img src={iconSrc} alt="icon" className="sponsor-icon" />
+                </h1>
                 <div className="sponsor-logos">
                     {children}
                 </div>
@@ -23,14 +27,14 @@ export default function Sponsors() {
                 </div>
 
                 <div className="sponsor-tiers">
-                    <SponsorTier title="DIAMOND">
+                    <SponsorTier title="DIAMOND" iconSrc="/diamond.png"> {/* added icons next to each tiers text */}
                         <img
                             src="/UMBC-COEIT.png"
                             alt="sponsor"
                             className="sponsor-logo"
                         />
                     </SponsorTier>
-                    <SponsorTier title="PLATINUM">
+                    <SponsorTier title="PLATINUM" iconSrc="/platinum.png">
                         <img
                             src="/Logo_TRP_TwoComponentTwoColor_Digital_R.png"
                             alt="sponsor"
@@ -42,14 +46,14 @@ export default function Sponsors() {
                             className="sponsor-logo"
                         />
                     </SponsorTier>
-                    <SponsorTier title="GOLD">
+                    <SponsorTier title="GOLD" iconSrc="/gold.png">
                         <img
                             src="/BAH.png"
                             alt="sponsor"
                             className="sponsor-logo"
                         />
                     </SponsorTier>
-                    <SponsorTier title="SILVER">
+                    <SponsorTier title="SILVER" iconSrc="/silver.png">
                         <img
                             src="/cipher-tech.png"
                             alt="sponsor"
@@ -61,7 +65,7 @@ export default function Sponsors() {
                             className="sponsor-logo"
                         />
                     </SponsorTier>
-                    <SponsorTier title="BRONZE">
+                    <SponsorTier title="BRONZE" iconSrc="/bronze.png">
                         <img
                             src="/CWIT.png"
                             alt="sponsor"
@@ -73,7 +77,7 @@ export default function Sponsors() {
                             className="sponsor-logo"
                         />
                     </SponsorTier>
-                    <SponsorTier title="PARTNERS">
+                    <SponsorTier title="PARTNERS" iconSrc="/partners.png">
                         <img
                             src="/cah.png"
                             alt="sponsor"

@@ -59,6 +59,19 @@
     text-transform: uppercase;
     font-weight: bold;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /*added space and alignment for icons*/
+}
+
+.sponsor-icon {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    border-radius: 30px;
+    /*added icons next to text for each sponsor*/
 }
 
 .sponsor-logos {
