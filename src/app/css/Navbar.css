@@ -89,7 +89,6 @@
 .hamburger-menu {
     position: absolute;
     padding: 24px;
-    right: 215px;
     display: inline-block;
     z-index: 10;
 }
@@ -153,12 +152,21 @@
     transform: rotate(-45deg) translate(10px, -5px);
 }
 
+@media (max-width: 1400px) {
+    .hamburger-menu {
+        right: 225px; /*spacing fixes*/
+    }
+}
+
 @media (max-width: 768px) {
     .nav-link, .nav-link-dark {
-        display: none; /* Hide text links */
+        display: none;
     }
 
     #hamburger-nav {
         display: block;
+    }
+    .hamburger-menu {
+        left: 215px; /*more spacing adjustments*/
     }
 }
