@@ -55,8 +55,17 @@
     text-align: center;
 }
 
-.nav-link::before, .nav-link::after, .nav-link-dark::before, .nav-link-dark::after {
-    content: "{ }";
+.nav-link::before, .nav-link-dark::before {
+    content: " { ";
+    color: #669BBC;
+    opacity: 0;
+    padding: 0 7px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-link-dark::after, .nav-link::after {
+    content: " } ";
     color: #669BBC;
     opacity: 0;
     padding: 0 7px;
