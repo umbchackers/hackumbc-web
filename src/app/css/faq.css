@@ -25,8 +25,8 @@
     padding: 20px;
     background-color: rgb(48, 12, 139); /*matching background*/
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
-                inset 0 0 10px rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.424),
+                inset 0 0 10px rgba(255, 255, 255, 0.424); 
     /*adding soft glow to make content pop more*/
   }
   

@@ -16,7 +16,7 @@ export default function Navbar() {
       </a>
       <nav className="nav-desktop">
         <div className="nav-left">
-          <Link href="header" offset={-300} duration={700} smooth="true">
+          <Link href="https://link.hackumbc.tech/mlh" offset={-300} duration={700} smooth="true">
             <img
               className="nav-logo"
               src="hackLogo24.png"
