@@ -179,3 +179,10 @@
         left: 215px; /*more spacing adjustments*/
     }
 }
+
+@media (max-width: 530px) {
+    .menu-links {
+        left: 70%;
+    }
+    /*this is my workaround for centering the menu links with the hamburger menu but this could def be better written*/
+}
