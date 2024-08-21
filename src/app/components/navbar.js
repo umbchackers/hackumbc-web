@@ -1,10 +1,16 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import "../css/Navbar.css";
-import Link from 'next/link'
+import Link from 'next/link';
 
 //fixed hrefs for navbar
 
 export default function Navbar() {
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+    const toggleMenu = () => setIsMenuOpen(prev => !prev);
+  
   return (<>
    <div className="nav-bar-container w-full flex justify-center py-2.5">
       <a href="https://link.hackumbc.tech/mlh" target="_blank">
@@ -72,7 +78,20 @@ export default function Navbar() {
                 <a href= 'https://hackumbc.typeform.com/to/MqNdLmuH' id="vsignup-button" className='nav-sign-up'>VOLUNTEER</a> */}
         </div>
       </nav>
-    </div>
-  
-  </>)
-};
+    {/*hamburger menu*/}
+        <div id="hamburger-nav" className="hamburger-menu">
+          <div className={`hamburger-icon ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul className={`menu-links ${isMenuOpen ? 'open' : ''}`}>
+            <li><Link href="#about">About</Link></li>
+            <li><Link href="#faq">FAQ</Link></li>
+            <li><Link href="#sponsors">Sponsors</Link></li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+}

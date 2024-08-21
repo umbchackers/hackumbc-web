@@ -105,6 +105,16 @@
     transform: scale(1.1);
 }
 
+@media (max-width: 1200px) {
+    .sponsor-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .sponsor-tier-title {
+        font-size: 1.2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .sponsor-tiers {
         grid-template-columns: repeat(2, 1fr); /*makes it so there are two columns for smaller screens */
@@ -116,6 +126,6 @@
     }
     
     .sponsor-tier-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
