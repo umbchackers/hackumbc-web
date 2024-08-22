@@ -16,7 +16,7 @@ export default function Home() {
           priority
         />
         <p className="text-height text-white text-2xl mt-8 font-semibold"> 10th</p>
-        <LinkBox href="about" color={false}></LinkBox>
+        <LinkBox href="#about" color={false}></LinkBox>
 
         <div className="footer">
           <LinkBox href="sign-up" desc="Sign up and join us for the 10th anniversary @ hackUMBC!" title="Registration"></LinkBox>

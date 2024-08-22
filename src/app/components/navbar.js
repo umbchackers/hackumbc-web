@@ -1,9 +1,16 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import "../css/Navbar.css";
-import Link from 'next/link'
+import Link from 'next/link';
 
+//fixed hrefs for navbar
 
 export default function Navbar() {
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+    const toggleMenu = () => setIsMenuOpen(prev => !prev);
+  
   return (<>
    <div className="nav-bar-container w-full flex justify-center py-2.5">
       <a href="https://link.hackumbc.tech/mlh" target="_blank">
@@ -15,7 +22,7 @@ export default function Navbar() {
       </a>
       <nav className="nav-desktop">
         <div className="nav-left">
-          <Link href="header" offset={-300} duration={700} smooth="true">
+          <Link href="https://link.hackumbc.tech/mlh" offset={-300} duration={700} smooth="true">
             <img
               className="nav-logo"
               src="hackLogo24.png"
@@ -28,7 +35,7 @@ export default function Navbar() {
             smooth="true"
             duration={500}
             className="nav-link"
-                        href=""
+                        href="#about"
           >
             About
           </Link>
@@ -39,7 +46,7 @@ export default function Navbar() {
             smooth="true"
             duration={500}
             className="nav-link"
-                        href=""
+                        href="#faq"
           >
             FAQ
           </Link>
@@ -50,7 +57,7 @@ export default function Navbar() {
             smooth="true"
             duration={500}
             className="nav-link"
-            href=""
+            href="#sponsors"
           >
             Sponsors
           </Link>
@@ -71,7 +78,20 @@ export default function Navbar() {
                 <a href= 'https://hackumbc.typeform.com/to/MqNdLmuH' id="vsignup-button" className='nav-sign-up'>VOLUNTEER</a> */}
         </div>
       </nav>
-    </div>
-  
-  </>)
-};
+    {/*hamburger menu*/}
+        <div id="hamburger-nav" className="hamburger-menu">
+          <div className={`hamburger-icon ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul className={`menu-links ${isMenuOpen ? 'open' : ''}`}>
+            <li><Link href="#about">About</Link></li>
+            <li><Link href="#faq">FAQ</Link></li>
+            <li><Link href="#sponsors">Sponsors</Link></li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+}
