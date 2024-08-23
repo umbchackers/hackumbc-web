@@ -38,67 +38,76 @@ export default function Sponsors() {
                     <p>HACKUMBC 2024 Sponsors & Partners</p>
                 </div>
 
-                <div className="sponsor-tiers" data-aos= "fade-up">
-                    <SponsorTier title="DIAMOND" iconSrc="/diamond.png"> {/* added icons next to each tiers text */}
+                <div className="sponsor-tiers">
+                    <SponsorTier title="DIAMOND" iconSrc="/diamond.png" data-aos= "fade-up"> {/* added icons next to each tiers text */}
                         <img
                             src="/UMBC-COEIT.png"
                             alt="sponsor"
                             className="sponsor-logo"
                         />
                     </SponsorTier>
-                    <SponsorTier title="PLATINUM" iconSrc="/platinum.png">
+                    <SponsorTier title="PLATINUM" iconSrc="/platinum.png" data-aos= "fade-up">
                         <img
                             src="/Logo_TRP_TwoComponentTwoColor_Digital_R.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos= "fade-up"
                         />
                         <img
                             src="/northrop.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos= "fade-up"
                         />
                     </SponsorTier>
-                    <SponsorTier title="GOLD" iconSrc="/gold.png">
+                    <SponsorTier title="GOLD" iconSrc="/gold.png" data-aos= "fade-up">
                         <img
                             src="/BAH.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos= "fade-up"
                         />
                     </SponsorTier>
-                    <SponsorTier title="SILVER" iconSrc="/silver.png">
+                    <SponsorTier title="SILVER" iconSrc="/silver.png" data-aos= "fade-up">
                         <img
                             src="/cipher-tech.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos= "fade-up"
                         />
                         <img
                             src="/intelligenisis.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos= "fade-up"
                         />
                     </SponsorTier>
-                    <SponsorTier title="BRONZE" iconSrc="/bronze.png">
+                    <SponsorTier title="BRONZE" iconSrc="/bronze.png" data-aos= "fade-up">
                         <img
                             src="/CWIT.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos= "fade-up"
                         />
                         <img
                             src="/makpar.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos= "fade-up"
                         />
                     </SponsorTier>
-                    <SponsorTier title="PARTNERS" iconSrc="/partners.png">
+                    <SponsorTier title="PARTNERS" iconSrc="/partners.png" data-aos= "fade-up">
                         <img
                             src="/cah.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos= "fade-up"
                         />
                         <img
                             src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos= "fade-up"
                         />
                         <a
                             href="https://hackp.ac/mlh-standoutstickers-hackathons"
