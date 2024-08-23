@@ -2,10 +2,20 @@
 import React, { useState } from "react";
 import "../css/Navbar.css";
 import Link from 'next/link';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+import { useEffect } from 'react';
 //fixed hrefs for navbar
 
 export default function Navbar() {
+
+  useEffect(() => {
+    AOS.init({
+        duration: 1200,
+        easing: 'ease-in-out',
+        once: true,
+    });
+  }, []);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
   
@@ -20,7 +30,7 @@ export default function Navbar() {
           alt="Major League Hacking 2022 Hackathon Season"
         />
       </a>
-      <nav className="nav-desktop">
+      <nav className="nav-desktop" data-aos="fade-in">
         <div className="nav-left">
           <Link href="https://link.hackumbc.tech/mlh" offset={-300} duration={700} smooth="true">
             <img
