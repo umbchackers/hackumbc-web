@@ -1,11 +1,23 @@
 "use client";
 import "../css/Sponsors.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+import { useEffect } from 'react';
 import SectionTitle from "../components/title";
 
 export default function Sponsors() {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1200,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    }, []);
+
     function SponsorTier({ title, iconSrc, children }) {
         return (
-            <div className="sponsor-tier-container">
+            <div className="sponsor-tier-container" data-aos= "fade-up">
                 <h1 className="sponsor-tier-title">
                     <img src={iconSrc} alt="icon" className="sponsor-icon" /> {/* modified the  titles to include the image icons */}
                     {title}
@@ -20,13 +32,13 @@ export default function Sponsors() {
 
     return (
         <div className="sponsors-page">
-            <div className="sponsors-content">
-                <div className="sponsor-section-title">
+            <div className="sponsors-content" >
+                <div className="sponsor-section-title" data-aos= "fade-up">
                     <SectionTitle title="2024 SPONSORS" />
                     <p>HACKUMBC 2024 Sponsors & Partners</p>
                 </div>
 
-                <div className="sponsor-tiers">
+                <div className="sponsor-tiers" data-aos= "fade-up">
                     <SponsorTier title="DIAMOND" iconSrc="/diamond.png"> {/* added icons next to each tiers text */}
                         <img
                             src="/UMBC-COEIT.png"
