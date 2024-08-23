@@ -17,7 +17,7 @@ export default function FAQ() {
 
     function FAQItem({ question, answer }) {
         return (
-        <div className="faq-item">
+        <div className="faq-item" data-aos= "fade-up">
             <input type="checkbox" id={`faq-${question}`} className="faq-toggle" />
             <label htmlFor={`faq-${question}`} className="faq-question">
             {question}
@@ -31,7 +31,7 @@ export default function FAQ() {
 
     return (
         <div className="faq-page [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
-        <div className="title" data-aos= "fade-up">
+        <div className="title" data-aos="fade-up">
             <SectionTitle title="FAQ" /> {/*sections inside this now changed, some things might need to be fixed*/}
         </div>
         <div className="faq-content" data-aos= "fade-up">
