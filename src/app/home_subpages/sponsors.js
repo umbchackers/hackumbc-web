@@ -44,6 +44,7 @@ export default function Sponsors() {
                             src="/UMBC-COEIT.png"
                             alt="sponsor"
                             className="sponsor-logo"
+                            data-aos="fade-up"
                         />
                     </SponsorTier>
                     <SponsorTier title="PLATINUM" iconSrc="/platinum.png" data-aos= "fade-up">
