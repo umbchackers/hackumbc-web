@@ -1,9 +1,21 @@
+"use client";
 import React from 'react';
 import "../css/home.css"
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+import { useEffect } from 'react';
 export default function LinkBox({ href, title, desc, color }) {
+
+  useEffect(() => {
+    AOS.init({
+        duration: 1200,
+        easing: 'ease-in-out',
+        once: true,
+    });
+  }, []);
+
   return (
-    <div className="link-box-container ">
+    <div className="link-box-container" data-aos="fade-in">
     <a
       href={href}
 className="rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"      target="_blank"
