@@ -57,7 +57,7 @@ export default function About() {
                         />
                     </Track>
                     <Track
-                        title="Education"
+                        title="Entrepreneurial"
                         desc="Hacks that focus on learning and education."
                     >
                         <img
@@ -67,7 +67,17 @@ export default function About() {
                         />
                     </Track>
                     <Track
-                        title="Technology"
+                        title="Game-Development"
+                        desc="Hacks that focus on technology and innovation."
+                    >
+                        <img
+                            src="/sticker3.png"
+                            alt="track-image"
+                            className="w-36 h-auto"
+                        />
+                    </Track>
+                    <Track
+                        title="Company-Specific"
                         desc="Hacks that focus on technology and innovation."
                     >
                         <img
