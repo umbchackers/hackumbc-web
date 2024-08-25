@@ -17,13 +17,13 @@ export default function Sponsors() {
 
     function SponsorTier({ title, iconSrc, children }) {
         return (
-            <div className="sponsor-tier-container" data-aos= "fade-up">
-                <h1 className="sponsor-tier-title">
-                    <img src={iconSrc} alt="icon" className="sponsor-icon" /> {/* modified the  titles to include the image icons */}
+            <div className="sponsors-tier-container" data-aos= "fade-up">
+                <h1 className="sponsors-tier-title">
+                    <img src={iconSrc} alt="icon" className="sponsors-icon" /> {/* modified the  titles to include the image icons */}
                     {title}
-                    <img src={iconSrc} alt="icon" className="sponsor-icon" />
+                    <img src={iconSrc} alt="icon" className="sponsors-icon" />
                 </h1>
-                <div className="sponsor-logos">
+                <div className="sponsors-logos">
                     {children}
                 </div>
             </div>
@@ -37,77 +37,87 @@ export default function Sponsors() {
                     <SectionTitle title="SPONSORS" />
                 </div>
                 <div className="sponsors-title-subheading" data-aos="fade-up">hackUMBC 2024 Sponsors</div> {/* added section titles and subheadings */}
-                <div className="sponsor-tiers">
+                <div className="sponsors-tiers">
                     <SponsorTier title="DIAMOND" iconSrc="/diamond.png" data-aos= "fade-up"> {/* added icons next to each tiers text */}
                         <img
                             src="/UMBC-COEIT.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos="fade-up"
+                            href=""
                         />
                     </SponsorTier>
                     <SponsorTier title="PLATINUM" iconSrc="/platinum.png" data-aos= "fade-up">
                         <img
                             src="/Logo_TRP_TwoComponentTwoColor_Digital_R.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos= "fade-up"
+                            href=""
                         />
                         <img
                             src="/northrop.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos= "fade-up"
+                            href=""
                         />
                     </SponsorTier>
                     <SponsorTier title="GOLD" iconSrc="/gold.png" data-aos= "fade-up">
                         <img
                             src="/BAH.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos= "fade-up"
+                            href=""
                         />
                     </SponsorTier>
                     <SponsorTier title="SILVER" iconSrc="/silver.png" data-aos= "fade-up">
                         <img
                             src="/cipher-tech.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos= "fade-up"
+                            href=""
                         />
                         <img
                             src="/intelligenisis.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos= "fade-up"
+                            href=""
                         />
                     </SponsorTier>
                     <SponsorTier title="BRONZE" iconSrc="/bronze.png" data-aos= "fade-up">
                         <img
                             src="/CWIT.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos= "fade-up"
+                            href=""
                         />
                         <img
                             src="/makpar.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos= "fade-up"
+                            href=""
                         />
                     </SponsorTier>
                     <SponsorTier title="PARTNERS" iconSrc="/partners.png" data-aos= "fade-up">
                         <img
                             src="/cah.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos= "fade-up"
+                            href=""
                         />
                         <img
                             src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png"
                             alt="sponsor"
-                            className="sponsor-logo"
+                            className="sponsors-logo"
                             data-aos= "fade-up"
+                            href=""
                         />
                         <a
                             href="https://hackp.ac/mlh-standoutstickers-hackathons"
