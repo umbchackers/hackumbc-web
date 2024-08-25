@@ -8,7 +8,7 @@
     margin-left: 7vw;
     margin-right: 7vw;
     margin-top: 5vh;
-    margin-bottom: 20vh;
+    margin-bottom: 10vh;
     /*uncommented this for sponsors page*/
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
     color: #fff;
 }
   
-  .about-title-subheading {
+.about-title-subheading {
     text-align: center;
     color: #fff;
 }
@@ -48,17 +48,17 @@
 
 .tracks {
     margin-top: 5vh;
-    margin-left: 15vw;
-    margin-right: 15vw;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
     justify-items: center;
     justify-content: space-between;
-    gap: 100px;
+    align-items: flex-start;
+    gap: 90px;
     font-size: 1.2rem;
 }
 
 .tracks img {
     width: 200px;
+    display: block;
     /*make images bigger for desktop*/
 }
 

@@ -68,7 +68,7 @@ export default function About() {
                         />
                     </Track>
                     <Track
-                        title="Game-Development"
+                        title="Game-Dev"
                         desc="Hacks that focus on technology and innovation."
                     >
                         <img
@@ -78,7 +78,7 @@ export default function About() {
                         />
                     </Track>
                     <Track
-                        title="Company-Specific"
+                        title="Company"
                         desc="Hacks that focus on technology and innovation."
                     >
                         <img
