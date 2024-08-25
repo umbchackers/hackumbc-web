@@ -2,15 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
+    width: 100%;
     min-height: 100vh; /*fills screen*/
     background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%); /*for blend*/
-    margin-top: 0vh; /*removing margins*/
-    padding: 0; /* and removed padding */
 }
 
 .sponsors-content {
-    max-width: 90%;
+    width: 90%;
     padding: 5vh 2vw;
     display: flex;
     flex-direction: column;
@@ -18,13 +16,19 @@
     margin-top: 20vh;
 }
 
-.sponsor-section-title {
+.sponsors-section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  
+.sponsors-title-subheading {
+    text-align: center;
+    margin-bottom: 25px;
     color: #fff;
 }
 
-.sponsor-tiers {
+.sponsors-tiers {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* wanted 3 columns each row, since we have 6 tiers*/
     gap: 30px;
@@ -33,29 +37,28 @@
     max-width: 1200px; /*limited the max width to center*/
 }
 
-.sponsor-tier-container {
+.sponsors-tier-container {
+    background: rgb(48, 12, 139); /*adjusting color for grids, this could be a better color tbh*/
+    border-radius: 10px;
     padding: 30px;
     width: 100%;
     max-width: 350px; /*adjust to fit stuff in grid if need be*/
     text-align: center;
     transition: transform 0.3s ease;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.424),
+    inset 0 0 10px rgb(255, 255, 255, 0.424);
     /*adding soft glow to make content pop more*/
 }
 
-.sponsor-tier-container:hover {
-    transform: scale(1.05);
+.sponsors-tier-container:hover { 
+    scale: 1.05;
+    transition: transform 0.3s ease;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
     inset 0 0 10px rgb(255, 255, 255),
     /*adding soft glow to make content pop more*/
 }
 
-.sponsor-tier-title {
+.sponsors-tier-title {
     font-size: 1.75rem; 
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -68,7 +71,7 @@
     /*added space and alignment for icons*/
 }
 
-.sponsor-icon {
+.sponsors-icon {
     width: 50px;
     height: 50px;
     vertical-align: middle;
@@ -76,28 +79,30 @@
     /*added icons next to text for each sponsor*/
 }
 
-.sponsor-logos {
+.sponsors-logos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
 
-.sponsor-logo {
+.sponsors-logo {
     max-width: 150px;
     max-height: 1000px; 
     width: 100%;
     height: auto;
-    transition: transform 0.3s ease;
+    transition: all 1s ease-in-out;
 }
 
-.sponsor-logo:hover {
-    transform: scale(1.1);
+.sponsors-logo:hover {
+    scale: 1.2;
+    cursor: pointer;
 }
 
 .sticker-logo {
     width: 150px;
     height: 80px;
+    background: url('/sticker.png') no-repeat center center;
     background-size: contain;
     transition: transform 0.3s ease;
 }
@@ -107,40 +112,26 @@
 }
 
 @media (max-width: 1200px) {
-    .sponsor-icon {
+    .sponsors-icon {
         width: 30px;
         height: 30px;
     }
-    .sponsor-tier-title {
+    .sponsors-tier-title {
         font-size: 1.2rem;
     }
 }
 
 @media (max-width: 768px) {
-    .sponsor-tiers {
+    .sponsors-tiers {
         grid-template-columns: repeat(2, 1fr); /*makes it so there are two columns for smaller screens */
     }
     
-    .sponsor-logo {
+    .sponsors-logo {
         max-width: 120px;
         max-height: 60px;
     }
     
-    .sponsor-tier-title {
+    .sponsors-tier-title {
         font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .sponsor-tiers {
-        grid-template-columns: 1fr; /* Single column for very small screens */
-    }
-    .sponsor-icon {
-        width: 30px;
-        height: 30px;
-    }
-    .sponsor-logo {
-        max-width: 120px;
-        max-height: 120px;
     }
 }

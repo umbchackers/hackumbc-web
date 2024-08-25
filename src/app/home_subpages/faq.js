@@ -31,9 +31,10 @@ export default function FAQ() {
 
     return (
         <div className="faq-page [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
-        <div className="title" data-aos="fade-up">
-            <SectionTitle title="FAQ" /> {/*sections inside this now changed, some things might need to be fixed*/}
+        <div className="faq-section-title" data-aos="fade-up">
+            <SectionTitle title="FAQ"/> {/*sections inside this now changed, some things might need to be fixed*/}
         </div>
+        <div className= "faq-title-subheading" data-aos="fade-up">Frequently Asked Questions</div> {/* added section titles and subheadings */}
         <div className="faq-content" data-aos= "fade-up">
             <FAQItem
             question="What is hackUMBC?"

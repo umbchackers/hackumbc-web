@@ -7,18 +7,23 @@
     padding: 10px;
     min-height: 100vh;
     background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
-    margin-top: -35vh;
     padding-bottom: 20vh;
     /*spacing really needs to be fixed for all of the pages*/
   }
   
-  .title {
-    margin-bottom: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+
+  .faq-section-title {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #fff;
   }
   
+  .faq-title-subheading {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #fff;
+  }
+
   .faq-content {
     max-width: 800px;
     width: 100%;
@@ -62,9 +67,10 @@
   }
   
   .faq-question:hover {
-    background-color: #5eac9a;
+    background-color: #2fd4ae;
+    color: #000;
     border-radius: 8px;
-    transition: all linear 0.4s;
+    transition: all linear 0.6s;
   }
 
   .faq-answer {
