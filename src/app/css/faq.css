@@ -68,6 +68,7 @@
   
   .faq-question:hover {
     background-color: #5eac9a;
+    color: #000;
     border-radius: 8px;
     transition: all linear 0.4s;
   }
