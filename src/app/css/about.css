@@ -5,10 +5,8 @@
 
 .about-content {
     padding-bottom: 10vh;
-    margin-left: 7vw;
-    margin-right: 7vw;
-    margin-top: 5vh;
     margin-bottom: 20vh;
+    max-width: 100%;
     /*uncommented this for sponsors page*/
     display: flex;
     flex-direction: column;

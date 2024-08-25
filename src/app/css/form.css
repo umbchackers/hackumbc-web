@@ -1,0 +1,16 @@
+.formBox {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    margin-top: 12vh;
+    margin-bottom: 5vh;
+}
+.home-container {
+    min-height: 100vh; /* Ensures the container is at least the height of the viewport */
+    background-size: cover; /* Ensures the background image covers the entire container */
+    background-repeat: no-repeat; /* Prevents the background from repeating */
+    background-attachment: fixed; /* Keeps the background fixed as you scroll */
+  }

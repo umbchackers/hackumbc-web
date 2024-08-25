@@ -65,3 +65,10 @@
     color: #669BBC;
     margin-left: 14px;
 }
+
+@media (max-width: 768px) {
+    .hack-logo {
+        width: 240px;  /* Resize to a smaller width */
+        height: auto;  /* Maintain aspect ratio */
+      }
+}
