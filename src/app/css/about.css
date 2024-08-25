@@ -18,13 +18,15 @@
 }
 
 
-.title {
-    padding-top: 15vh;
+.about-section-title {
     text-align: center;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    /* trying to center title*/
+    margin-bottom: 15px;
+    color: #fff;
+}
+  
+  .about-title-subheading {
+    text-align: center;
+    color: #fff;
 }
 
 .about-text {

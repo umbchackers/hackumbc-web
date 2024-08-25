@@ -18,9 +18,15 @@
     margin-top: 20vh;
 }
 
-.sponsor-section-title {
+.sponsors-section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  
+.sponsors-title-subheading {
+    text-align: center;
+    margin-bottom: 25px;
     color: #fff;
 }
 

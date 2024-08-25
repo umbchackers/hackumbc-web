@@ -33,11 +33,10 @@ export default function Sponsors() {
     return (
         <div className="sponsors-page">
             <div className="sponsors-content" >
-                <div className="sponsor-section-title" data-aos= "fade-up">
-                    <SectionTitle title="2024 SPONSORS" />
-                    <p>HACKUMBC 2024 Sponsors & Partners</p>
+                <div className="sponsors-section-title" data-aos= "fade-up">
+                    <SectionTitle title="SPONSORS" />
                 </div>
-
+                <div className="sponsors-title-subheading" data-aos="fade-up">hackUMBC 2024 Sponsors</div> {/* added section titles and subheadings */}
                 <div className="sponsor-tiers">
                     <SponsorTier title="DIAMOND" iconSrc="/diamond.png" data-aos= "fade-up"> {/* added icons next to each tiers text */}
                         <img
