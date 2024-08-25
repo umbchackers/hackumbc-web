@@ -9,7 +9,7 @@ export default function Footer() {
 
     useEffect(() => {
         AOS.init({
-            duration: 1200,
+            duration: 1400,
             easing: 'ease-in-out',
             once: true,
         });

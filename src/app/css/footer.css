@@ -33,9 +33,8 @@
 }
 
 .track-item:hover {
-    border-color: rgb(48, 12, 139);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    scale: 1.2;
 }
 
 .track-title {
@@ -52,6 +51,7 @@
 .footer-info {
     color: #ffffff;
     font-size: 0.9rem;
+    text-align: center;
 }
 
 .footer-link {
