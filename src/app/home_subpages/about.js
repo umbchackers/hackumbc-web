@@ -81,7 +81,7 @@ export default function About() {
                         desc="Hacks that focus on technology and innovation."
                     >
                         <img
-                            src="/sticker3.png"
+                            src="/sticker4.png"
                             alt="track-image"
                             className="w-36 h-auto"
                         />
