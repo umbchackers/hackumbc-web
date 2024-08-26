@@ -37,14 +37,14 @@ export default function Navbar() {
             <img
               className="mlh-trust-badge"
               src="mlh-trust-badge.png"
-              alt="Major League Hacking 2022 Hackathon Season"
+              alt="Major League Hacking 2025 Hackathon Season"
             />
           </a>
         )}
         <nav className="nav-desktop">
           <div className="nav-left">
             <Link
-              href="https://link.hackumbc.tech/mlh"
+              href="#home"
               offset={-300}
               duration={700}
               smooth="true"
