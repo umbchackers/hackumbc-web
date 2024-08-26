@@ -36,6 +36,9 @@ export default function Footer() {
                     <Track title="INSTAGRAM" link="https://www.instagram.com/hackumbc/?hl=en">
                         <img src="/instagram.png" alt="insta-png" className="track-image"/>
                     </Track>
+                    <Track title="GITHUB" link="https://github.com/umbchackers/hackumbc-web">
+                        <img src="/github.png" alt="github-png" className="track-image"/>
+                    </Track>
                 </div>
                 <div className="footer-info">
                     <p>&copy; 2024 hackUMBC. All rights reserved.</p>
