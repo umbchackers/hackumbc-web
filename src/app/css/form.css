@@ -14,3 +14,21 @@
     background-repeat: no-repeat; /* Prevents the background from repeating */
     background-attachment: fixed; /* Keeps the background fixed as you scroll */
   }
+
+.footer-info {
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer-link {
+    color: #1E90FF;
+    text-decoration: none;
+    margin: 0 3px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/*added footer styling here to match */

@@ -1,10 +1,8 @@
 "use client";
-
 import React, { useState } from "react";
 import "../css/form.css";
 import Image from "next/image";
 import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 
 export default function Survey() {
   const [savedData, setSavedData] = useState(null);
@@ -391,8 +389,15 @@ export default function Survey() {
             )}
           </div>
         </div>
+        <div className="footer-info">
+        <p>&copy; 2024 hackUMBC. All rights reserved.</p>
+        <p className="mt-2">
+          <a href="#" className="footer-link">Privacy Policy</a> |
+          <a href="#" className="footer-link">Terms of Service</a> |
+          <a href="#" className="footer-link">Contact Us</a>
+        </p>
       </div>
-      <Footer />
+      </div>
     </>
   );
 }
