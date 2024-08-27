@@ -31,6 +31,10 @@
     text-decoration: underline;
 }
 
+.nav-link{
+    display: none;
+}
+
 /*added footer styling here to match */
 
 @media (max-width: 768px) {
