@@ -63,3 +63,20 @@
 .footer-link:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    .tracks {
+        flex-direction: row !important;
+        justify-content: center !important; 
+        gap: 5px !important;
+    }
+
+    .track-item {
+        width: 16vh !important;
+        padding: 5px;
+    }
+
+    .track-title {
+        font-size: 0.8rem !important;
+    }
+}
