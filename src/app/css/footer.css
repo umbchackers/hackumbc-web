@@ -79,4 +79,5 @@
     .track-title {
         font-size: 0.8rem !important;
     }
+    /*i used !important because none of the changes were working due to conflicting track styling, if that gets resolved eventually, those tags can be removed*/
 }
