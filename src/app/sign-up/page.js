@@ -397,7 +397,7 @@ export default function Survey() {
           <a href="#mailto:hackumbc.org" className="footer-link">Contact Us</a>
         </p>
       </div>
-      </div>
+      </div>``
     </>
   );
 }

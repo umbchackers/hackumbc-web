@@ -90,11 +90,12 @@
     }
   
     .faq-content {
+      scale: 0.95;
       padding: 10px;
     }
   
     .faq-question {
-      font-size: 1.25rem; 
+      font-size: 1.15rem; 
     }
   
     .faq-answer {
