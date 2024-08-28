@@ -31,4 +31,20 @@
     text-decoration: underline;
 }
 
+.nav-link{
+    display: none;
+}
+
 /*added footer styling here to match */
+
+@media (max-width: 768px) {
+
+    .nav-logo {
+        display: none;
+    }
+    
+    #hamburger-nav.hamburger-menu {
+        display: none;
+    }
+    /*hide logo and hamburger menu on form mobile view*/    
+}    

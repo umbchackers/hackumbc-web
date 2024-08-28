@@ -8,7 +8,6 @@
     min-height: 100vh;
     background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
     padding-bottom: 20vh;
-    /*spacing really needs to be fixed for all of the pages*/
   }
   
 
@@ -91,11 +90,12 @@
     }
   
     .faq-content {
+      scale: 0.95;
       padding: 10px;
     }
   
     .faq-question {
-      font-size: 1.25rem; 
+      font-size: 1.15rem; 
     }
   
     .faq-answer {

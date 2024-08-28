@@ -38,7 +38,7 @@
 }
 
 .sponsors-tier-container {
-    background: rgb(48, 12, 139); /*adjusting color for grids, this could be a better color tbh*/
+    background: rgb(48, 12, 139);
     border-radius: 10px;
     padding: 30px;
     width: 100%;
@@ -124,6 +124,7 @@
 @media (max-width: 768px) {
     .sponsors-tiers {
         grid-template-columns: repeat(2, 1fr); /*makes it so there are two columns for smaller screens */
+        scale: 0.95;
     }
     
     .sponsors-logo {

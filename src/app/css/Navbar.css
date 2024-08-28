@@ -180,8 +180,12 @@
         display: block;
     }
     .hamburger-menu {
-        right: 40px; /*more spacing adjustments*/
+        right: 30px; /*more spacing adjustments*/
+        margin-bottom: 100px;
+        margin-right: 15px;
+        /*spacing fixed on hamburger menu*/
     }
+
 }
 
 @media (max-width: 530px) {
