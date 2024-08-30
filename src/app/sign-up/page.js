@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/form.css";
 import Image from "next/image";
 import Navbar from "../components/navbar";
@@ -9,6 +9,29 @@ export default function Survey() {
   const [error, setError] = useState(null);
   const [allergies, setAllergies] = useState(false);
   const [specificAllergy, setSpecificAllergy] = useState("");
+  const [universities, setUniversities] = useState([]);
+  const [isAgreed, setIsAgreed] = useState(false); // For the MLH agreement
+  const [shareEmail, setShareEmail] = useState(false); // For email sharing consent
+  const [mediaConsent, setMediaConsent] = useState(false); // For media content consent
+  const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setIsAgreed(event.target.checked);
+  };
+
+  useEffect(() => {
+    fetch("/unis.json")
+      .then((response) => response.json())
+      .then((data) => {
+        // Filter universities from the US and extract names
+        const universityNames = data
+          .filter((university) => university.country === "US")
+          .map((university) => university.name);
+        setUniversities(universityNames);
+      })
+      .catch((error) => console.error("Error loading universities:", error));
+  }, []);
 
   const handleDietaryChange = (event) => {
     const selectedOptions = Array.from(event.target.selectedOptions).map(
@@ -25,20 +48,42 @@ export default function Survey() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (!isAgreed) {
+      setError("You must agree to the conditions to proceed.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setLoading(true);
+
     const formData = new FormData(event.target);
 
     try {
-      let response = await fetch("/api", {
+      const response = await fetch("/api/submit", {
         method: "POST",
         body: formData,
       });
-      console.log(formData);
-      response = await response.json();
-      setSavedData(response);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setSavedData(data);
       setError(null);
+
+      setTimeout(() => {
+        setLoading(false);
+        setIsSubmitting(false);
+        setSavedData(null);
+        event.target.reset(); // Reset the form
+      }, 8000); // 5 seconds loading + 3 seconds delay
     } catch (error) {
-      console.error("Error submitting form:", error);
-      setError("Error submitting form. Please try again.");
+      setTimeout(() => {
+        setLoading(false);
+        setIsSubmitting(false);
+        setError("Error submitting form. Please try again.");
+      }, 8000); // 5 seconds loading + 3 seconds delay
     }
   };
 
@@ -61,12 +106,10 @@ export default function Survey() {
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
               Sign Up Form
             </h2>
-            <h3 className="text-2sm font-bold mb-4 text-center text-gray-300">
-              Enter your information to proceed..
-            </h3>
             <hr className="w-full border-gray-300 mb-6" />
 
             <form onSubmit={handleSubmit}>
+              {/* Other form fields go here */}
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
@@ -115,19 +158,57 @@ export default function Survey() {
                   required
                 />
               </div>
+              {/* Phone Field (Optional) */}
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
-                  htmlFor="school"
+                  htmlFor="phone"
                 >
-                  School <span className="text-red-500">*</span>
+                  Phone (Optional)
                 </label>
                 <input
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="school"
-                  name="school"
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block text-white text-sm font-bold mb-2"
+                  htmlFor="university"
+                >
+                  University <span className="text-red-500">*</span>
+                </label>
+                <select
+                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                  id="university"
+                  name="university"
+                  required
+                >
+                  <option> Select Option</option>
+                  {universities.map((university, index) => (
+                    <option key={index} value={university}>
+                      {university}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {/* Major Field */}
+              <div className="mb-4">
+                <label
+                  className="block text-white text-sm font-bold mb-2"
+                  htmlFor="major"
+                >
+                  Major <span className="text-red-500">*</span>
+                </label>
+                <input
+                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                  id="major"
+                  name="major"
                   type="text"
-                  placeholder="Enter your school"
+                  placeholder="Enter your major"
                   required
                 />
               </div>
@@ -144,77 +225,12 @@ export default function Survey() {
                   name="classYear"
                   required
                 >
+                  <option> Select Option </option>
                   {Array.from({ length: 26 }, (_, i) => (
                     <option key={2010 + i} value={2010 + i}>
                       {2010 + i}
                     </option>
                   ))}
-                </select>
-              </div>
-
-              {/* Gender Field */}
-              <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="gender"
-                >
-                  Gender <span className="text-red-500">*</span>
-                </label>
-                <select
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="gender"
-                  name="gender"
-                  required
-                >
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                  <option value="preferNotToSay">Prefer not to say</option>
-                </select>
-              </div>
-
-              {/* Ethnicity Field */}
-              <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="ethnicity"
-                >
-                  Ethnicity <span className="text-red-500">*</span>
-                </label>
-                <select
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="ethnicity"
-                  name="ethnicity"
-                  required
-                >
-                  <option value="asian">Asian</option>
-                  <option value="black">Black or African American</option>
-                  <option value="hispanic">Hispanic or Latino</option>
-                  <option value="white">White</option>
-                  <option value="other">Other</option>
-                  <option value="preferNotToSay">Prefer not to say</option>
-                </select>
-              </div>
-
-              {/* Major Field */}
-              <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="major"
-                >
-                  Major <span className="text-red-500">*</span>
-                </label>
-                <select
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="major"
-                  name="major"
-                  required
-                >
-                  <option value="computerScience">Computer Science</option>
-                  <option value="engineering">Engineering</option>
-                  <option value="business">Business</option>
-                  <option value="biology">Biology</option>
-                  <option value="other">Other</option>
                 </select>
               </div>
 
@@ -236,23 +252,6 @@ export default function Survey() {
                 />
               </div>
 
-              {/* Phone Field (Optional) */}
-              <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="phone"
-                >
-                  Phone (Optional)
-                </label>
-                <input
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-
               {/* Country Field */}
               <div className="mb-4">
                 <label
@@ -267,11 +266,218 @@ export default function Survey() {
                   name="country"
                   required
                 >
-                  {/* Example of a few country options */}
-                  <option value="us">United States</option>
+                  <option value="">Select Option</option>
+                  <option value="not_uni">Not a University Student</option>
+                  <option value="united_states">United States</option>
+                  <option value="afghanistan">Afghanistan</option>
+                  <option value="albania">Albania</option>
+                  <option value="algeria">Algeria</option>
+                  <option value="andorra">Andorra</option>
+                  <option value="angola">Angola</option>
+                  <option value="antigua_and_barbuda">
+                    Antigua and Barbuda
+                  </option>
+                  <option value="argentina">Argentina</option>
+                  <option value="armenia">Armenia</option>
+                  <option value="australia">Australia</option>
+                  <option value="austria">Austria</option>
+                  <option value="azerbaijan">Azerbaijan</option>
+                  <option value="bahamas">Bahamas</option>
+                  <option value="bahrain">Bahrain</option>
+                  <option value="bangladesh">Bangladesh</option>
+                  <option value="barbados">Barbados</option>
+                  <option value="belarus">Belarus</option>
+                  <option value="belgium">Belgium</option>
+                  <option value="belize">Belize</option>
+                  <option value="benin">Benin</option>
+                  <option value="bhutan">Bhutan</option>
+                  <option value="bolivia">Bolivia</option>
+                  <option value="bosnia_and_herzegovina">
+                    Bosnia and Herzegovina
+                  </option>
+                  <option value="botswana">Botswana</option>
+                  <option value="brazil">Brazil</option>
+                  <option value="brunei">Brunei</option>
+                  <option value="bulgaria">Bulgaria</option>
+                  <option value="burkina_faso">Burkina Faso</option>
+                  <option value="burundi">Burundi</option>
+                  <option value="cambodia">Cambodia</option>
+                  <option value="cameroon">Cameroon</option>
                   <option value="canada">Canada</option>
-                  <option value="uk">United Kingdom</option>
+                  <option value="cape_verde">Cape Verde</option>
+                  <option value="central_african_republic">
+                    Central African Republic
+                  </option>
+                  <option value="chad">Chad</option>
+                  <option value="chile">Chile</option>
+                  <option value="china">China</option>
+                  <option value="colombia">Colombia</option>
+                  <option value="comoros">Comoros</option>
+                  <option value="congo">Congo</option>
+                  <option value="costa_rica">Costa Rica</option>
+                  <option value="croatia">Croatia</option>
+                  <option value="cuba">Cuba</option>
+                  <option value="cyprus">Cyprus</option>
+                  <option value="czech_republic">Czech Republic</option>
+                  <option value="denmark">Denmark</option>
+                  <option value="djibouti">Djibouti</option>
+                  <option value="dominica">Dominica</option>
+                  <option value="dominican_republic">Dominican Republic</option>
+                  <option value="east_timor">East Timor</option>
+                  <option value="ecuador">Ecuador</option>
+                  <option value="egypt">Egypt</option>
+                  <option value="el_salvador">El Salvador</option>
+                  <option value="equatorial_guinea">Equatorial Guinea</option>
+                  <option value="eritrea">Eritrea</option>
+                  <option value="estonia">Estonia</option>
+                  <option value="eswatini">Eswatini</option>
+                  <option value="ethiopia">Ethiopia</option>
+                  <option value="fiji">Fiji</option>
+                  <option value="finland">Finland</option>
+                  <option value="france">France</option>
+                  <option value="gabon">Gabon</option>
+                  <option value="gambia">Gambia</option>
+                  <option value="georgia">Georgia</option>
+                  <option value="germany">Germany</option>
+                  <option value="ghana">Ghana</option>
+                  <option value="greece">Greece</option>
+                  <option value="grenada">Grenada</option>
+                  <option value="guatemala">Guatemala</option>
+                  <option value="guinea">Guinea</option>
+                  <option value="guinea_bissau">Guinea-Bissau</option>
+                  <option value="guyana">Guyana</option>
+                  <option value="haiti">Haiti</option>
+                  <option value="honduras">Honduras</option>
+                  <option value="hungary">Hungary</option>
+                  <option value="iceland">Iceland</option>
                   <option value="india">India</option>
+                  <option value="indonesia">Indonesia</option>
+                  <option value="iran">Iran</option>
+                  <option value="iraq">Iraq</option>
+                  <option value="ireland">Ireland</option>
+                  <option value="israel">Israel</option>
+                  <option value="italy">Italy</option>
+                  <option value="ivory_coast">Ivory Coast</option>
+                  <option value="jamaica">Jamaica</option>
+                  <option value="japan">Japan</option>
+                  <option value="jordan">Jordan</option>
+                  <option value="kazakhstan">Kazakhstan</option>
+                  <option value="kenya">Kenya</option>
+                  <option value="kiribati">Kiribati</option>
+                  <option value="north_korea">North Korea</option>
+                  <option value="south_korea">South Korea</option>
+                  <option value="kosovo">Kosovo</option>
+                  <option value="kuwait">Kuwait</option>
+                  <option value="kyrgyzstan">Kyrgyzstan</option>
+                  <option value="laos">Laos</option>
+                  <option value="latvia">Latvia</option>
+                  <option value="lebanon">Lebanon</option>
+                  <option value="lesotho">Lesotho</option>
+                  <option value="liberia">Liberia</option>
+                  <option value="libya">Libya</option>
+                  <option value="liechtenstein">Liechtenstein</option>
+                  <option value="lithuania">Lithuania</option>
+                  <option value="luxembourg">Luxembourg</option>
+                  <option value="madagascar">Madagascar</option>
+                  <option value="malawi">Malawi</option>
+                  <option value="malaysia">Malaysia</option>
+                  <option value="maldives">Maldives</option>
+                  <option value="mali">Mali</option>
+                  <option value="malta">Malta</option>
+                  <option value="marshall_islands">Marshall Islands</option>
+                  <option value="mauritania">Mauritania</option>
+                  <option value="mauritius">Mauritius</option>
+                  <option value="mexico">Mexico</option>
+                  <option value="micronesia">Micronesia</option>
+                  <option value="moldova">Moldova</option>
+                  <option value="monaco">Monaco</option>
+                  <option value="mongolia">Mongolia</option>
+                  <option value="montenegro">Montenegro</option>
+                  <option value="morocco">Morocco</option>
+                  <option value="mozambique">Mozambique</option>
+                  <option value="myanmar">Myanmar</option>
+                  <option value="namibia">Namibia</option>
+                  <option value="nauru">Nauru</option>
+                  <option value="nepal">Nepal</option>
+                  <option value="netherlands">Netherlands</option>
+                  <option value="new_zealand">New Zealand</option>
+                  <option value="nicaragua">Nicaragua</option>
+                  <option value="niger">Niger</option>
+                  <option value="nigeria">Nigeria</option>
+                  <option value="north_macedonia">North Macedonia</option>
+                  <option value="norway">Norway</option>
+                  <option value="oman">Oman</option>
+                  <option value="pakistan">Pakistan</option>
+                  <option value="palau">Palau</option>
+                  <option value="panama">Panama</option>
+                  <option value="papua_new_guinea">Papua New Guinea</option>
+                  <option value="paraguay">Paraguay</option>
+                  <option value="peru">Peru</option>
+                  <option value="philippines">Philippines</option>
+                  <option value="poland">Poland</option>
+                  <option value="portugal">Portugal</option>
+                  <option value="qatar">Qatar</option>
+                  <option value="romania">Romania</option>
+                  <option value="russia">Russia</option>
+                  <option value="rwanda">Rwanda</option>
+                  <option value="saint_kitts_and_nevis">
+                    Saint Kitts and Nevis
+                  </option>
+                  <option value="saint_lucia">Saint Lucia</option>
+                  <option value="saint_vincent_and_the_grenadines">
+                    Saint Vincent and the Grenadines
+                  </option>
+                  <option value="samoa">Samoa</option>
+                  <option value="san_marino">San Marino</option>
+                  <option value="sao_tome_and_principe">
+                    Sao Tome and Principe
+                  </option>
+                  <option value="saudi_arabia">Saudi Arabia</option>
+                  <option value="senegal">Senegal</option>
+                  <option value="serbia">Serbia</option>
+                  <option value="seychelles">Seychelles</option>
+                  <option value="sierra_leone">Sierra Leone</option>
+                  <option value="singapore">Singapore</option>
+                  <option value="slovakia">Slovakia</option>
+                  <option value="slovenia">Slovenia</option>
+                  <option value="solomon_islands">Solomon Islands</option>
+                  <option value="somalia">Somalia</option>
+                  <option value="south_africa">South Africa</option>
+                  <option value="spain">Spain</option>
+                  <option value="sri_lanka">Sri Lanka</option>
+                  <option value="sudan">Sudan</option>
+                  <option value="suriname">Suriname</option>
+                  <option value="sweden">Sweden</option>
+                  <option value="switzerland">Switzerland</option>
+                  <option value="syria">Syria</option>
+                  <option value="taiwan">Taiwan</option>
+                  <option value="tajikistan">Tajikistan</option>
+                  <option value="tanzania">Tanzania</option>
+                  <option value="thailand">Thailand</option>
+                  <option value="togo">Togo</option>
+                  <option value="tonga">Tonga</option>
+                  <option value="trinidad_and_tobago">
+                    Trinidad and Tobago
+                  </option>
+                  <option value="tunisia">Tunisia</option>
+                  <option value="turkey">Turkey</option>
+                  <option value="turkmenistan">Turkmenistan</option>
+                  <option value="tuvalu">Tuvalu</option>
+                  <option value="uganda">Uganda</option>
+                  <option value="ukraine">Ukraine</option>
+                  <option value="united_arab_emirates">
+                    United Arab Emirates
+                  </option>
+                  <option value="united_kingdom">United Kingdom</option>
+                  <option value="uruguay">Uruguay</option>
+                  <option value="uzbekistan">Uzbekistan</option>
+                  <option value="vanuatu">Vanuatu</option>
+                  <option value="vatican_city">Vatican City</option>
+                  <option value="venezuela">Venezuela</option>
+                  <option value="vietnam">Vietnam</option>
+                  <option value="yemen">Yemen</option>
+                  <option value="zambia">Zambia</option>
+                  <option value="zimbabwe">Zimbabwe</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -324,6 +530,7 @@ export default function Survey() {
                   name="tshirtSize"
                   required
                 >
+                  <option value="">Select Option</option>
                   <option value="small">Small</option>
                   <option value="medium">Medium</option>
                   <option value="large">Large</option>
@@ -338,7 +545,8 @@ export default function Survey() {
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="dietaryRestrictions"
                 >
-                  Dietary Restrictions <span className="text-red-500">*</span>
+                  Select Dietary Restrictions{" "}
+                  <span className="text-red-500">*</span>
                 </label>
                 <select
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
@@ -347,6 +555,8 @@ export default function Survey() {
                   multiple
                   onChange={handleDietaryChange}
                 >
+                  <option value="vegan">Vegan</option>
+                  <option value="glutenfree">Gluten Free</option>
                   <option value="halal">Halal</option>
                   <option value="vegetarian">Vegetarian</option>
                   <option value="allergies">Allergies</option>
@@ -372,12 +582,134 @@ export default function Survey() {
                 </div>
               )}
 
+              {/* Ethnicity Field */}
+              <div className="mb-4">
+                <label
+                  className="block text-white text-sm font-bold mb-2"
+                  htmlFor="ethnicity"
+                >
+                  Ethnicity <span className="text-red-500">*</span>
+                </label>
+                <select
+                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                  id="ethnicity"
+                  name="ethnicity"
+                  required
+                >
+                  <option>Select Option</option>
+                  <option value="asian">Asian</option>
+                  <option value="black">Black or African American</option>
+                  <option value="hispanic">Hispanic or Latino</option>
+                  <option value="white">White</option>
+                  <option value="other">Other</option>
+                  <option value="preferNotToSay">Prefer not to say</option>
+                </select>
+              </div>
+
+              {/* Gender Field */}
+              <div className="mb-4">
+                <label
+                  className="block text-white text-sm font-bold mb-2"
+                  htmlFor="gender"
+                >
+                  What Gender do you identify with?
+                  <span className="text-red-500">*</span>
+                </label>
+                <select
+                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                  id="gender"
+                  name="gender"
+                  required
+                >
+                  <option>Select Option</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                  <option value="preferNotToSay">Prefer not to say</option>
+                </select>
+              </div>
+
+              {/* Green Checkmark Agreement */}
+              <div className="mb-4 flex items-center">
+                <input
+                  id="agree"
+                  name="agree"
+                  type="checkbox"
+                  checked={isAgreed}
+                  onChange={handleCheckboxChange}
+                  className="mr-2 w-4 h-4 text-green-600 bg-gray-800 border-gray-600 rounded focus:ring-green-500 focus:ring-2"
+                  required
+                />
+                <label htmlFor="agree" className="text-white text-sm">
+                  I authorize you to share my application/registration
+                  information with Major League Hacking for event
+                  administration, ranking, and MLH administration in-line with
+                  the MLH Privacy Policy https://mlh.io/privacy. I further agree
+                  to the terms of both the MLH Contest Terms and Conditions
+                  (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
+                  and the MLH Privacy Policy https://mlh.io/privacy{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+              </div>
+
+              {/* Email Sharing Agreement */}
+              <div className="mb-4 flex items-center">
+                <input
+                  id="shareEmail"
+                  name="shareEmail"
+                  type="checkbox"
+                  checked={shareEmail}
+                  onChange={(event) => setShareEmail(event.target.checked)}
+                  className="mr-2 w-4 h-4 text-green-600 bg-gray-800 border-gray-600 rounded focus:ring-green-500 focus:ring-2"
+                />
+                <label htmlFor="shareEmail" className="text-white text-sm">
+                  I agree that hackUMBC can share my email with sponsors to
+                  receive emails about internship/job opportunities.
+                </label>
+              </div>
+
+              {/* Media Consent Agreement */}
+              <div className="mb-4 flex items-center">
+                <input
+                  id="mediaConsent"
+                  name="mediaConsent"
+                  type="checkbox"
+                  checked={mediaConsent}
+                  onChange={(event) => setMediaConsent(event.target.checked)}
+                  className="mr-2 w-4 h-4 text-green-600 bg-gray-800 border-gray-600 rounded focus:ring-green-500 focus:ring-2"
+                />
+                <label htmlFor="mediaConsent" className="text-white text-sm">
+                  I, grant hackUMBC, its partners, and sponsors the permission
+                  to utilize any content featuring my appearance in any form of
+                  digital or print media for any purpose without requiring
+                  additional permission, payment, or any form of compensation.
+                  This includes but is not limited to publications, photographs,
+                  and videos.
+                  <br />
+                  If I disagree with these terms, I will commit to always
+                  wearing indicators (tag, different color lanyard, etc.) that
+                  indicate I do not want to be in pictures provided by hackUMBC
+                  at all times on the premises of the event. The exact indicator
+                  will be decided later, and you will receive it at check-in.
+                  <br />
+                  In addition, should I intentionally position myself within the
+                  camera's frame, I hereby provide explicit consent to hackUMBC
+                  for the unrestricted use of any imagery encompassing my
+                  voluntary presence (e.g., “photobombing”).
+                </label>
+              </div>
+
               <div className="flex items-center justify-between">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   type="submit"
+                  disabled={isSubmitting || !isAgreed}
+                  className={`bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
+                    isSubmitting
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:scale-105"
+                  }`}
                 >
-                  Submit
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
               </div>
             </form>
@@ -390,13 +722,21 @@ export default function Survey() {
           </div>
         </div>
         <div className="footer-info">
-        <p>&copy; 2024 hackUMBC. All rights reserved.</p>
-        <p className="mt-2">
-          <a href="#" className="footer-link">Privacy Policy</a> |
-          <a href="#" className="footer-link">Terms of Service</a> |
-          <a href="#mailto:hackumbc.org" className="footer-link">Contact Us</a>
-        </p>
-      </div>
+          <p>&copy; 2024 hackUMBC. All rights reserved.</p>
+          <p className="mt-2">
+            <a href="#" className="footer-link">
+              Privacy Policy
+            </a>{" "}
+            |
+            <a href="#" className="footer-link">
+              Terms of Service
+            </a>{" "}
+            |
+            <a href="#mailto:hackumbc.org" className="footer-link">
+              Contact Us
+            </a>
+          </p>
+        </div>
       </div>
     </>
   );
