@@ -39,12 +39,6 @@ export default function Footer() {
                     <Track title="GITHUB" link="https://github.com/umbchackers/hackumbc-web">
                         <img src="/github.png" alt="github-png" className="track-image"/>
                     </Track>
-                    <Track title="IOS APP" link="https://apps.apple.com/in/app/hackumbc-2023/id6464440274">
-                        <img src="/app-store.png" alt="app-store-png" className="track-image"/>
-                    </Track>
-                    <Track title="GOOGLE PLAY APP" link="https://play.google.com/store/apps/details?id=com.hackumbcandroid&pli=1">
-                        <img src="/google-play.webp" alt="google-play-png" className="track-image"/>
-                    </Track>
                 </div>
                 <div className="footer-info">
                     <p>&copy; 2024 hackUMBC. All rights reserved.</p>
