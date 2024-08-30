@@ -4,12 +4,7 @@ export async function POST(request) {
   try {
     const formData = await request.formData();
 
-    const data = {};
-    formData.forEach((value, key) => {
-      data[key] = value;
-    });
-
-    console.log(data);
+    console.log(formdData);
 
     return NextResponse.json(
       { message: "Form data sent successfully!" },

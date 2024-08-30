@@ -188,6 +188,7 @@ export default function Survey() {
                   required
                 >
                   <option> Select Option</option>
+                  <option value="not_uni">Not a University Student</option>
                   {universities.map((university, index) => (
                     <option key={index} value={university}>
                       {university}
@@ -267,7 +268,6 @@ export default function Survey() {
                   required
                 >
                   <option value="">Select Option</option>
-                  <option value="not_uni">Not a University Student</option>
                   <option value="united_states">United States</option>
                   <option value="afghanistan">Afghanistan</option>
                   <option value="albania">Albania</option>
