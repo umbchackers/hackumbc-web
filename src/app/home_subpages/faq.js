@@ -66,7 +66,11 @@ export default function FAQ() {
             question="Will I need a team? Can I join a team? What's the team sizes?"
             answer="While we do reccommend a team, you can definitely work solo if you would like. Any Teams are limited to a size of 4."
             />
+            <FAQItem
+            question="Is there anywhere I can see some examples of old contestants projects?"
+            answer="Yes! You can see examples at: https://hackumbc-fall-2022.devpost.com/project-gallery"
+            />
         </div>
-        </div>
+    </div>
     );
-    }
+ }
