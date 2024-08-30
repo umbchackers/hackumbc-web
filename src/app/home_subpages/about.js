@@ -36,9 +36,8 @@ export default function About() {
                 <div className= "about-title-subheading" data-aos="fade-up">All About hackUMBC</div> {/* added section titles and subheadings */}
                 <div className="about-text" data-aos="fade-up">
                     <p>
-                        Join hackUMBC for our 24-hour hackathon event where we challenge
-                        our ideas to come to life! Collaborate with other students and
-                        pick up some new skills in our workshop sessions!
+                        Join hackUMBC for the 10th anniversary of our 24-hour hackathon event where we compete to bring our innovation to life! 
+                        Team up with students and develop your skills in our workshop sessions!
                     </p>
                     <br></br> {/*added line break for spacing*/}
                     <p>
