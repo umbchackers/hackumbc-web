@@ -44,10 +44,10 @@ export default function Navbar() {
         <nav className="nav-desktop">
           <div className="nav-left">
             <Link
-              href="#home"
               offset={-300}
               duration={700}
               smooth="true"
+              href="#home"
             >
               <img className="nav-logo" src="hackLogo24.png" alt="logo" />
             </Link>
