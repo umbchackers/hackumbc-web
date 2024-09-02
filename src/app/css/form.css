@@ -52,9 +52,9 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(to right, #46df77, #3b7df6); 
-  } 
-  
-  .btn-custom::before {
+} 
+
+.btn-custom::before {
     content: '';
     position: absolute;
     top: -100%;
@@ -64,16 +64,16 @@
     background: rgba(255, 255, 255, 0.2);
     z-index: -1;
     transition: all 0.5s ease;
-  }
-  
-  .btn-custom:hover::before {
+}
+
+.btn-custom:hover::before {
     top: 0;
-  }
-  
-  .btn-custom:hover {
+}
+
+.btn-custom:hover {
     color: white;
     cursor: pointer;
-  }
+}
   
 /*added footer styling here to match */
 
