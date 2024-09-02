@@ -947,7 +947,7 @@ export default function Survey() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !isAgreed}
-                  className={`bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
+                  className={`btn-custom transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
                     isSubmitting
                       ? "opacity-50 cursor-not-allowed"
                       : "hover:scale-105"

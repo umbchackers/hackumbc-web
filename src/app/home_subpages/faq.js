@@ -79,6 +79,11 @@ export default function FAQ() {
             question="Is there anywhere I can see some examples of old contestants projects?"
             answer="Yes! You can see examples at: https://hackumbc-fall-2022.devpost.com/project-gallery"
             />
+            <FAQItem
+            question="Will there be FREE FOOD provided?"
+            answer="Yes, and we accomadate all dietary restrictions, including vegans, vegetarians, halal, Gluten Free, and all allergies! 
+            Simply inform us of any such restrictions on the registration form! "
+            />
         </div>
     </div>
     );

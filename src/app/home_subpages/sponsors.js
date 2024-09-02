@@ -49,7 +49,7 @@ export default function Sponsors() {
                     </SponsorTier>
                     <SponsorTier title="PLATINUM" iconSrc="/platinum.png" data-aos= "fade-up">
                         <img
-                            src="/Logo_TRP_TwoComponentTwoColor_Digital_R.png"
+                            src="/trowepricelogo.jpg"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
