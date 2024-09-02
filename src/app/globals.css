@@ -27,7 +27,6 @@ body {
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
   overflow-x: hidden;
-  scrollbar-color: red yellow;
 }
 
 @layer utilities {

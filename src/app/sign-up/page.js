@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import "../css/form.css";
 import Image from "next/image";
 import Navbar from "../components/navbar";
+import Papa from "papaparse";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 export default function Survey() {
   const [savedData, setSavedData] = useState(null);
@@ -10,9 +13,13 @@ export default function Survey() {
   const [allergies, setAllergies] = useState(false);
   const [specificAllergy, setSpecificAllergy] = useState("");
   const [universities, setUniversities] = useState([]);
-  const [isAgreed, setIsAgreed] = useState(false); // For the MLH agreement
-  const [shareEmail, setShareEmail] = useState(false); // For email sharing consent
-  const [mediaConsent, setMediaConsent] = useState(false); // For media content consent
+  const [isNonUniStudent, setIsNonUniStudent] = useState(true);
+  const [isOtherSelected, setIsOtherSelected] = useState(false);
+  const [otherSchool, setOtherSchool] = useState("");
+
+  const [isAgreed, setIsAgreed] = useState(false);
+  const [shareEmail, setShareEmail] = useState(false);
+  const [mediaConsent, setMediaConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -20,15 +27,32 @@ export default function Survey() {
     setIsAgreed(event.target.checked);
   };
 
+  const handleUniversityChange = (event) => {
+    const selectedValue = event.target.value;
+    if (selectedValue === "not_uni") {
+      setIsNonUniStudent(true);
+      setIsOtherSelected(false);
+    } else if (selectedValue === "other") {
+      setIsOtherSelected(true);
+      setIsNonUniStudent(false);
+    } else {
+      setIsNonUniStudent(false);
+      setIsOtherSelected(false);
+    }
+  };
+
   useEffect(() => {
-    fetch("/unis.json")
-      .then((response) => response.json())
+    fetch("/mlh_schools.csv")
+      .then((response) => response.text())
       .then((data) => {
-        // Filter universities from the US and extract names
-        const universityNames = data
-          .filter((university) => university.country === "US")
-          .map((university) => university.name);
-        setUniversities(universityNames);
+        Papa.parse(data, {
+          header: false,
+          skipEmptyLines: true,
+          complete: (results) => {
+            const universityNames = results.data.map((row) => row[0]);
+            setUniversities(universityNames);
+          },
+        });
       })
       .catch((error) => console.error("Error loading universities:", error));
   }, []);
@@ -58,6 +82,13 @@ export default function Survey() {
 
     const formData = new FormData(event.target);
 
+    if (isOtherSelected && otherSchool === "") {
+      setError("Please specify your school.");
+      setLoading(false);
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/submit", {
         method: "POST",
@@ -77,13 +108,13 @@ export default function Survey() {
         setIsSubmitting(false);
         setSavedData(null);
         event.target.reset(); // Reset the form
-      }, 8000); // 5 seconds loading + 3 seconds delay
+      }, 8000);
     } catch (error) {
       setTimeout(() => {
         setLoading(false);
         setIsSubmitting(false);
         setError("Error submitting form. Please try again.");
-      }, 8000); // 5 seconds loading + 3 seconds delay
+      }, 8000);
     }
   };
 
@@ -106,10 +137,15 @@ export default function Survey() {
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
               Sign Up Form
             </h2>
+            <p className="text-sm italic mb-6 text-center">
+              Fields marked by <span className="text-red-500">*</span> are
+              required
+            </p>
+            {error && <p className="text-red-500 mt-4">{error}</p>}
             <hr className="w-full border-gray-300 mb-6" />
 
-            <form onSubmit={handleSubmit}>
-              {/* Other form fields go here */}
+            <form className="px-1" onSubmit={handleSubmit}>
+              <p className="py-1.5 font-bold text-md">Personal Information</p>
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
@@ -164,15 +200,21 @@ export default function Survey() {
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="phone"
                 >
-                  Phone (Optional)
+                  Phone Number <span className="text-red-500">*</span>
                 </label>
                 <input
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                   id="phone"
                   name="phone"
                   type="tel"
-                  placeholder="Enter your phone number"
+                  placeholder="ex: (123)-456-7891"
+                  required
                 />
+                {/* <PhoneInput
+                  country={"us"}
+                  value={this.state.phone}
+                  onChange={(phone) => this.setState({ phone })}
+                /> */}
               </div>
               <div className="mb-4">
                 <label
@@ -186,6 +228,7 @@ export default function Survey() {
                   id="university"
                   name="university"
                   required
+                  onChange={handleUniversityChange}
                 >
                   <option> Select Option</option>
                   <option value="not_uni">Not a University Student</option>
@@ -194,45 +237,168 @@ export default function Survey() {
                       {university}
                     </option>
                   ))}
+                  <option value="other">Other</option>
                 </select>
               </div>
-              {/* Major Field */}
+
+              {isOtherSelected && (
+                <div className="mb-4">
+                  <label
+                    className="block text-white text-sm font-bold mb-2"
+                    htmlFor="otherSchool"
+                  >
+                    Other School Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                    id="otherSchool"
+                    name="otherSchool"
+                    type="text"
+                    placeholder="Enter the name of your school"
+                    value={otherSchool}
+                    onChange={(e) => setOtherSchool(e.target.value)}
+                    required
+                  />
+                </div>
+              )}
+
+              {!isNonUniStudent && !isOtherSelected && (
+                <>
+                  {/* Major Field */}
+                  <div className="mb-4">
+                    <label
+                      className="block text-white text-sm font-bold mb-2"
+                      htmlFor="major"
+                    >
+                      Major <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                      id="major"
+                      name="major"
+                      type="text"
+                      placeholder="Enter your major"
+                      required
+                    />
+                  </div>
+
+                  {/* Class Year Field */}
+
+                  <div className="mb-4">
+                    <label
+                      className="block text-white text-sm font-bold mb-2"
+                      htmlFor="classYear"
+                    >
+                      Class Year <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                      id="classYear"
+                      name="classYear"
+                      required
+                    >
+                      <option> Select Option </option>
+                      {Array.from({ length: 26 }, (_, i) => (
+                        <option key={2010 + i} value={2010 + i}>
+                          {2010 + i}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </>
+              )}
+
               <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="major"
-                >
-                  Major <span className="text-red-500">*</span>
+                <label className="block text-white text-sm font-bold mb-2">
+                  What is your level of study?{" "}
+                  <span className="text-red-500">*</span>
                 </label>
-                <input
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="major"
-                  name="major"
-                  type="text"
-                  placeholder="Enter your major"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="classYear"
-                >
-                  Class Year <span className="text-red-500">*</span>
-                </label>
-                <select
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="classYear"
-                  name="classYear"
-                  required
-                >
-                  <option> Select Option </option>
-                  {Array.from({ length: 26 }, (_, i) => (
-                    <option key={2010 + i} value={2010 + i}>
-                      {2010 + i}
-                    </option>
-                  ))}
-                </select>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="levelOfStudy"
+                      value="less_than_secondary"
+                      required
+                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                    />
+                    <span className="text-white">
+                      Less than Secondary / High School
+                    </span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="levelOfStudy"
+                      value="secondary"
+                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                    />
+                    <span className="text-white">Secondary / High School</span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="levelOfStudy"
+                      value="undergrad_2year"
+                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                    />
+                    <span className="text-white">
+                      Undergraduate University (2 year - community college)
+                    </span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="levelOfStudy"
+                      value="undergrad_3year"
+                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                    />
+                    <span className="text-white">
+                      Undergraduate University (3+ year)
+                    </span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="levelOfStudy"
+                      value="graduate"
+                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                    />
+                    <span className="text-white">
+                      Graduate University (Masters, Professional, Doctoral,
+                      etc.)
+                    </span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="levelOfStudy"
+                      value="vocational"
+                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                    />
+                    <span className="text-white">
+                      Other Vocational / Trade Program or Apprenticeship
+                    </span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="levelOfStudy"
+                      value="other"
+                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                    />
+                    <span className="text-white">Other</span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="levelOfStudy"
+                      value="prefNotToAnswer"
+                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                    />
+                    <span className="text-white">Prefer not to answer</span>
+                  </label>
+                </div>
               </div>
 
               {/* Age Field */}
@@ -482,30 +648,13 @@ export default function Survey() {
                 </select>
               </div>
 
-              {/* Resume Upload Field */}
-              <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="resume"
-                >
-                  Upload Resume (PDF only)
-                </label>
-                <input
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="resume"
-                  name="resume"
-                  type="file"
-                  accept="application/pdf"
-                />
-              </div>
-
               {/* Discord ID (Optional) */}
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="discordId"
                 >
-                  Discord ID (Optional)
+                  Discord ID <span className="text-gray-400">(Optional)</span>
                 </label>
                 <input
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
@@ -513,6 +662,23 @@ export default function Survey() {
                   name="discordId"
                   type="text"
                   placeholder="Enter your Discord ID"
+                />
+              </div>
+
+              {/* LinkedIn (Optional) */}
+              <div className="mb-4">
+                <label
+                  className="block text-white text-sm font-bold mb-2"
+                  htmlFor="discordId"
+                >
+                  LinkedIn <span className="text-gray-400">(Optional)</span>
+                </label>
+                <input
+                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                  id="linkedIn"
+                  name="linkedIn"
+                  type="text"
+                  placeholder="Enter your LinkedIn"
                 />
               </div>
 
@@ -588,7 +754,7 @@ export default function Survey() {
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="ethnicity"
                 >
-                  Ethnicity <span className="text-red-500">*</span>
+                  Race / Ethnicity <span className="text-red-500">*</span>
                 </label>
                 <select
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
@@ -596,13 +762,37 @@ export default function Survey() {
                   name="ethnicity"
                   required
                 >
-                  <option>Select Option</option>
-                  <option value="asian">Asian</option>
-                  <option value="black">Black or African American</option>
-                  <option value="hispanic">Hispanic or Latino</option>
+                  <option value="">Select Option</option>
+                  <option value="asian_indian">Asian Indian</option>
+                  <option value="black_african">Black or African</option>
+                  <option value="chinese">Chinese</option>
+                  <option value="filipino">Filipino</option>
+                  <option value="guamanian_chamorro">
+                    Guamanian or Chamorro
+                  </option>
+                  <option value="hispanic_latino">
+                    Hispanic / Latino / Spanish Origin
+                  </option>
+                  <option value="japanese">Japanese</option>
+                  <option value="korean">Korean</option>
+                  <option value="middle_eastern">Middle Eastern</option>
+                  <option value="native_american_alaskan">
+                    Native American or Alaskan Native
+                  </option>
+                  <option value="native_hawaiian">Native Hawaiian</option>
+                  <option value="samoan">Samoan</option>
+                  <option value="vietnamese">Vietnamese</option>
                   <option value="white">White</option>
+                  <option value="other_asian">
+                    Other Asian (Thai, Cambodian, etc.)
+                  </option>
+                  <option value="other_pacific_islander">
+                    Other Pacific Islander
+                  </option>
                   <option value="other">Other</option>
-                  <option value="preferNotToSay">Prefer not to say</option>
+                  <option value="prefer_not_to_answer">
+                    Prefer Not to Answer
+                  </option>
                 </select>
               </div>
 
@@ -612,7 +802,7 @@ export default function Survey() {
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="gender"
                 >
-                  What Gender do you identify with?
+                  What gender do you identify with?
                   <span className="text-red-500">*</span>
                 </label>
                 <select
@@ -621,16 +811,64 @@ export default function Survey() {
                   name="gender"
                   required
                 >
-                  <option>Select Option</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
+                  <option value="">Select Option</option>
+                  <option value="man">Man</option>
+                  <option value="woman">Woman</option>
+                  <option value="nonBinary">Non-Binary</option>
+                  <option value="selfDescribe">Prefer to self-describe</option>
                   <option value="preferNotToSay">Prefer not to say</option>
                 </select>
               </div>
 
-              {/* Green Checkmark Agreement */}
-              <div className="mb-4 flex items-center">
+              {/* Pronouns Field */}
+              <div className="mb-4">
+                <label
+                  className="block text-white text-sm font-bold mb-2"
+                  htmlFor="pronouns"
+                >
+                  Pronouns <span className="text-gray-400">(Optional)</span>
+                </label>
+                <select
+                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                  id="pronouns"
+                  name="pronouns"
+                >
+                  <option value="">Select Option</option>
+                  <option value="sheHer">She/Her</option>
+                  <option value="heHim">He/Him</option>
+                  <option value="theyThem">They/Them</option>
+                  <option value="sheThey">She/They</option>
+                  <option value="heThey">He/They</option>
+                  <option value="preferNotToSay">Prefer not to say</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              {/* Resume Upload Field */}
+              <div className="mb-4">
+                <label
+                  className="block text-white text-sm font-bold mb-2"
+                  htmlFor="resume"
+                >
+                  Upload Resume{" "}
+                  <span className="text-gray-400">(PDF Only)</span>
+                </label>
+                <input
+                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                  id="resume"
+                  name="resume"
+                  type="file"
+                  accept="application/pdf"
+                />
+              </div>
+
+              {/* MLH Checkmark Agreement, remove paragraph once done */}
+              <p className="p-2 font-bold text-md">
+                We are currently in the process of partnering with MLH. The
+                following checkbox is for this partnership. If we do not end up
+                partnering with MLH, your information will not be shared
+              </p>
+              <div className="p-2 mb-4 flex items-center">
                 <input
                   id="agree"
                   name="agree"
@@ -647,13 +885,18 @@ export default function Survey() {
                   the MLH Privacy Policy https://mlh.io/privacy. I further agree
                   to the terms of both the MLH Contest Terms and Conditions
                   (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
-                  and the MLH Privacy Policy https://mlh.io/privacy{" "}
-                  <span className="text-red-500">*</span>
+                  and the MLH Privacy Policy https://mlh.io/privacy.
+                  <br></br>I authorize MLH to send me occasional emails about
+                  relevant events, career opportunities, and community
+                  announcements. <span className="text-red-500">*</span>
                 </label>
               </div>
 
               {/* Email Sharing Agreement */}
-              <div className="mb-4 flex items-center">
+              <p className="p-2 font-bold text-md">
+                hackUMBC Privacy and Consent Agreements
+              </p>
+              <div className="p-2 mb-4 flex items-center">
                 <input
                   id="shareEmail"
                   name="shareEmail"
@@ -669,7 +912,7 @@ export default function Survey() {
               </div>
 
               {/* Media Consent Agreement */}
-              <div className="mb-4 flex items-center">
+              <div className="p-2 mb-4 flex items-center">
                 <input
                   id="mediaConsent"
                   name="mediaConsent"
@@ -732,7 +975,7 @@ export default function Survey() {
               Terms of Service
             </a>{" "}
             |
-            <a href="#mailto:hackumbc.org" className="footer-link">
+            <a href="#mailto:hackumbc@umbc.edu" className="footer-link">
               Contact Us
             </a>
           </p>

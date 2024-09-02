@@ -4,7 +4,7 @@ export async function POST(request) {
   try {
     const formData = await request.formData();
 
-    console.log(formdData);
+    console.log(formData);
 
     return NextResponse.json(
       { message: "Form data sent successfully!" },
