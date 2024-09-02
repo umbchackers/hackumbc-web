@@ -37,7 +37,7 @@ export default function Footer() {
                         <img src="/instagram.png" alt="insta-png" className="track-image"/>
                     </Track>
                     <Track title="GITHUB" link="https://github.com/umbchackers/hackumbc-web">
-                        <img src="/github.png" alt="github-png" className="track-image"/>
+                        <img src="/github.PNG" alt="github-png" className="track-image"/>
                     </Track>
                 </div>
                 <div className="footer-info">
