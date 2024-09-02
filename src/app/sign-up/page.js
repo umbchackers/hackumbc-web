@@ -4,8 +4,9 @@ import "../css/form.css";
 import Image from "next/image";
 import Navbar from "../components/navbar";
 import Papa from "papaparse";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+// import PhoneInput from "react-phone-input-2";
+// import "react-phone-input-2/lib/style.css";
+import "../globals.css";
 
 export default function Survey() {
   const [savedData, setSavedData] = useState(null);
@@ -121,7 +122,7 @@ export default function Survey() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen home-container [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+      <div className="sign-up bg-scroll [background:radial-gradient(50%_100%_at_50%_10%,#000_40%,#60e_100%)]">
         <div className="flex justify-center items-center min-h-screen">
           <div className="w-full max-w-2xl p-8 rounded-lg formBox">
             <div className="flex justify-center mb-6">
