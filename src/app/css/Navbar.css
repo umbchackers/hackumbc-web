@@ -5,7 +5,6 @@
     z-index: 1000000;
     justify-content: center;
     display: flex;
-    overflow-x: hidden;
 }
 
 .nav-left {

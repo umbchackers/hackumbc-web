@@ -4,7 +4,6 @@
     align-items: center;
     height: 100vh;
     text-align: center;
-    overflow-x: hidden;
 }
 
 .hack-logo {
@@ -70,7 +69,7 @@
 @media (max-width: 768px) {
     .home-page {
         width: 100%;
-        padding-top: 20px; /* Add padding to give some space from the top */
+        height: 100vh;
     }
 
     .home-container {
@@ -78,24 +77,45 @@
     }
 
     .hack-logo {
-        width: 240px; /* Smaller width for mobile */
+        width: 240px; 
         height: auto;
-        margin-bottom: 110px; /* Increased margin to provide adequate space for the links */
+        margin-bottom: 130px;
     }
 
     .footer {
         display: flex;
-        flex-direction: column; /* Stack the links vertically */
-        align-items: center; /* Center the links */
-        width: 100%; /* Ensure footer spans the full width */
-        margin-top: 0px; /* Adjust margin to prevent overlap */
-        padding-bottom: 20px; /* Added padding to the bottom */
+        flex-direction: column; 
+        align-items: center; 
+        width: 100%; 
+        margin-top: 0px; 
+        padding-bottom: 20px;
     }
 
     .link-box-container {
-        margin-top: 40px; /* Create space between each link box */
-        padding: 0 20px; /* Add padding to the sides for better spacing */
+        margin-top: 40px;
+        padding: 0 20px; 
+        scale: .8;
     }
+
+    .link-box-container span {
+        display: none;
+    }
+
+    .link-box-container p {
+        scale: 1.1;
+        font-size: 1.2rem;
+        padding-top: 10px;
+    }
+
+    .link-box-container h2 {
+        margin-bottom: 10px;
+        margin-top: -50px;
+    }
+
+    .text-height {
+        display: hidden;
+    }
+    /*positioning needs to be fixed*/
 }
 
 

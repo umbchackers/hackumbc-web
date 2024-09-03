@@ -15,7 +15,6 @@
     align-items: center;
     text-align: center;
     /*all added for centering*/
-    overflow-x: hidden;
 }
 
 
@@ -75,9 +74,11 @@
 
 @media (max-width: 768px) {
 
-
     .about-page {
+        width: 100%;
         overflow-x: hidden;
+        overflow-y: hidden;
+        overflow: hidden;
     }
 
     .about-content {
@@ -86,6 +87,10 @@
         margin-left: 5vw;
         margin-right: 5vw;
         text-align: center;
+        margin-top: -40px;
+        overflow-y: hidden;
+        overflow: hidden;
+        /*had some weird overflow issues so just added extra overflow hidden for it*/
     }
 
     .title {
@@ -98,7 +103,7 @@
         font-size: 14px;
         margin-left: 10vw;
         margin-right: 10vw;
-        width: 90vw;
+        width: auto;
         line-height: 28px;
         text-align: center;
     }

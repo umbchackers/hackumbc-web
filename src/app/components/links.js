@@ -15,7 +15,7 @@ export default function LinkBox({ href, title, desc, color }) {
   }, []);
 
   return (
-    <div className="link-box-container overflow-x-hidden" data-aos="fade-in">
+    <div className="link-box-container" data-aos="fade-in">
     <a
       href={href}
 className="rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
