@@ -6,6 +6,7 @@
     min-height: 20vh; 
     background-color: rgb(0, 0, 0);
     padding: 5px 0;
+    overflow-x: hidden;
 }
 
 .footer-content {
@@ -65,6 +66,7 @@
 }
 
 @media (max-width: 768px) {
+
     .tracks {
         flex-direction: row !important;
         justify-content: center !important; 

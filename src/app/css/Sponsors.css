@@ -5,6 +5,7 @@
     width: 100%;
     min-height: 100vh; /*fills screen*/
     background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%); /*for blend*/
+    overflow-x: hidden;
 }
 
 .sponsors-content {
@@ -122,16 +123,12 @@
 }
 
 @media (max-width: 768px) {
-    .sponsors-page {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 110%;
-        min-height: 110vh;
-    }
+
     .sponsors-tiers {
         grid-template-columns: repeat(2, 1fr); /*makes it so there are two columns for smaller screens */
         scale: 0.75;
+        padding-right: 400px;
+        max-width: 100px; /*limited the max width to center*/
     }
     
     .sponsors-logo {

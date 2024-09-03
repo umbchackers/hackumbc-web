@@ -15,6 +15,7 @@
     align-items: center;
     text-align: center;
     /*all added for centering*/
+    overflow-x: hidden;
 }
 
 
@@ -73,6 +74,12 @@
 
 
 @media (max-width: 768px) {
+
+
+    .about-page {
+        overflow-x: hidden;
+    }
+
     .about-content {
         padding-top: 10vh;
         padding-bottom: 5vh;

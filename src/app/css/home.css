@@ -4,6 +4,7 @@
     align-items: center;
     height: 100vh;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .hack-logo {
@@ -67,8 +68,34 @@
 }
 
 @media (max-width: 768px) {
+    .home-page {
+        width: 100%;
+        padding-top: 20px; /* Add padding to give some space from the top */
+    }
+
+    .home-container {
+        flex-direction: column;
+    }
+
     .hack-logo {
-        width: 240px;  /* Resize to a smaller width */
-        height: auto;  /* Maintain aspect ratio */
-      }
+        width: 240px; /* Smaller width for mobile */
+        height: auto;
+        margin-bottom: 110px; /* Increased margin to provide adequate space for the links */
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column; /* Stack the links vertically */
+        align-items: center; /* Center the links */
+        width: 100%; /* Ensure footer spans the full width */
+        margin-top: 0px; /* Adjust margin to prevent overlap */
+        padding-bottom: 20px; /* Added padding to the bottom */
+    }
+
+    .link-box-container {
+        margin-top: 40px; /* Create space between each link box */
+        padding: 0 20px; /* Add padding to the sides for better spacing */
+    }
 }
+
+

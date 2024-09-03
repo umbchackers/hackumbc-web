@@ -36,6 +36,7 @@ export default function Home() {
   }, []);
 
   return (
+    <div className="home-page">
     <div
       className="home-container"
       style={{
@@ -73,6 +74,7 @@ export default function Home() {
           title="Sponsorship"
         ></LinkBox>
       </div>
+    </div>
     </div>
   );
 }
