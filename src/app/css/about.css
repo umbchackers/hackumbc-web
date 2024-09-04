@@ -71,6 +71,23 @@
     background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%); /*for blend*/
 }
 
+.light-mode-text {
+    color: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+    .light-mode-text {
+        color: #fff; 
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .light-mode-text {
+        color: inherit;
+    }
+}
+
+/*added light mode text coloring*/
 
 @media (max-width: 768px) {
 

@@ -31,17 +31,17 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="nav-bar-container w-full flex justify-center py-2.5">
+      <div className="nav-bar-container w-full flex justify-center py-2.5 light-mode-text">
         {!isMobile && (
           <a href="https://link.hackumbc.tech/mlh" target="_blank">
             <img
-              className="mlh-trust-badge"
+              className="mlh-trust-badge light-mode-text"
               src="mlh-trust-badge.png"
               alt="Major League Hacking 2025 Hackathon Season"
             />
           </a>
         )}
-        <nav className="nav-desktop">
+        <nav className="nav-desktop light-mode-text">
           <div className="nav-left">
             <Link
               offset={-300}
@@ -49,14 +49,14 @@ export default function Navbar() {
               smooth="true"
               href="#home"
             >
-              <img className="nav-logo" src="hackLogo24.png" alt="logo" />
+              <img className="nav-logo light-mode-text" src="hackLogo24.png" alt="logo" />
             </Link>
             <Link
               id="left-nav-button"
               to="about"
               smooth="true"
               duration={500}
-              className="nav-link"
+              className="nav-link light-mode-text"
               href="#about"
             >
               About
@@ -67,7 +67,7 @@ export default function Navbar() {
               offset={0}
               smooth="true"
               duration={500}
-              className="nav-link"
+              className="nav-link light-mode-text"
               href="#faq"
             >
               FAQ
@@ -78,47 +78,36 @@ export default function Navbar() {
               offset={0}
               smooth="true"
               duration={500}
-              className="nav-link"
+              className="nav-link light-mode-text"
               href="#sponsors"
             >
               Sponsors
             </Link>
-            {/*<a id='left-nav-button' className='nav-link' href="https://oldlemonpepper.github.io/ILSBMap/" target='_blank'>Map</a>*/}
-            {/* <Link
-            id="left-nav-button"
-            to="schedule"
-            smooth={true}
-            duration={500}
-            className="nav-link"
-          >
-            Schedule
-          </Link> */}
           </div>
 
-          <div className="nav-right">
-            {/* <a href= 'https://hackumbc.typeform.com/to/nWcCFMXi' id="signup-button" className='nav-sign-up'>REGISTER</a> 
-                <a href= 'https://hackumbc.typeform.com/to/MqNdLmuH' id="vsignup-button" className='nav-sign-up'>VOLUNTEER</a> */}
+          <div className="nav-right light-mode-text">
+            {/* Add any additional right-side links or buttons here */}
           </div>
         </nav>
         {/*hamburger menu*/}
         <div id="hamburger-nav" className="hamburger-menu">
           <div
-            className={`hamburger-icon ${isMenuOpen ? "open" : ""}`}
+            className={`hamburger-icon ${isMenuOpen ? "open" : ""} light-mode-text`}
             onClick={toggleMenu}
           >
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <ul className={`menu-links ${isMenuOpen ? "open" : ""}`}>
+          <ul className={`menu-links ${isMenuOpen ? "open" : ""} light-mode-text`}>
             <li>
-              <Link href="#about">About</Link>
+              <Link href="#about" className="light-mode-text">About</Link>
             </li>
             <li>
-              <Link href="#faq">FAQ</Link>
+              <Link href="#faq" className="light-mode-text">FAQ</Link>
             </li>
             <li>
-              <Link href="#sponsors">Sponsors</Link>
+              <Link href="#sponsors" className="light-mode-text">Sponsors</Link>
             </li>
           </ul>
         </div>

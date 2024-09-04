@@ -96,7 +96,7 @@ export default function Sponsors() {
                             data-aos= "fade-up"
                         />
                     </a>
-                    <a href="https://reddrum.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://red-drum.com/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/RedDrum.png"
                             alt="sponsor"
@@ -104,7 +104,7 @@ export default function Sponsors() {
                             data-aos= "fade-up"
                         />
                     </a>
-                    <a href="https://bestgate.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.bestgateeng.com/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/bestgate.png"
                             alt="sponsor"
@@ -114,14 +114,6 @@ export default function Sponsors() {
                     </a>
                     </SponsorTier>
                     <SponsorTier title="PARTNERS" iconSrc="/partners.png" data-aos= "fade-up">
-                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/github-sticker.svg"
-                            alt="sponsor"
-                            className="sponsors-logo"
-                            data-aos= "fade-up"
-                        />
-                    </a>
                     <a href="https://standoutstickers.com/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/stand-out-stickers.png"

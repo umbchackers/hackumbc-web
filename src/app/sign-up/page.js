@@ -148,7 +148,7 @@ export default function Survey() {
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
               Sign Up Form
             </h2>
-            <p className="text-sm italic mb-6 text-center">
+            <p className="text-sm italic mb-6 text-center light-mode-text">
               Fields marked by <span className="text-red-500">*</span> are
               required
             </p>
@@ -156,7 +156,7 @@ export default function Survey() {
             <hr className="w-full border-gray-300 mb-6" />
 
             <form className="px-1" onSubmit={handleSubmit}>
-              <p className="py-1.5 font-bold text-md">Personal Information</p>
+              <p className="py-1.5 font-bold text-md light-mode-text">Personal Information</p>
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
@@ -875,7 +875,7 @@ export default function Survey() {
               </div>
 
               {/* MLH Checkmark Agreement, remove paragraph once done */}
-              <p className="p-2 font-bold text-md">
+              <p className="p-2 font-bold text-md light-mode-text">
                 We are currently in the process of partnering with MLH. The
                 following checkbox is for this partnership. If we do not end up
                 partnering with MLH, your information will not be shared
@@ -939,7 +939,7 @@ export default function Survey() {
               </div>
 
               {/* Email Sharing Agreement */}
-              <p className="p-2 font-bold text-md">
+              <p className="p-2 font-bold text-md light-mode-text">
                 hackUMBC Privacy and Consent Agreements
               </p>
               <div className="p-2 mb-4 flex items-center">

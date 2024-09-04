@@ -75,6 +75,24 @@
     cursor: pointer;
 }
   
+
+.light-mode-text {
+    color: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+    .light-mode-text {
+        color: #fff; 
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .light-mode-text {
+        color: inherit;
+    }
+}
+
+/*added light mode text coloring*/
 /*added footer styling here to match */
 
 @media (max-width: 768px) {
@@ -83,6 +101,10 @@
         display: none;
     }
     
+    .hack-logo {
+
+    }
+
     #hamburger-nav.hamburger-menu {
         display: none;
     }
