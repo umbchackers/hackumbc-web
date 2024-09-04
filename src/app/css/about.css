@@ -5,8 +5,8 @@
 
 .about-content {
     padding-bottom: 10vh;
-    margin-left: 7vw;
-    margin-right: 7vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
     margin-top: 5vh;
     margin-bottom: 10vh;
     /*uncommented this for sponsors page*/
@@ -52,7 +52,7 @@
     justify-items: center;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 90px;
+    gap: 50px;
     font-size: 1.2rem;
 }
 
