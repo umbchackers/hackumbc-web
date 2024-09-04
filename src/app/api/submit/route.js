@@ -65,6 +65,8 @@ export async function POST(request) {
 
     data['registration_time'] = new Date().toISOString();
     params['Item']['registration_time'] = {'S': new Date().toISOString()};
+    console.log(data);
+    console.log(params);
 
     dynamodb.putItem(params, (err, d) => {
       if (err) {
