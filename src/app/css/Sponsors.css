@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20vh;
 }
 
 .sponsors-section-title {
@@ -122,17 +121,41 @@
 }
 
 @media (max-width: 768px) {
+
     .sponsors-tiers {
-        grid-template-columns: repeat(2, 1fr); /*makes it so there are two columns for smaller screens */
-        scale: 0.95;
+        grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+        gap: 20px; /* Adjust gap as needed */
+        padding: 20 0px; /* Remove specific padding-right */
+        max-width: none; /* Allow full width */
+        scale: .85; /* Remove scaling */
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sponsors-tier-container {
+        width: 200px;
+        height: 300px;
+        /*adjusting spacing for grids on mobile*/
+    }
+
+    .sponsors-content {
+        width: 100%; /* Ensure full width usage */
+    }
+
+    .sponsors-icon {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        border-radius: 30px;
     }
     
     .sponsors-logo {
-        max-width: 120px;
-        max-height: 60px;
+        max-width: 80px;
+        max-height: 80px;
     }
     
     .sponsors-tier-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
