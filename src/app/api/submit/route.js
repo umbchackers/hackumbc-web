@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { Upload } from "@aws-sdk/lib-storage";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { v4 as uuidv4 } from "uuid";
+// import { AWS } from 'aws-sdk';
+const AWS = require('aws-sdk');
 
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
 const s3 = new S3Client({
@@ -12,13 +14,25 @@ const s3 = new S3Client({
   },
 });
 
+AWS.config.update({ region: "us-east-1" });
+const dynamodb = new AWS.DynamoDB({
+  region: "us-east-1",
+  credentials: {
+    accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
+  }
+});
+
 export async function POST(request) {
   try {
     const formData = await request.formData();
-
     const data = {
       major: "",
     };
+    const params = {
+      TableName: 'hackumbc-registration',
+      Item: {}
+    }
     let resumeResult;
 
     for (let [key, value] of formData.entries()) {
@@ -27,18 +41,39 @@ export async function POST(request) {
       }
       if (key === "resume") {
         // error handle somewhere
-        resumeResult = await sendResume(value);
-        data[key] = resumeResult;
+        if (value.size > 0) {
+          resumeResult = await sendResume(value);
+          data[key] = resumeResult;
+          params['Item'][key] = {'S': resumeResult};
+        }
+        else {
+          data[key] = '';
+          params['Item'][key] = {'S': ''};
+        }
         continue;
       }
       if (key === "shareEmail" || key === "mediaConsent") {
         data[key] = value === "on";
+        params['Item'][key] = {'S': value === 'on'};
       } else {
         data[key] += value;
+        params['Item'][key] = {'S': value};
       }
+      data[key] = value;
+      params['Item'][key] = {'S': value};
     }
 
-    console.log(data);
+    data['registration_time'] = new Date().toISOString();
+    params['Item']['registration_time'] = {'S': new Date().toISOString()};
+
+    dynamodb.putItem(params, (err, d) => {
+      if (err) {
+        console.log('Error', err);
+      }
+      else{
+        console.log('Success', d);
+      }
+    });
 
     return NextResponse.json(
       { message: "Form data sent successfully!", data },
