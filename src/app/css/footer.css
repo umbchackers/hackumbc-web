@@ -65,6 +65,7 @@
 }
 
 @media (max-width: 768px) {
+
     .tracks {
         flex-direction: row !important;
         justify-content: center !important; 
