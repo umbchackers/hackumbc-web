@@ -5,8 +5,8 @@
 
 .about-content {
     padding-bottom: 10vh;
-    margin-left: 7vw;
-    margin-right: 7vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
     margin-top: 5vh;
     margin-bottom: 10vh;
     /*uncommented this for sponsors page*/
@@ -34,8 +34,8 @@
     font-size: 23px;
     font-weight: 500;
     margin-top: 5vh;
-    margin-left: 16vw;
-    margin-right: 16vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
     margin-bottom: 10vh;
     width: 100vh;
 }
@@ -52,12 +52,12 @@
     justify-items: center;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 90px;
+    gap: 30px;
     font-size: 1.2rem;
 }
 
 .tracks img {
-    width: 200px;
+    width: 150px;
     display: block;
     /*make images bigger for desktop*/
 }
