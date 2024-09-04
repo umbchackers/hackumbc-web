@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "HackUMBC 2024 - Join the Ultimate Hackathon Experience!",
+  title: "hackUMBC 2024 - Join the Ultimate Hackathon Experience!",
   description:
     "Register now for HackUMBC 2024, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
   keywords:
