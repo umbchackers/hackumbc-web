@@ -34,8 +34,8 @@
     font-size: 23px;
     font-weight: 500;
     margin-top: 5vh;
-    margin-left: 16vw;
-    margin-right: 16vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
     margin-bottom: 10vh;
     width: 100vh;
 }
@@ -52,12 +52,12 @@
     justify-items: center;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 50px;
+    gap: 30px;
     font-size: 1.2rem;
 }
 
 .tracks img {
-    width: 200px;
+    width: 150px;
     display: block;
     /*make images bigger for desktop*/
 }
