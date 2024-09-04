@@ -6,6 +6,7 @@
     min-height: 20vh; 
     background-color: rgb(0, 0, 0);
     padding: 5px 0;
+    padding-bottom: 20px;
 }
 
 .footer-content {
@@ -46,6 +47,7 @@
 .track-image {
     width: 50px; 
     height: auto;
+    scale: 0.8;
 }
 
 .footer-info {
@@ -81,6 +83,10 @@
         font-size: 0.8rem !important;
     }
     
+    .track-image {
+        scale: 1;
+    }
+
     .footer-info p {
         font-size: 0.8rem;
     }

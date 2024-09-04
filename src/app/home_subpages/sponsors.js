@@ -58,27 +58,11 @@ export default function Sponsors() {
                             data-aos= "fade-up"
                         />
                     </a>
-                    <a href="https://www.northropgrumman.com/" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/northrop.png"
-                            alt="sponsor"
-                            className="sponsors-logo"
-                            data-aos= "fade-up"
-                        />
-                    </a>
                     </SponsorTier>
                     <SponsorTier title="GOLD" iconSrc="/gold.png" data-aos= "fade-up">
                     <a href="https://www.boozallen.com/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/boozallen.png"
-                            alt="sponsor"
-                            className="sponsors-logo"
-                            data-aos= "fade-up"
-                        />
-                    </a>
-                    <a href="https://intelligenesisllc.com/" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/intelligenisis.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
