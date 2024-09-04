@@ -51,16 +51,16 @@ export default function Home() {
         width={480}
         height={480}
         priority
-        data-aos="fade-in"
+        data-aos="fade-in"  
       />
       <p
-        className="text-height text-white text-2xl mt-8 font-semibold"
+        className="text-height text-white text-2xl mt-8 font-semibold tenth-logo"
         data-aos="fade-in"
       >
         {" "}
         10th
       </p>
-      <LinkBox href="#about" color={false}></LinkBox>
+      <LinkBox className="hide-on-mobile" href="#about" color={false}></LinkBox>
 
       <div className="footer" data-aos="fade-in">
         <LinkBox

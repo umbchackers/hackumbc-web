@@ -29,7 +29,7 @@
     padding: 1rem;
 }
 
-/* link box component*/
+/* link box component*/ 
 .link-box-container {
     display: flex;
     justify-content: bottom;
@@ -76,10 +76,19 @@
         flex-direction: column;
     }
 
+    .tenth-logo {
+        position: absolute; 
+        top: 150px;
+        right: 25px;
+        font-size: 1.5rem;
+        padding: 5px 10px;
+        color: #fff;
+    }
+    
     .hack-logo {
         width: 240px; 
         height: auto;
-        margin-bottom: 130px;
+        margin-bottom: 200px;
     }
 
     .footer {
@@ -92,30 +101,48 @@
     }
 
     .link-box-container {
-        margin-top: 40px;
+        position: relative; 
+        top: 80px; 
         padding: 0 20px; 
         scale: .8;
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+    
+
+    .link-box-container a {
+        text-decoration: none;
+        color: inherit;
+        display: block; 
+        width: 100%; 
+    }
+
+    .link-box-container p {
+        margin: 0; 
+        font-size: 1.2rem;
+        opacity: 0.7;
+        text-align: center;
+        padding: 0px 0;
+    }
+
+    .link-box-container h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 20px;
     }
 
     .link-box-container span {
         display: none;
     }
 
-    .link-box-container p {
-        scale: 1.1;
-        font-size: 1.2rem;
-        padding-top: 10px;
+    .hide-on-mobile {
+        display: none;
     }
-
-    .link-box-container h2 {
-        margin-bottom: 10px;
-        margin-top: -50px;
-    }
-
-    .text-height {
-        display: hidden;
-    }
-    /*positioning needs to be fixed*/
 }
 
 

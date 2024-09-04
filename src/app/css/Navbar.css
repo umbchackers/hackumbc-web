@@ -184,10 +184,16 @@
         display: block;
     }
     .hamburger-menu {
-        right: 0px; /*more spacing adjustments*/
+        right: 10px; /*more spacing adjustments*/
         margin-bottom: 100px;
         margin-right: 15px;
         /*spacing fixed on hamburger menu*/
+    }
+    .menu-links {
+        scale: 0.85;
+        top: 75%;
+        left: 35%;
+        /*fixed hamburger menu spacing*/
     }
 
 }
@@ -195,7 +201,6 @@
 @media (max-width: 530px) {
 
     .menu-links {
-        left: 50%;
         transform: translateX(-50%);
     }
     /*this is my workaround for centering the menu links with the hamburger menu but this could def be better written*/

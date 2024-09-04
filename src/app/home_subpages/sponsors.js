@@ -39,6 +39,7 @@ export default function Sponsors() {
                 <div className="sponsors-title-subheading" data-aos="fade-up">hackUMBC 2024 Sponsors</div> {/* added section titles and subheadings */}
                 <div className="sponsors-tiers">
                     <SponsorTier title="DIAMOND" iconSrc="/diamond.png" data-aos= "fade-up"> {/* added icons next to each tiers text */}
+                    <a href= "https://coeit.umbc.edu/" target="_blank" rel="noopener noreference">
                         <img
                             src="/UMBC-COEIT.png"
                             alt="sponsor"
@@ -46,85 +47,113 @@ export default function Sponsors() {
                             data-aos="fade-up"
                             href=""
                         />
+                    </a>
                     </SponsorTier>
                     <SponsorTier title="PLATINUM" iconSrc="/platinum.png" data-aos= "fade-up">
+                    <a href= "https://www.troweprice.com/" target="_blank" rel="noopener noreference">
                         <img
                             src="/trowepricelogo.jpg"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
-                            href=""
                         />
+                    </a>
+                    <a href="https://www.northropgrumman.com/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/northrop.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
-                            href=""
                         />
+                    </a>
                     </SponsorTier>
                     <SponsorTier title="GOLD" iconSrc="/gold.png" data-aos= "fade-up">
+                    <a href="https://www.boozallen.com/" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/BAH.png"
+                            src="/boozallen.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
-                            href=""
                         />
-                    </SponsorTier>
-                    <SponsorTier title="SILVER" iconSrc="/silver.png" data-aos= "fade-up">
-                        <img
-                            src="/cipher-tech.png"
-                            alt="sponsor"
-                            className="sponsors-logo"
-                            data-aos= "fade-up"
-                            href=""
-                        />
+                    </a>
+                    <a href="https://intelligenesisllc.com/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/intelligenisis.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
-                            href=""
                         />
+                    </a>
+                    </SponsorTier>
+                    <SponsorTier title="SILVER" iconSrc="/silver.png" data-aos= "fade-up">
+                    <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/apl.png"
+                            alt="sponsor"
+                            className="sponsors-logo"
+                            data-aos= "fade-up"
+                        />
+                    </a>
+                    <a href="https://cwit.umbc.edu/alex-brown-center/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/alexbrowncenter.jpg"
+                            alt="sponsor"
+                            className="sponsors-logo"
+                            data-aos= "fade-up"
+                        />
+                    </a>
                     </SponsorTier>
                     <SponsorTier title="BRONZE" iconSrc="/bronze.png" data-aos= "fade-up">
+                    <a href="https://cwit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/CWIT.png"
+                            src="/CWIT.jpg"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
-                            href=""
                         />
+                    </a>
+                    <a href="https://reddrum.com/" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/makpar.png"
+                            src="/RedDrum.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
-                            href=""
                         />
+                    </a>
+                    <a href="https://bestgate.com/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/bestgate.png"
+                            alt="sponsor"
+                            className="sponsors-logo"
+                            data-aos= "fade-up"
+                        />
+                    </a>
                     </SponsorTier>
                     <SponsorTier title="PARTNERS" iconSrc="/partners.png" data-aos= "fade-up">
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/cah.png"
+                            src="/github-sticker.svg"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
-                            href=""
                         />
+                    </a>
+                    <a href="https://standoutstickers.com/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/stand-out-stickers.png"
+                            alt="sponsor"
+                            className="sponsors-logo"
+                            data-aos= "fade-up"
+                        />
+                    </a>
+                    <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
-                            href=""
                         />
-                        <a
-                            href="https://hackp.ac/mlh-standoutstickers-hackathons"
-                            target="_blank"
-                        >
-                            <div className="sticker-logo" />
-                        </a>
+                    </a>
                     </SponsorTier>
                 </div>
             </div>
