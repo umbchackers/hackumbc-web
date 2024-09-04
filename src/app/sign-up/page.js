@@ -19,6 +19,7 @@ export default function Survey() {
   const [otherSchool, setOtherSchool] = useState("");
 
   const [isAgreed, setIsAgreed] = useState(false);
+  const [isAgreed2, setIsAgreed2] = useState(false);
   const [shareEmail, setShareEmail] = useState(false);
   const [mediaConsent, setMediaConsent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -26,6 +27,10 @@ export default function Survey() {
 
   const handleCheckboxChange = (event) => {
     setIsAgreed(event.target.checked);
+  };
+
+  const handleCheckboxChange2 = (event) => {
+    setIsAgreed2(event.target.checked);
   };
 
   const handleUniversityChange = (event) => {
@@ -58,10 +63,14 @@ export default function Survey() {
       .catch((error) => console.error("Error loading universities:", error));
   }, []);
 
+  const [dietaryRestrictions, setDietaryRestrictions] = useState([]);
+
   const handleDietaryChange = (event) => {
     const selectedOptions = Array.from(event.target.selectedOptions).map(
       (option) => option.value
     );
+    setDietaryRestrictions(selectedOptions);
+
     if (selectedOptions.includes("allergies")) {
       setAllergies(true);
     } else {
@@ -73,7 +82,7 @@ export default function Survey() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!isAgreed) {
+    if (!isAgreed || !isAgreed2) {
       setError("You must agree to the conditions to proceed.");
       return;
     }
@@ -82,6 +91,7 @@ export default function Survey() {
     setLoading(true);
 
     const formData = new FormData(event.target);
+    formData.append("dietaryRestrictions", dietaryRestrictions.join(", "));
 
     if (isOtherSelected && otherSchool === "") {
       setError("Please specify your school.");
@@ -122,7 +132,7 @@ export default function Survey() {
   return (
     <>
       <Navbar />
-      <div className="sign-up bg-scroll [background:radial-gradient(50%_100%_at_50%_10%,#000_40%,#60e_100%)]">
+      <div className="sign-up bg-scroll [background:radial-gradient(60%_100%_at_50%_10%,#000_35%,#60e_70%)]">
         <div className="flex justify-center items-center min-h-screen">
           <div className="w-full max-w-2xl p-8 rounded-lg formBox">
             <div className="flex justify-center mb-6">
@@ -888,9 +898,43 @@ export default function Survey() {
                   to the terms of both the MLH Contest Terms and Conditions
                   (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
                   and the MLH Privacy Policy https://mlh.io/privacy.
-                  <br></br>I authorize MLH to send me occasional emails about
-                  relevant events, career opportunities, and community
-                  announcements. <span className="text-red-500">*</span>
+                  <span className="text-red-500">*</span>
+                </label>
+              </div>
+
+              <div className="p-2 mb-4 flex items-center">
+                <input
+                  id="agree2"
+                  name="agree2"
+                  type="checkbox"
+                  checked={isAgreed2}
+                  onChange={handleCheckboxChange2}
+                  className="mr-2 w-4 h-4 text-green-600 bg-gray-800 border-gray-600 rounded focus:ring-green-500 focus:ring-2"
+                  required
+                />
+                <label htmlFor="agree2" className="text-white text-sm">
+                  I further agree to the terms of both the MLH Contest Terms and
+                  Conditions
+                  (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
+                  and the MLH Privacy Policy https://mlh.io/privacy.
+                  announcements.
+                  <span className="text-red-500">*</span>
+                </label>
+              </div>
+
+              <div className="p-2 mb-4 flex items-center">
+                <input
+                  id="mlh_emailagreement"
+                  name="mlh_emailagreement"
+                  type="checkbox"
+                  className="mr-2 w-4 h-4 text-green-600 bg-gray-800 border-gray-600 rounded focus:ring-green-500 focus:ring-2"
+                />
+                <label
+                  htmlFor="mlh_emailagreement"
+                  className="text-white text-sm"
+                >
+                  I authorize MLH to send me occasional emails about relevant
+                  events, career opportunities, and community announcements.
                 </label>
               </div>
 
