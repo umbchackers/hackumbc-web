@@ -42,7 +42,7 @@ export async function POST(request) {
       if (key === "resume") {
         // error handle somewhere
         if (value.size > 0) {
-          // resumeResult = await sendResume(value);
+          resumeResult = await sendResume(value);
           data[key] = resumeResult;
           params["Item"][key] = { S: resumeResult };
         } else {
