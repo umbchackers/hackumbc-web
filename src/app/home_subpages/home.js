@@ -60,7 +60,6 @@ export default function Home() {
           {" "}
           10th
         </p>
-        <LinkBox className="hide-on-mobile light-mode-text" href="#about" color={false}></LinkBox>
 
         <div className="footer light-mode-text" data-aos="fade-in">
           <LinkBox

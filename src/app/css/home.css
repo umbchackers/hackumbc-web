@@ -34,23 +34,15 @@
     display: flex;
     justify-content: bottom;
     align-items: bottom;
+    margin: 10px;
 }
 
-.link-box a {
-    text-decoration: none;
-    color: inherit;
+.link-box-container h2 {
+    font-size: 1.3rem;
 }
 
-.link-box h2 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.link-box p {
-    margin: 0;
-    font-size: 1rem;
-    opacity: 0.7;
+.link-box-container p {
+    font-size: 1.2rem;
 }
 
 /* titles.js content*/
@@ -128,6 +120,7 @@
         align-items: center; 
         width: 100%; 
         box-sizing: border-box; 
+        justify-content: center;
     }
     
 
@@ -142,8 +135,9 @@
         margin: 0; 
         font-size: 1.2rem;
         opacity: 0.7;
-        text-align: center;
         padding: 0px 0;
+        text-align: center;
+        width: 100%;
     }
 
     .link-box-container h2 {

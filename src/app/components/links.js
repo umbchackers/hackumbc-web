@@ -1,10 +1,10 @@
 "use client";
-import React from 'react';
-import "../css/home.css"
-import AOS from 'aos';
-import 'aos/dist/aos.css'; 
 import { useEffect } from 'react';
-export default function LinkBox({ href, title, desc, color }) {
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import "../css/home.css";
+
+export default function LinkBox({ href, title, desc }) {
 
   useEffect(() => {
     AOS.init({
@@ -15,22 +15,93 @@ export default function LinkBox({ href, title, desc, color }) {
   }, []);
 
   return (
-    <div className="link-box-container" data-aos="fade-in">
-    <a
-      href={href}
-className="rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30"
-      rel="noopener noreferrer"
+    <div
+      className="link-box-container"
+      data-aos="fade-in"
+      style={{
+        position: 'relative',
+        overflow: 'hidden',
+        fontWeight: 600,
+        transition: 'all 300ms ease',
+        padding: '1rem',
+        borderRadius: '5rem',
+        border: '0.1rem solid transparent',
+        borderColor: '#ffffff',
+        color: 'white',
+        background: 'linear-gradient(to right, #0da682, #3d208b)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        cursor: 'pointer',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.querySelector('.hover-overlay').style.top = '0';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.querySelector('.hover-overlay').style.top = '-100%';
+      }}
     >
-      <h2 className="mb-3 text-2xl font-semibold">
-        {title}
-        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-          -&gt;
-        </span>
-      </h2> 
-      <p className="m-0 max-w-[30ch] text-sm opacity-50">
-        {desc}
-      </p>
-    </a>
+      <a
+        href={href}
+        rel="noopener noreferrer"
+        style={{
+          display: 'block',
+          padding: '.1rem',
+          textAlign: 'center',
+          width: '100%',
+          height: '100%',
+          textDecoration: 'none',
+          color: '#fffff',
+          position: 'relative',
+          margin: '1px',
+          gap: '2rem',
+        }}
+      >
+        <h2
+          style={{
+            marginBottom: '0.5rem',
+            fontSize: '2xl',
+            fontWeight: 'bold',
+          }}
+        >
+          {title}
+          <span
+            style={{
+              display: 'inline-block',
+              transition: 'transform 0.3s ease-in-out',
+            }}
+          >
+            -&gt;
+          </span>
+        </h2>
+        <p
+          style={{
+            margin: 0,
+            maxWidth: '30ch',
+            fontSize: '.9rem',
+            opacity: 1,
+            color: '#fffff',
+          }}
+        >
+          {desc}
+        </p>
+      </a>
+      <div
+        className="hover-overlay"
+        style={{
+          content: '""',
+          position: 'absolute',
+          top: '-100%',
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'rgba(255, 255, 255, 0.2)',
+          zIndex: -1,
+          transition: 'top 0.5s ease',
+        }}
+      />
     </div>
   );
 }
