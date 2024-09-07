@@ -18,7 +18,8 @@ export default function FAQ() {
     function FAQItem({ question, answer }) {
         return (
         <div className="faq-item" data-aos= "fade-up">
-            <input type="checkbox" id={`faq-${question}`} className="faq-toggle" />
+            <input type="checkbox" opacity="0" id={`faq-${question}`} className="faq-toggle" 
+            style={{opacity: 0}}/>
             <label htmlFor={`faq-${question}`} className="faq-question">
             {question}
             </label>
