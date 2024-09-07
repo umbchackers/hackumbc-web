@@ -34,7 +34,8 @@
     display: flex;
     justify-content: bottom;
     align-items: bottom;
-    margin: 10px;
+    margin: 1px;
+    scale: .95;
 }
 
 .link-box-container h2 {
@@ -112,7 +113,7 @@
 
     .link-box-container {
         position: relative; 
-        top: 110px; 
+        top: 120px; 
         padding: 0 20px; 
         scale: .8;
         display: flex;
@@ -121,6 +122,7 @@
         width: 100%; 
         box-sizing: border-box; 
         justify-content: center;
+        margin: 10px;
     }
     
 

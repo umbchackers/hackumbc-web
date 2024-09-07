@@ -53,10 +53,8 @@ export default function LinkBox({ href, title, desc }) {
           width: '100%',
           height: '100%',
           textDecoration: 'none',
-          color: '#fffff',
+          color: '#ffffff',
           position: 'relative',
-          margin: '1px',
-          gap: '2rem',
         }}
       >
         <h2
@@ -82,7 +80,7 @@ export default function LinkBox({ href, title, desc }) {
             maxWidth: '30ch',
             fontSize: '.9rem',
             opacity: 1,
-            color: '#fffff',
+            color: '#ffffff',
           }}
         >
           {desc}

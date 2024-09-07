@@ -64,13 +64,25 @@ export default function Home() {
         <div className="footer light-mode-text" data-aos="fade-in">
           <LinkBox
             href="sign-up"
-            desc="Sign up and join us for the 10th anniversary @ hackUMBC!"
+            desc={<>
+              Sign up and join us for the 10th anniversary @ hackUMBC{" "}
+              <span
+                style={{
+                  fontWeight: 700,
+                  color: '#FFFF00',
+                }}
+              >
+                September 28th-29th
+              </span>
+              !
+            </>
+          }
             title="Registration"
             className="light-mode-text"
           ></LinkBox>
           <LinkBox
             href="mailto:sponsorship@hackumbc.tech"
-            desc="Curious about sponsorship? Click here or email us sponsor@hackumbc.tech"
+            desc="Are you curious about sponsorship? Click here, or email us sponsor@hackumbc.tech"
             title="Sponsorship"
             className="light-mode-text"
           ></LinkBox>
