@@ -19,6 +19,7 @@
     justify-items: center;
     padding-left: 1px; 
     top: -10%;
+    right: 20px;
 }
 
 .text-height {
@@ -46,7 +47,6 @@
     padding: 1rem, 2rem;
     width: 300px;
     height: 140px;
-    top: 30px;
     box-sizing: border-box;
 }
 
@@ -93,7 +93,17 @@
     }
 }
 
+@media (max-width: 1400px) {
+    .link-box-container {
+        top: 50px;
+    }
 
+    .hack-logo {
+        right: 10px;
+    }
+
+    /*for windows laptops*/
+}
 /*added light mode text coloring*/
 
 
