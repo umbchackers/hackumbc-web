@@ -44,7 +44,7 @@ export default function Home() {
             "radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%)",
         }}
       >
-        <div className="home-date" data-aos="fade-up">
+        <div className="home-date" data-aos="fade-in">
           <h1>
             September 28th & 29th
           </h1>
