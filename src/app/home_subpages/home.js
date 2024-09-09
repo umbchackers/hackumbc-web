@@ -44,6 +44,11 @@ export default function Home() {
             "radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%)",
         }}
       >
+        <div className="home-date" data-aos="fade-up">
+          <h1>
+            September 28th & 29th
+          </h1>
+        </div>
         <Image
           className="hack-logo dark:drop-shadow-[0_0_0.3rem_#ffffff70] light:invert light-mode-text"
           src="/hackText24.png"
@@ -64,25 +69,13 @@ export default function Home() {
         <div className="footer light-mode-text" data-aos="fade-in">
           <LinkBox
             href="sign-up"
-            desc={<>
-              Sign up and join us for the 10th anniversary @ hackUMBC{" "}
-              <span
-                style={{
-                  fontWeight: 700,
-                  color: '#FFFF00',
-                }}
-              >
-                September 28th-29th
-              </span>
-              !
-            </>
-          }
+            desc="Sign up and join us for the 10th anniversary @ hackUMBC September 28th and 29th!"
             title="Registration"
             className="light-mode-text"
           ></LinkBox>
           <LinkBox
-            href="mailto:sponsorship@hackumbc.tech"
-            desc="Are you curious about sponsorship? Click here, or email us sponsor@hackumbc.tech"
+            href="mailto:sponsor@hackumbc.tech"
+            desc="Curious about sponsorship? Click here to email us: sponsor@hackumbc.tech"
             title="Sponsorship"
             className="light-mode-text"
           ></LinkBox>

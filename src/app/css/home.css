@@ -29,21 +29,44 @@
     padding: 1rem;
 }
 
+.home-date {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    color: #ffff00;
+    font-size: 2rem; 
+    z-index: 1; 
+    margin-bottom: 20px; 
+    font-family: 'Luminari', fantasy;
+}
+
 /* link box component*/ 
 .link-box-container {
     display: flex;
     justify-content: bottom;
     align-items: bottom;
-    margin: 1px;
-    scale: .95;
+    margin: 10px;
+    scale: 1;
+    padding: 1rem, 2rem;
+    width: 300px;
+    height: 140px;
+    box-sizing: border-box;
 }
 
 .link-box-container h2 {
     font-size: 1.3rem;
+    color: rgb(26, 255, 0);
+    text-align: center;
+    margin: 0;
 }
 
 .link-box-container p {
     font-size: 1.2rem;
+    width: 100%;
+    font-size: .9rem;
+    text-align: center;
+    margin: 0;
 }
 
 /* titles.js content*/
@@ -77,6 +100,7 @@
 
 /*added light mode text coloring*/
 
+
 @media (max-width: 768px) {
     .home-page {
         width: 100%;
@@ -89,7 +113,7 @@
 
     .tenth-logo {
         position: absolute; 
-        top: 150px;
+        top: 180px;
         right: 25px;
         font-size: 1.5rem;
         padding: 5px 10px;
@@ -106,23 +130,31 @@
         display: flex;
         flex-direction: column; 
         align-items: center; 
-        width: 100%; 
         margin-top: 0px; 
         padding-bottom: 20px;
     }
 
+    .home-date {
+        font-family: 'impact', fantasy;
+        top: 150px;
+        width: 300px;
+    }
+
     .link-box-container {
         position: relative; 
-        top: 120px; 
+        top: 110px; 
         padding: 0 20px; 
-        scale: .8;
+        scale: .6;
+        height: 175px;
+        width: 500px !important;    
         display: flex;
         flex-direction: column; 
         align-items: center; 
-        width: 100%; 
-        box-sizing: border-box; 
+        width: 100%;         
+        border-radius: 7rem !important;
         justify-content: center;
-        margin: 10px;
+        margin: -50px;
+        margin-bottom: 1px;
     }
     
 
@@ -134,17 +166,13 @@
     }
 
     .link-box-container p {
-        margin: 0; 
-        font-size: 1.2rem;
-        opacity: 0.7;
-        padding: 0px 0;
+        font-size: 1.3rem;
         text-align: center;
         width: 100%;
     }
 
     .link-box-container h2 {
-        margin: 0;
-        font-size: 1.5rem;
+        font-size: 1.65rem;
         font-weight: bold;
         text-align: center;
         padding-bottom: 20px;

@@ -48,7 +48,6 @@ export default function LinkBox({ href, title, desc }) {
         rel="noopener noreferrer"
         style={{
           display: 'block',
-          padding: '.1rem',
           textAlign: 'center',
           width: '100%',
           height: '100%',
@@ -76,9 +75,6 @@ export default function LinkBox({ href, title, desc }) {
         </h2>
         <p
           style={{
-            margin: 0,
-            maxWidth: '30ch',
-            fontSize: '.9rem',
             opacity: 1,
             color: '#ffffff',
           }}
