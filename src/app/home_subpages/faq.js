@@ -78,7 +78,19 @@ export default function FAQ() {
             />
             <FAQItem
             question="Is there anywhere I can see some examples of old contestants projects?"
-            answer="Yes! You can see examples at: https://hackumbc-fall-2022.devpost.com/project-gallery"
+            answer={
+                <>
+                Yes! You can see examples at:{" "}
+                <a
+                    href="https://hackumbc-fall-2022.devpost.com/project-gallery"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ color: 'cyan', textDecoration: 'underline' }} 
+                >
+                    https://hackumbc-fall-2022.devpost.com/project-gallery
+                </a>
+                </>
+                }
             />
             <FAQItem
             question="Will there be FREE FOOD provided?"
