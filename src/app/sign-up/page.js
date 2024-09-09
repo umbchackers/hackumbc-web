@@ -138,7 +138,7 @@ export default function Survey() {
             <div className="flex justify-center mb-6">
               <Image
                 className="hack-logo dark:drop-shadow-[0_0_0.3rem_#ffffff70] light:invert"
-                src="/hackText24.png"
+                src="/newhackLogo24.png"
                 alt="hackUMBC Logo"
                 width={480}
                 height={480}
