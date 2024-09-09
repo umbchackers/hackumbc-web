@@ -51,7 +51,7 @@ export default function Home() {
         </div>
         <Image
           className="hack-logo dark:drop-shadow-[0_0_0.3rem_#ffffff70] light:invert light-mode-text"
-          src="/hackText24.png"
+          src="/hackUMBCTextShadow.png"
           alt="hackUMBC Logo"
           width={480}
           height={480}

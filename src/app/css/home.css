@@ -6,12 +6,37 @@
     text-align: center;
 }
 
+.tenth-logo {
+    position: absolute; 
+    top: 160px;
+    right: 485px;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    color: #fff;
+}
+
 .hack-logo {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-left: 1px;
+    top: 200px;
+    right: 530px;
+}
+
+.home-date {
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    transform: translateX(-55%) !important;
+    color: #ffffff;
+    font-size: 1.5rem; 
+    z-index: 1; 
+    margin-bottom: 20px; 
+    font-weight: 700;
+    text-shadow: 0px 1px 15px #c0ffff;
 }
 
 .text-height {
@@ -29,18 +54,6 @@
     padding: 1rem;
 }
 
-.home-date {
-    position: absolute;
-    top: 250px;
-    left: 50%;
-    transform: translateX(-55%) !important;
-    color: #0dff00;
-    font-size: 1.5rem; 
-    z-index: 1; 
-    margin-bottom: 20px; 
-    font-weight: 700;
-}
-
 /* link box component*/ 
 .link-box-container {
     display: flex;
@@ -56,7 +69,6 @@
 
 .link-box-container h2 {
     font-size: 1.3rem;
-    color: rgb(26, 255, 0);
     text-align: center;
     margin: 0;
 }
@@ -113,17 +125,19 @@
 
     .tenth-logo {
         position: absolute; 
-        top: 190px;
+        top: 110px;
         right: 25px;
         font-size: 1.5rem;
         padding: 5px 10px;
-        color: #fff;
+        color: #ffffff;
     }
     
     .hack-logo {
+        top: 160px;
         width: 240px; 
         height: auto;
         margin-bottom: 200px;
+        right: 80px;
     }
 
     .footer {
@@ -136,7 +150,7 @@
 
     .home-date {
         font-weight: 600;
-        top: 200px;
+        top: 300px;
         left: 215px;
         width: 300px;
         font-size: 1.1rem;
