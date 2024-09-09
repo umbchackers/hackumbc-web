@@ -1,19 +1,13 @@
+.home-page {
+    overflow-x: hidden;
+}
+
 .home-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
-}
-
-.tenth-logo {
-    position: relative; 
-    top: -10%;
-    font-size: 1.5rem;
-    padding: 5px 10px;
-    color: #fff;
-    scale: .9;
-    right: 8%;
 }
 
 .hack-logo {
@@ -24,20 +18,7 @@
     align-items: center;
     justify-items: center;
     padding-left: 1px; 
-    top: -8%;
-    right: 8%;
-}
-
-.home-date {
-    position: relative;
-    top: 9%;
-    transform: translateX(100%) !important;
-    color: #ffffff;
-    font-size: 1.5rem; 
-    z-index: 1; 
-    margin-bottom: 20px; 
-    font-weight: 700;
-    text-shadow: 0px 1px 20px #c0ffff;
+    top: -5%;
 }
 
 .text-height {
@@ -118,27 +99,19 @@
 @media (max-width: 768px) {
     .home-page {
         width: 100%;
-        height: 100vh;
+        height: auto;
     }
 
     .home-container {
         flex-direction: column;
-    }
-
-    .tenth-logo {
-        position: absolute; 
-        top: 20%;
-        right: 5%;
-        font-size: 1.5rem;
-        padding: 5px 10px;
-        color: #ffffff;
     }
     
     .hack-logo {
         width: 240px; 
         height: auto;
         margin-bottom: 50%;
-        right: -3%;
+        scale: 2;
+        right: 2%;
     }
 
     .footer {
@@ -149,19 +122,9 @@
         padding-bottom: 20px;
     }
 
-    .home-date {
-        font-weight: 600;
-        width: 300px;
-        font-size: 1.1rem;    
-        left: 45%;
-        top: 10%;
-        transform: translateX(-55%) !important;
-    }
-
     .link-box-container {
-        position: relative; 
-        top: 110px; 
-        padding: 0 20px; 
+        position: relative;
+        top: 110px !important; 
         scale: .6;
         height: 175px;
         width: 500px !important;    

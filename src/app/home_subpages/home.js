@@ -44,28 +44,15 @@ export default function Home() {
             "radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%)",
         }}
       >
-        <div className="home-date" data-aos="fade-in">
-          <h1>
-            September 28th & 29th
-          </h1>
-        </div>
         <Image
           className="hack-logo dark:drop-shadow-[0_0_0.3rem_#ffffff70] light:invert light-mode-text"
-          src="/hackUMBCTextShadow.png"
+          src="/newhackLogo24.png"
           alt="hackUMBC Logo"
-          width={480}
-          height={480}
+          width={800}
+          height={800}
           priority
           data-aos="fade-in"  
         />
-        <p
-          className="text-height text-white text-2xl mt-8 font-semibold tenth-logo light-mode-text"
-          data-aos="fade-in"
-        >
-          {" "}
-          10th
-        </p>
-
         <div className="footer light-mode-text" data-aos="fade-in">
           <LinkBox
             href="sign-up"
