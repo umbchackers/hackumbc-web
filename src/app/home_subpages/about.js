@@ -40,7 +40,7 @@ export default function About() {
                         Join hackUMBC for the 10th anniversary of our 24-hour hackathon event where we compete to bring our innovation to life! 
                         Team up with students and develop your skills in our workshop sessions!
                     </p>
-                    <br />
+                    <br/>
                     <p>
                         With lots of fun activities, over $5,000 in prizes, and swag for
                         all participants, you'll be in for an exciting weekend!

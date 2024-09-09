@@ -13,6 +13,7 @@
     padding: 5px 10px;
     color: #fff;
     scale: .9;
+    right: 8%;
 }
 
 .hack-logo {
@@ -21,15 +22,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    justify-items: center;
     padding-left: 1px; 
     top: -80px;
+    right: 8%;
 }
 
 .home-date {
-    position: absolute;
-    top: 400px;
-    left: 50%;
-    transform: translateX(-55%) !important;
+    position: relative;
+    top: 10%;
+    transform: translateX(100%) !important;
     color: #ffffff;
     font-size: 1.5rem; 
     z-index: 1; 
@@ -109,6 +111,7 @@
     }
 }
 
+
 /*added light mode text coloring*/
 
 
@@ -147,10 +150,11 @@
 
     .home-date {
         font-weight: 600;
-        top: 300px;
-        left: 215px;
         width: 300px;
-        font-size: 1.1rem;
+        font-size: 1.1rem;    
+        left: 45%;
+        top: 10%;
+        transform: translateX(-55%) !important;
     }
 
     .link-box-container {
