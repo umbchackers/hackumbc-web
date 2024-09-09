@@ -33,7 +33,7 @@ export default function Navbar() {
     <>
       <div className="nav-bar-container w-full flex justify-center py-2.5 light-mode-text">
         {!isMobile && (
-          <a href="https://link.hackumbc.tech/mlh" target="_blank">
+          <a href="https://mlh.io/seasons/2025/events" target="_blank">
             <img
               className="mlh-trust-badge light-mode-text"
               src="mlh-trust-badge.png"
