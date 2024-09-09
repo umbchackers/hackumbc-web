@@ -35,10 +35,10 @@
     left: 50%;
     transform: translateX(-50%) !important;
     color: #0dff00;
-    font-size: 2rem; 
+    font-size: 3rem; 
     z-index: 1; 
     margin-bottom: 20px; 
-    font-family: 'Luminari', fantasy;
+    font-family: serif;
 }
 
 /* link box component*/ 
@@ -135,7 +135,7 @@
     }
 
     .home-date {
-        font-family: 'impact', fantasy;
+        font-family: serif;
         top: 150px;
         width: 300px;
     }
