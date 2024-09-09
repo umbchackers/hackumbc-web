@@ -31,14 +31,14 @@
 
 .home-date {
     position: absolute;
-    top: 200px;
+    top: 250px;
     left: 50%;
-    transform: translateX(-50%) !important;
+    transform: translateX(-55%) !important;
     color: #0dff00;
-    font-size: 3rem; 
+    font-size: 1.5rem; 
     z-index: 1; 
     margin-bottom: 20px; 
-    font-family: serif;
+    font-weight: 700;
 }
 
 /* link box component*/ 
@@ -113,7 +113,7 @@
 
     .tenth-logo {
         position: absolute; 
-        top: 180px;
+        top: 190px;
         right: 25px;
         font-size: 1.5rem;
         padding: 5px 10px;
@@ -135,10 +135,11 @@
     }
 
     .home-date {
-        font-family: serif;
-        top: 150px;
+        font-weight: 600;
+        top: 200px;
+        left: 215px;
         width: 300px;
-        font-size: 2rem;
+        font-size: 1.1rem;
     }
 
     .link-box-container {
@@ -158,7 +159,6 @@
         margin-bottom: 1px;
     }
     
-
     .link-box-container a {
         text-decoration: none;
         color: inherit;
