@@ -724,7 +724,6 @@ export default function Survey() {
                 >
                   Select Dietary Restrictions {" "}
                   <p><i>(Ctrl + Click on Windows or Cmd + Click on MacOS to select multiple)</i></p>
-                  <span className="text-red-500">*</span>
                 </label>
                 <select
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
