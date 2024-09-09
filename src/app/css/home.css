@@ -8,7 +8,7 @@
 
 .tenth-logo {
     position: relative; 
-    top: -110px;
+    top: -10%;
     font-size: 1.5rem;
     padding: 5px 10px;
     color: #fff;
@@ -24,13 +24,13 @@
     align-items: center;
     justify-items: center;
     padding-left: 1px; 
-    top: -80px;
+    top: -8%;
     right: 8%;
 }
 
 .home-date {
     position: relative;
-    top: 10%;
+    top: 9%;
     transform: translateX(100%) !important;
     color: #ffffff;
     font-size: 1.5rem; 
@@ -127,8 +127,8 @@
 
     .tenth-logo {
         position: absolute; 
-        top: 110px;
-        right: 25px;
+        top: 20%;
+        right: 5%;
         font-size: 1.5rem;
         padding: 5px 10px;
         color: #ffffff;
@@ -137,7 +137,8 @@
     .hack-logo {
         width: 240px; 
         height: auto;
-        margin-bottom: 200px;
+        margin-bottom: 50%;
+        right: -3%;
     }
 
     .footer {
