@@ -39,9 +39,9 @@ export default function FAQ() {
         <div className="faq-content" data-aos= "fade-up">
             <FAQItem
             question="What is hackUMBC?"
-            answer="hackUMBC is a 24-hour hackathon, from September 28th to September 29th, held at the University of Maryland, Baltimore County. 
-            The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design 
-            and create projects of all types."
+            answer="hackUMBC is a 24-hour hackathon, from September 28th to September 29th, held at the University of Maryland, Baltimore County, 
+            in the ITE and ENGR buildings. The event brings students together from different backgrounds and skill levels, all with the goal of 
+            using hardware and software to design and create projects of all types."
             />
             <FAQItem
             question="Who can attend the hackathon?"
