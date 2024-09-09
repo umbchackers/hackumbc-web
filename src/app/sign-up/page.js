@@ -722,7 +722,7 @@ export default function Survey() {
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="dietaryRestrictions"
                 >
-                  Select Dietary Restrictions {" "}
+                  Select Dietary Restrictions {" "} <span className="text-gray-400">(Optional)</span>
                   <p><i>(Ctrl + Click on Windows or Cmd + Click on MacOS to select multiple)</i></p>
                 </label>
                 <select
