@@ -7,23 +7,22 @@
 }
 
 .tenth-logo {
-    position: absolute; 
-    top: 160px;
-    right: 485px;
+    position: relative; 
+    top: -110px;
     font-size: 1.5rem;
     padding: 5px 10px;
     color: #fff;
+    scale: .9;
 }
 
 .hack-logo {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 1px;
-    top: 200px;
-    right: 530px;
+    padding-left: 1px; 
+    top: -80px;
 }
 
 .home-date {
@@ -133,11 +132,9 @@
     }
     
     .hack-logo {
-        top: 160px;
         width: 240px; 
         height: auto;
         margin-bottom: 200px;
-        right: 80px;
     }
 
     .footer {
