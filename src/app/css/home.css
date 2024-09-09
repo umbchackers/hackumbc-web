@@ -18,7 +18,7 @@
     align-items: center;
     justify-items: center;
     padding-left: 1px; 
-    top: -5%;
+    top: -10%;
 }
 
 .text-height {
@@ -46,6 +46,7 @@
     padding: 1rem, 2rem;
     width: 300px;
     height: 140px;
+    top: 30px;
     box-sizing: border-box;
 }
 
