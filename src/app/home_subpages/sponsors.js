@@ -68,6 +68,14 @@ export default function Sponsors() {
                             data-aos= "fade-up"
                         />
                     </a>
+                    <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/northrop.png"
+                            alt="sponsor"
+                            className="sponsors-logo"
+                            data-aos= "fade-up"
+                        />
+                    </a>
                     </SponsorTier>
                     <SponsorTier title="SILVER" iconSrc="/silver.png" data-aos= "fade-up">
                     <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
@@ -125,6 +133,14 @@ export default function Sponsors() {
                     <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png"
+                            alt="sponsor"
+                            className="sponsors-logo"
+                            data-aos= "fade-up"
+                        />
+                    </a>
+                    <a href="https://nightwing.com/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/nightwing.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"

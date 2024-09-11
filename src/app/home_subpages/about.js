@@ -49,7 +49,7 @@ export default function About() {
                 <div className="tracks flex" data-aos="fade-up">
                     <Track
                         title="General"
-                        desc="Whatever you want! These are hacks that don't fit under any specific category."
+                        desc="Whatever you want! These are projects that don't fit under any specific category."
                     >
                         <img
                             src="/sticker1.png"
@@ -59,7 +59,7 @@ export default function About() {
                     </Track>
                     <Track
                         title="Entrepreneurial"
-                        desc="Hacks that focus on learning and education."
+                        desc="Projects that focus on learning and education."
                     >
                         <img
                             src="/sticker2.png"
@@ -69,7 +69,7 @@ export default function About() {
                     </Track>
                     <Track
                         title="Game-Dev"
-                        desc="Hacks that focus on technology and innovation."
+                        desc="Projects that focus on the development of games."
                     >
                         <img
                             src="/sticker3.png"
@@ -79,7 +79,7 @@ export default function About() {
                     </Track>
                     <Track
                         title="Company"
-                        desc="Hacks that focus on technology and innovation."
+                        desc="Projects that focus on company missions and technologies."
                     >
                         <img
                             src="/sticker4.png"
