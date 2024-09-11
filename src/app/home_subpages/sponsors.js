@@ -68,9 +68,9 @@ export default function Sponsors() {
                             data-aos= "fade-up"
                         />
                     </a>
-                    <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://nightwing.com/" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/northrop.png"
+                            src="/nightwing.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
@@ -138,9 +138,9 @@ export default function Sponsors() {
                             data-aos= "fade-up"
                         />
                     </a>
-                    <a href="https://nightwing.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/nightwing.png"
+                            src="/northrop.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
