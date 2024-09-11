@@ -47,7 +47,7 @@ export default function Navbar() {
               offset={-300}
               duration={700}
               smooth="true"
-              href="hackumbc.tech/#home"
+              href="/#home"
             >
               <img className="nav-logo light-mode-text" src="hackLogo24.png" alt="logo" />
             </Link>
