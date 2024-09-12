@@ -63,6 +63,16 @@ export default function Navbar() {
             </Link>
             <Link
               id="left-nav-button"
+              to="about"
+              smooth="true"
+              duration={500}
+              className="nav-link light-mode-text"
+              href="#schedule"
+            >
+              Schedule
+            </Link>
+            <Link
+              id="left-nav-button"
               to="faq"
               offset={0}
               smooth="true"
@@ -70,7 +80,7 @@ export default function Navbar() {
               className="nav-link light-mode-text"
               href="#faq"
             >
-              FAQ
+            FAQ
             </Link>
             <Link
               id="left-nav-button"

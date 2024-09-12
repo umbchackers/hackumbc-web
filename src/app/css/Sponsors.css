@@ -4,7 +4,6 @@
     align-items: center;
     width: 100%;
     min-height: 100vh; /*fills screen*/
-    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%); /*for blend*/
 }
 
 .sponsors-content {

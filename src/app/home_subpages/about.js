@@ -20,8 +20,8 @@ export default function About() {
             <div className="p-4 flex flex-col items-center w-64 rounded-lg border-transparent
              hover:border-white/20 hover:shadow-lg backdrop-blur-sm cursor-default transition-all duration-300 " data-aos="fade-up">
                 {children}
-                <h1 className="text-2xl mb-1 uppercase font-extrabold light-mode-text">{title}</h1> {/* Apply class here */}
-                <p className="text-center mb-5 font-medium light-mode-text">{desc}</p> {/* Apply class here */}
+                <h1 className="text-2xl mb-1 uppercase font-extrabold light-mode-text">{title}</h1> 
+                <p className="text-center mb-5 font-medium light-mode-text">{desc}</p> 
             </div>
         );
     }
@@ -29,7 +29,7 @@ export default function About() {
     return (
         <div className="about-page">
             <div className="about-content">
-                <div className="about-section-title light-mode-text" data-aos="fade-up"> {/* Apply class here */}
+                <div className="about-section-title light-mode-text" data-aos="fade-up"> 
                     <SectionTitle title="ABOUT" />
                 </div>
                 <div className="about-title-subheading light-mode-text" data-aos="fade-up">
@@ -68,18 +68,17 @@ export default function About() {
                         />
                     </Track>
                     <Track
-                        title="Game-Dev"
-                        desc="Projects that focus on the development of games."
-                    >
+                        title="Game-Jam"
+                        desc="Collaboration with Game-Development club for projects that focus on the development of games.">
                         <img
-                            src="/sticker3.png"
+                            src="/game-dev-icon.png"
                             alt="track-image"
                             className="w-36 h-auto"
                         />
                     </Track>
                     <Track
                         title="Company"
-                        desc="Projects that focus on company missions and technologies."
+                        desc="Projects that focus on company missions and technologies"
                     >
                         <img
                             src="/sticker4.png"

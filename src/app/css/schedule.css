@@ -1,0 +1,97 @@
+.schedule-page {
+    padding: 2rem;
+    color: #fff;
+    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column; 
+}
+
+.schedule-title-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%; 
+}
+
+.schedule-section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.schedule-title-subheading {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #d1d5db;
+}
+
+.schedule-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40vh;
+}
+
+thead {
+    background-color: #3b82f6;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: center;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #ffffff; 
+}
+
+tbody tr:nth-child(5) {
+    background-color: #ddc9ff;
+}
+
+tbody tr:nth-child(14) {
+    background-color: #ddc9ff;
+}
+
+tbody tr:nth-child(4) {
+    background-color: #d9ead3;
+}
+
+td {
+    font-size: 0.9rem;
+    font-weight: 1.1rem;
+    color: #000000; 
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 0.75rem;
+    }
+
+    .schedule-title-subheading {
+        font-size: 1rem;
+    }
+}

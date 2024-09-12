@@ -31,7 +31,7 @@ export default function FAQ() {
     }
 
     return (
-        <div className="faq-page [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+        <div className="faq-page">
         <div className="faq-section-title" data-aos="fade-up">
             <SectionTitle title="FAQ"/> {/*sections inside this now changed, some things might need to be fixed*/}
         </div>

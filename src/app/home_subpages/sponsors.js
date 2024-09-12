@@ -19,7 +19,7 @@ export default function Sponsors() {
         return (
             <div className="sponsors-tier-container" data-aos= "fade-up">
                 <h1 className="sponsors-tier-title">
-                    <img src={iconSrc} alt="icon" className="sponsors-icon" /> {/* modified the  titles to include the image icons */}
+                    <img src={iconSrc} alt="icon" className="sponsors-icon" />
                     {title}
                     <img src={iconSrc} alt="icon" className="sponsors-icon" />
                 </h1>
@@ -36,7 +36,9 @@ export default function Sponsors() {
                 <div className="sponsors-section-title" data-aos= "fade-up">
                     <SectionTitle title="SPONSORS" />
                 </div>
-                <div className="sponsors-title-subheading" data-aos="fade-up">hackUMBC 2024 Sponsors</div> {/* added section titles and subheadings */}
+                <div className="sponsors-title-subheading" data-aos="fade-up">
+                    hackUMBC 2024 Sponsors
+                </div>
                 <div className="sponsors-tiers">
                     <SponsorTier title="DIAMOND" iconSrc="/diamond.png" data-aos= "fade-up"> {/* added icons next to each tiers text */}
                     <a href= "https://coeit.umbc.edu/" target="_blank" rel="noopener noreference">
@@ -60,14 +62,6 @@ export default function Sponsors() {
                     </a>
                     </SponsorTier>
                     <SponsorTier title="GOLD" iconSrc="/gold.png" data-aos= "fade-up">
-                    <a href="https://www.boozallen.com/" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/boozallen.png"
-                            alt="sponsor"
-                            className="sponsors-logo"
-                            data-aos= "fade-up"
-                        />
-                    </a>
                     <a href="https://nightwing.com/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/nightwing.png"
@@ -81,6 +75,14 @@ export default function Sponsors() {
                     <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/apl.png"
+                            alt="sponsor"
+                            className="sponsors-logo"
+                            data-aos= "fade-up"
+                        />
+                    </a>
+                    <a href="https://www.ertcorp.com/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/ert.jpg"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
@@ -104,9 +106,9 @@ export default function Sponsors() {
                             data-aos= "fade-up"
                         />
                     </a>
-                    <a href="https://red-drum.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://csee.umbc.edu/" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/RedDrum.png"
+                            src="/CSEE.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
