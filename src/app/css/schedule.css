@@ -1,0 +1,118 @@
+.schedule-page {
+    padding: 2rem;
+    color: #fff;
+    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.schedule-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.schedule-section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.schedule-title-subheading {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #d1d5db;
+}
+
+.schedule-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 150px;
+    justify-content: center;
+}
+
+/*button styles*/
+.schedule-day-switch button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.schedule-day-switch button:hover {
+    color: #00ff15;
+    border-bottom: 3px double #00ff15; 
+}
+
+.tab-button.active-tab {
+    color: #00ffb3;
+    border-bottom: 3px solid #00ffb3; 
+}
+
+table {
+    border-radius: 15px;
+    overflow: hidden; 
+    margin: auto auto;
+}
+
+thead {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: center;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #ffffff; 
+}
+
+td {
+    font-size: 0.9rem;
+    font-weight: 1.1rem;
+    color: #000000;
+}
+
+/*mobile*/
+@media (max-width: 768px) {
+    table {
+        font-size: 0.85rem;
+        scale: .95;
+        margin: auto -5%;
+        width: 100%; 
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 0.75rem;
+    }
+    
+    .schedule-content {
+        margin-bottom: 0px;
+    }
+
+    .schedule-title-subheading {
+        font-size: 1rem;
+    }
+
+    .schedule-day-switch button {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+}

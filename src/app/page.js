@@ -1,7 +1,8 @@
 import Home from "./home_subpages/home.js";
 import About from "./home_subpages/about.js";
-import Sponsors from "./home_subpages/sponsors.js";
+import Schedule from "./home_subpages/schedule.js";
 import FAQ from "./home_subpages/faq.js";
+import Sponsors from "./home_subpages/sponsors.js";
 import Navbar from "./components/navbar.js";
 import Footer from "./components/footer.js";
 
@@ -15,6 +16,9 @@ export default function Main() {
       </div>
       <div id="about">
         <About />
+      </div>
+      <div id="schedule">
+        <Schedule />
       </div>
       <div id="faq">
         <FAQ />
