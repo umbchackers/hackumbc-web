@@ -62,7 +62,7 @@ export default function Sponsors() {
                     </a>
                     </SponsorTier>
                     <SponsorTier title="GOLD" iconSrc="/gold.png" data-aos= "fade-up">
-                    <a href="https://nightwing.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://nightwing.us/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/nightwing.png"
                             alt="sponsor"

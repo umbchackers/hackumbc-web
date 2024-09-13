@@ -61,6 +61,12 @@ export default function Home() {
             className="light-mode-text"
           ></LinkBox>
           <LinkBox
+            href="https://hackumbc.typeform.com/to/mJEi1XFx"
+            desc="Interested in gaining experience in event management? Apply to be a volunteer!"
+            title="Volunteer"
+            className="light-mode-text"
+          ></LinkBox>
+          <LinkBox
             href="mailto:sponsor@hackumbc.tech"
             desc="Curious about sponsorship? Click here to email us: sponsor@hackumbc.tech"
             title="Sponsorship"

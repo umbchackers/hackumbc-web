@@ -6,16 +6,16 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .schedule-title-container {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    width: 100%; 
+    width: 100%;
 }
 
 .schedule-section-title {
@@ -34,20 +34,38 @@
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    margin-bottom: 150px;
+    justify-content: center;
+}
+
+/*button styles*/
+.schedule-day-switch button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.schedule-day-switch button:hover {
+    color: #00ff15;
+    border-bottom: 3px double #00ff15; 
+}
+
+.tab-button.active-tab {
+    color: #00ffb3;
+    border-bottom: 3px solid #00ffb3; 
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    overflow: hidden;
-    background-color: #f9fafb;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40vh;
+    border-radius: 15px;
+    overflow: hidden; 
+    margin: auto auto;
 }
 
 thead {
-    background-color: #3b82f6;
     color: white;
     text-transform: uppercase;
     font-size: 1rem;
@@ -64,34 +82,37 @@ tbody tr {
     background-color: #ffffff; 
 }
 
-tbody tr:nth-child(5) {
-    background-color: #ddc9ff;
-}
-
-tbody tr:nth-child(14) {
-    background-color: #ddc9ff;
-}
-
-tbody tr:nth-child(4) {
-    background-color: #d9ead3;
-}
-
 td {
     font-size: 0.9rem;
     font-weight: 1.1rem;
-    color: #000000; 
+    color: #000000;
 }
 
+/*mobile*/
 @media (max-width: 768px) {
     table {
         font-size: 0.85rem;
+        scale: .95;
+        margin: auto -5%;
+        width: 100%; 
+        border-radius: 5px;
+        overflow: hidden;
     }
 
     th, td {
         padding: 0.75rem;
     }
+    
+    .schedule-content {
+        margin-bottom: 0px;
+    }
 
     .schedule-title-subheading {
         font-size: 1rem;
+    }
+
+    .schedule-day-switch button {
+        font-size: 0.85rem;
+        padding: 0.5rem;
     }
 }

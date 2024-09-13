@@ -114,6 +114,9 @@ export default function Navbar() {
               <Link href="#about" className="light-mode-text">About</Link>
             </li>
             <li>
+              <Link href="#schedule" className="light-mode-text">Schedule</Link>
+            </li>
+            <li>
               <Link href="#faq" className="light-mode-text">FAQ</Link>
             </li>
             <li>

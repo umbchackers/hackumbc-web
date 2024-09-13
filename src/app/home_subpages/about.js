@@ -68,20 +68,20 @@ export default function About() {
                         />
                     </Track>
                     <Track
-                        title="Game-Jam"
-                        desc="Collaboration with Game-Development club for projects that focus on the development of games.">
-                        <img
-                            src="/game-dev-icon.png"
-                            alt="track-image"
-                            className="w-36 h-auto"
-                        />
-                    </Track>
-                    <Track
                         title="Company"
                         desc="Projects that focus on company missions and technologies"
                     >
                         <img
                             src="/sticker4.png"
+                            alt="track-image"
+                            className="w-36 h-auto"
+                        />
+                    </Track>
+                    <Track
+                        title="Game-Jam"
+                        desc="Collaboration with Game-Development club for projects that focus on the development of games.">
+                        <img
+                            src="/game-dev-icon.png"
                             alt="track-image"
                             className="w-36 h-auto"
                         />

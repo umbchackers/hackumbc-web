@@ -135,8 +135,8 @@
 
     .link-box-container {
         position: relative;
-        top: 110px !important; 
-        scale: .6;
+        top: 130px !important; 
+        scale: .5;
         height: 175px;
         width: 500px !important;    
         display: flex;
@@ -145,7 +145,7 @@
         width: 100%;         
         border-radius: 7rem !important;
         justify-content: center;
-        margin: -50px;
+        margin: -70px;
         margin-bottom: 1px;
     }
     
