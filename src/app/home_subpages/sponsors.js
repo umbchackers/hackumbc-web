@@ -90,7 +90,7 @@ export default function Sponsors() {
                     </a>
                     <a href="https://cwit.umbc.edu/alex-brown-center/" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/alexbrowncenter.jpg"
+                            src="/alexbrowncenter2.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"

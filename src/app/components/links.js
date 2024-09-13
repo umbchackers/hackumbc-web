@@ -91,7 +91,7 @@ export default function LinkBox({ href, title, desc }) {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'rgba(255, 255, 255, 0.2)',
+          background: 'linear-gradient(to right, #16c99f, #4400fa)',
           zIndex: -1,
           transition: 'top 0.5s ease',
         }}
