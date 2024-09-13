@@ -93,7 +93,6 @@ td {
     table {
         font-size: 0.85rem;
         scale: .95;
-        margin: auto -5%;
         width: 100%; 
         border-radius: 5px;
         overflow: hidden;
@@ -114,5 +113,17 @@ td {
     .schedule-day-switch button {
         font-size: 0.85rem;
         padding: 0.5rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    table {
+        font-size: 0.85rem;
+        scale: .95;
+        margin: auto -5%;
+        width: 100%; 
+        border-radius: 5px;
+        overflow: hidden;
     }
 }
