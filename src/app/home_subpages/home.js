@@ -51,7 +51,8 @@ export default function Home() {
           width={800}
           height={800}
           priority
-          data-aos="fade-in"  
+          data-aos="fade-in"
+          data-aos-duration="400"  
         />
         <div className="footer light-mode-text" data-aos="fade-in">
           <LinkBox
