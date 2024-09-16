@@ -43,7 +43,7 @@ export default function Sponsors() {
                     <SponsorTier title="DIAMOND" iconSrc="/diamond.png" data-aos= "fade-up"> {/* added icons next to each tiers text */}
                     <a href= "https://coeit.umbc.edu/" target="_blank" rel="noopener noreference">
                         <img
-                            src="/UMBC-COEIT.png"
+                            src="/coeit.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos="fade-up"
@@ -90,7 +90,7 @@ export default function Sponsors() {
                     </a>
                     <a href="https://cwit.umbc.edu/alex-brown-center/" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/alexbrowncenter2.png"
+                            src="/alexbrowncenter.png"
                             alt="sponsor"
                             className="sponsors-logo"
                             data-aos= "fade-up"
