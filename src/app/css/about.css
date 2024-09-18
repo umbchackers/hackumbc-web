@@ -58,6 +58,7 @@
 .tracks img {
     width: 150px;
     display: block;
+    padding-bottom: 3vh;
     /*make images bigger for desktop*/
 }
 

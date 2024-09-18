@@ -79,9 +79,9 @@ export default function About() {
                     </Track>
                     <Track
                         title="Game-Jam"
-                        desc="Collaboration with Game-Development club for projects that focus on the development of games.">
+                        desc="Collaboration with Game-Development club for projects that focus on game dev.">
                         <img
-                            src="/game-dev-icon.png"
+                            src="/gamedevlogo.png"
                             alt="track-image"
                             className="w-36 h-auto"
                         />
