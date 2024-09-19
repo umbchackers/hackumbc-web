@@ -88,7 +88,7 @@ export default function Sponsors() {
                             data-aos= "fade-up"
                         />
                     </a>
-                    <a href="https://cwit.umbc.edu/alex-brown-center/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://entrepreneurship.umbc.edu/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/alexbrowncenter.png"
                             alt="sponsor"
