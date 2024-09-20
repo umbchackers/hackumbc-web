@@ -45,12 +45,13 @@ export default function FAQ() {
             />
             <FAQItem
             question="Who can attend the hackathon?"
-            answer="We invite any highschool or undergraduate student to participate in hackUMBC! 
-            You do not need to be enrolled at UMBC to attend, but the event will be taking place at the university."
+            answer="We invite any highschool, undergraduate, or graduate students to participate in hackUMBC! 
+            You do not need to be enrolled at UMBC to attend, but the event will be taking place at the University, 
+            in the ITE and ENGR buildings."
             />
             <FAQItem
             question="How do I register?"
-            answer="You can register by filling out the type form, by clicking the registration button on the home page of this site! 
+            answer="You can register by filling out the registration form, by clicking the registration button on the home page of this site! 
             You will need your government issued, or student ID, and you will also have the option of submitting your resume!"
             />
             <FAQItem
