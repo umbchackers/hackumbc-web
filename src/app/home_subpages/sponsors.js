@@ -96,6 +96,14 @@ export default function Sponsors() {
                             data-aos= "fade-up"
                         />
                     </a>
+                    <a href="https://boozallen.com/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/BAH.png"
+                            alt="sponsor"
+                            className="sponsors-logo"
+                            data-aos= "fade-up"
+                        />
+                    </a>
                     </SponsorTier>
                     <SponsorTier title="BRONZE" iconSrc="/bronze.png" data-aos= "fade-up">
                     <a href="https://cwit.umbc.edu/" target="_blank" rel="noopener noreferrer">
