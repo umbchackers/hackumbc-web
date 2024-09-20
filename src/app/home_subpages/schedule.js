@@ -123,7 +123,7 @@ export default function Schedule() {
                         <td className="border-b py-3 px-6">TBD</td>
                     </tr>
                     <tr>
-                        <td className="border-b py-3 px-6">11:00pm</td>
+                        <td className="border-b py-3 px-6">11:00am</td>
                         <td className="border-b py-3 px-6">Begin Hack Submissions!</td>
                         <td className="border-b py-3 px-6">ITE/ENGR</td>
                     </tr>
