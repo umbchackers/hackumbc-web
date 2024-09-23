@@ -5,8 +5,9 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
+    align-items: center;
 }
 
 .schedule-title-container {
@@ -36,6 +37,7 @@
     text-align: center;
     margin-bottom: 150px;
     justify-content: center;
+    align-items: center;
 }
 
 /*button styles*/
@@ -60,9 +62,12 @@
 }
 
 table {
+    width: 100%;
+    border-collapse: collapse; /* ensures the table behaves properly */
     border-radius: 15px;
     overflow: hidden; 
-    margin: auto auto;
+    margin: auto;
+    table-layout: fixed; /* makes sure columns have equal widths */
 }
 
 thead {
@@ -87,6 +92,21 @@ td {
     font-weight: 1.1rem;
     color: #000000;
 }
+
+/* COLUMN BALANCING (for reference next year lolz) */
+th:nth-child(1), td:nth-child(1) {
+    width: 25%; 
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 50%;
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 25%;
+}
+
+/*makes sure event tab is larger, while the other columns stay the same size*/
 
 /*mobile*/
 @media (max-width: 768px) {
@@ -116,12 +136,11 @@ td {
     }
 }
 
-
 @media (max-width: 480px) {
     table {
         font-size: 0.85rem;
         scale: .95;
-        margin: auto -5%;
+        margin: auto 0;
         width: 100%; 
         border-radius: 5px;
         overflow: hidden;

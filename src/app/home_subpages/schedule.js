@@ -42,49 +42,44 @@ export default function Schedule() {
                         <td className="border-b py-3 px-6">ITE/ENGR</td>
                     </tr>
                     <tr style={{ backgroundColor: '#ddc9ff' }}>
-                        <td className="border-b py-3 px-6">1:00pm</td>
+                        <td className="border-b py-3 px-6">12:30pm</td>
                         <td className="border-b py-3 px-6">LUNCH</td>
-                        <td className="border-b py-3 px-6">TBD</td>
+                        <td className="border-b py-3 px-6">ENGR ATRIUM</td>
+                    </tr>
+                    <tr>
+                        <td className="border-b py-3 px-6">1:00pm</td>
+                        <td className="border-b py-3 px-6">Nightwing/ T.Rowe Sponsored Talk</td>
+                        <td className="border-b py-3 px-6">ITE 104</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">1:30pm</td>
-                        <td className="border-b py-3 px-6">Intro to React Workshop</td>
-                        <td className="border-b py-3 px-6">ITE 231/456</td>
+                        <td className="border-b py-3 px-6">Nightwing/ T.Rowe Sponsored Talk</td>
+                        <td className="border-b py-3 px-6">ITE 104</td>
                     </tr>
                     <tr>
-                        <td className="border-b py-3 px-6">2:30pm</td>
-                        <td className="border-b py-3 px-6">Intro to AI Workshop</td>
-                        <td className="border-b py-3 px-6">ITE 231/456</td>
+                        <td className="border-b py-3 px-6">2:15pm</td>
+                        <td className="border-b py-3 px-6">Intro to React Workshop/ Game Dev Workshop</td>
+                        <td className="border-b py-3 px-6">ITE 456/ITE 233</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">3:00pm</td>
-                        <td className="border-b py-3 px-6">Workshop</td>
-                        <td className="border-b py-3 px-6">ITE 231/456</td>
+                        <td className="border-b py-3 px-6">Nightwing Tech Workshop</td>
+                        <td className="border-b py-3 px-6">ITE 233</td>
                     </tr>
                     <tr>
-                        <td className="border-b py-3 px-6">3:30pm</td>
-                        <td className="border-b py-3 px-6">Workshop</td>
-                        <td className="border-b py-3 px-6">ITE 231/456</td>
-                    </tr>
-                    <tr>
-                        <td className="border-b py-3 px-6">4:00pm</td>
-                        <td className="border-b py-3 px-6">Workshop</td>
-                        <td className="border-b py-3 px-6">ITE 231/456</td>
+                        <td className="border-b py-3 px-6">3:45pm</td>
+                        <td className="border-b py-3 px-6">GDSC Workshop/ CyberDawgs Workshop</td>
+                        <td className="border-b py-3 px-6">ITE 233/ITE 456</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">4:30pm</td>
-                        <td className="border-b py-3 px-6">Workshop</td>
-                        <td className="border-b py-3 px-6">ITE 231/456</td>
+                        <td className="border-b py-3 px-6">Booz Allen Workshop/ SWE</td>
+                        <td className="border-b py-3 px-6">ITE 233/ITE 456</td>
                     </tr>
                     <tr>
-                        <td className="border-b py-3 px-6">5:00pm</td>
-                        <td className="border-b py-3 px-6">Workshop</td>
-                        <td className="border-b py-3 px-6">ITE 231/456</td>
-                    </tr>
-                    <tr>
-                        <td className="border-b py-3 px-6">5:30pm</td>
-                        <td className="border-b py-3 px-6">Workshop</td>
-                        <td className="border-b py-3 px-6">ITE 231/456</td>
+                        <td className="border-b py-3 px-6">5:15pm</td>
+                        <td className="border-b py-3 px-6">Linux Users Group Workshop/ Resume Workshop</td>
+                        <td className="border-b py-3 px-6">ITE 233/ITE 456</td>
                     </tr>
                     <tr style={{ backgroundColor: '#ddc9ff' }}>
                         <td className="border-b py-3 px-6">6:00pm</td>
@@ -94,22 +89,27 @@ export default function Schedule() {
                     <tr>
                         <td className="border-b py-3 px-6">8:00pm</td>
                         <td className="border-b py-3 px-6">Smash Tournament</td>
-                        <td className="border-b py-3 px-6">TBD</td>
+                        <td className="border-b py-3 px-6">ITE 233</td>
                     </tr>
                     <tr>
-                        <td className="border-b py-3 px-6">9:00pm</td>
-                        <td className="border-b py-3 px-6">Night Snack</td>
-                        <td className="border-b py-3 px-6">TBD</td>
+                        <td className="border-b py-3 px-6">8:30pm</td>
+                        <td className="border-b py-3 px-6">MLH</td>
+                        <td className="border-b py-3 px-6">ITE 456</td>
+                    </tr>
+                    <tr>
+                        <td className="border-b py-3 px-6">9:30pm</td>
+                        <td className="border-b py-3 px-6">Spaghetti Tower Competition</td>
+                        <td className="border-b py-3 px-6">ITE 456</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">10:00pm</td>
-                        <td className="border-b py-3 px-6">Cup Stacking</td>
-                        <td className="border-b py-3 px-6">TBD</td>
+                        <td className="border-b py-3 px-6">Late Night Snack</td>
+                        <td className="border-b py-3 px-6">ITE Second Floor</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">11:00pm</td>
-                        <td className="border-b py-3 px-6">Jam Session</td>
-                        <td className="border-b py-3 px-6">TBD</td>
+                        <td className="border-b py-3 px-6">Just Dance Session</td>
+                        <td className="border-b py-3 px-6">ITE 456</td>
                     </tr>
                 </tbody>
             );
@@ -120,42 +120,42 @@ export default function Schedule() {
                     <tr style={{ backgroundColor: '#ddc9ff' }}>
                         <td className="border-b py-3 px-6">9:00am</td>
                         <td className="border-b py-3 px-6">BREAKFAST</td>
-                        <td className="border-b py-3 px-6">TBD</td>
+                        <td className="border-b py-3 px-6">ENGR ATRIUM</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">11:00am</td>
                         <td className="border-b py-3 px-6">Begin Hack Submissions!</td>
-                        <td className="border-b py-3 px-6">ITE/ENGR</td>
+                        <td className="border-b py-3 px-6">ITE Second Floor</td>
                     </tr>
                     <tr style={{ backgroundColor: '#d9ead3' }}>
                         <td className="border-b py-3 px-6">12:00pm</td>
                         <td className="border-b py-3 px-6">Hacking Ends!</td>
-                        <td className="border-b py-3 px-6">ITE/ENGR</td>
+                        <td className="border-b py-3 px-6">ITE Second Floor</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">12:30pm</td>
                         <td className="border-b py-3 px-6">Submissions End</td>
-                        <td className="border-b py-3 px-6">ITE/ENGR</td>
+                        <td className="border-b py-3 px-6">ITE Second Floor</td>
                     </tr>
                     <tr style={{ backgroundColor: '#ddc9ff' }}>
                         <td className="border-b py-3 px-6">1:00pm</td>
                         <td className="border-b py-3 px-6">LUNCH</td>
-                        <td className="border-b py-3 px-6">TBD</td>
+                        <td className="border-b py-3 px-6">ENGR ATRIUM</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">2:00pm</td>
                         <td className="border-b py-3 px-6">Expo Begins</td>
-                        <td className="border-b py-3 px-6">TBD</td>
+                        <td className="border-b py-3 px-6">UC Ballroom</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">3:30pm</td>
                         <td className="border-b py-3 px-6">Expo Ends</td>
-                        <td className="border-b py-3 px-6">TBD</td>
+                        <td className="border-b py-3 px-6">UC Ballroom</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">4:00pm</td>
                         <td className="border-b py-3 px-6">Closing Ceremony</td>
-                        <td className="border-b py-3 px-6">ITE 104/102</td>
+                        <td className="border-b py-3 px-6">UC Ballroom</td>
                     </tr>
                 </tbody>
             );
