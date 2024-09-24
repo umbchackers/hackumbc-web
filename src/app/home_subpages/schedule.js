@@ -48,12 +48,12 @@ export default function Schedule() {
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">1:00pm</td>
-                        <td className="border-b py-3 px-6">Nightwing/ T.Rowe Sponsored Talk</td>
+                        <td className="border-b py-3 px-6">T.Rowe Price Sponsored Talk</td>
                         <td className="border-b py-3 px-6">ITE 104</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">1:30pm</td>
-                        <td className="border-b py-3 px-6">Nightwing/ T.Rowe Sponsored Talk</td>
+                        <td className="border-b py-3 px-6">Nightwing Sponsored Talk</td>
                         <td className="border-b py-3 px-6">ITE 104</td>
                     </tr>
                     <tr>
@@ -63,12 +63,12 @@ export default function Schedule() {
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">3:00pm</td>
-                        <td className="border-b py-3 px-6">Nightwing Tech Workshop</td>
+                        <td className="border-b py-3 px-6">Nightwing Workshop: "Hack My Hat"</td>
                         <td className="border-b py-3 px-6">ITE 233</td>
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">3:45pm</td>
-                        <td className="border-b py-3 px-6">GDSC Workshop/ CyberDawgs Workshop</td>
+                        <td className="border-b py-3 px-6">GDSC Workshop / Cybersecurity for Beginners: CyberDawgs Workshop</td>
                         <td className="border-b py-3 px-6">ITE 233/ITE 456</td>
                     </tr>
                     <tr>
