@@ -78,7 +78,7 @@ export default function Schedule() {
                     </tr>
                     <tr>
                         <td className="border-b py-3 px-6">5:15pm</td>
-                        <td className="border-b py-3 px-6">Linux Users Group Workshop/ Resume Workshop</td>
+                        <td className="border-b py-3 px-6">Linux Users Group Workshop/ Resume Review & Creation Workshop</td>
                         <td className="border-b py-3 px-6">ITE 233/ITE 456</td>
                     </tr>
                     <tr style={{ backgroundColor: '#ddc9ff' }}>
