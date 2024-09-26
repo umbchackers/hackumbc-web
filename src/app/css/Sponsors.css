@@ -123,11 +123,11 @@
 @media (max-width: 768px) {
 
     .sponsors-tiers {
-        grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
-        gap: 20px; /* Adjust gap as needed */
-        padding: 20 0px; /* Remove specific padding-right */
-        max-width: none; /* Allow full width */
-        scale: .85; /* Remove scaling */
+        grid-template-columns: repeat(2, 1fr); /* two columns of equal width */
+        gap: 20px; /* adjust gap as needed */
+        padding: 20 0px; /* remove specific padding-right */
+        max-width: none; /* allow full width */
+        scale: .85; /* emove scaling */
         justify-items: center;
         align-items: center;
         justify-content: center;
@@ -135,12 +135,12 @@
 
     .sponsors-tier-container {
         width: 200px;
-        height: 300px;
+        height: 400px;
         /*adjusting spacing for grids on mobile*/
     }
 
     .sponsors-content {
-        width: 100%; /* Ensure full width usage */
+        width: 100%; /*ensure full width usage */
     }
 
     .sponsors-icon {

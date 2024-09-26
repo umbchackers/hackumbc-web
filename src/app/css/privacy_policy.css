@@ -1,0 +1,90 @@
+.privacy-policy-page {
+    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.privacy-policy-content {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.privacy-policy-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.hidden-message {
+    color: #12f32c;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+a {
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.special-text {
+    color: #00ffe1;
+    font-weight: 600;
+}
+
+.nav-link{
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    #hamburger-nav.hamburger-menu {
+        display: none;
+    }
+    /*hide logo and hamburger menu on form mobile view*/    
+
+    .privacy-policy-page {
+        width: 100%;
+        padding: 10vh 5vw;
+    }
+
+    .privacy-policy-content {
+        width: 90%;
+    }
+
+    .privacy-policy-content p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .hidden-message {
+        font-size: 18px;
+    }
+}
+
+.light-mode-text {
+    color: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+    .light-mode-text {
+        color: #fff;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .light-mode-text {
+        color: inherit;
+    }
+}
