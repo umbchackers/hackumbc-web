@@ -1,3 +1,37 @@
+.popup-notification {
+    position: fixed; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); /* center it*/
+    background-color: white;
+    color: black; 
+    padding: 15px 30px; 
+    border: 2px solid #46df77;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    border-radius: 0;
+    z-index: 9999;
+    font-size: 1rem;
+    text-align: center;
+    animation: fadeInOut 3s ease-in-out; 
+    max-width: 90%;
+  }
+  /*pop up noti itself*/
+  
+  .top-center {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* for position of pop up */
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+/* animation of pop up*/
+
 .formBox {
     background: rgba(255, 255, 255, 0);
     border-radius: 16px;

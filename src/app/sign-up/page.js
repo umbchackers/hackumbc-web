@@ -17,7 +17,7 @@ export default function Survey() {
   const [isNonUniStudent, setIsNonUniStudent] = useState(true);
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [otherSchool, setOtherSchool] = useState("");
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
   const [isAgreed2, setIsAgreed2] = useState(false);
   const [shareEmail, setShareEmail] = useState(false);
@@ -46,6 +46,15 @@ export default function Survey() {
       setIsOtherSelected(false);
     }
   };
+
+  const PopupNotification = ({ message, position }) => {
+    return (
+      <div className={`popup-notification ${position}`}>
+        {message}
+      </div>
+    );
+  };  
+  /*pop up noti */
 
   useEffect(() => {
     fetch("/mlh_schools.csv")
@@ -114,6 +123,12 @@ export default function Survey() {
       setSavedData(data);
       setError(null);
 
+      //pop up
+      setIsSubmitted(true);  // pop-up appears
+      setTimeout(() => {
+        setIsSubmitted(false);  // pop-up disappears after 3 seconds
+      }, 3000);
+
       setTimeout(() => {
         setLoading(false);
         setIsSubmitting(false);
@@ -131,6 +146,8 @@ export default function Survey() {
 
   return (
     <>
+      {isSubmitted && <PopupNotification message="Form submitted successfully!" position="top-center" />}
+      {/* for the pop up^ */}
       <Navbar />
       <div className="sign-up bg-scroll [background:radial-gradient(60%_100%_at_50%_10%,#000_35%,#60e_70%)]">
         <div className="flex justify-center items-center min-h-screen">
