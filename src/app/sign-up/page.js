@@ -5,7 +5,7 @@ import Image from "next/image";
 import Navbar from "../components/navbar";
 import Papa from "papaparse";
 // import PhoneInput from "react-phone-input-2";
-// import "react-phone-input-2/lib/style.css";
+// import "react-phone-input-2/lib/style.css";`
 import "../globals.css";
 
 export default function Survey() {
@@ -146,7 +146,7 @@ export default function Survey() {
 
   return (
     <>
-      {isSubmitted && <PopupNotification message="Form submitted successfully!" position="top-center" />}
+      {savedData && isSubmitted && <PopupNotification message="Form submitted successfully!" position="top-center" />}
       {/* for the pop up^ */}
       <Navbar />
       <div className="sign-up bg-scroll [background:radial-gradient(60%_100%_at_50%_10%,#000_35%,#60e_70%)]">
