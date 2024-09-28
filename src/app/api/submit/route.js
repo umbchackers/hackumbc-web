@@ -7,7 +7,7 @@ const AWS = require("aws-sdk");
 import { EmailTemplate } from './EmailTemplate';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend("re_B4dcYpEE_8QgiYQCBnP3Mf6FLoiJErNBB");
 
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
 const s3 = new S3Client({
