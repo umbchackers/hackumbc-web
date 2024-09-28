@@ -56,8 +56,8 @@ export default function Home() {
         />
         <div className="footer light-mode-text" data-aos="fade-in">
           <LinkBox
-            href="sign-up"
-            desc="Sign up and join us for the 10th anniversary @ hackUMBC September 28th and 29th!"
+            href="#home"
+            desc="Sign up is now closed, due to capacity limitations, sorry!"
             title="Registration"
             className="light-mode-text"
           ></LinkBox>
