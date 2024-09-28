@@ -4,6 +4,10 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { v4 as uuidv4 } from "uuid";
 // import { AWS } from 'aws-sdk';
 const AWS = require("aws-sdk");
+import { EmailTemplate } from './EmailTemplate';
+import { Resend } from 'resend';
+
+const resend = new Resend("re_B4dcYpEE_8QgiYQCBnP3Mf6FLoiJErNBB");
 
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
 const s3 = new S3Client({
@@ -66,23 +70,67 @@ export async function POST(request) {
       params["Item"][key] = { S: value };
     }
 
-    data["registration_time"] = new Date().toISOString();
-    params["Item"]["registration_time"] = { S: new Date().toISOString() };
+    const registration_time = new Date().toISOString();
+    data["registration_time"] = registration_time;
+    params["Item"]["registration_time"] = { S: registration_time };
     console.log(data);
     console.log(params);
 
     dynamodb.putItem(params, (err, d) => {
       if (err) {
-        console.log("Error", err);
+        console.error("Error" + err);
+        return NextResponse.json(
+          { error: "Failed to handle form data." },
+          { status: 500 }
+        )
       } else {
         console.log("Success", d);
       }
     });
 
-    return NextResponse.json(
-      { message: "Form data sent successfully!", data },
-      { status: 200 }
-    );
+    try {
+      let result = await dynamodb.getItem({
+        TableName: "hackumbc-registration",
+        Key: {
+          'registration_time': {
+            'S': registration_time
+          }
+        }
+      }).promise();
+      console.log('success');
+      console.log(JSON.stringify(result));
+    }
+    catch(err) {
+      console.error(err);
+    }
+
+    try {
+      const { d, error } = await resend.emails.send({
+        from: 'hackUMBC <send@hackumbc.tech>',
+        to: [data["email"]],
+        subject: 'Get Ready for hackUMBC 2024: Event Details Inside!',
+        react: EmailTemplate({ 
+          firstName: data["firstName"],
+          lastName: data["lastName"],
+          email: data["email"]
+         }),
+      });
+  
+      if (error) {
+        console.error(error);
+        return NextResponse.json({ error }, { status: 500 });
+      }
+  
+      return NextResponse.json(
+        { message: "Form data sent successfully!", d },
+        { status: 200 }
+      );
+    } catch (error) {
+      console.error(error);
+      return NextResponse.json({ error }, { status: 500 });
+    }
+
+    
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json(
@@ -121,7 +169,7 @@ const sendResume = async (file) => {
 
     await upload.done();
     console.log(`File uploaded successfully as ${fileName}`);
-    return uid;
+    return fileName;
   } catch (error) {
     console.error("Error uploading file:", error);
     throw error;
