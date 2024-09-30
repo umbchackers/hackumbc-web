@@ -56,8 +56,8 @@ export default function Home() {
         />
         <div className="footer light-mode-text" data-aos="fade-in">
           <LinkBox
-            href="#home"
-            desc="Sign up is now closed, due to capacity limitations, sorry!"
+            href="sign-up"
+            desc="hackUMBC 2024 is now over, but the form is still viewable, for future reference!"
             title="Registration"
             className="light-mode-text"
           ></LinkBox>
