@@ -55,12 +55,12 @@ export default function Home() {
           data-aos-duration="400"  
         />
         <div className="footer light-mode-text" data-aos="fade-in">
-          <LinkBox
+          {/* <LinkBox
             href="sign-up"
             desc="hackUMBC 2024 is now over, but the form is still viewable, for future reference!"
             title="Registration"
             className="light-mode-text"
-          ></LinkBox>
+          ></LinkBox> */}
           <LinkBox
             href="https://hackumbc-fall-2024.devpost.com/"
             desc="Click this to go to the Devpost, where you can view logistics for projects, teams, and prizes!"
