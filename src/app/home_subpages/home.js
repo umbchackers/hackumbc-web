@@ -57,7 +57,7 @@ export default function Home() {
         <div className="footer light-mode-text" data-aos="fade-in">
           {<LinkBox
             href="https://hackumbc.typeform.com/to/zBg8SfON"
-            desc="hackUMBC 2024 is now over, but register to be an Organizer for 2025 by November 11th!"
+            desc="hackUMBC 2024 is now over, but register to be an Organizer for 2025 by November 10th!"
             title="Registration"
             className="light-mode-text"
           ></LinkBox>}
