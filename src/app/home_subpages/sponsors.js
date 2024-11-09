@@ -32,13 +32,13 @@ export default function Sponsors() {
 
     return (
         <div className="sponsors-page">
+            <div className="sponsors-section-title" data-aos= "fade-up">
+                <SectionTitle title="SPONSORS" />
+            </div>
+            <div className="sponsors-title-subheading" data-aos="fade-up">
+                hackUMBC 2024 Sponsors
+            </div>
             <div className="sponsors-content" >
-                <div className="sponsors-section-title" data-aos= "fade-up">
-                    <SectionTitle title="SPONSORS" />
-                </div>
-                <div className="sponsors-title-subheading" data-aos="fade-up">
-                    hackUMBC 2024 Sponsors
-                </div>
                 <div className="sponsors-tiers">
                     <SponsorTier title="DIAMOND" iconSrc="/diamond.png" data-aos= "fade-up"> {/* added icons next to each tiers text */}
                     <a href= "https://coeit.umbc.edu/" target="_blank" rel="noopener noreference">

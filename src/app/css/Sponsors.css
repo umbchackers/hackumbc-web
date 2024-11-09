@@ -3,159 +3,167 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh; /*fills screen*/
+    min-height: 100vh;
     background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
-}
-
-.sponsors-content {
-    width: 90%;
-    padding: 5vh 2vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; 
 }
 
 .sponsors-section-title {
     text-align: center;
     margin-bottom: 15px;
     color: #fff;
-  }
-  
+}
+
+.sponsors-title-subheading {
+    text-align: center;
+    color: #fff;
+}
+
+.sponsors-content {
+    width: 90%;
+    max-width: 1200px;
+    padding: 2vw;
+    margin-top: -30px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 60px;
+}
+
+.sponsors-tier-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 100%;
+    margin: 20px auto; 
+    background-color: rgb(49, 0, 101);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow: hidden; 
+    border: 3px solid #ffffff; 
+    /* white line divider between tiers */
+}
+
+.sponsors-tier-title {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
 .sponsors-title-subheading {
     text-align: center;
     margin-bottom: 25px;
     color: #fff;
 }
 
-.sponsors-tiers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* wanted 3 columns each row, since we have 6 tiers*/
-    gap: 30px;
-    justify-items: center;
-    width: 100%;
-    max-width: 1200px; /*limited the max width to center*/
-}
-
-.sponsors-tier-container {
-    background: rgb(48, 12, 139);
-    border-radius: 10px;
-    padding: 30px;
-    width: 100%;
-    max-width: 350px; /*adjust to fit stuff in grid if need be*/
-    text-align: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.424),
-    inset 0 0 10px rgb(255, 255, 255, 0.424);
-    /*adding soft glow to make content pop more*/
-}
-
-.sponsors-tier-container:hover { 
-    scale: 1.05;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
-    inset 0 0 10px rgb(255, 255, 255),
-    /*adding soft glow to make content pop more*/
-}
-
-.sponsors-tier-title {
-    font-size: 1.75rem; 
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    /*added space and alignment for icons*/
-}
-
 .sponsors-icon {
-    width: 50px;
-    height: 50px;
-    vertical-align: middle;
-    border-radius: 30px;
-    /*added icons next to text for each sponsor*/
+    width: 30px;
+    height: 30px;
 }
 
 .sponsors-logos {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 40px;
+    padding: 10px 0;
+    flex-wrap: wrap; /* allow logos to wrap onto the next line */
+    overflow-x: hidden;
+    overflow-y: hidden; 
 }
 
 .sponsors-logo {
-    max-width: 150px;
-    max-height: 1000px; 
-    width: 100%;
-    height: auto;
-    transition: all 1s ease-in-out;
+    max-width: auto;
+    height: 7vh;
+    transition: transform 0.3s ease;
+    scale: 1;
 }
 
 .sponsors-logo:hover {
-    scale: 1.2;
-    cursor: pointer;
-}
-
-.sticker-logo {
-    width: 150px;
-    height: 80px;
-    background: url('/sticker.png') no-repeat center center;
-    background-size: contain;
-    transition: transform 0.3s ease;
-}
-
-.sticker-logo:hover {
-    transform: scale(1.1);
-}
-
-@media (max-width: 1200px) {
-    .sponsors-icon {
-        width: 30px;
-        height: 30px;
-    }
-    .sponsors-tier-title {
-        font-size: 1.2rem;
-    }
+    scale: 1.1;
 }
 
 @media (max-width: 768px) {
 
-    .sponsors-tiers {
-        grid-template-columns: repeat(2, 1fr); /* two columns of equal width */
-        gap: 20px; /* adjust gap as needed */
-        padding: 20 0px; /* remove specific padding-right */
-        max-width: none; /* allow full width */
-        scale: .85; /* emove scaling */
-        justify-items: center;
-        align-items: center;
-        justify-content: center;
+    .sponsors-section-title {
+        margin-top: -10px;
     }
 
-    .sponsors-tier-container {
-        width: 200px;
-        height: 400px;
-        /*adjusting spacing for grids on mobile*/
+    .sponsors-tier-page {
+        scale: .95;
     }
 
     .sponsors-content {
-        width: 100%; /*ensure full width usage */
+        margin-top: -10px;
+    }
+
+    .sponsors-tier-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .sponsors-logo {
+        max-width: 80px; 
+        height: auto; 
+    }
+
+    .sponsors-logos {
+        gap: 30px; 
+    }
+
+    .sponsors-tier-container {
+        width: 100%;
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .sponsors-title-subheading {
+        margin-bottom: 15px;
+    }
+
+    .sponsors-content {
+        width: 100%;
+    }
+
+    .sponsors-section-title {
+        padding-top: 15px;
     }
 
     .sponsors-icon {
-        width: 30px;
-        height: 30px;
-        vertical-align: middle;
-        border-radius: 30px;
+        width: 25px;
+        height: 25px;
     }
-    
+}
+
+@media (max-width: 480px) {
+
+    .sponsors-content {
+        scale: .95;
+    }
+
+    .sponsors-tier-container {
+        scale: 1;
+    }
+
+    .sponsors-logos {
+        gap: 20px;
+        scale: 1;
+    }
+
     .sponsors-logo {
-        max-width: 80px;
-        max-height: 80px;
+        max-width: 70px;
     }
-    
+
     .sponsors-tier-title {
         font-size: 1rem;
+    }
+
+    .sponsors-title-subheading {
+        margin-bottom: 10px;
     }
 }
