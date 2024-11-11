@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import SectionTitle from "../components/title";
 
 export default function Schedule() {
-    const [activeDay, setActiveDay] = useState('September 28th');  
+    const [activeDay, setActiveDay] = useState('TBD');  
 
     useEffect(() => {
         AOS.init({
@@ -17,7 +17,7 @@ export default function Schedule() {
     }, []);
 
     const renderSchedule = () => {
-        if (activeDay === 'September 28th') {
+        if (activeDay === '') {
             return (
                 <tbody className="text-blue-900">   
                     {/*September 28th Schedule*/}
@@ -113,7 +113,7 @@ export default function Schedule() {
                     </tr>
                 </tbody>
             );
-        } else if (activeDay === 'September 29th') {
+        } else if (activeDay === '') {
             return (
                 <tbody className="text-blue-900">
                     {/*September 29th schedule*/}
@@ -169,7 +169,7 @@ export default function Schedule() {
                     <SectionTitle title="SCHEDULE"/>
                 </div>
                 <div className="schedule-title-subheading light-mode-text" data-aos="fade-up">
-                    hackUMBC 2024 Schedule
+                    hackUMBC 2025 Schedule
                 </div>
                     {/*table*/}
                     <div className="overflow-x-hidden mt-4" data-aos="fade-up">
@@ -179,16 +179,16 @@ export default function Schedule() {
                             <th colSpan="3" className="py-3 px-6">
                                 <div className="schedule-day-switch tab-nav">
                                 <button 
-                                    className={`tab-button ${activeDay === 'September 28th' ? 'active-tab' : ''}`} 
-                                    onClick={() => setActiveDay('September 28th')}
+                                    className={`tab-button ${activeDay === 'TBD' ? 'active-tab' : ''}`} 
+                                    onClick={() => setActiveDay('TBD')}
                                 >
-                                    September 28th
+                                    TBD
                                 </button>
                                 <button 
-                                    className={`tab-button ${activeDay === 'September 29th' ? 'active-tab' : ''}`} 
-                                    onClick={() => setActiveDay('September 29th')}
+                                    className={`tab-button ${activeDay === 'TBD2' ? 'active-tab' : ''}`} 
+                                    onClick={() => setActiveDay('TBD2')}
                                 >
-                                    September 29th
+                                    TBD2
                                 </button>
                                 </div>
                             </th>

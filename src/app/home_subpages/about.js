@@ -37,7 +37,7 @@ export default function About() {
                 </div>
                 <div className="about-text light-mode-text" data-aos="fade-up">
                     <p>
-                        Join hackUMBC for the 10th anniversary of our 24-hour hackathon event where we compete to bring our innovation to life! 
+                        Join hackUMBC for the 11th year of our 24-hour hackathon event where we compete to bring our innovation to life! 
                         Team up with students and develop your skills in our workshop sessions!
                     </p>
                     <br/>
