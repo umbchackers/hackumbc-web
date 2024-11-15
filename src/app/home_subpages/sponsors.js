@@ -151,7 +151,7 @@ export default function Sponsors() {
                     <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/northrop.png"
-                            alt="sponsor"
+                            alt="sponsors"
                             className="sponsors-logo"
                             data-aos= "fade-up"
                         />
