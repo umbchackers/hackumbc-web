@@ -25,4 +25,4 @@ Version Control:
 Git and GitHub
 
 Contact
-For questions, feedback, or contributions, please contact the hackUMBC Tech Team at hackumbc@umbc.edu.
+For questions, feedback, or contributions, please contact the hackUMBC Tech Team at hackumbc@gmail.com.
