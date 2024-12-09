@@ -1,6 +1,6 @@
 About:
 
-Welcome to the official repository for the hackUMBC Website, the primary digital platform for hackUMBC, a student-led hackathon at the University of Maryland, Baltimore County (UMBC). This repository contains all the code, assets, and configuration needed to maintain and enhance the website for hackUMBC events, updates, and sponsorships.
+Welcome to the official repository for the hackUMBC Website, hackumbc.tech, the primary digital platform for hackUMBC, a student-led hackathon at the University of Maryland, Baltimore County (UMBC). This repository contains all the code, assets, and configuration needed to maintain and enhance the website for hackUMBC events, updates, and sponsorships.
 
 Features:
 
