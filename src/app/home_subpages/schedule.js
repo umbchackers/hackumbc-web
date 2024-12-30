@@ -17,7 +17,7 @@ export default function Schedule() {
     }, []);
 
     const renderSchedule = () => {
-        if (activeDay === '') {
+        if (activeDay === 'September 28th') {
             return (
                 <tbody className="text-blue-900">   
                     {/*September 28th Schedule*/}
@@ -113,7 +113,7 @@ export default function Schedule() {
                     </tr>
                 </tbody>
             );
-        } else if (activeDay === '') {
+        } else if (activeDay === 'September 29th') {
             return (
                 <tbody className="text-blue-900">
                     {/*September 29th schedule*/}
@@ -179,16 +179,16 @@ export default function Schedule() {
                             <th colSpan="3" className="py-3 px-6">
                                 <div className="schedule-day-switch tab-nav">
                                 <button 
-                                    className={`tab-button ${activeDay === 'TBD' ? 'active-tab' : ''}`} 
-                                    onClick={() => setActiveDay('TBD')}
+                                    className={`tab-button ${activeDay === 'September 28th' ? 'active-tab' : ''}`} 
+                                    onClick={() => setActiveDay('September 28th')}
                                 >
-                                    TBD
+                                    September 28th
                                 </button>
                                 <button 
-                                    className={`tab-button ${activeDay === 'TBD2' ? 'active-tab' : ''}`} 
-                                    onClick={() => setActiveDay('TBD2')}
+                                    className={`tab-button ${activeDay === 'September 29th' ? 'active-tab' : ''}`} 
+                                    onClick={() => setActiveDay('September 29th')}
                                 >
-                                    TBD2
+                                    September 29th
                                 </button>
                                 </div>
                             </th>
