@@ -34,13 +34,14 @@
     max-width: 1000px;
     height: 100%;
     margin: 20px auto; 
-    background-color: rgb(49, 0, 101);
+    background-color: rgb(48, 12, 139);
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease;
     overflow: hidden; 
     border: 3px solid #ffffff; 
+    box-shadow: 0 0 10px rgba(255, 255, 255);
     /* white line divider between tiers */
 }
 

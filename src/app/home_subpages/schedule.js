@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import SectionTitle from "../components/title";
 
 export default function Schedule() {
-    const [activeDay, setActiveDay] = useState('TBD');  
+    const [activeDay, setActiveDay] = useState('September 28th');  
 
     useEffect(() => {
         AOS.init({
