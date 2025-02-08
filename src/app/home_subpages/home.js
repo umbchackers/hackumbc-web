@@ -55,7 +55,7 @@ export default function Home() {
         <div className="footer light-mode-text" data-aos="fade-in">
           <LinkBox
             href="/sign-up"
-            desc="Want to experience a code rush for the first time? Register for our upcoming 8 hour mini event!"
+            desc="Want to experience a code rush? Register for our upcoming 8 hour mini event!"
             title="Registration"
             className="light-mode-text"
           ></LinkBox>
