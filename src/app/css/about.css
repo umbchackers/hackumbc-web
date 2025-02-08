@@ -68,7 +68,7 @@
     justify-content: center; /*center content*/
     align-items: center;
     min-height: 100vh; /*fill page*/
-    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%); /*for blend*/
+    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); /*for blend*/
 }
 
 .light-mode-text {

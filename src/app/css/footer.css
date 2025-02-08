@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%;
     min-height: 20vh; 
-    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%); /*for blend*/
+    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); /*for blend*/
     padding: 5px 0;
     padding-bottom: 20px;
 }

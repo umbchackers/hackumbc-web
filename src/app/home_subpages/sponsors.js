@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
+import { StarsBackground } from "../components/stars-background";
 
 export default function Sponsors() {
 
@@ -31,16 +32,17 @@ export default function Sponsors() {
     }
 
     return (
-        <div className="sponsors-page">
-            <div className="sponsors-section-title" data-aos= "fade-up">
+        <div className="sponsors-page relative">
+            <StarsBackground className="z-0" />
+            <div className="sponsors-section-title relative z-10" data-aos= "fade-up">
                 <SectionTitle title="SPONSORS" />
             </div>
-            <div className="sponsors-title-subheading" data-aos="fade-up">
+            <div className="sponsors-title-subheading relative z-10" data-aos="fade-up">
                 hackUMBC 2024 Sponsors
             </div>
-            <div className="sponsors-content" >
+            <div className="sponsors-content relative z-10" >
                 <div className="sponsors-tiers">
-                    <SponsorTier title="DIAMOND" iconSrc="/diamond.png" data-aos= "fade-up"> {/* added icons next to each tiers text */}
+                    <SponsorTier title="DIAMOND" iconSrc="/diamond.png" data-aos= "fade-up">
                     <a href= "https://coeit.umbc.edu/" target="_blank" rel="noopener noreference">
                         <img
                             src="/coeit.png"

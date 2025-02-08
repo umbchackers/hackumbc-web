@@ -28,7 +28,7 @@ export default function LinkBox({ href, title, desc }) {
         border: '0.1rem solid transparent',
         borderColor: '#ffffff',
         color: 'white',
-        background: 'linear-gradient(to right, #0da682, #3d208b)',
+        background: '#ba4126',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -91,7 +91,7 @@ export default function LinkBox({ href, title, desc }) {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(to right, #16c99f, #4400fa)',
+          background: '#d64727',
           zIndex: -1,
           transition: 'top 0.5s ease',
         }}

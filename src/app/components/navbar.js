@@ -49,7 +49,7 @@ export default function Navbar() {
               smooth="true"
               href="/#home"
             >
-              <img className="nav-logo light-mode-text" src="hackLogo24.png" alt="logo" />
+              <img className="nav-logo light-mode-text" src="hackumbcdog2025.png" alt="logo" />
             </Link>
             <Link
               id="left-nav-button"

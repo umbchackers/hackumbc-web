@@ -7,7 +7,7 @@
     padding: 10px;
     min-height: 100vh;
     padding-bottom: 20vh;
-    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%); /*for blend*/
+    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); /*for blend*/
   }
   
 
@@ -27,7 +27,7 @@
     max-width: 800px;
     width: 100%;
     padding: 20px;
-    background-color: rgb(48, 12, 139); /*matching background*/
+    background-color: #ba4126; /*matching background*/
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.424),
                 inset 0 0 10px rgba(255, 255, 255, 0.424); 
@@ -67,7 +67,7 @@
   }
   
   .faq-question:hover {
-    background-color: #2fd4ae;
+    background-color: #E9D8A6;
     color: #000;
     border-radius: 8px;
     transition: all linear 0.6s;

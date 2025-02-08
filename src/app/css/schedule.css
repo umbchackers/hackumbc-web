@@ -1,7 +1,7 @@
 .schedule-page {
     padding: 2rem;
     color: #fff;
-    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #005f73 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -52,13 +52,13 @@
 }
 
 .schedule-day-switch button:hover {
-    color: #00ff15;
-    border-bottom: 3px double #00ff15; 
+    color: #001219;
+    border-bottom: 3px double #001219; 
 }
 
 .tab-button.active-tab {
-    color: #00ffb3;
-    border-bottom: 3px solid #00ffb3; 
+    color: #E9D8A6;
+    border-bottom: 3px solid #E9D8A6; 
 }
 
 table {

@@ -40,7 +40,7 @@ export default function Footer() {
                     </Track>
                 </div>
                 <div className="footer-info">
-                    <p>&copy; 2024 hackUMBC. All rights reserved.</p>
+                    <p>&copy; 2025 hackUMBC. All rights reserved.</p>
                     <p className="mt-2">
                       <Link href="/privacy-policy" className="footer-link"> Privacy Policy</Link> |
                       <a href="#" className="footer-link">Terms of Service</a> |

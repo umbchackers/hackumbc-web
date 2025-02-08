@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #005f73 100%);
     flex-direction: column; 
 }
 
@@ -34,7 +34,7 @@
     max-width: 1000px;
     height: 100%;
     margin: 20px auto; 
-    background-color: rgb(48, 12, 139);
+    background-color: #ba4126;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
