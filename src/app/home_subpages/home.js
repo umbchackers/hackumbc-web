@@ -53,12 +53,12 @@ export default function Home() {
           data-aos-duration="400"  
         />
         <div className="footer light-mode-text" data-aos="fade-in">
-          {/*{<LinkBox
-            href="https://hackumbc.typeform.com/to/zBg8SfON"
-            desc="hackUMBC 2024 is now over, but register to be an Organizer for 2025 by November 10th!"
+          <LinkBox
+            href="/sign-up"
+            desc="Want to experience a code rush for the first time? Register for our upcoming 8 hour mini event!"
             title="Registration"
             className="light-mode-text"
-          ></LinkBox>}*/}
+          ></LinkBox>
           <LinkBox
             href="https://hackumbc-fall-2024.devpost.com/"
             desc="Click this to go to the Devpost, where you can view logistics for projects, teams, and prizes!"
