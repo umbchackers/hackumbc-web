@@ -78,37 +78,38 @@
     height: 3rem;
     width: 7rem;
     border-radius: 2rem;
-    border: .1rem solid transparent;
-    border-color:#ffffff;
-    z-index: 0;
-    color: white;
+    border: 0.1rem solid #ba4126;
+    background-color: white;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #46df77, #3b7df6); 
-} 
-
-.btn-custom::before {
+    z-index: 0;
+  }
+  
+  .btn-custom::before {
     content: '';
     position: absolute;
     top: -100%;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2); /* Keeping this for hover glow effect */
     z-index: -1;
     transition: all 0.5s ease;
-}
-
-.btn-custom:hover::before {
-    top: 0;
-}
-
-.btn-custom:hover {
-    color: white;
-    cursor: pointer;
-}
+  }
   
+  .btn-custom:hover::before {
+    top: 0;
+  }
+  
+  .btn-custom:hover {
+    background-color: #ba4126;
+    color: white;
+    border-color: white;
+    transform: scale(1.05); /* Keeping hover scaling effect */
+    cursor: pointer;
+  }
 
 .light-mode-text {
     color: #fff;

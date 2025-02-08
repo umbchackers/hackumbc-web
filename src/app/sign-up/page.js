@@ -7,6 +7,7 @@ import Papa from "papaparse";
 // import PhoneInput from "react-phone-input-2";
 // import "react-phone-input-2/lib/style.css";`
 import "../globals.css";
+import { StarsBackground } from "../components/stars-background";
 
 export default function Survey() {
   const [savedData, setSavedData] = useState(null);
@@ -149,13 +150,14 @@ export default function Survey() {
       {savedData && isSubmitted && <PopupNotification message="Form submitted successfully!" position="top-center" />}
       {/* for the pop up^ */}
       <Navbar />
-      <div className="sign-up bg-scroll [background:radial-gradient(60%_100%_at_50%_10%,#000_35%,#60e_70%)]">
+      <div className="sign-up bg-scroll relative">
+      <StarsBackground className="absolute inset-0 z-0" />
         <div className="flex justify-center items-center min-h-screen">
           <div className="w-full max-w-2xl p-8 rounded-lg formBox">
             <div className="flex justify-center mb-6">
               <Image
                 className="hack-logo dark:drop-shadow-[0_0_0.3rem_#ffffff70] light:invert"
-                src="/newhackLogo24.png"
+                src="/hacklogo2025.png"
                 alt="hackUMBC Logo"
                 width={480}
                 height={480}
@@ -163,7 +165,7 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Up Form
+              Mini-Event Sign Up Form
             </h2>
             <p className="text-sm italic mb-6 text-center light-mode-text">
               Fields marked by <span className="text-red-500">*</span> are
