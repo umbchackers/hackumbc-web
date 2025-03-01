@@ -4,7 +4,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect, useState } from 'react';
 import SectionTitle from "../components/title";
-import { StarsBackground } from "../components/stars-background";
 
 export default function Schedule() {
     const [activeDay, setActiveDay] = useState('September 28th');  
@@ -164,8 +163,12 @@ export default function Schedule() {
     };
 
     return (
-        <div className="schedule-page relative">
-            <StarsBackground className="z-0" />
+        <div className="schedule-page relative" style={{
+            backgroundImage: "url('/hackumbc_bg2.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat"
+        }}>
             <div className="schedule-content relative z-10">
                 <div className="schedule-section-title light-mode-text" data-aos="fade-up">
                     <SectionTitle title="SCHEDULE"/>

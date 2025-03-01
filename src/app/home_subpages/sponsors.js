@@ -4,7 +4,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
-import { StarsBackground } from "../components/stars-background";
 
 export default function Sponsors() {
 
@@ -32,8 +31,12 @@ export default function Sponsors() {
     }
 
     return (
-        <div className="sponsors-page relative">
-            <StarsBackground className="z-0" />
+        <div className="sponsors-page relative" style={{
+            backgroundImage: "url('/hackumbc_bg2.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat"
+        }}>
             <div className="sponsors-section-title relative z-10" data-aos= "fade-up">
                 <SectionTitle title="SPONSORS" />
             </div>

@@ -5,7 +5,6 @@ import LinkBox from "../components/links";
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { StarsBackground } from "../components/stars-background";
 
 export default function Home() {
   useEffect(() => {
@@ -37,21 +36,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="home-page relative" style={{
-      background: "radial-gradient(125% 125% at 50% 10%, #000 40%, #005f73 100%)",
-    }}>
-      <StarsBackground className="z-0" />
+    <div 
+      className="home-page relative" 
+      style={{
+        backgroundImage: "url('/hackumbc_bg.gif')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+      }}
+    >
       <div className="home-container relative z-10">
-        <Image
-          className="hack-logo drop-shadow-[0_0_5px_rgba(255,255,255,255)] light:invert light-mode-text"
-          src="/hacklogo2025.png"
-          alt="hackUMBC Logo"
-          width={800}
-          height={800}
-          priority
-          data-aos="fade-in"
-          data-aos-duration="400"  
-        />
         <div className="footer light-mode-text" data-aos="fade-in">
           <LinkBox
             href="/sign-up"

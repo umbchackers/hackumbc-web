@@ -5,7 +5,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
-import { StarsBackground } from "../components/stars-background";
 
 export default function About() {
     useEffect(() => {
@@ -28,8 +27,12 @@ export default function About() {
     }
 
     return (
-        <div className="about-page relative">
-            <StarsBackground className="z-0" />
+        <div className="about-page relative" style={{
+            backgroundImage: "url('/hackumbc_bg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat"
+        }}>
             <div className="about-content relative z-10">
                 <div className="about-section-title light-mode-text" data-aos="fade-up"> 
                     <SectionTitle title="ABOUT" />
