@@ -1,26 +1,16 @@
 .home-page {
     overflow-x: hidden;
     min-height: 100vh;
+    position: relative;
 }
 
 .home-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: auto;
+    min-height: 100vh;
     text-align: center;
-}
-
-.hack-logo {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    padding-left: 1px; 
-    top: -10%;
-    right: 20px;
 }
 
 .text-height {
@@ -36,33 +26,41 @@
     position: absolute;
     bottom: 100px;
     padding: 1rem;
+    z-index: 1;
 }
 
 /* link box component*/ 
 .link-box-container {
     display: flex;
-    justify-content: bottom;
-    align-items: bottom;
+    justify-content: center;
+    align-items: center;
     margin: 10px;
     scale: 1;
-    padding: 1rem, 2rem;
+    padding: 1rem;
     width: 300px;
     height: 140px;
     box-sizing: border-box;
+    background-color: #ba4126 !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 5rem !important;
+    color: white !important;
+    position: relative;
+    z-index: 50;
 }
 
 .link-box-container h2 {
     font-size: 1.3rem;
     text-align: center;
     margin: 0;
+    color: white !important;
 }
 
 .link-box-container p {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     width: 100%;
-    font-size: .9rem;
     text-align: center;
     margin: 0;
+    color: white !important;
 }
 
 /* titles.js content*/
@@ -116,6 +114,7 @@
 
     .home-container {
         flex-direction: column;
+        min-height: auto;
     }
     
     .hack-logo {
@@ -132,42 +131,48 @@
         align-items: center; 
         margin-top: 0px; 
         padding-bottom: 20px;
+        position: relative;
+        bottom: auto;
+        margin: 20vh auto;
     }
 
     .link-box-container {
         position: relative;
-        top: 130px !important; 
-        scale: .5;
+        top: auto !important; 
+        scale: 0.8;
         height: 175px;
-        width: 500px !important;    
+        width: 300px !important;    
         display: flex;
         flex-direction: column; 
         align-items: center; 
-        width: 100%;         
-        border-radius: 7rem !important;
+        border-radius: 2rem !important;
         justify-content: center;
-        margin: -70px;
-        margin-bottom: 1px;
+        margin: 15px;
+        margin-bottom: 20px;
+        background-color: #ba4126 !important;
+        border: 2px solid #ffffff !important;
     }
     
     .link-box-container a {
         text-decoration: none;
-        color: inherit;
+        color: white !important;
         display: block; 
         width: 100%; 
     }
 
     .link-box-container p {
-        font-size: 1.3rem;
+        font-size: 1rem;
         text-align: center;
         width: 100%;
+        color: white !important;
     }
 
     .link-box-container h2 {
-        font-size: 1.65rem;
+        font-size: 1.5rem;
         font-weight: bold;
         text-align: center;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
+        color: white !important;
     }
 
     .link-box-container span {

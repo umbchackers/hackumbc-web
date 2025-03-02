@@ -4,12 +4,12 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     min-height: 100vh;
     padding-bottom: 20vh;
+    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); /*for blend*/
   }
   
-
   .faq-section-title {
     text-align: center;
     margin-bottom: 15px;
@@ -20,6 +20,7 @@
     text-align: center;
     margin-bottom: 25px;
     color: #000;
+    font-size: 1.2rem;
   }
 
   .text-black {
@@ -27,65 +28,123 @@
   }
 
   .faq-content {
-    max-width: 800px;
+    max-width: 1200px;
     width: 100%;
-    padding: 20px;
+    padding: 30px;
     background-color: #ba4126; /*matching background*/
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.424),
-                inset 0 0 10px rgba(255, 255, 255, 0.424); 
-    border: 3px solid #ffffff; 
-    /*adding soft glow to make content pop more*/
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
+                inset 0 0 10px rgba(255, 255, 255, 0.15); 
+    border: 2px solid #ffffff; 
+  }
+  
+  .faq-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+  }
+
+  .faq-column {
+    flex: 1;
+    min-width: 300px;
   }
   
   .faq-item {
-    margin-bottom: 20px; /*more space between questions*/
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
   }
   
   .faq-question {
     display: block;
-    padding: 15px 10px; 
-    font-size: 1.5rem; /*larger text size for questions*/
-    color: #ffffff; 
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    color: #ffffff;
     cursor: pointer;
     font-weight: bold;
     position: relative;
     user-select: none;
     border: none;
-    background-color: transparent;
+    background-color: #912b0d; /* Darker rust color for questions */
     text-align: left;
-    transition: color 0.3s; 
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
   
   .faq-question::after {
-    content: '\25BC'; /*down arrow*/
+    content: '\25BC';
     position: absolute;
-    right: 10px;
-    font-size: 1.5rem;
-    transition: transform 0.3s;
+    right: 20px;
+    font-size: 0.9rem;
+    transition: transform 0.3s, color 0.3s;
+    opacity: 0.8;
+    color: #E9D8A6;
   }
   
   .faq-toggle:checked + .faq-question::after {
-    transform: rotate(180deg); 
+    transform: rotate(180deg);
   }
   
   .faq-question:hover {
-    background-color: #E9D8A6;
-    color: #000;
-    border-radius: 8px;
-    transition: all linear 0.6s;
+    background-color: #E9D8A6; /* Even darker on hover */
+    color: #000000;
+  }
+
+  .faq-question:hover::after {
+    color: #000000;
+  }
+  
+  .faq-toggle:checked + .faq-question {
+    background-color: #E9D8A6; /* Match hover color when active */
+    color: #000000;
+    border-bottom: 1px solid #E9D8A6;
+  }
+
+  .faq-toggle:checked + .faq-question::after {
+    color: #000000;
+    transform: rotate(180deg);
   }
 
   .faq-answer {
-    padding: 15px;
+    padding: 20px;
     display: none;
-    font-size: 1.1rem;
-    color: #e3e6d5; 
-    border-top: 1px solid #ddd; 
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ffffff;
+    background-color: #d65e3f; /* Lighter rust color for answers */
+    border-top: 3px solid rgba(233, 216, 166, 0.3);
   }
   
   .faq-toggle:checked + .faq-question + .faq-answer {
     display: block;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .faq-answer a {
+    color: #E9D8A6;
+    text-decoration: underline;
+    transition: color 0.3s;
+    font-weight: bold;
+  }
+
+  .faq-answer a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   }
   
   @media (max-width: 768px) {
@@ -94,23 +153,28 @@
     }
     
     .faq-content {
-      scale: 0.95;
-      padding: 10px;
+      padding: 15px;
+      margin: 0 10px;
+    }
+    
+    .faq-columns {
+      flex-direction: column;
+      gap: 0;
     }
   
     .faq-question {
-      font-size: 1.1rem; 
+      font-size: 1.1rem;
+      padding: 12px 15px;
     }
   
     .faq-answer {
-      font-size: 0.9rem; 
+      font-size: 0.9rem;
+      padding: 15px;
     }
 
     .faq-section-title,
     .faq-title-subheading {
       color: #000;
     }
-
-    /*mobile view adjusting*/
   }
   

@@ -25,8 +25,7 @@ export default function LinkBox({ href, title, desc }) {
         transition: 'all 300ms ease',
         padding: '1rem',
         borderRadius: '5rem',
-        border: '0.1rem solid transparent',
-        borderColor: '#ffffff',
+        border: '0.2rem solid #ffffff',
         color: 'white',
         background: '#ba4126',
         display: 'flex',
@@ -35,12 +34,18 @@ export default function LinkBox({ href, title, desc }) {
         alignItems: 'center',
         textAlign: 'center',
         cursor: 'pointer',
+        zIndex: 50,
+        width: '300px',
+        height: '140px',
+        margin: '10px',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.querySelector('.hover-overlay').style.top = '0';
+        const overlay = e.currentTarget.querySelector('.hover-overlay');
+        if (overlay) overlay.style.top = '0';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.querySelector('.hover-overlay').style.top = '-100%';
+        const overlay = e.currentTarget.querySelector('.hover-overlay');
+        if (overlay) overlay.style.top = '-100%';
       }}
     >
       <a
@@ -54,13 +59,15 @@ export default function LinkBox({ href, title, desc }) {
           textDecoration: 'none',
           color: '#ffffff',
           position: 'relative',
+          zIndex: 52
         }}
       >
         <h2
           style={{
             marginBottom: '0.5rem',
-            fontSize: '2xl',
+            fontSize: '1.3rem',
             fontWeight: 'bold',
+            color: 'white'
           }}
         >
           {title}
@@ -68,6 +75,7 @@ export default function LinkBox({ href, title, desc }) {
             style={{
               display: 'inline-block',
               transition: 'transform 0.3s ease-in-out',
+              marginLeft: '5px'
             }}
           >
             -&gt;
@@ -77,6 +85,7 @@ export default function LinkBox({ href, title, desc }) {
           style={{
             opacity: 1,
             color: '#ffffff',
+            fontSize: '0.9rem'
           }}
         >
           {desc}
@@ -92,7 +101,7 @@ export default function LinkBox({ href, title, desc }) {
           width: '100%',
           height: '100%',
           background: '#d64727',
-          zIndex: -1,
+          zIndex: 1,
           transition: 'top 0.5s ease',
         }}
       />

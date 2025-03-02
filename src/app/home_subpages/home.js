@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import "../css/home.css";
 import LinkBox from "../components/links";
 import { useEffect, useState } from "react";
@@ -17,33 +16,43 @@ export default function Home() {
 
   const [isMobile, setIsMobile] = useState(true);
 
-  // Handle resize
+  // handle resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
+    // Initial check on component mount
     handleResize();
+
+    // Add event listener for resize events
     window.addEventListener("resize", handleResize);
 
+    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
-    <div 
-      className="home-page relative" 
-      style={{
-        backgroundImage: "url('/hackumbc_bg.gif')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
-      }}
-    >
+    <div className="home-page">
+      <div 
+        style={{
+          backgroundImage: "url('/hackumbc_bg.gif')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 1
+        }}
+      ></div>
+      
       <div className="home-container">
-
-        <div className="footer light-mode-text" data-aos="fade-in">
+        <div className="footer">
           <LinkBox
             href="/sign-up"
             desc="Want to experience a code rush? Register for our upcoming 8 hour mini event!"
