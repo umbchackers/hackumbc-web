@@ -1,10 +1,11 @@
 "use client";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../css/home.css";
 
 export default function LinkBox({ href, title, desc }) {
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -12,6 +13,14 @@ export default function LinkBox({ href, title, desc }) {
         easing: 'ease-in-out',
         once: true,
     });
+
+    // Check if mobile on component mount
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -23,8 +32,8 @@ export default function LinkBox({ href, title, desc }) {
         overflow: 'hidden',
         fontWeight: 600,
         transition: 'all 300ms ease',
-        padding: '1rem',
-        borderRadius: '5rem',
+        padding: isMobile ? '10px 15px' : '1rem',
+        borderRadius: isMobile ? '2rem' : '5rem',
         border: '0.2rem solid #ffffff',
         color: 'white',
         background: '#ba4126',
@@ -35,17 +44,23 @@ export default function LinkBox({ href, title, desc }) {
         textAlign: 'center',
         cursor: 'pointer',
         zIndex: 50,
-        width: '300px',
-        height: '140px',
-        margin: '10px',
+        width: isMobile ? '100%' : '300px',
+        height: isMobile ? 'auto' : '140px',
+        minHeight: isMobile ? '120px' : '140px',
+        margin: isMobile ? '5px 0' : '10px',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
       }}
       onMouseEnter={(e) => {
-        const overlay = e.currentTarget.querySelector('.hover-overlay');
-        if (overlay) overlay.style.top = '0';
+        if (!isMobile) {
+          const overlay = e.currentTarget.querySelector('.hover-overlay');
+          if (overlay) overlay.style.top = '0';
+        }
       }}
       onMouseLeave={(e) => {
-        const overlay = e.currentTarget.querySelector('.hover-overlay');
-        if (overlay) overlay.style.top = '-100%';
+        if (!isMobile) {
+          const overlay = e.currentTarget.querySelector('.hover-overlay');
+          if (overlay) overlay.style.top = '-100%';
+        }
       }}
     >
       <a
@@ -65,7 +80,7 @@ export default function LinkBox({ href, title, desc }) {
         <h2
           style={{
             marginBottom: '0.5rem',
-            fontSize: '1.3rem',
+            fontSize: isMobile ? '1.2rem' : '1.3rem',
             fontWeight: 'bold',
             color: 'white'
           }}
@@ -73,7 +88,7 @@ export default function LinkBox({ href, title, desc }) {
           {title}
           <span
             style={{
-              display: 'inline-block',
+              display: isMobile ? 'none' : 'inline-block',
               transition: 'transform 0.3s ease-in-out',
               marginLeft: '5px'
             }}
@@ -85,7 +100,8 @@ export default function LinkBox({ href, title, desc }) {
           style={{
             opacity: 1,
             color: '#ffffff',
-            fontSize: '0.9rem'
+            fontSize: isMobile ? '0.85rem' : '0.9rem',
+            padding: isMobile ? '0 5px' : '0'
           }}
         >
           {desc}
@@ -103,6 +119,7 @@ export default function LinkBox({ href, title, desc }) {
           background: '#d64727',
           zIndex: 1,
           transition: 'top 0.5s ease',
+          display: isMobile ? 'none' : 'block' // Hide hover effect on mobile
         }}
       />
     </div>

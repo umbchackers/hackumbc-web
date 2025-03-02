@@ -2,6 +2,11 @@
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .home-container {
@@ -11,6 +16,7 @@
     min-height: 100vh;
     text-align: center;
     position: relative;
+    width: 100%;
 }
 
 .text-height {
@@ -26,7 +32,7 @@
     position: absolute;
     bottom: 100px;
     padding: 1rem;
-    z-index: 1;
+    z-index: 10;
 }
 
 /* link box component*/ 
@@ -109,48 +115,56 @@
 @media (max-width: 768px) {
     .home-page {
         width: 100%;
-        height: auto;
+        min-height: 100vh;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
     .home-container {
         flex-direction: column;
-        min-height: auto;
+        min-height: 100vh;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
     }
     
     .hack-logo {
         width: 240px; 
         height: auto;
-        margin-bottom: 50%;
-        scale: 1.5;
-        right: 2%;
+        margin-bottom: 20px;
+        scale: 1.2;
     }
 
     .footer {
         display: flex;
         flex-direction: column; 
-        align-items: center; 
-        margin-top: 0px; 
-        padding-bottom: 20px;
+        align-items: center;
         position: relative;
         bottom: auto;
-        margin: 20vh auto;
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px 0;
     }
 
     .link-box-container {
         position: relative;
         top: auto !important; 
-        scale: 0.8;
-        height: 175px;
-        width: 300px !important;    
+        scale: 1;
+        height: auto;
+        min-height: 120px;
+        width: 100% !important;
+        max-width: 300px;
         display: flex;
         flex-direction: column; 
         align-items: center; 
         border-radius: 2rem !important;
         justify-content: center;
-        margin: 15px;
-        margin-bottom: 20px;
+        margin: 8px 0;
         background-color: #ba4126 !important;
         border: 2px solid #ffffff !important;
+        padding: 15px;
     }
     
     .link-box-container a {
@@ -161,17 +175,18 @@
     }
 
     .link-box-container p {
-        font-size: 1rem;
+        font-size: 0.85rem;
         text-align: center;
         width: 100%;
         color: white !important;
+        margin-top: 5px;
     }
 
     .link-box-container h2 {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         font-weight: bold;
         text-align: center;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
         color: white !important;
     }
 

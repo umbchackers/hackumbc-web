@@ -14,7 +14,7 @@ export default function Home() {
     });
   }, []);
 
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   // handle resize
   useEffect(() => {
@@ -35,24 +35,27 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="home-page">
-      <div 
-        style={{
-          backgroundImage: "url('/hackumbc_bg.gif')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 1
-        }}
-      ></div>
-      
-      <div className="home-container">
-        <div className="footer">
+    <div className="home-page" style={{
+      backgroundImage: "url('/hackumbc_bg.gif')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    }}>
+      <div className="home-container" style={{ 
+        zIndex: 10,
+        display: "flex",
+        alignItems: isMobile ? "flex-start" : "center",
+        justifyContent: "center",
+        paddingTop: isMobile ? "60vh" : "0" // Positioning 60% down the viewport on mobile
+      }}>
+        <div className="footer" style={{ 
+          width: isMobile ? "90%" : "100%", 
+          flexWrap: isMobile ? "nowrap" : "wrap",
+          flexDirection: isMobile ? "column" : "row",
+          gap: isMobile ? "10px" : "20px",
+          position: isMobile ? "relative" : "absolute",
+          bottom: isMobile ? "auto" : "100px",
+        }}>
           <LinkBox
             href="/sign-up"
             desc="Want to experience a code rush? Register for our upcoming 8 hour mini event!"

@@ -4,20 +4,16 @@
 }
 
 .about-content {
-    padding-bottom: 10vh;
-    margin-left: 3vw;
-    margin-right: 3vw;
-    margin-top: 5vh;
-    margin-bottom: 10vh;
-    /*uncommented this for sponsors page*/
+    padding: 40px 20px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /*all added for centering*/
     width: 100%;
     max-width: 1200px;
 }
+
 .about-section-title {
     text-align: center;
     margin-bottom: 15px;
@@ -32,13 +28,8 @@
 }
 
 .about-text {
-    /* background-color: red; */
     font-size: 23px;
     font-weight: 500;
-    margin-top: 5vh;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    width: 100vh;
     text-align: center;
     margin: 0 auto;
     max-width: 700px;
@@ -68,15 +59,15 @@
     width: 150px;
     display: block;
     padding-bottom: 3vh;
-    /*make images bigger for desktop*/
 }
 
 .about-page {
     display: flex;
     flex-direction: column;
-    justify-content: center; /*center content*/
+    justify-content: center;
     align-items: center;
-    min-height: 100vh; /*fill page*/
+    min-height: 100vh;
+    width: 100%;
 }
 
 .light-mode-text {
@@ -95,75 +86,77 @@
     }
 }
 
-/*added light mode text coloring*/
-
 @media (max-width: 768px) {
-
     .about-page {
         width: 100%;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        overflow: hidden;
+        padding: 20px 0;
     }
 
     .about-content {
-        padding-top: 10vh;
-        padding-bottom: 0px;
-        margin-left: 5vw;
-        margin-right: 5vw;
-        text-align: center;
-        margin-top: -40px;
-        overflow: hidden;
+        padding: 20px 15px;
+        margin: 0 auto;
+        width: 100%;
     }
 
     .text-container, .tracks-container {
-        padding: 20px;
-        margin-bottom: 20px;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 100%;
     }
 
-    .title {
-        padding-top: 10vh;
-        width: 100%;
-        justify-content: center;
+    .about-section-title {
+        margin-bottom: 10px;
+    }
+
+    .about-title-subheading {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
     }
 
     .about-text {
-        font-size: 14px;
-        margin-left: 10vw;
-        margin-right: 10vw;
-        width: auto;
-        line-height: 28px;
-        text-align: center;
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 0 10px;
+        width: 100%;
+    }
+
+    .about-text p {
+        margin-bottom: 10px;
+        line-height: 1.5;
     }
 
     .tracks {
         flex-direction: column;
         align-items: center;    
         text-align: center;
-        gap: 20px;
+        gap: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 100%;
     }
 
     .tracks div {
-        width: 90%; 
-        margin-bottom: 10px; 
+        width: 95%; 
+        margin-bottom: 5px; 
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* centering for mobile, also scaling for view*/
+        padding: 10px;
     }
 
     .tracks img {
-        width: 40%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /*scale down images for mobile, this might need to be adjusted*/
+        width: 30%;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
     }
 
-    .tracks h1, .tracks p {
-        text-align: center;
+    .tracks h1 {
         font-size: 18px;
-        color: #000;
+        margin-bottom: 5px;
     }
-
+    
+    .tracks p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
 }
