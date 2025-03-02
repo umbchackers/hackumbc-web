@@ -6,7 +6,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    align-items: center;
 }
 
 .schedule-title-container {
@@ -16,6 +15,7 @@
     flex-direction: column;
     text-align: center;
     width: 100%;
+    margin-bottom: 2rem;
 }
 
 .schedule-section-title {
@@ -28,6 +28,7 @@
     font-size: 1.2rem;
     font-weight: 400;
     color: #000;
+    margin-bottom: 2rem;
 }
 
 .text-black {
@@ -39,120 +40,381 @@
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    margin-bottom: 150px;
+    margin-bottom: 50px;
     justify-content: center;
     align-items: center;
 }
 
-/*button styles*/
+/* Tabs navigation styling */
+.schedule-day-switch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    gap: 1rem;
+}
+
 .schedule-day-switch button {
-    background-color: transparent;
-    border: none;
-    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    color: #444;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1.5rem;
     cursor: pointer;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .schedule-day-switch button:hover {
-    color: #001219;
-    border-bottom: 3px double #001219; 
+    border-color: #ba4126;
+    background-color: #ba4126;
+    color: white;
+    border-color: white;
 }
 
 .tab-button.active-tab {
-    color: #E9D8A6;
-    border-bottom: 3px solid #E9D8A6; 
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse; /* ensures the table behaves properly */
-    border-radius: 15px;
-    overflow: hidden; 
-    margin: auto;
-    table-layout: fixed; /* makes sure columns have equal widths */
-}
-
-thead {
+    background-color: #ba4126;
     color: white;
-    text-transform: uppercase;
-    font-size: 1rem;
+    border-color: white;
+    box-shadow: 0 4px 8px rgba(186, 65, 38, 0.3);
+}
+
+/* Horizontal timeline styling */
+.timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.timeline-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.timeline-container::-webkit-scrollbar-track {
+    background-color: rgba(186, 65, 38, 0.1);
+    border-radius: 10px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb {
+    background-color: rgba(186, 65, 38, 0.5);
+    border-radius: 10px;
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 80px 0;
+    min-width: max-content;
+}
+
+/* Horizontal line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    background-color: #c03e21;
+    top: 40%;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+.timeline-item {
+    position: relative;
+    margin: 0 12px;
+    width: 280px;
+    min-width: 280px;
+    flex-shrink: 0;
+}
+
+/* Remove old odd/even margin-top from .timeline-item.
+   Instead, we attach that offset to .timeline-card below. */
+.timeline-item:first-child {
+    margin-left: 0;
+}
+
+/* No line from item to item, so hide these. */
+.timeline-item::after {
+    display: none;
+}
+
+/* The DOT pinned on the line at top: 40% */
+.timeline-item::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: #c03e21;
+    border: 2px solid #c03e21;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 34%; 
+    transform: translate(-50%, -50%);
+}
+
+/* Now stagger the CARD, not the entire item */
+.timeline-item:nth-child(odd) .timeline-card {
+    margin-top: 90px; /* same offset as before, but on the card */
+}
+
+.timeline-item:nth-child(even) .timeline-card {
+    margin-top: -80px;
+    margin-bottom: 80px;
+}
+
+.timeline-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none !important;
+    height: auto;
+}
+
+.timeline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-card-header {
+    background-color: #ba4126;
+    color: white;
+    padding: 0.4rem 0.7rem;
     font-weight: 600;
-}
-
-th, td {
-    padding: 1rem;
-    text-align: center;
-}
-
-tbody tr {
-    border-bottom: 1px solid #e5e7eb;
-    background-color: #ffffff; 
-}
-
-td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.9rem;
-    font-weight: 1.1rem;
-    color: #000000;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
-/* COLUMN BALANCING (for reference next year lolz) */
-th:nth-child(1), td:nth-child(1) {
-    width: 25%; 
+.timeline-card-time {
+    font-size: 1rem;
 }
 
-th:nth-child(2), td:nth-child(2) {
-    width: 50%;
+.timeline-card-content {
+    padding: 0.8rem;
+    text-align: left;
 }
 
-th:nth-child(3), td:nth-child(3) {
-    width: 25%;
+.timeline-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+    line-height: 1.2;
 }
 
-/*makes sure event tab is larger, while the other columns stay the same size*/
+.timeline-card-location {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
 
-/*mobile*/
+.timeline-card-location svg {
+    margin-right: 0.5rem;
+    color: #ba4126;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+}
+
+/* Current event highlight */
+.current-event {
+    border: 2px solid #E9D8A6;
+    box-shadow: 0 4px 12px rgba(233, 216, 166, 0.4);
+    position: relative;
+    z-index: 3;
+}
+
+.current-event::after {
+    content: 'HAPPENING NOW';
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background-color: #E9D8A6;
+    color: #333;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    z-index: 4;
+}
+
+.timeline-card-type {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-card-type.workshop {
+    background-color: #d9ead3;
+    color: #2e7d32;
+}
+
+.timeline-card-type.food {
+    background-color: #ddc9ff;
+    color: #673ab7;
+}
+
+.timeline-card-type.event {
+    background-color: #ffeccf;
+    color: #e65100;
+}
+
+.timeline-card-type.competition {
+    background-color: #d4e6f1;
+    color: #1976d2;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
-    table {
-        font-size: 0.85rem;
-        scale: .95;
-        width: 100%; 
-        border-radius: 5px;
-        overflow: hidden;
+    .timeline-item:nth-child(odd) .timeline-card {
+        margin-top: 70px; /* slightly less for smaller screens */
     }
 
-    th, td {
-        padding: 0.75rem;
+    .timeline-item:nth-child(even) .timeline-card {
+        margin-top: -60px;
+        margin-bottom: 60px;
     }
-    
-    .schedule-content {
-        margin-bottom: 0px;
+
+    .timeline-item::before {
+        width: 12px;
+        height: 12px;
+        top: 37%;
+    }
+
+    .timeline {
+        padding: 65px 0;
+    }
+
+    .timeline-container {
+        padding: 0.3rem;
+    }
+
+    .timeline-item {
+        width: 260px;
+        min-width: 260px;
+        margin: 0 10px;
+    }
+
+    .timeline-card-header {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .timeline-card-content {
+        padding: 0.8rem;
+    }
+
+    .timeline-card-title {
+        font-size: 0.95rem;
+    }
+
+    .timeline-card-location {
+        font-size: 0.75rem;
+    }
+
+    .schedule-day-switch button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 
     .schedule-title-subheading {
         font-size: 1rem;
-        color: #000;
     }
 
     .schedule-section-title {
-        color: #000;
+        font-size: 1.8rem;
     }
 
-    .schedule-day-switch button {
-        font-size: 0.85rem;
-        padding: 0.5rem;
+    .current-event::after {
+        top: -8px;
+        right: 8px;
+        font-size: 0.6rem;
+        padding: 1px 6px;
     }
 }
 
 @media (max-width: 480px) {
-    table {
-        font-size: 0.85rem;
-        scale: .95;
-        margin: auto 0;
-        width: 100%; 
-        border-radius: 5px;
-        overflow: hidden;
-        margin-bottom: 100px;
+    .timeline-item:nth-child(odd) .timeline-card {
+        margin-top: 110px; /* further reduce on small screens */
     }
+
+    .timeline-item:nth-child(even) .timeline-card {
+        margin-top: -50px;
+        margin-bottom: 40px;
+    }
+
+    .timeline {
+        padding: 50px 0;
+    }
+
+    .timeline::after {
+        top: 40%;
+    }
+
+    .timeline-item {
+        width: 260px;
+        min-width: 260px;
+        margin: 0 8px;
+    }
+
+    .timeline-card-content {
+        padding: 0.7rem;
+    }
+
+    .timeline-card-title {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-card-type {
+        font-size: 0.65rem;
+        padding: 0.1rem 0.5rem;
+    }
+
+    .schedule-day-switch button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .current-event::after {
+        top: -8px;
+        right: 8px;
+        font-size: 0.6rem;
+        padding: 1px 6px;
+    }
+}
+
+.timeline-help-text {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333 !important;
+    border-radius: 20px;
+    font-weight: 500 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5rem !important;
+    font-style: normal !important;
+    border: 1px solid rgba(186, 65, 38, 0.3);
 }
