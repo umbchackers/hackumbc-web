@@ -7,20 +7,23 @@
     padding: 10px;
     min-height: 100vh;
     padding-bottom: 20vh;
-    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); /*for blend*/
   }
   
 
   .faq-section-title {
     text-align: center;
     margin-bottom: 15px;
-    color: #fff;
+    color: #000;
   }
   
   .faq-title-subheading {
     text-align: center;
     margin-bottom: 25px;
-    color: #fff;
+    color: #000;
+  }
+
+  .text-black {
+    color: #000 !important;
   }
 
   .faq-content {
@@ -101,6 +104,11 @@
   
     .faq-answer {
       font-size: 0.9rem; 
+    }
+
+    .faq-section-title,
+    .faq-title-subheading {
+      color: #000;
     }
 
     /*mobile view adjusting*/

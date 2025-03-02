@@ -1,12 +1,13 @@
 .home-page {
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .home-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: auto;
     text-align: center;
 }
 

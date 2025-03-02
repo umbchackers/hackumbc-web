@@ -47,7 +47,7 @@
 .track-title {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
 }
 
 .track-image {
@@ -57,7 +57,7 @@
 }
 
 .footer-info {
-    color: #ffffff;
+    color: #000000;
     font-size: 0.9rem;
     text-align: center;
 }

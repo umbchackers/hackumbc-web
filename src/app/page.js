@@ -9,7 +9,7 @@ import Footer from "./components/footer.js";
 //updated main with ids for navbar, so links are fixed now
 export default function Main() {
   return (
-    <main className="absolute inset-0">
+    <main className="relative w-full min-h-screen">
       <Navbar />
       <div id="home">
         <Home />

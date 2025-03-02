@@ -15,18 +15,20 @@
     align-items: center;
     text-align: center;
     /*all added for centering*/
+    width: 100%;
+    max-width: 1200px;
 }
-
-
 .about-section-title {
     text-align: center;
     margin-bottom: 15px;
-    color: #fff;
+    color: #000;
 }
   
 .about-title-subheading {
     text-align: center;
-    color: #fff;
+    color: #000;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .about-text {
@@ -37,22 +39,29 @@
     margin-left: 5vw;
     margin-right: 5vw;
     width: 100vh;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 700px;
+    color: #000;
 }
 
 .about-text p {
     margin-bottom: 15px;
     line-height: 30px;
     justify-content: center;
+    text-align: center;
+    color: #000;
 }
 
 .tracks {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    justify-items: center;
-    justify-content: space-between;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    display: flex;
+    justify-content: center;
     align-items: flex-start;
     gap: 30px;
     font-size: 1.2rem;
+    flex-wrap: wrap;
 }
 
 .tracks img {
@@ -68,7 +77,6 @@
     justify-content: center; /*center content*/
     align-items: center;
     min-height: 100vh; /*fill page*/
-    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); /*for blend*/
 }
 
 .light-mode-text {
@@ -105,9 +113,12 @@
         margin-right: 5vw;
         text-align: center;
         margin-top: -40px;
-        overflow-y: hidden;
         overflow: hidden;
-        /*had some weird overflow issues so just added extra overflow hidden for it*/
+    }
+
+    .text-container, .tracks-container {
+        padding: 20px;
+        margin-bottom: 20px;
     }
 
     .title {
@@ -149,9 +160,10 @@
         /*scale down images for mobile, this might need to be adjusted*/
     }
 
-    .tracks h1, p {
+    .tracks h1, .tracks p {
         text-align: center;
         font-size: 18px;
+        color: #000;
     }
 
 }
