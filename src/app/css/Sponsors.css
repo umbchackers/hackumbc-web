@@ -17,6 +17,9 @@
 .sponsors-title-subheading {
     text-align: center;
     color: #000;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .text-black {
@@ -33,62 +36,95 @@
     margin-bottom: 60px;
 }
 
-.sponsors-tier-container {
-    width: 90%;
-    max-width: 1000px;
-    height: 100%;
-    margin: 20px auto; 
+/* Unified sponsors container */
+.sponsors-unified-container {
+    width: 100%;
+    max-width: 1200px;
     background-color: #ba4126;
-    padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
     text-align: center;
     transition: transform 0.3s ease;
-    overflow: hidden; 
-    border: 3px solid #ffffff; 
-    box-shadow: 0 0 10px rgba(255, 255, 255);
-    /* white line divider between tiers */
 }
 
-.sponsors-tier-title {
-    font-size: 1.75rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #ffffff;
+.sponsors-intro-text {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sponsors-all-logos {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-}
-
-.sponsors-icon {
-    width: 30px;
-    height: 30px;
-}
-
-.sponsors-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 40px;
-    padding: 10px 0;
-    flex-wrap: wrap; /* allow logos to wrap onto the next line */
-    overflow-x: hidden;
-    overflow-y: hidden; 
+    padding: 20px 0;
+}
+
+.sponsor-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.sponsor-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .sponsors-logo {
-    max-width: auto;
-    height: 7vh;
-    transition: transform 0.3s ease;
-    scale: 1;
+    height: 80px;
+    width: auto;
+    object-fit: contain;
 }
 
-.sponsors-logo:hover {
-    scale: 1.1;
+/* Subtle styling by tier */
+.sponsor-link.diamond {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    border: 2px solid rgb(0, 162, 255);
+    transform: scale(1.1);
+}
+
+.sponsor-link.platinum {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    border: 2px solid rgb(255, 255, 255);
+    transform: scale(1.05);
+}
+
+.sponsor-link.gold {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    border: 2px solid rgb(255, 217, 0);
+    transform: scale(1);
+}
+
+.sponsor-link.silver {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    border: 2px solid rgb(183, 183, 183);
+}
+
+.sponsor-link.bronze {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    border: 2px solid rgb(255, 128, 0);
+}
+
+.sponsor-link.partner {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    border: 2px solid rgb(0, 0, 0);
 }
 
 @media (max-width: 768px) {
-
     .sponsors-section-title {
         margin-top: -10px;
         color: #000;
@@ -96,79 +132,61 @@
 
     .sponsors-title-subheading {
         color: #000;
-    }
-
-    .sponsors-tier-page {
-        scale: .95;
-    }
-
-    .sponsors-content {
-        margin-top: -10px;
-    }
-
-    .sponsors-tier-title {
         font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-
-    .sponsors-logo {
-        max-width: 80px; 
-        height: auto; 
-    }
-
-    .sponsors-logos {
-        gap: 30px; 
-    }
-
-    .sponsors-tier-container {
-        width: 100%;
-        padding: 10px;
-        margin: 10px auto;
-    }
-
-    .sponsors-title-subheading {
         margin-bottom: 15px;
     }
 
     .sponsors-content {
+        margin-top: -10px;
         width: 100%;
+        padding: 15px;
     }
 
-    .sponsors-section-title {
-        padding-top: 15px;
+    .sponsors-unified-container {
+        padding: 25px 15px;
     }
 
-    .sponsors-icon {
-        width: 25px;
-        height: 25px;
+    .sponsors-intro-text {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .sponsors-all-logos {
+        gap: 25px;
+    }
+
+    .sponsor-link {
+        padding: 10px;
+    }
+
+    .sponsors-logo {
+        height: 60px;
     }
 }
 
 @media (max-width: 480px) {
-
     .sponsors-content {
-        scale: .95;
+        width: 100%;
+        padding: 10px;
     }
 
-    .sponsors-tier-container {
-        scale: 1;
+    .sponsors-unified-container {
+        padding: 20px 10px;
     }
 
-    .sponsors-logos {
+    .sponsors-all-logos {
         gap: 20px;
-        scale: 1;
     }
 
     .sponsors-logo {
-        max-width: 70px;
-    }
-
-    .sponsors-tier-title {
-        font-size: 1rem;
+        height: 50px;
     }
 
     .sponsors-title-subheading {
-        margin-bottom: 10px;
-        color: #000;
+        font-size: 1.1rem;
+    }
+
+    .sponsors-intro-text {
+        font-size: 0.9rem;
     }
 }
