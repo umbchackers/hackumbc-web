@@ -145,7 +145,8 @@
     }
 
     .tracks img {
-        width: 30%;
+        width: 100%;
+        max-width: 150px;
         margin-bottom: 10px;
         padding-bottom: 10px;
     }

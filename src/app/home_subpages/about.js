@@ -36,7 +36,7 @@ export default function About() {
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
                 }}
                 data-aos="fade-up">
-                <div style={{ width: isMobile ? '80px' : 'auto' }}>
+                <div style={{ width: isMobile ? '150px' : '150px' }}>
                     {children}
                 </div>
                 <h1 className={`${isMobile ? 'text-xl' : 'text-2xl'} mb-1 uppercase font-extrabold text-black`}>
