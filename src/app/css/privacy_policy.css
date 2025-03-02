@@ -1,6 +1,6 @@
 .privacy-policy-page {
-    background: radial-gradient(125% 125% at 50% 90%, #000 40%, #63e 100%);
-    color: #fff;
+    background-image: url('/hackumbc_bg.png');
+    color: #000000;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .hidden-message {
-    color: #12f32c;
+    color: #ff0000;
     font-weight: bold;
     margin-top: 30px;
 }
@@ -39,7 +39,7 @@ a:hover {
 }
 
 .special-text {
-    color: #00ffe1;
+    color: #00bbff;
     font-weight: 600;
 }
 
