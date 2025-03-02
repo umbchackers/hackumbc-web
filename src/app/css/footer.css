@@ -7,7 +7,7 @@
     padding: 5px 0;
     padding-bottom: 20px;
     position: relative;
-    background-image: url('/hackumbc_bg2.png');
+    background-image: url('/hackumbc_bg.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -73,6 +73,10 @@
 }
 
 @media (max-width: 768px) {
+
+    .footer-page {
+        background-image: url('/hackumbc_bg2.png');
+    }
 
     .tracks {
         flex-direction: row !important;
