@@ -4,7 +4,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
-import Image from 'next/image';
 
 export default function Sponsors() {
 
@@ -24,7 +23,7 @@ export default function Sponsors() {
             backgroundRepeat: "no-repeat"
         }}>
             <div className="sponsors-section-title relative z-10 text-black" data-aos="fade-up">
-                <SectionTitle title="SPONSORS" />
+                <SectionTitle title="SPONSORS"/>
             </div>
             <div className="sponsors-title-subheading relative z-10 text-black" data-aos="fade-up">
                 Thank You to Our Incredible Sponsors!
@@ -36,7 +35,7 @@ export default function Sponsors() {
                     </div>
                     <div className="sponsors-all-logos">
                         {/* Diamond */}
-                        <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer" className="sponsor-link diamond">
+                        <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/coeit.png"
                                 alt="COEIT"
@@ -48,7 +47,7 @@ export default function Sponsors() {
                         </a>
                         
                         {/* Platinum */}
-                        <a href="https://www.troweprice.com/" target="_blank" rel="noopener noreferrer" className="sponsor-link platinum">
+                        <a href="https://www.troweprice.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/trowepricelogo.jpg"
                                 alt="T. Rowe Price"
@@ -60,7 +59,7 @@ export default function Sponsors() {
                         </a>
                         
                         {/* Gold */}
-                        <a href="https://nightwing.us/" target="_blank" rel="noopener noreferrer" className="sponsor-link gold">
+                        <a href="https://nightwing.us/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/nightwing.png"
                                 alt="Nightwing"
@@ -72,7 +71,7 @@ export default function Sponsors() {
                         </a>
                         
                         {/* Silver */}
-                        <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer" className="sponsor-link silver">
+                        <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/apl.png"
                                 alt="Johns Hopkins APL"
@@ -82,7 +81,7 @@ export default function Sponsors() {
                                 height={80}
                             />
                         </a>
-                        <a href="https://www.ertcorp.com/" target="_blank" rel="noopener noreferrer" className="sponsor-link silver">
+                        <a href="https://www.ertcorp.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/ert.jpg"
                                 alt="ERT"
@@ -92,7 +91,7 @@ export default function Sponsors() {
                                 height={80}
                             />
                         </a>
-                        <a href="https://entrepreneurship.umbc.edu/" target="_blank" rel="noopener noreferrer" className="sponsor-link silver">
+                        <a href="https://entrepreneurship.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/alexbrowncenter.png"
                                 alt="Alex Brown Center"
@@ -102,7 +101,7 @@ export default function Sponsors() {
                                 height={80}
                             />
                         </a>
-                        <a href="https://boozallen.com/" target="_blank" rel="noopener noreferrer" className="sponsor-link silver">
+                        <a href="https://boozallen.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/BAH.png"
                                 alt="Booz Allen Hamilton"
@@ -114,7 +113,7 @@ export default function Sponsors() {
                         </a>
                         
                         {/* Bronze */}
-                        <a href="https://cwit.umbc.edu/" target="_blank" rel="noopener noreferrer" className="sponsor-link bronze">
+                        <a href="https://cwit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/CWIT.jpg"
                                 alt="CWIT"
@@ -124,7 +123,7 @@ export default function Sponsors() {
                                 height={80}
                             />
                         </a>
-                        <a href="https://csee.umbc.edu/" target="_blank" rel="noopener noreferrer" className="sponsor-link bronze">
+                        <a href="https://csee.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/CSEE.png"
                                 alt="CSEE"
@@ -134,7 +133,7 @@ export default function Sponsors() {
                                 height={80}
                             />
                         </a>
-                        <a href="https://www.bestgateeng.com/" target="_blank" rel="noopener noreferrer" className="sponsor-link bronze">
+                        <a href="https://www.bestgateeng.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/bestgate.png"
                                 alt="Bestgate"
@@ -146,7 +145,7 @@ export default function Sponsors() {
                         </a>
                         
                         {/* Partners */}
-                        <a href="https://standoutstickers.com/" target="_blank" rel="noopener noreferrer" className="sponsor-link partner">
+                        <a href="https://standoutstickers.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/stand-out-stickers.png"
                                 alt="Stand Out Stickers"
@@ -156,7 +155,7 @@ export default function Sponsors() {
                                 height={80}
                             />
                         </a>
-                        <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer" className="sponsor-link partner">
+                        <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png"
                                 alt="MLH"
@@ -166,7 +165,7 @@ export default function Sponsors() {
                                 height={80}
                             />
                         </a>
-                        <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer" className="sponsor-link partner">
+                        <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/northrop.png"
                                 alt="Northrop Grumman"
