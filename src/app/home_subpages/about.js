@@ -1,5 +1,4 @@
 "use client";
-
 import "../css/about.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 

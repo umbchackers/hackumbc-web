@@ -46,7 +46,6 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 2px solid #fff;
     text-align: center;
-    transition: transform 0.3s ease;
 }
 
 .sponsors-intro-text {
@@ -72,7 +71,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease;
     padding: 15px;
     border-radius: 8px;
     background-color: transparent;
@@ -80,33 +78,29 @@
 }
 
 .sponsor-link:hover {
-    transform: translateY(-5px);
+    scale: 1.1;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .sponsors-logo {
     height: 80px;
     width: auto;
-    object-fit: contain;
 }
 
 /* Subtle styling by tier */
 .sponsor-link.diamond {
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
     border: 2px solid rgb(0, 162, 255);
-    transform: scale(1.1);
 }
 
 .sponsor-link.platinum {
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
     border: 2px solid rgb(255, 255, 255);
-    transform: scale(1.05);
 }
 
 .sponsor-link.gold {
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
     border: 2px solid rgb(255, 217, 0);
-    transform: scale(1);
 }
 
 .sponsor-link.silver {
