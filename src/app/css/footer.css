@@ -7,7 +7,7 @@
     padding: 5px 0;
     padding-bottom: 20px;
     position: relative;
-    background-image: url('/hackumbc_bg.png');
+    background-image: url('/hackumbc_bg2.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -81,7 +81,7 @@
     }
 
     .track-item {
-        width: 16vh !important;
+        width: 12vh !important;
         padding: 5px;
     }
 
