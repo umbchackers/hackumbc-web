@@ -18,6 +18,7 @@ export default function Schedule() {
             easing: 'ease-in-out',
             once: true,
         });
+        AOS.refresh();
         
         // Update current time every minute
         const timer = setInterval(() => {

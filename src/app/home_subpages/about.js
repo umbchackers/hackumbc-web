@@ -14,6 +14,7 @@ export default function About() {
             easing: 'ease-in-out',
             once: true,
         });
+        AOS.refresh();
 
         // Check if mobile on component mount
         const handleResize = () => {

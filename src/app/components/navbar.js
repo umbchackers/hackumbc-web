@@ -48,6 +48,15 @@ export default function Navbar() {
               duration={700}
               smooth="true"
               href="/#home"
+              onClick={() => {
+                if (window.location.pathname === "/") {
+                  // Already on home page—smooth scroll to the top
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                } else {
+                  // On a different page—navigate to home
+                  window.location.href = "/";
+                }
+              }}
             >
               <img className="nav-logo light-mode-text" src="hackumbcdog2025.png" alt="logo" />
             </Link>

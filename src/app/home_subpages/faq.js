@@ -13,6 +13,7 @@ export default function FAQ() {
             easing: 'ease-in-out',
             once: true,
         });
+        AOS.refresh();
     }, []);
 
     function FAQItem({ question, answer }) {

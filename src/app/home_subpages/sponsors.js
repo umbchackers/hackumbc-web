@@ -13,6 +13,7 @@ export default function Sponsors() {
             easing: 'ease-in-out',
             once: true,
         });
+        AOS.refresh();
     }, []);
 
     return (

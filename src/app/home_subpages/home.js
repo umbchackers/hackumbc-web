@@ -12,6 +12,7 @@ export default function Home() {
       easing: "ease-in-out",
       once: true,
     });
+    AOS.refresh();
   }, []);
 
   const [isMobile, setIsMobile] = useState(false);

@@ -11,57 +11,49 @@ export default function Team() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        // Check if mobile
         const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
+          setIsMobile(window.innerWidth <= 768);
         };
-        
+      
         checkMobile();
         window.addEventListener('resize', checkMobile);
-        
+      
         // Initialize AOS with mobile-specific settings
         AOS.init({
-            duration: isMobile ? 800 : 1400,
-            easing: 'ease-in-out',
-            once: true,
-            disable: isMobile ? 'phone' : false, // Disable animations on mobile
-            startEvent: 'DOMContentLoaded',
+          duration: isMobile ? 800 : 1400,
+          easing: 'ease-in-out',
+          once: true,
+          disable: isMobile ? 'phone' : false, // Disable animations on mobile
+          startEvent: 'DOMContentLoaded',
         });
-        
-        // Reset scroll position when component mounts
+      
         if (typeof window !== 'undefined') {
-            window.scrollTo(0, 0);
-            
-            // More aggressive approach to ensure scrolling works
-            document.body.style.overflow = 'auto';
-            document.body.style.height = 'auto';
-            document.documentElement.style.overflow = 'auto';
-            document.documentElement.style.height = 'auto';
-            document.body.style.position = 'relative';
-            
-            // Force layout recalculation
-            setTimeout(() => {
-                if (pageRef.current) {
-                    const height = pageRef.current.scrollHeight;
-                    pageRef.current.style.minHeight = height + 'px';
-                }
-                // Force redraw
-                document.body.style.display = 'none';
-                document.body.offsetHeight; // Trigger reflow
-                document.body.style.display = '';
-            }, 100);
+          window.scrollTo(0, 0);
+          document.body.style.overflow = 'auto';
+          document.body.style.height = 'auto';
+          document.documentElement.style.overflow = 'auto';
+          document.documentElement.style.height = 'auto';
+          document.body.style.position = 'relative';
+      
+          // Instead of forcing a redraw on the body, only update the minHeight of your container
+          setTimeout(() => {
+            if (pageRef.current) {
+              const height = pageRef.current.scrollHeight;
+              pageRef.current.style.minHeight = height + 'px';
+            }
+          }, 100);
         }
-        
+      
         return () => {
-            // Cleanup when component unmounts
-            document.body.style.overflow = '';
-            document.body.style.height = '';
-            document.documentElement.style.overflow = '';
-            document.documentElement.style.height = '';
-            document.body.style.position = '';
-            window.removeEventListener('resize', checkMobile);
+          document.body.style.overflow = '';
+          document.body.style.height = '';
+          document.documentElement.style.overflow = '';
+          document.documentElement.style.height = '';
+          document.body.style.position = '';
+          window.removeEventListener('resize', checkMobile);
         };
-    }, [isMobile]);
+      }, [isMobile]);
+         
 
     // Function to create organizer cards
     const renderOrganizerCards = () => {
