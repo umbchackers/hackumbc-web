@@ -71,8 +71,11 @@ export default function Team() {
                 <div className="team-content">
                     <div className="team-title-container" data-aos="fade-down">
                         <SectionTitle title="Our Team" />
-                        <p className="team-title-subheading light-mode-text">
-                            Meet the amazing people behind hackUMBC
+                        <p className="team-title-subheading text-white">
+                            Meet the amazing people behind hackUMBC!
+                        </p>
+                        <p className="team-subtitle text-white">
+                            Click specific cards to learn more about our Organizers!
                         </p>
                     </div>
                     
