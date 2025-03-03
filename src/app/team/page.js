@@ -1,24 +1,56 @@
 "use client";
 import "../css/team.css";
 import Navbar from "../components/navbar";
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SectionTitle from "../components/title";
 
 export default function Team() {
+    const pageRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
+
     useEffect(() => {
+        // Check if mobile
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        // Initialize AOS with mobile-specific settings
         AOS.init({
-            duration: 1400,
+            duration: isMobile ? 800 : 1400,
             easing: 'ease-in-out',
             once: true,
+            disable: isMobile ? 'phone' : false, // Disable animations on mobile
+            startEvent: 'DOMContentLoaded',
         });
         
-        // Ensure scrolling is enabled and body has full height
-        document.body.style.overflow = 'auto';
-        document.body.style.height = 'auto';
-        document.documentElement.style.overflow = 'auto';
-        document.documentElement.style.height = 'auto';
+        // Reset scroll position when component mounts
+        if (typeof window !== 'undefined') {
+            window.scrollTo(0, 0);
+            
+            // More aggressive approach to ensure scrolling works
+            document.body.style.overflow = 'auto';
+            document.body.style.height = 'auto';
+            document.documentElement.style.overflow = 'auto';
+            document.documentElement.style.height = 'auto';
+            document.body.style.position = 'relative';
+            
+            // Force layout recalculation
+            setTimeout(() => {
+                if (pageRef.current) {
+                    const height = pageRef.current.scrollHeight;
+                    pageRef.current.style.minHeight = height + 'px';
+                }
+                // Force redraw
+                document.body.style.display = 'none';
+                document.body.offsetHeight; // Trigger reflow
+                document.body.style.display = '';
+            }, 100);
+        }
         
         return () => {
             // Cleanup when component unmounts
@@ -26,8 +58,10 @@ export default function Team() {
             document.body.style.height = '';
             document.documentElement.style.overflow = '';
             document.documentElement.style.height = '';
+            document.body.style.position = '';
+            window.removeEventListener('resize', checkMobile);
         };
-    }, []);
+    }, [isMobile]);
 
     // Function to create organizer cards
     const renderOrganizerCards = () => {
@@ -40,7 +74,12 @@ export default function Team() {
         });
         
         return organizers.map((organizer, index) => (
-            <div className="organizer-card" key={index} data-aos="fade-up" data-aos-delay={100 + (index % 5) * 100}>
+            <div 
+                className="organizer-card" 
+                key={index} 
+                data-aos={isMobile ? "" : "fade-up"} 
+                data-aos-delay={isMobile ? "" : (100 + (index % 5) * 100)}
+            >
                 <a href={organizer.linkedin} target="_blank" rel="noopener noreferrer">
                     <div className="organizer-image-container">
                         <img 
@@ -60,17 +99,19 @@ export default function Team() {
     };
 
     return (
-        <div className="team-page-wrapper" style={{ 
+        <div className="team-page-wrapper" ref={pageRef} style={{ 
             minHeight: '100vh', 
             width: '100%', 
             position: 'relative', 
-            overflowY: 'auto' 
+            overflowY: 'auto',
+            overflowX: 'hidden',
+            WebkitOverflowScrolling: 'touch'
         }}>
             <Navbar />
             <div className="team-page">
                 <div className="team-content">
-                    <div className="team-title-container" data-aos="fade-down">
-                        <SectionTitle title="Our Team" />
+                    <div className="team-title-container" data-aos={isMobile ? "" : "fade-down"}>
+                        <SectionTitle title="Our Team" color="text-white" />
                         <p className="team-title-subheading text-white">
                             Meet the amazing people behind hackUMBC!
                         </p>

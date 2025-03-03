@@ -2,6 +2,13 @@ html, body {
     height: auto !important;
     overflow: auto !important;
     position: relative;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    width: 100%;
 }
 
 .team-page-wrapper {
@@ -10,16 +17,16 @@ html, body {
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    height: auto;
 }
 
 .team-page {
     background-image: url('/hackumbc_bg.png');
-    min-height: 100vh;
+    min-height: auto;
+    height: auto;
     padding: 100px 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    overflow-y: auto;
+    display: block;
     position: relative;
     width: 100%;
 }
@@ -53,7 +60,7 @@ html, body {
 .team-subtitle {
     font-size: 0.95rem;
     font-style: italic;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -63,11 +70,17 @@ html, body {
     color: #fff;
 }
 
+.text-white {
+    color: #fff;
+}
+
 .organizers-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 30px;
     justify-content: center;
+    overflow: visible; /* Ensure grid doesn't capture scroll */
+    -webkit-overflow-scrolling: none;
 }
 
 .organizer-card {
@@ -104,6 +117,7 @@ html, body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    border-radius: 0; /* Reset to ensure consistency */
 }
 
 .organizer-card:hover .organizer-image {
@@ -114,6 +128,7 @@ html, body {
     padding: 15px;
     text-align: center;
     background-color: #fff;
+    border-radius: 0 0 10px 10px; /* Subtle rounding matching the card */
 }
 
 .organizer-name {
@@ -162,16 +177,16 @@ html, body {
     .team-page-wrapper,
     .team-page {
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch; /* Improved scrolling on iOS */
+        -webkit-overflow-scrolling: touch;
+        height: auto !important;
+        min-height: auto !important;
+        position: relative !important;
+        display: block !important;
     }
     
     .team-page {
-        padding: 80px 0 40px;
-        min-height: auto;
-        height: auto;
-        align-items: flex-start;
-        overflow-y: visible;
-        display: block;
+        padding-top: 80px !important;
+        padding-bottom: 40px !important;
     }
 
     .team-content {
@@ -197,8 +212,34 @@ html, body {
     .organizers-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
+        overflow: visible !important;
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
     }
-
+    
+    .organizers-grid::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .organizer-card {
+        overflow: visible !important;
+        border-radius: 10px; /* Keep consistent with desktop */
+    }
+    
+    .organizer-info {
+        padding: 10px;
+        border-radius: 0 0 10px 10px; /* Keep consistent with desktop */
+    }
+    
+    .organizer-image-container {
+        border-radius: 10px 10px 0 0; /* Match the card's top corners */
+        overflow: hidden !important;
+    }
+    
+    .organizer-image {
+        border-radius: 5px 5px 0 0; /* Subtle rounding on the actual image */
+    }
+    
     .organizer-name {
         font-size: 0.9rem;
     }
@@ -207,20 +248,26 @@ html, body {
         font-size: 0.8rem;
     }
     
-    .organizer-info {
-        padding: 10px;
-    }
-    
-    .organizer-image-container {
-        padding-top: 100%; /* Maintain 1:1 aspect ratio */
-    }
-    
     .organizer-card:hover {
         transform: translateY(-5px); /* Reduced hover effect for mobile */
+    }
+
+    html, body {
+        position: relative !important;
+        overflow-y: auto !important;
+        height: 100% !important;
+        width: 100% !important;
+        touch-action: pan-y !important;
     }
 }
 
 @media (max-width: 480px) {
+    body, html {
+        overflow: auto !important;
+        height: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    
     .team-page {
         padding: 60px 0 30px;
         position: relative;
@@ -254,12 +301,13 @@ html, body {
     }
     
     .organizer-card {
-        border-radius: 8px;
+        border-radius: 12px; /* Slightly more rounded but still subtle */
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     }
     
     .organizer-info {
         padding: 8px 5px;
+        border-radius: 0 0 12px 12px; /* Match the card */
     }
     
     .organizer-name {
@@ -269,6 +317,14 @@ html, body {
     
     .organizer-role {
         font-size: 0.7rem;
+    }
+
+    .organizer-image-container {
+        border-radius: 12px 12px 0 0; /* Match the card's top corners */
+    }
+    
+    .organizer-image {
+        border-radius: 6px 6px 0 0; /* Subtle rounding on the actual image */
     }
 }
 
@@ -290,5 +346,42 @@ html, body {
     
     .organizer-image-container {
         padding-top: 100%; /* Maintain square aspect */
+    }
+
+    .organizer-card {
+        border-radius: 12px; /* Keep consistent */
+    }
+    
+    .organizer-info {
+        border-radius: 0 0 12px 12px; /* Match the card */
+    }
+    
+    .organizer-image-container {
+        border-radius: 12px 12px 0 0; /* Match the card's top corners */
+    }
+}
+
+/* Touch device specific modifications to prevent nested scrolling */
+@media (pointer: coarse) {
+    .team-page-wrapper {
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+    }
+    
+    .organizers-grid,
+    .organizer-card,
+    .organizer-image-container,
+    .team-content {
+        overflow: visible !important;
+        touch-action: auto !important;
+        -webkit-overflow-scrolling: none !important;
+    }
+    
+    .organizer-image {
+        pointer-events: none; /* Allow touch to pass through to parent for better scrolling */
+    }
+    
+    .organizer-card a {
+        touch-action: pan-y !important; /* Only allow vertical scrolling on links */
     }
 } 
