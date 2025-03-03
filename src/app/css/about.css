@@ -58,7 +58,6 @@
 .tracks img {
     width: 150px;
     display: block;
-    padding-bottom: 3vh;
 }
 
 .about-page {
@@ -154,6 +153,8 @@
         max-width: 150px;
         margin-bottom: 10px;
         padding-bottom: 10px;
+        justify-content: center;
+        align-items: center;
     }
 
     .tracks h1 {

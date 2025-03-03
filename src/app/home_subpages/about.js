@@ -30,21 +30,31 @@ export default function About() {
             <div className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-64'} rounded-lg border-transparent 
                 bg-white/10 hover:border-white/20 hover:shadow-lg backdrop-blur-sm cursor-default transition-all duration-300`}
                 style={{
-                    padding: isMobile ? '15px 10px' : '1rem',
+                    padding: isMobile ? '15px 10px' : '0.5rem',
                     maxWidth: isMobile ? '300px' : 'none',
                     margin: isMobile ? '0 auto' : '0',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                    justifyContent: 'space-between',
+                    height: '350px'
                 }}
                 data-aos="fade-up">
-                <div style={{ width: isMobile ? '150px' : '150px' }}>
+                <div className={`flex items-center`}
+                    style={{
+                        padding: '15px 0px 15px 0px',
+                        width: isMobile ? '150px' : '150px',
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
                     {children}
                 </div>
-                <h1 className={`${isMobile ? 'text-xl' : 'text-2xl'} mb-1 uppercase font-extrabold text-black`}>
-                    {title}
-                </h1> 
-                <p className={`text-center ${isMobile ? 'text-sm' : ''} mb-3 font-medium text-black`}>
-                    {desc}
-                </p> 
+                <div>
+                    <h1 className={`${isMobile ? 'text-xl' : 'text-2xl'} mb-1 uppercase font-extrabold text-black`}>
+                        {title}
+                    </h1> 
+                    <p className={`text-center ${isMobile ? 'text-sm' : ''} mb-3 font-medium text-black`}>
+                        {desc}
+                    </p> 
+                </div>
             </div>
         );
     }
