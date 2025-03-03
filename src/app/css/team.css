@@ -1,0 +1,275 @@
+html, body {
+    height: auto !important;
+    overflow: auto !important;
+    position: relative;
+}
+
+.team-page-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.team-page {
+    background-image: url('/hackumbc_bg.png');
+    min-height: 100vh;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    position: relative;
+    width: 100%;
+}
+
+.team-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: rgba(186, 65, 38, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 2px solid #fff;
+}
+
+.team-title-container {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.team-title-subheading {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-black {
+    color: #000;
+}
+
+.organizers-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    justify-content: center;
+}
+
+.organizer-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.organizer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.organizer-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.organizer-image-container {
+    width: 100%;
+    position: relative;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    overflow: hidden;
+}
+
+.organizer-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.organizer-card:hover .organizer-image {
+    transform: scale(1.1);
+}
+
+.organizer-info {
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.organizer-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #ba4126;
+}
+
+.organizer-role {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.light-mode-text {
+    color: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+    .light-mode-text {
+        color: #fff;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .light-mode-text {
+        color: inherit;
+    }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+    .organizers-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .organizers-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-page-wrapper,
+    .team-page {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* Improved scrolling on iOS */
+    }
+    
+    .team-page {
+        padding: 80px 0 40px;
+        min-height: auto;
+        height: auto;
+        align-items: flex-start;
+        overflow-y: visible;
+        display: block;
+    }
+
+    .team-content {
+        width: 95%;
+        padding: 20px 15px;
+        margin-top: 20px;
+    }
+
+    .team-title-container {
+        margin-bottom: 30px;
+    }
+
+    .team-title-subheading {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .organizers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .organizer-name {
+        font-size: 0.9rem;
+    }
+
+    .organizer-role {
+        font-size: 0.8rem;
+    }
+    
+    .organizer-info {
+        padding: 10px;
+    }
+    
+    .organizer-image-container {
+        padding-top: 100%; /* Maintain 1:1 aspect ratio */
+    }
+    
+    .organizer-card:hover {
+        transform: translateY(-5px); /* Reduced hover effect for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .team-page {
+        padding: 60px 0 30px;
+        position: relative;
+        overflow-y: auto;
+        min-height: 100%;
+    }
+
+    .team-content {
+        padding: 15px 10px;
+        width: 92%;
+        margin-top: 50px;
+    }
+    
+    .team-title-container {
+        margin-bottom: 20px;
+    }
+    
+    .team-title-subheading {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .organizers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .organizer-card {
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .organizer-info {
+        padding: 8px 5px;
+    }
+    
+    .organizer-name {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+    }
+    
+    .organizer-role {
+        font-size: 0.7rem;
+    }
+}
+
+/* Additional small phone optimization */
+@media (max-width: 380px) {
+    .organizers-grid {
+        grid-template-columns: repeat(1, 1fr);
+        max-width: 230px;
+        margin: 0 auto;
+    }
+    
+    .organizer-name {
+        font-size: 0.9rem;
+    }
+    
+    .organizer-role {
+        font-size: 0.8rem;
+    }
+    
+    .organizer-image-container {
+        padding-top: 100%; /* Maintain square aspect */
+    }
+} 

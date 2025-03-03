@@ -93,6 +93,13 @@ export default function Navbar() {
             >
               Sponsors
             </Link>
+            <Link
+              id="left-nav-button"
+              className="nav-link light-mode-text"
+              href="/team"
+            >
+              Organizers
+            </Link>
           </div>
 
           <div className="nav-right light-mode-text">
@@ -121,6 +128,9 @@ export default function Navbar() {
             </li>
             <li>
               <Link href="#sponsors" className="light-mode-text">Sponsors</Link>
+            </li>
+            <li>
+              <Link href="/team" className="light-mode-text">Organizers</Link>
             </li>
           </ul>
         </div>

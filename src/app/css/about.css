@@ -86,6 +86,11 @@
     }
 }
 
+.team-link:hover {
+    text-decoration: underline;
+    color: #e95c3f;
+}
+
 @media (max-width: 768px) {
     .about-page {
         width: 100%;

@@ -74,6 +74,19 @@ export default function About() {
                             With lots of fun activities, over $5,000 in prizes, and swag for
                             all participants, you'll be in for an exciting weekend!
                         </p>
+                        <br/>
+                        <p>
+                            Want to learn more about the organizers behind hackUMBC? 
+                            <a href="/team" className="team-link" style={{
+                                color: '#ba4126',
+                                textDecoration: 'underline',
+                                fontWeight: 'bold',
+                                marginLeft: '5px',
+                                transition: 'all 0.3s ease'
+                            }}>
+                                Meet our organizing team!
+                            </a>
+                        </p>
                     </div>
                 </div>
                 
