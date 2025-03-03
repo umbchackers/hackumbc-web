@@ -34,8 +34,8 @@ export default function About() {
                     maxWidth: isMobile ? '300px' : 'none',
                     margin: isMobile ? '0 auto' : '0',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                    justifyContent: 'space-between',
-                    height: '350px'
+                    justifyContent: isMobile ? 'flex-start' : 'space-between',
+                    height: isMobile ? 'auto' : '350px'
                 }}
                 data-aos="fade-up">
                 <div className={`flex items-center`}
