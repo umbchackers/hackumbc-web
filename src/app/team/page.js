@@ -84,7 +84,7 @@ export default function Team() {
             { name: "Jillian Casey", role: "Design Team", image: "/Organizer Headshots/jillian.JPG", linkedin: "https://www.linkedin.com/in/jillian-casey-2757352b1/" },
             { name: "Prajita Shrestha", role: "Marketing Team", image: "/Organizer Headshots/pj.JPG", linkedin: "https://www.linkedin.com/in/prajita/" },
             { name: "Angel Pham", role: "Marketing Team", image: "/Organizer Headshots/angel.JPG", linkedin: "https://www.linkedin.com/in/duyen-pham-b60465290/" },
-            { name: "Lillian Tapa", role: "Design Team", image: "/Organizer Headshots/lillian.JPG", linkedin: "https://www.linkedin.com/in/lilian-tapa-456177186/" },
+            { name: "Lilian Tapa", role: "Design Team", image: "/Organizer Headshots/lilian.JPG", linkedin: "https://www.linkedin.com/in/lilian-tapa-456177186/" },
             { name: "Momin Imran", role: "Tech Team", image: "/Organizer Headshots/momin.JPG", linkedin: "https://www.linkedin.com/in/mominimran1/" },
             
             // row 5
