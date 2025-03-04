@@ -70,7 +70,7 @@ export default function Team() {
             { name: "Claire Kim", role: "Advisor", image: "/Organizer Headshots/claire.jpg", linkedin: "https://www.linkedin.com/in/claire-kim-49187416a/" },
             { name: "Muhammad Umar", role: "External Vice President", image: "/Organizer Headshots/umar.JPG", linkedin: "https://www.linkedin.com/in/umbc-muhammadumar" },
             { name: "Pahal Dave", role: "Marketing Team Lead", image: "/Organizer Headshots/pahal.JPG", linkedin: "https://www.linkedin.com/in/pahaldave/" },
-            { name: "Julliana Gepilano", role: "Design Team Lead", image: "/Organizer Headshots/jay.JPG", linkedin: "https://www.linkedin.com/in/julianna-gepilano-686b22284/" },
+            { name: "Jay Gepilano", role: "Design Team Lead", image: "/Organizer Headshots/jay.JPG", linkedin: "https://www.linkedin.com/in/julianna-gepilano-686b22284/" },
             { name: "Hira Khan", role: "Sponsorship Team Lead", image: "/Organizer Headshots/hira.JPG", linkedin: "https://www.linkedin.com/in/hirakhan22/" },
             
             // row 3
