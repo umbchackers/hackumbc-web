@@ -92,7 +92,7 @@ export default function Team() {
             { name: "Pooja Patel", role: "Design Team", image: "/Organizer Headshots/pooja.JPG", linkedin: "https://www.linkedin.com/in/pooja-patel-635151271/" },
             { name: "Shakib Chowdhury", role: "Tech Team", image: "/Organizer Headshots/shakib.JPG", linkedin: "https://www.linkedin.com/in/shakib-chowdhury-6bbbb2284/" },
             { name: "Sydney Spradlin", role: "Design Team", image: "/Organizer Headshots/sydney.JPG", linkedin: "https://www.linkedin.com/in/sydney-spradlin-1b46662ba/" },
-            { name: "Natalie Watson", role: "Marketing Team", image: "/Organizer Headshots/natalie.JPG", linkedin: "https://www.linkedin.com/in/darshp623/" },
+            { name: "Natalie Watson", role: "Marketing Team", image: "/Organizer Headshots/natalie.JPG", linkedin: "https://www.linkedin.com/in/natalie-w-17a7a3242/" },
             
             // row 6
             { name: "Fiona Acquah", role: "Sponsorship Team", image: "/Organizer Headshots/fiona.JPG", linkedin: "https://www.linkedin.com/in/darshp623/" },
