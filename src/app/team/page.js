@@ -60,14 +60,14 @@ export default function Team() {
         // Create array of 30 organizers with unique names and roles
         const organizers = [
             // row 1
-            { name: "Chachi Watterson", role: "Team Spirit Animal", image: "/Organizer Headshots/chachi.JPG", linkedin: "https://www.linkedin.com/in/julian-chavez-b82a13254/" },
+            { name: "Chachi Watterson", role: "Team Spirit Animal", image: "/Organizer Headshots/chachi.jpg", linkedin: "https://www.linkedin.com/in/julian-chavez-b82a13254/" },
             { name: "Julian Chavez", role: "Advisor", image: "/Organizer Headshots/julian.JPG", linkedin: "https://www.linkedin.com/in/julian-chavez-b82a13254/" },
             { name: "Darsh Patel", role: "Tech Team Lead", image: "/Organizer Headshots/darsh.JPG", linkedin: "https://www.linkedin.com/in/darshp623/" },
             { name: "Bella Goltser", role: "President", image: "/Organizer Headshots/bella.JPG", linkedin: "https://www.linkedin.com/in/isabella-goltser-bb1b21284" },
             { name: "Jack Winkler", role: "Internal Vice President", image: "/Organizer Headshots/jack.JPG", linkedin: "https://www.linkedin.com/in/jack-winkler-159575276/" },
             
             // row 2
-            { name: "Claire Kim", role: "Advisor", image: "/Organizer Headshots/claire.JPG", linkedin: "https://www.linkedin.com/in/claire-kim-49187416a/" },
+            { name: "Claire Kim", role: "Advisor", image: "/Organizer Headshots/claire.jpg", linkedin: "https://www.linkedin.com/in/claire-kim-49187416a/" },
             { name: "Muhammad Umar", role: "External Vice President", image: "/Organizer Headshots/umar.JPG", linkedin: "https://www.linkedin.com/in/umbc-muhammadumar" },
             { name: "Pahal Dave", role: "Marketing Team Lead", image: "/Organizer Headshots/pahal.JPG", linkedin: "https://www.linkedin.com/in/pahaldave/" },
             { name: "Julliana Gepilano", role: "Design Team Lead", image: "/Organizer Headshots/jay.JPG", linkedin: "https://www.linkedin.com/in/julianna-gepilano-686b22284/" },
