@@ -84,7 +84,7 @@ export default function Team() {
             { name: "Jillian Casey", role: "Design Team", image: "/Organizer Headshots/jillian.JPG", linkedin: "https://www.linkedin.com/in/jillian-casey-2757352b1/" },
             { name: "Prajita Shrestha", role: "Marketing Team", image: "/Organizer Headshots/pj.JPG", linkedin: "https://www.linkedin.com/in/prajita/" },
             { name: "Angel Pham", role: "Marketing Team", image: "/Organizer Headshots/angel.JPG", linkedin: "https://www.linkedin.com/in/duyen-pham-b60465290/" },
-            { name: "Lilian Tapa", role: "Design Team", image: "/Organizer Headshots/lilian.JPG", linkedin: "https://www.linkedin.com/in/lilian-tapa-456177186/" },
+            { name: "Lilian Tapa", role: "Design Team", image: "/Organizer Headshots/lilian.JPG", linkedin: "https://www.linkedin.com/in/lil    ian-tapa-456177186/" },
             { name: "Momin Imran", role: "Tech Team", image: "/Organizer Headshots/momin.JPG", linkedin: "https://www.linkedin.com/in/mominimran1/" },
             
             // row 5
@@ -96,7 +96,7 @@ export default function Team() {
             
             // row 6
             { name: "Fiona Acquah", role: "Sponsorship Team", image: "/Organizer Headshots/fiona.JPG", linkedin: "https://www.linkedin.com/in/darshp623/" },
-            { name: "Shrikanth Bhatnagar", role: "Tech Team", image: "/Organizer Headshots/shrikanth.JPG", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
+            { name: "Shrikant Bhatnagar", role: "Tech Team", image: "/Organizer Headshots/shrikant.JPG", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
             { name: "Victor Osunji", role: "Tech Team", image: "/Organizer Headshots/victor.JPG", linkedin: "https://www.linkedin.com/in/victor-osunji-bb030a232/" },
             { name: "Waasi Ahmad", role: "Sponsorship Team", image: "/Organizer Headshots/waasi.JPG", linkedin: "https://www.linkedin.com/in/waasi-ahmad-0231b9292/" },
             { name: "Abdullah Gill", role: "Sponsorship Team", image: "/Organizer Headshots/abdullah.JPG", linkedin: "https://www.linkedin.com/in/abdullah-gill-9a5672273/" },
