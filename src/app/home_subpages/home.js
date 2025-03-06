@@ -38,22 +38,16 @@ export default function Home() {
   return (
     <div className="home-page" style={{
       backgroundImage: isMobile ? "url('/mobile-bg-home.gif')" : "url('/hackumbc_bg.gif')",
-      backgroundSize: isMobile ? "auto 130vh" : "cover",
-      backgroundPosition: isMobile ? "center -30vh" : "center",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
-      backgroundAttachment: "scroll",
-      height: "100vh",
-      width: "100%",
-      overflow: "hidden",
-      marginBottom: "-1px",
     }}>
       <div className="home-container" style={{ 
         zIndex: 10,
         display: "flex",
         alignItems: isMobile ? "flex-start" : "center",
         justifyContent: "center",
-        paddingTop: isMobile ? "40vh" : "0",
-        height: "100%",
+        paddingTop: isMobile ? "50vh" : "0" // reduced button height on mobile
       }}>
         <div className="footer" style={{ 
           width: isMobile ? "90%" : "100%", 
@@ -70,7 +64,7 @@ export default function Home() {
           />
           <LinkBox
             href="https://hackumbc-fall-2024.devpost.com/"
-            desc="Click this to go to the Devpost, where you can view logistics for projects, teams, and prizes!"
+            desc="Click to visit Devpost, where you can view logistics for projects, teams, and prizes!"
             title="Devpost"
           />
           <LinkBox

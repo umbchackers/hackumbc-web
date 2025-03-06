@@ -32,7 +32,7 @@ export default function LinkBox({ href, title, desc }) {
         overflow: 'hidden',
         fontWeight: 600,
         transition: 'all 300ms ease',
-        padding: isMobile ? '10px 15px' : '1rem',
+        padding: isMobile ? '8px 12px' : '1rem',
         borderRadius: isMobile ? '2rem' : '5rem',
         border: '0.2rem solid #ffffff',
         color: 'white',
@@ -44,10 +44,10 @@ export default function LinkBox({ href, title, desc }) {
         textAlign: 'center',
         cursor: 'pointer',
         zIndex: 50,
-        width: isMobile ? '100%' : '300px',
+        width: isMobile ? '90%' : '300px',
         height: isMobile ? 'auto' : '140px',
-        minHeight: isMobile ? '120px' : '140px',
-        margin: isMobile ? '5px 0' : '10px',
+        minHeight: isMobile ? '100px' : '140px',
+        margin: isMobile ? '4px 0' : '10px',
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
       }}
       onMouseEnter={(e) => {
@@ -80,7 +80,7 @@ export default function LinkBox({ href, title, desc }) {
         <h2
           style={{
             marginBottom: '0.5rem',
-            fontSize: isMobile ? '1.2rem' : '1.3rem',
+            fontSize: isMobile ? '1.1rem' : '1.3rem',
             fontWeight: 'bold',
             color: 'white'
           }}
@@ -100,7 +100,7 @@ export default function LinkBox({ href, title, desc }) {
           style={{
             opacity: 1,
             color: '#ffffff',
-            fontSize: isMobile ? '0.85rem' : '0.9rem',
+            fontSize: isMobile ? '0.8rem' : '0.9rem',
             padding: isMobile ? '0 5px' : '0'
           }}
         >
