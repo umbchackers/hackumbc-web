@@ -37,17 +37,23 @@ export default function Home() {
 
   return (
     <div className="home-page" style={{
-      backgroundImage: "url('/hackumbc_bg.gif')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
+      backgroundImage: isMobile ? "url('/mobile-bg-home.gif')" : "url('/hackumbc_bg.gif')",
+      backgroundSize: isMobile ? "auto 130vh" : "cover",
+      backgroundPosition: isMobile ? "center -30vh" : "center",
       backgroundRepeat: "no-repeat",
+      backgroundAttachment: "scroll",
+      height: "100vh",
+      width: "100%",
+      overflow: "hidden",
+      marginBottom: "-1px",
     }}>
       <div className="home-container" style={{ 
         zIndex: 10,
         display: "flex",
         alignItems: isMobile ? "flex-start" : "center",
         justifyContent: "center",
-        paddingTop: isMobile ? "60vh" : "0" // Positioning 60% down the viewport on mobile
+        paddingTop: isMobile ? "40vh" : "0",
+        height: "100%",
       }}>
         <div className="footer" style={{ 
           width: isMobile ? "90%" : "100%", 
