@@ -8,23 +8,17 @@ import "aos/dist/aos.css";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
+  const [currentPath, setCurrentPath] = useState("/");
 
-  // handle resize
   useEffect(() => {
+    setCurrentPath(window.location.pathname);
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    // Initial check on component mount
     handleResize();
-
-    // Add event listener for resize events
     window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
@@ -49,11 +43,9 @@ export default function Navbar() {
               smooth="true"
               href="/#home"
               onClick={() => {
-                if (window.location.pathname === "/") {
-                  // Already on home page—smooth scroll to the top
+                if (currentPath === "/") {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 } else {
-                  // On a different page—navigate to home
                   window.location.href = "/";
                 }
               }}
@@ -66,17 +58,31 @@ export default function Navbar() {
               smooth="true"
               duration={500}
               className="nav-link light-mode-text"
-              href="#about"
+              href={currentPath === "/" ? "#about" : "/#about"}
+              onClick={() => {
+                if (currentPath === "/") {
+                  window.scrollTo({ top: document.getElementById('about').offsetTop, behavior: "smooth" });
+                } else {
+                  window.location.href = "/#about";
+                }
+              }}
             >
               About
             </Link>
             <Link
               id="left-nav-button"
-              to="about"
+              to="schedule"
               smooth="true"
               duration={500}
               className="nav-link light-mode-text"
-              href="#schedule"
+              href={currentPath === "/" ? "#schedule" : "/#schedule"}
+              onClick={() => {
+                if (currentPath === "/") {
+                  window.scrollTo({ top: document.getElementById('schedule').offsetTop, behavior: "smooth" });
+                } else {
+                  window.location.href = "/#schedule";
+                }
+              }}
             >
               Schedule
             </Link>
@@ -87,9 +93,16 @@ export default function Navbar() {
               smooth="true"
               duration={500}
               className="nav-link light-mode-text"
-              href="#faq"
+              href={currentPath === "/" ? "#faq" : "/#faq"}
+              onClick={() => {
+                if (currentPath === "/") {
+                  window.scrollTo({ top: document.getElementById('faq').offsetTop, behavior: "smooth" });
+                } else {
+                  window.location.href = "/#faq";
+                }
+              }}
             >
-            FAQ
+              FAQ
             </Link>
             <Link
               id="left-nav-button"
@@ -98,7 +111,14 @@ export default function Navbar() {
               smooth="true"
               duration={500}
               className="nav-link light-mode-text"
-              href="#sponsors"
+              href={currentPath === "/" ? "#sponsors" : "/#sponsors"}
+              onClick={() => {
+                if (currentPath === "/") {
+                  window.scrollTo({ top: document.getElementById('sponsors').offsetTop, behavior: "smooth" });
+                } else {
+                  window.location.href = "/#sponsors";
+                }
+              }}
             >
               Sponsors
             </Link>
@@ -127,19 +147,69 @@ export default function Navbar() {
           </div>
           <ul className={`menu-links ${isMenuOpen ? "open" : ""} light-mode-text`}>
             <li>
-              <Link href="#about" className="light-mode-text">About</Link>
+              <Link 
+                href={currentPath === "/" ? "#about" : "/#about"} 
+                className="light-mode-text"
+                onClick={() => {
+                  if (currentPath === "/") {
+                    window.scrollTo({ top: document.getElementById('about').offsetTop, behavior: "smooth" });
+                  }
+                  setIsMenuOpen(false);
+                }}
+              >
+                About
+              </Link>
             </li>
             <li>
-              <Link href="#schedule" className="light-mode-text">Schedule</Link>
+              <Link 
+                href={currentPath === "/" ? "#schedule" : "/#schedule"} 
+                className="light-mode-text"
+                onClick={() => {
+                  if (currentPath === "/") {
+                    window.scrollTo({ top: document.getElementById('schedule').offsetTop, behavior: "smooth" });
+                  }
+                  setIsMenuOpen(false);
+                }}
+              >
+                Schedule
+              </Link>
             </li>
             <li>
-              <Link href="#faq" className="light-mode-text">FAQ</Link>
+              <Link 
+                href={currentPath === "/" ? "#faq" : "/#faq"} 
+                className="light-mode-text"
+                onClick={() => {
+                  if (currentPath === "/") {
+                    window.scrollTo({ top: document.getElementById('faq').offsetTop, behavior: "smooth" });
+                  }
+                  setIsMenuOpen(false);
+                }}
+              >
+                FAQ
+              </Link>
             </li>
             <li>
-              <Link href="#sponsors" className="light-mode-text">Sponsors</Link>
+              <Link 
+                href={currentPath === "/" ? "#sponsors" : "/#sponsors"} 
+                className="light-mode-text"
+                onClick={() => {
+                  if (currentPath === "/") {
+                    window.scrollTo({ top: document.getElementById('sponsors').offsetTop, behavior: "smooth" });
+                  }
+                  setIsMenuOpen(false);
+                }}
+              >
+                Sponsors
+              </Link>
             </li>
             <li>
-              <Link href="/team" className="light-mode-text">Organizers</Link>
+              <Link 
+                href="/team" 
+                className="light-mode-text"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Organizers
+              </Link>
             </li>
           </ul>
         </div>
