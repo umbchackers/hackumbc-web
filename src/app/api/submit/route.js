@@ -157,7 +157,7 @@ const sendResume = async (file) => {
     const upload = new Upload({
       client: s3,
       params: {
-        Bucket,
+        Bucket: "mini-event-registration",
         Key: fileName,
         Body: file,
         ContentType: file.type,

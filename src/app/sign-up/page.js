@@ -1029,7 +1029,7 @@ export default function Survey() {
           </div>
         </div>
         <div className="footer-info">
-          <p>&copy; 2024 hackUMBC. All rights reserved.</p>
+          <p>&copy; 2025 hackUMBC. All rights reserved.</p>
           <p className="mt-2">
             <a href="#" className="footer-link">
               Privacy Policy
