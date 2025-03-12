@@ -34,7 +34,7 @@ export async function POST(request) {
       major: "",
     };
     const params = {
-      TableName: "hackumbc-registration",
+      TableName: "mini-event-registration",
       Item: {},
     };
     let resumeResult;
@@ -70,9 +70,12 @@ export async function POST(request) {
       params["Item"][key] = { S: value };
     }
 
-    const registration_time = new Date().toISOString();
-    data["registration_time"] = registration_time;
-    params["Item"]["registration_time"] = { S: registration_time };
+    const mini_event = "hackumbc_mini_event_2025"; // static partition key for the mini-event
+    const email = data["email"]; // email as the sort key
+    
+    params["Item"]["mini_event"] = { S: mini_event };
+    params["Item"]["email"] = { S: email };
+    
     console.log(data);
     console.log(params);
 
@@ -90,13 +93,12 @@ export async function POST(request) {
 
     try {
       let result = await dynamodb.getItem({
-        TableName: "hackumbc-registration",
+        TableName: "mini-event-registration", // new table name
         Key: {
-          'registration_time': {
-            'S': registration_time
-          }
+          'mini_event': { 'S': mini_event },
+          'email': { 'S': email }
         }
-      }).promise();
+      }).promise();      
       console.log('success');
       console.log(JSON.stringify(result));
     }
