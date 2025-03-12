@@ -45,16 +45,16 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     <p>Get prepped with our hands-on workshops leading up to the event!</p>
     <ul>
       <li><b>📍 Location:</b> ITE (Room TBA)</li>
-      <li><b>🗓 Dates:</b> Fridays - March 14, March 25, TBD, TBD</li>
+      <li><b>🗓 Dates:</b> Fridays - March 14, March 25, April 4th, April 11th</li>
       <li><b>⏰ Time:</b> 12:00 - 1:00 PM</li>
     </ul>
 
     <h3>💡 Topics & Speakers:</h3>
     <ul>
-      <li><b>Gemini & Google Cloud</b> - Tirth (Google Developer Group)</li>
-      <li><b>Web Development</b> - Romain & Momin (Tech Team)</li>
+      <li><b>Gemini & Google Cloud</b> - Tirth Patel (Google Developer Group)</li>
+      <li><b>Web Development</b> - Romain Dzeinse & Momin Intihar (Tech Team)</li>
       <li><b>Scripting in Python</b> - Software Architecture & Design (SAD)</li>
-      <li><b>Project Building</b> - hackUMBC Team (Bella)</li>
+      <li><b>Project Building</b> - Bella Goltser (hackUMBC Team)</li>
     </ul>
 
     <h2>🚀 Sign Up Now!</h2>
