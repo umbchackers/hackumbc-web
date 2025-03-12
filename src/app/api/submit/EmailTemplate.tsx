@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 interface EmailTemplateProps {
-  firstName: string,
-  lastName: string
-  email: string
+  firstName: string;
+  lastName: string;
+  email: string;
 }
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
@@ -12,42 +12,59 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   email
 }) => (
   <>
-  <p>Hi {firstName} {lastName}</p>
-    <p>The countdown has begun, and we’re thrilled to have you join us for <b>hackUMBC Fall 2024!</b> Get ready for an action-packed 24 hours of building projects, attending workshops, and having fun—all happening in person this weekend at <b>UMBC ITE/ENGR</b>.</p>
-    <h2>Join the hackUMBC Discord</h2>
-    <p>Connect with fellow participants, share ideas, and get updates by joining the <a href="https://discord.gg/EWMvcMEJAB">hackUMBC Fall 2024 Discord server</a>. Make sure to follow the instructions in the rules and roles section upon joining!</p>
-    <h2>Event Details: Check-In + Opening Ceremony</h2>
+    <p>Hi {firstName} {lastName},</p>
+
+    <p>We're excited to invite you to our upcoming <b>hackUMBC Mini Hackathon</b>—an 8-hour innovation sprint where you can showcase your creativity, tackle real-world challenges, and compete for amazing prizes!</p>
+
+    <h2>📅 Event Details</h2>
     <ul>
-      <li><b>Date:</b> September 28, 2024</li>
-      <li><b>Check-In Time:</b> 9:00 AM, at <b>ITE First Floor Atrium</b></li>
-      <li><b>Opening Ceremony:</b> 10:00 AM, at <b>ITE 104</b></li>
+      <li><b>📍 Location:</b> ITE Building (Room TBA)</li>
+      <li><b>🗓 Date:</b> April 19, 2025</li>
+      <li><b>⏰ Time:</b> 9:00 AM - 5:00 PM</li>
+      <li><b>🍽 Food:</b> Breakfast snacks, lunch at noon, and afternoon snacks provided</li>
     </ul>
-    <p>For the full event schedule and details, visit our website: <a href="https://hackumbc.tech">hackUMBC.tech</a>.</p>
-    <h2>Check-In QR Code</h2>
-    <p>Don’t forget! Your <b>QR Code</b> for check-in is attached below. Please have it ready to show the hackUMBC team when you arrive.</p>
-    <img src={`https://quickchart.io/qr?text=${email}`}/>
-    <h2>Location + Parking Info</h2>
-    <p>We’re excited to host hackUMBC Fall 2024 at:</p>
-    <p><b><u>UMBC Information Technology and Engineering (ITE) Building</u></b><br/>1000 Hilltop Rd<br/>Baltimore, MD 21250</p>
-    <p>Parking is <b>free</b> and available on site! Please find the <b>parking map</b> attached below for your convenience.</p>
-    <h2>Food and Snacks</h2>
-    <p>We’ve got you covered! There will be <b>free meals and snacks</b> provided throughout the event, with options available for <b>all dietary restrictions</b>, so you can stay fueled and focused on your projects!</p>
-    <h2>What to Bring</h2>
-    <p>To make the most of your hackathon experience, remember to bring:</p>
+
+    <h2>🏆 Competition Format & Prizes</h2>
     <ul>
-      <li>A valid student or government-issued ID</li>
-      <li>Your laptop and charger</li>
-      <li>If staying overnight, don’t forget:
+      <li><b>👥 Teams:</b> Up to 4 participants</li>
+      <li><b>🎁 Prizes:</b></li>
       <ul>
-        <li>Blankets, sleeping bags, pillows</li>
-        <li>Hygiene products (toothbrush, deodorant, etc.)</li>
-      </ul>      
-      </li>
+        <li>Participation Gift: Pens</li>
+        <li><b>🥇 1st Place:</b> $75 prize per person (Possible prizes: Beats, Mouse, Keyboard, Raspberry Pi)</li>
+      </ul>
     </ul>
-    <h2>We Can't Wait to See You!</h2>
-    <p>We’re excited to have you as part of hackUMBC Fall 2024! If you have any questions, don’t hesitate to reach out to us at <b>hackumbc@umbc.edu</b>.</p>
-    <p>Let’s make this an unforgettable weekend of creativity and innovation!</p>
-    <p>Best regards,<br/>
-    The hackUMBC Team</p>;
-    </>
+
+    <h2>🚀 Challenge Themes (Open-Ended)</h2>
+    <ul>
+      <li>🌍 <b>Campus Solutions</b> - Solve a UMBC-related problem</li>
+      <li>♻ <b>Sustainability</b> - Tech-driven solutions for environmental impact</li>
+      <li>🤖 <b>AI & Innovation</b> - Build AI-powered tools or chatbots</li>
+    </ul>
+
+    <h2>🛠 Pre-Event Workshops</h2>
+    <p>Get prepped with our hands-on workshops leading up to the event!</p>
+    <ul>
+      <li><b>📍 Location:</b> ITE (Room TBA)</li>
+      <li><b>🗓 Dates:</b> Fridays - March 14, March 25, TBD, TBD</li>
+      <li><b>⏰ Time:</b> 12:00 - 1:00 PM</li>
+    </ul>
+
+    <h3>💡 Topics & Speakers:</h3>
+    <ul>
+      <li><b>Gemini & Google Cloud</b> - Tirth (Google Developer Group)</li>
+      <li><b>Web Development</b> - Romain & Momin (Tech Team)</li>
+      <li><b>Scripting in Python</b> - Software Architecture & Design (SAD)</li>
+      <li><b>Project Building</b> - hackUMBC Team (Bella)</li>
+    </ul>
+
+    <h2>🚀 Sign Up Now!</h2>
+    <p>Don't miss out on this exciting hands-on event! Secure your spot and start preparing for an amazing hackathon experience.</p>
+
+    <p>See you there!<br/><b>The hackUMBC Team</b></p>
+
+    <h2>🔗 Check-In QR Code</h2>
+    <p>To check in on the day of the event, please have your <b>QR Code</b> ready:</p>
+    <img src={`https://quickchart.io/qr?text=${email}`} alt="Check-In QR Code" />
+
+  </>
 );
