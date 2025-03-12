@@ -110,7 +110,7 @@ export async function POST(request) {
       const { d, error } = await resend.emails.send({
         from: 'hackUMBC <send@hackumbc.tech>',
         to: [data["email"]],
-        subject: 'Get Ready for hackUMBC 2024: Event Details Inside!',
+        subject: 'Get Ready for hackUMBC 2025: Event Details Inside!',
         react: EmailTemplate({ 
           firstName: data["firstName"],
           lastName: data["lastName"],
