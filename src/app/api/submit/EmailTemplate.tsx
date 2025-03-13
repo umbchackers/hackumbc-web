@@ -52,7 +52,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     <h3>💡 Topics & Speakers:</h3>
     <ul>
       <li><b>Gemini & Google Cloud</b> - Tirth Patel (Google Developer Group)</li>
-      <li><b>Web Development</b> - Romain Dzeinse & Momin Intihar (Tech Team)</li>
+      <li><b>Web Development</b> - Romain Dzeinse & Momin Imran (Tech Team)</li>
       <li><b>Scripting in Python</b> - Software Architecture & Design (SAD)</li>
       <li><b>Project Building</b> - Bella Goltser (hackUMBC Team)</li>
     </ul>
