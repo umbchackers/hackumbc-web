@@ -1007,7 +1007,7 @@ export default function Survey() {
               </div>
 
               <div className="flex items-center justify-between">
-                {/*<button
+                {<button
                   type="submit"
                   disabled={isSubmitting || !isAgreed}
                   className={`btn-custom transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
@@ -1017,7 +1017,7 @@ export default function Survey() {
                   }`}
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}
-                </button>*/}
+                </button>}
               </div>
             </form>
             {error && <p className="text-red-500 mt-4">{error}</p>}
