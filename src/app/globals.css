@@ -17,12 +17,28 @@ html {
   --background-end-rgb: 255, 255, 255;
 }
 
+canvas {
+  background-color: black !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     width: 100%;
     --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+
+  body {
+    background: black !important;
+    color: white !important;
   }
 }
 
