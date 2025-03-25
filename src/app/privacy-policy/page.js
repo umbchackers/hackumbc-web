@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
                 </p>
 
                 <p>
-                    For more information, feel free to <a className="special-text" href="https://darshsportfolio.netlify.app/"> click this to contact me</a>.
+                    For more information, feel free to <a className="special-text" href="https://darshswebsite.vercel.app/"> click this to contact me</a>.
                 </p>
                 </div>
             </div>
