@@ -104,43 +104,44 @@ export default function Schedule() {
         return time.replace(/([0-9]+)([ap]m)/i, '$1 $2');
     };
 
-    // Schedule data for September 28th
+    // Schedule data for day 1
     const day1Schedule = [
-        { time: '9:00am', endTime: '10:00am', event: 'Check-in Begins', location: 'ITE Atrium' },
-        { time: '10:00am', endTime: '11:00am', event: 'Opening Ceremony', location: 'ITE 104/102' },
-        { time: '11:00am', endTime: '12:00pm', event: 'Sponsorship Networking', location: 'ENGR Atrium' },
-        { time: '12:00pm', endTime: '12:30pm', event: 'Hacking Begins!', location: 'ITE/ENGR' },
-        { time: '12:30pm', endTime: '1:00pm', event: 'LUNCH', location: 'ENGR ATRIUM' },
-        { time: '1:00pm', endTime: '1:30pm', event: 'T.Rowe Price Sponsored Talk', location: 'ITE 104' },
-        { time: '1:30pm', endTime: '2:15pm', event: 'Nightwing Sponsored Talk', location: 'ITE 104' },
-        { time: '2:15pm', endTime: '3:00pm', event: 'Intro to React Workshop', location: 'ITE 456' },
-        { time: '2:15pm', endTime: '3:00pm', event: 'Game Dev Workshop', location: 'ITE 233' },
-        { time: '3:00pm', endTime: '3:45pm', event: 'Nightwing Workshop"', location: 'ITE 233' },
-        { time: '3:45pm', endTime: '4:30pm', event: 'GDSC Workshop', location: 'ITE 233' },
-        { time: '3:45pm', endTime: '4:30pm', event: 'Cybersecurity for Beginners', location: 'ITE 456' },
-        { time: '4:30pm', endTime: '5:15pm', event: 'Booz Allen Workshop', location: 'ITE 233' },
-        { time: '4:30pm', endTime: '5:15pm', event: 'SWE Workshop', location: 'ITE 456' },
-        { time: '5:15pm', endTime: '6:00pm', event: 'Linux Users Group Workshop', location: 'ITE 233' },
-        { time: '5:15pm', endTime: '6:00pm', event: 'Resume Review Workshop', location: 'ITE 456' },
-        { time: '6:00pm', endTime: '8:00pm', event: 'DINNER', location: 'TBD' },
-        { time: '8:00pm', endTime: '8:30pm', event: 'Smash Tournament', location: 'ITE 233' },
-        { time: '8:30pm', endTime: '9:30pm', event: 'MLH', location: 'ITE 456' },
-        { time: '9:30pm', endTime: '10:00pm', event: 'Spaghetti Tower Competition', location: 'ITE 456' },
-        { time: '10:00pm', endTime: '11:00pm', event: 'Late Night Snack', location: 'ITE Second Floor' },
-        { time: '11:00pm', endTime: '11:59pm', event: 'Just Dance Session', location: 'ITE 456' }
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' }
     ];
 
-    // Schedule data for September 29th
+    // Schedule data for day 2
     const day2Schedule = [
-        { time: '9:00am', endTime: '11:00am', event: 'BREAKFAST', location: 'ENGR ATRIUM' },
-        { time: '11:00am', endTime: '12:00pm', event: 'Begin Hack Submissions!', location: 'ITE Second Floor' },
-        { time: '12:00pm', endTime: '12:30pm', event: 'Hacking Ends!', location: 'ITE Second Floor' },
-        { time: '12:30pm', endTime: '1:00pm', event: 'Submissions End', location: 'ITE Second Floor' },
-        { time: '1:00pm', endTime: '2:00pm', event: 'LUNCH', location: 'ENGR ATRIUM' },
-        { time: '2:00pm', endTime: '3:30pm', event: 'Expo Begins', location: 'UC Ballroom' },
-        { time: '3:30pm', endTime: '4:00pm', event: 'Expo Ends', location: 'UC Ballroom' },
-        { time: '4:00pm', endTime: '5:00pm', event: 'Closing Ceremony', location: 'UC Ballroom' }
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' }
     ];
+
 
     const renderTimeline = () => {
         const scheduleData = activeDay === 'September 28th' ? day1Schedule : day2Schedule;
@@ -206,13 +207,13 @@ export default function Schedule() {
                         className={`tab-button ${activeDay === 'September 28th' ? 'active-tab' : ''}`} 
                         onClick={() => setActiveDay('September 28th')}
                     >
-                        September 28th
+                        Day 1
                     </button>
                     <button 
                         className={`tab-button ${activeDay === 'September 29th' ? 'active-tab' : ''}`} 
                         onClick={() => setActiveDay('September 29th')}
                     >
-                        September 29th
+                        Day 2
                     </button>
                 </div>
                 

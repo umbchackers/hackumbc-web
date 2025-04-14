@@ -77,12 +77,14 @@ export default function About() {
                     </div>
                     <div className="about-text text-black" style={{ width: isMobile ? "100%" : "auto", maxWidth: "700px" }}>
                         <p>
-                            Join hackUMBC for the 11th year of our 24-hour hackathon event where we compete to bring our innovation to life! 
+                            Join hackUMBC for the 11th year of our 24-hour hackathon event,  
+                            <span style={{textDecoration: 'underline', color: "rgb(186, 65, 38)", fontWeight: 700 }}> usually in September</span>, 
+                            where we compete to bring our innovation to life! 
                             Team up with students and develop your skills in our workshop sessions!
                         </p>
                         <br/>
                         <p>
-                            With lots of fun activities, over $5,000 in prizes, and swag for
+                            With lots of fun activities, $TBD in prizes, and swag for
                             all participants, you'll be in for an exciting weekend!
                         </p>
                         <br/>
@@ -108,8 +110,8 @@ export default function About() {
                         flexDirection: isMobile ? "column" : "row"
                     }}>
                         <Track
-                            title="General"
-                            desc="Projects that don't fit under any category."
+                            title="TBD"
+                            desc="TBD."
                         >
                             <img
                                 src="/sticker1.png"
@@ -118,8 +120,8 @@ export default function About() {
                             />
                         </Track>
                         <Track
-                            title="Entrepreneurial"
-                            desc="Projects that focus on learning & education."
+                            title="TBD"
+                            desc="TBD."
                         >
                             <img
                                 src="/sticker2.png"
@@ -128,8 +130,8 @@ export default function About() {
                             />
                         </Track>
                         <Track
-                            title="Company"
-                            desc="Projects that focus on company missions."
+                            title="TBD"
+                            desc="TBD."
                         >
                             <img
                                 src="/sticker4.png"
@@ -138,8 +140,8 @@ export default function About() {
                             />
                         </Track>
                         <Track
-                            title="Game-Jam"
-                            desc="Collaboration with Game-Dev club!">
+                            title="TBD"
+                            desc="TBD!">
                             <img
                                 src="/gamedevlogo.png"
                                 alt="track-image"

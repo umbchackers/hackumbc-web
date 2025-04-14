@@ -35,11 +35,11 @@ export default function FAQ() {
     const faqsColumnOne = [
         {
             question: "What is hackUMBC?",
-            answer: "hackUMBC is a 24-hour hackathon, from September 28th to September 29th, held at the University of Maryland, Baltimore County, in the ITE and ENGR buildings. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types."
+            answer: "hackUMBC is a 24-hour hackathon, usually in September, held at the University of Maryland, Baltimore County, in the TBD building. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types."
         },
         {
             question: "Who can attend the hackathon?",
-            answer: "We invite any highschool, undergraduate, or graduate students to participate in hackUMBC! You do not need to be enrolled at UMBC to attend, but the event will be taking place at the University, in the ITE and ENGR buildings."
+            answer: "We invite any highschool, undergraduate, or graduate students to participate in hackUMBC! You do not need to be enrolled at UMBC to attend, but the event will be taking place at the University, in the TBD building."
         },
         {
             question: "How do I register?",
