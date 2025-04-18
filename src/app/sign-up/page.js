@@ -165,7 +165,7 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Mini-Event Sign Up Form
+              (Sign Ups Closed Now)
             </h2>
             <p className="text-sm italic mb-6 text-center light-mode-text">
               Fields marked by <span className="text-red-500">*</span> are
@@ -1006,7 +1006,7 @@ export default function Survey() {
                 </label>
               </div>
 
-              <div className="flex items-center justify-between">
+              {/*<div className="flex items-center justify-between">
                 {<button
                   type="submit"
                   disabled={isSubmitting || !isAgreed}
@@ -1018,7 +1018,7 @@ export default function Survey() {
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}
                 </button>}
-              </div>
+              </div>*/}
             </form>
             {error && <p className="text-red-500 mt-4">{error}</p>}
             {savedData && (
