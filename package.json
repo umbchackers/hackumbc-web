@@ -20,6 +20,7 @@
     "aws-amplify": "^6.5.3",
     "aws-sdk": "^2.1688.0",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.12.2",
     "next": "^14.2.26",
     "papaparse": "^5.4.1",
     "react": "^18",
