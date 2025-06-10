@@ -82,11 +82,20 @@
     opacity: 1;
 }
 
-.mlh-trust-badge {
+#mlh-trust-badge {
+    display: block;
+    max-width: 100px;
+    min-width: 60px;
     position: fixed;
-    top: -10px;
-    right: 3%;
-    height: 160px;
+    right: 50px;
+    top: 0;
+    width: 10%;
+    z-index: 1000001; /* Increased z-index to be above the navbar */
+}
+
+#mlh-trust-badge img {
+    width: 100%;
+    height: auto;
 }
 
 /* hamburger menu */

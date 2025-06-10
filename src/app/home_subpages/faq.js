@@ -52,6 +52,19 @@ export default function FAQ() {
         {
             question: "What can I make? May I build on an existing project?",
             answer: "You can make anything you want! Web, mobile, hardware, and desktop projects are all encouraged and welcome! However, we strongly discourage building upon existing projects, as they will not be eligible for prizes."
+        },
+        {
+            question: "Where can I view the MLH Code of Conduct?",
+            answer: <>
+                You can view it here:{" "}
+                <a
+                    href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    MLH Code of Conduct
+                </a>
+            </>
         }
     ];
 

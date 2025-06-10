@@ -27,11 +27,14 @@ export default function Navbar() {
     <>
       <div className="nav-bar-container w-full flex justify-center py-2.5 light-mode-text">
         {!isMobile && (
-          <a href="https://mlh.io/seasons/2025/events" target="_blank">
+          <a
+            id="mlh-trust-badge"
+            href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content"
+            target="_blank"
+          >
             <img
-              className="mlh-trust-badge light-mode-text"
-              src="mlh-trust-badge.png"
-              alt="Major League Hacking 2025 Hackathon Season"
+              src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-yellow.svg"
+              alt="Major League Hacking 2026 Hackathon Season"
             />
           </a>
         )}
