@@ -78,7 +78,7 @@ export default function About() {
                     <div className="about-text text-black" style={{ width: isMobile ? "100%" : "auto", maxWidth: "700px" }}>
                         <p>
                             Join hackUMBC for the 11th year of our 24-hour hackathon event,  
-                            <span style={{textDecoration: 'underline', color: "rgb(186, 65, 38)", fontWeight: 700 }}> usually in September</span>, 
+                            <span style={{color: "rgb(186, 65, 38)", fontWeight: 700 }}> usually in September</span>, 
                             where we compete to bring our innovation to life! 
                             Team up with students and develop your skills in our workshop sessions!
                         </p>
@@ -97,7 +97,7 @@ export default function About() {
                                 marginLeft: '5px',
                                 transition: 'all 0.3s ease'
                             }}>
-                                Meet our organizing team!
+                                Meet our organizing team! (Click here)
                             </a>
                         </p>
                     </div>
