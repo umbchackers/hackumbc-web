@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 import { Upload } from "@aws-sdk/lib-storage";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client } from "@aws-sdk/client-s3";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
-// import { AWS } from 'aws-sdk';
-const AWS = require("aws-sdk");
 import { EmailTemplate } from './EmailTemplate';
 import { Resend } from 'resend';
 
@@ -18,8 +17,7 @@ const s3 = new S3Client({
   },
 });
 
-AWS.config.update({ region: "us-east-1" });
-const dynamodb = new AWS.DynamoDB({
+const dynamodb = new DynamoDBClient({
   region: "us-east-1",
   credentials: {
     accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,

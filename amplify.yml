@@ -1,0 +1,20 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use 20
+        - npm ci --prefer-offline --no-audit --no-fund --silent
+        - export NODE_OPTIONS="--max-old-space-size=4096"
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
+      - ~/.npm/**/*
