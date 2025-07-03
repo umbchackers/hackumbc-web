@@ -10,8 +10,10 @@
 
 .privacy-policy-content {
     width: 80%;
+    max-width: 700px;
     margin: 0 auto;
     padding-top: 50px;
+    margin-top: 1.5rem;
 }
 
 .privacy-policy-content p {
@@ -41,6 +43,7 @@ a:hover {
 .special-text {
     color: #00bbff;
     font-weight: 600;
+    text-decoration: underline;
 }
 
 .nav-link{
@@ -95,4 +98,8 @@ a:hover {
   font-weight: bold;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
+}
+
+.privacy-policy-title {
+  margin-top: 3.5rem;
 }

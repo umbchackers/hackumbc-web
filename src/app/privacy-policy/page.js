@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
             <div className="privacy-policy-title" data-aos="fade-in">
                 <SectionTitle title="Privacy Policy" />
                 <div className="privacy-policy-content">
-                <p>Welcome to hackUMBC. Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or participate in our event.</p>
+                <p>Here at hackUMBC your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or participate in our event.</p>
 
                 <h3>Information We Collect</h3>
                 <ul>
@@ -33,17 +33,17 @@ export default function PrivacyPolicy() {
 
                 <h3>How We Use Your Information</h3>
                 <ul>
-                    <li>To organize and manage hackUMBC events and activities</li>
-                    <li>To communicate important updates and information</li>
-                    <li>To improve our website and services</li>
-                    <li>To comply with legal obligations</li>
+                    <li>To organize and manage hackUMBC events and activities.</li>
+                    <li>To communicate important updates and information.</li>
+                    <li>To improve our website and services.</li>
+                    <li>To comply with legal obligations.</li>
                 </ul>
 
                 <h3>How We Share Your Information</h3>
                 <ul>
-                    <li>With event partners and sponsors, only as necessary for event logistics</li>
-                    <li>With service providers who assist in operating our website and event</li>
-                    <li>As required by law or to protect our rights</li>
+                    <li>With event partners and sponsors, only as necessary for event logistics.</li>
+                    <li>With service providers who assist in operating our website and event.</li>
+                    <li>As required by law or to protect our rights.</li>
                 </ul>
 
                 <h3>Data Security</h3>
