@@ -52,7 +52,7 @@ a:hover {
     #hamburger-nav.hamburger-menu {
         display: none;
     }
-    /*hide logo and hamburger menu on form mobile view*/    
+    /*hide logo and hamburger menu on form mobile view*/
 
     .privacy-policy-page {
         width: 100%;
@@ -87,4 +87,12 @@ a:hover {
     .light-mode-text {
         color: inherit;
     }
+}
+
+.privacy-policy-content h3 {
+  color: #000000;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
