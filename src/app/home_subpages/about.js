@@ -113,40 +113,48 @@ export default function About() {
                             title="TBD"
                             desc="TBD."
                         >
-                            <img
-                                src="/sticker1.png"
-                                alt="track-image"
-                                className="w-36 h-auto"
-                            />
+                            <div className="track-image-container">
+                                <img
+                                    src="/sticker-1.png"
+                                    alt="track-image"
+                                    className="w-36 h-auto"
+                                />
+                            </div>
                         </Track>
                         <Track
                             title="TBD"
                             desc="TBD."
                         >
-                            <img
-                                src="/sticker2.png"
-                                alt="track-image"
-                                className="w-36 h-auto"
-                            />
+                            <div className="track-image-container">
+                                <img
+                                    src="/sticker-2.png"
+                                    alt="track-image"
+                                    className="w-36 h-auto"
+                                />
+                            </div>
                         </Track>
                         <Track
                             title="TBD"
                             desc="TBD."
                         >
-                            <img
-                                src="/sticker4.png"
-                                alt="track-image"
-                                className="w-36 h-auto"
-                            />
+                            <div className="track-image-container">
+                                <img
+                                    src="/sticker-3.png"
+                                    alt="track-image"
+                                    className="w-36 h-auto"
+                                />
+                            </div>
                         </Track>
                         <Track
                             title="TBD"
                             desc="TBD!">
-                            <img
-                                src="/gamedevlogo.png"
-                                alt="track-image"
-                                className="w-36 h-auto"
-                            />
+                            <div className="track-image-container">
+                                <img
+                                    src="/sticker-4.png"
+                                    alt="track-image"
+                                    className="w-36 h-auto"
+                                />
+                            </div>
                         </Track>
                     </div>
                 </div>
