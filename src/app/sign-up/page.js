@@ -1002,7 +1002,7 @@ export default function Survey() {
                   In addition, should I intentionally position myself within the
                   camera's frame, I hereby provide explicit consent to hackUMBC
                   for the unrestricted use of any imagery encompassing my
-                  voluntary presence (e.g., “photobombing”).
+                  voluntary presence (e.g., "photobombing").
                 </label>
               </div>
 
@@ -1031,17 +1031,9 @@ export default function Survey() {
         <div className="footer-info">
           <p>&copy; 2025 hackUMBC. All rights reserved.</p>
           <p className="mt-2">
-            <a href="#" className="footer-link">
-              Privacy Policy
-            </a>{" "}
-            |
-            <a href="#" className="footer-link">
-              Terms of Service
-            </a>{" "}
-            |
-            <a href="#mailto:hackumbc@umbc.edu" className="footer-link">
-              Contact Us
-            </a>
+            <a href="/privacy-policy" className="footer-link">Privacy Policy</a> |
+            <a href="/terms-of-service" className="footer-link">Terms of Service</a> |
+            <a href="mailto:hackumbc@umbc.edu" className="footer-link">Contact Us</a>
           </p>
         </div>
       </div>

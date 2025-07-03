@@ -43,7 +43,7 @@ export default function Footer() {
                     <p>&copy; 2025 hackUMBC. All rights reserved.</p>
                     <p className="mt-2">
                       <Link href="/privacy-policy" className="footer-link"> Privacy Policy</Link> |
-                      <a href="#" className="footer-link">Terms of Service</a> |
+                      <Link href="/terms-of-service" className="footer-link">Terms of Service</Link> |
                       <a href="mailto:hackumbc@umbc.edu" className="footer-link">Contact Us</a>
                     </p>
                 </div>
