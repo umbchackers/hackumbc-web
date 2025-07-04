@@ -96,10 +96,6 @@
     }
 }
 
-.team-link:hover {
-    text-decoration: underline;
-    color: #e95c3f;
-}
 
 @media (max-width: 768px) {
     .about-page {
@@ -177,4 +173,39 @@
         font-size: 14px;
         line-height: 1.4;
     }
+}
+
+.rainbow-ripple {
+    background: linear-gradient(90deg, #ff0004, #ff5500, #c7a600, #5cf100, #00a6ff, #8c00ff, #ff00ae, #ff0004);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-ripple-bounce 3s ease-in-out infinite, rainbow-ripple-wave 2s ease-in-out infinite;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.rainbow-ripple::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    margin-top: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #ff0004, #ff5500, #c7a600, #5cf100, #00a6ff, #8c00ff, #ff00ae, #ff0004);
+    background-size: 200% 100%;
+    animation: rainbow-ripple-bounce 3s ease-in-out infinite;
+}
+
+@keyframes rainbow-ripple-bounce {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes rainbow-ripple-wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(2px); }
 }

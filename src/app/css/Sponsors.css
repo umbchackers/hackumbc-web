@@ -85,6 +85,12 @@
 .sponsors-logo {
     height: 80px;
     width: auto;
+    transition: transform 0.25s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.sponsors-logo:hover {
+    transform: scale(1.12);
+    z-index: 2;
 }
 
 /* Subtle styling by tier */

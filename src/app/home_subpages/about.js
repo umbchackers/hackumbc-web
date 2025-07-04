@@ -90,13 +90,15 @@ export default function About() {
                         <br/>
                         <p>
                             Want to learn more about the organizers behind hackUMBC? 
-                            <a href="/team" className="team-link" style={{
-                                color: '#ba4126',
-                                textDecoration: 'underline',
-                                fontWeight: 'bold',
-                                marginLeft: '5px',
-                                transition: 'all 0.3s ease'
-                            }}>
+                            <a
+                                href="/team"
+                                className="team-link rainbow-ripple"
+                                style={{
+                                    WebkitTextStroke: '0.5px rgba(0,0,0,0.1)',
+                                    marginLeft: '5px',
+                                    transition: 'all 0.3s ease'
+                                }}
+                            >
                                 Meet our organizing team! (Click here)
                             </a>
                         </p>
