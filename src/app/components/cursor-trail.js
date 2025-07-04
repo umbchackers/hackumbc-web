@@ -353,7 +353,7 @@ export default function CursorTrail() {
                 ease: "linear",
               }}
             >
-              <div className="w-full h-full rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 via-pink-500 to-yellow-400 opacity-90 blur-sm" />
+              <div className="w-full h-full rounded-full bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 opacity-90 blur-sm" />
               <div className="absolute inset-2 rounded-full bg-white opacity-70" />
               <div className="absolute inset-3 rounded-full bg-gradient-to-r from-cyan-300 to-purple-300 opacity-50" />
             </motion.div>
