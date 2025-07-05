@@ -11,7 +11,7 @@ export default function CursorTrail() {
   const [isDesktop, setIsDesktop] = useState(true);
   const [isEnabled, setIsEnabled] = useState(true);
 
-  // Advanced position tracking
+  // for position tracking
   const rawPos = useRef({ x: 0, y: 0 });
   const displayPos = useRef({ x: 0, y: 0 });
   const velocity = useRef({ x: 0, y: 0 });
@@ -26,9 +26,9 @@ export default function CursorTrail() {
   const SMOOTHING_FACTOR = 0.92;
   const VELOCITY_DECAY = 0.95;
   const MAX_PARTICLES = 30;
-  const MAX_WAVES = 6;
+  const MAX_WAVES = 4;
 
-  // Musical note icons array
+  // musical note icons array
   const musicIcons = [
     { icon: Music, color: '#f6c78b', size: 20 },
     { icon: Music2, color: '#00ffff', size: 18 },
@@ -43,7 +43,7 @@ export default function CursorTrail() {
     { icon: SkipBack, color: '#ffff00', size: 18 }
   ];
 
-  // Desktop detection
+  // desktop detection
   useEffect(() => {
     const check = () => setIsDesktop(window.matchMedia('(hover: hover)').matches);
     check();
@@ -51,14 +51,14 @@ export default function CursorTrail() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  // Enhanced input handling with physics
+  // input handling physics
   useEffect(() => {
     const onMouse = (e) => {
       if (isDesktop && isEnabled) {
         const newX = e.clientX;
         const newY = e.clientY;
         
-        // Calculate velocity and acceleration
+        // calc velocity and acceleration
         const newVx = newX - lastPos.current.x;
         const newVy = newY - lastPos.current.y;
         
@@ -104,7 +104,7 @@ export default function CursorTrail() {
     };
   }, [isDesktop, isEnabled]);
 
-  // Ultra-smooth animation loop with musical notes
+  // animation loop w/ musical notes
   useEffect(() => {
     let frameId;
     let time = 0;
@@ -113,7 +113,7 @@ export default function CursorTrail() {
       if (isEnabled && isDesktop) {
         time += 0.016;
         
-        // Apply physics to display position
+        // physics to display position
         const dx = rawPos.current.x - displayPos.current.x;
         const dy = rawPos.current.y - displayPos.current.y;
         
@@ -204,8 +204,8 @@ export default function CursorTrail() {
           });
         }
 
-        // Dynamic sound wave generation
-        if (Math.random() < 0.02 + (speed * 0.005)) {
+        // dynamic sound wave generation
+        if (Math.random() < 0.008 + (speed * 0.002)) {
           setSoundWaves(prev => {
             const newWaves = [...prev];
             newWaves.push({
@@ -213,9 +213,9 @@ export default function CursorTrail() {
               x: displayPos.current.x,
               y: displayPos.current.y,
               radius: 0,
-              maxRadius: 60 + Math.random() * 100 + speed * 3,
-              speed: 1.5 + Math.random() * 2 + speed * 0.08,
-              opacity: 0.8,
+              maxRadius: 50 + Math.random() * 80 + speed * 2.5,
+              speed: 1.3 + Math.random() * 1.75 + speed * 0.06,
+              opacity: 0.75,
               color: `hsl(${180 + Math.random() * 60}, 80%, 60%)`,
               thickness: 1 + Math.random() * 2
             });
@@ -223,7 +223,7 @@ export default function CursorTrail() {
           });
         }
 
-        // Update sound waves
+        // update sound waves
         setSoundWaves(prev => 
           prev.map(wave => ({
             ...wave,
@@ -252,7 +252,7 @@ export default function CursorTrail() {
             className="fixed inset-0 pointer-events-none z-50"
           >
             <svg className="absolute inset-0 w-full h-full">
-              {/* Sound waves with enhanced visuals */}
+              {/* sound waves with enhanced visuals */}
               {soundWaves.map(wave => (
                 <motion.circle
                   key={wave.id}
@@ -268,7 +268,7 @@ export default function CursorTrail() {
               ))}
             </svg>
 
-            {/* Musical notes trail */}
+            {/* musical notes trail */}
             {musicNotes.map(note => {
               const IconComponent = note.icon;
               return (
@@ -302,7 +302,7 @@ export default function CursorTrail() {
               );
             })}
 
-            {/* Enhanced particles with better physics */}
+            {/* enhanced particles with better physics */}
             {particles.map(particle => (
               <motion.div
                 key={particle.id}
@@ -336,7 +336,7 @@ export default function CursorTrail() {
               </motion.div>
             ))}
 
-            {/* Enhanced cursor highlight */}
+            {/* enhanced cursor highlight */}
             <motion.div
               className="absolute w-8 h-8 pointer-events-none"
               style={{
@@ -361,7 +361,7 @@ export default function CursorTrail() {
         )}
       </AnimatePresence>
 
-      {/* Enhanced toggle button */}
+      {/* enhanced toggle button */}
       <motion.button
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
