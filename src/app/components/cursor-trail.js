@@ -54,7 +54,7 @@ export default function CursorTrail() {
   // input handling physics
   useEffect(() => {
     const onMouse = (e) => {
-      if (isDesktop && isEnabled) {
+      if(isDesktop && isEnabled) {
         const newX = e.clientX;
         const newY = e.clientY;
         
@@ -110,7 +110,7 @@ export default function CursorTrail() {
     let time = 0;
     
     const loop = () => {
-      if (isEnabled && isDesktop) {
+      if(isEnabled && isDesktop) {
         time += 0.016;
         
         // physics to display position
@@ -120,20 +120,20 @@ export default function CursorTrail() {
         displayPos.current.x += dx * SMOOTHING_FACTOR;
         displayPos.current.y += dy * SMOOTHING_FACTOR;
         
-        // Decay velocity
+        // decay velocity
         velocity.current.x *= VELOCITY_DECAY;
         velocity.current.y *= VELOCITY_DECAY;
         
         const speed = Math.sqrt(velocity.current.x ** 2 + velocity.current.y ** 2);
         const accel = Math.sqrt(acceleration.current.x ** 2 + acceleration.current.y ** 2);
         
-        // Update musical notes trail
+        // update musical notes trail
         setMusicNotes(prev => {
           const newNotes = [...prev];
           
-          // Add new note if enough distance moved or speed is high
+          // add new note if enough distance moved or speed is high
           const lastNote = newNotes[0];
-          if (!lastNote || 
+          if(!lastNote || 
               Math.abs(displayPos.current.x - lastNote.x) > 8 || 
               Math.abs(displayPos.current.y - lastNote.y) > 8 ||
               speed > 5) {
@@ -160,12 +160,12 @@ export default function CursorTrail() {
             });
           }
           
-          // Update existing notes
+          // update existing notes
           const updatedNotes = newNotes.map(note => ({
             ...note,
             life: note.life - note.decay,
-            scale: note.scale * 0.995, // Slowly shrink
-            rotation: note.rotation + (note.speed * 0.5) // Rotate based on speed
+            scale: note.scale * 0.995, // slowly shrink
+            rotation: note.rotation + (note.speed * 0.5) // rotate based on speed
           }));
           
           return updatedNotes
@@ -173,8 +173,8 @@ export default function CursorTrail() {
             .slice(0, MAX_NOTES);
         });
 
-        // Enhanced particle generation
-        if (speed > 2) {
+        // enhanced particle generation
+        if(speed > 2) {
           setParticles(prev => {
             const newParticles = [...prev];
             if (Math.random() < 0.3) {
@@ -205,7 +205,7 @@ export default function CursorTrail() {
         }
 
         // dynamic sound wave generation
-        if (Math.random() < 0.008 + (speed * 0.002)) {
+        if(Math.random() < 0.005 + (speed * 0.002)) {
           setSoundWaves(prev => {
             const newWaves = [...prev];
             newWaves.push({
@@ -213,9 +213,9 @@ export default function CursorTrail() {
               x: displayPos.current.x,
               y: displayPos.current.y,
               radius: 0,
-              maxRadius: 50 + Math.random() * 80 + speed * 2.5,
-              speed: 1.3 + Math.random() * 1.75 + speed * 0.06,
-              opacity: 0.75,
+              maxRadius: 1 + Math.random() * 0.02 + speed / 10,
+              speed: 1 + Math.random() * 0.25 + speed * 0.04,
+              opacity: .7,
               color: `hsl(${180 + Math.random() * 60}, 80%, 60%)`,
               thickness: 1 + Math.random() * 2
             });
@@ -239,7 +239,7 @@ export default function CursorTrail() {
     return () => cancelAnimationFrame(frameId);
   }, [isDesktop, isEnabled]);
 
-  if (!isDesktop) return null;
+  if(!isDesktop) return null;
 
   return (
     <>
