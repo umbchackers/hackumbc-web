@@ -32,7 +32,7 @@ export async function POST(request) {
       major: "",
     };
     const params = {
-      TableName: "mini-event-registration",
+      TableName: "hackumbc-2025", // name of table in dynamodb
       Item: {},
     };
     let resumeResult;
@@ -68,10 +68,10 @@ export async function POST(request) {
       params["Item"][key] = { S: value };
     }
 
-    const mini_event = "hackumbc_mini_event_2025"; // static partition key for the mini-event
+    const hackumbc_2025 = "hackumbc_registration_2025"; // static partition key for the mini-event
     const email = data["email"]; // email as the sort key
     
-    params["Item"]["mini_event"] = { S: mini_event };
+    params["Item"]["hackumbc_2025"] = { S: hackumbc_2025 }; // should match partition key
     params["Item"]["email"] = { S: email };
     
     console.log(data);
@@ -91,9 +91,9 @@ export async function POST(request) {
 
     try {
       let result = await dynamodb.getItem({
-        TableName: "mini-event-registration", // new table name
+        TableName: "hackumbc-2025", // should match table name
         Key: {
-          'mini_event': { 'S': mini_event },
+          'hackumbc_2025': { 'S': hackumbc_2025 }, // should match partition key
           'email': { 'S': email }
         }
       }).promise();      
@@ -155,7 +155,7 @@ const sendResume = async (file) => {
     const upload = new Upload({
       client: s3,
       params: {
-        Bucket: "mini-event-registration",
+        Bucket: "hackumbc-2025", // should match s3 bucket name
         Key: fileName,
         Body: file,
         ContentType: file.type,
