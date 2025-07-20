@@ -71,7 +71,7 @@ export default function Team() {
             { name: "Muhammad Umar", role: "External Vice President", image: "/Organizer Headshots/umar.jpg", linkedin: "https://www.linkedin.com/in/umbc-muhammadumar" },
             { name: "Pahal Dave", role: "Marketing Team Lead", image: "/Organizer Headshots/pahal.jpg", linkedin: "https://www.linkedin.com/in/pahaldave/" },
             { name: "Jay Gepilano", role: "Design Team Lead", image: "/Organizer Headshots/jay.jpg", linkedin: "https://www.linkedin.com/in/julianna-gepilano-686b22284/" },
-            { name: "Hira Khan", role: "Sponsorship Team Lead", image: "/Organizer Headshots/hira.jpg", linkedin: "https://www.linkedin.com/in/hirakhan22/" },
+            { name: "Jaebrel Santos", role: "Sponsorship Team Lead", image: "/Organizer Headshots/jaeb.jpg", linkedin: "https://www.linkedin.com/in/jaebrel-santos-310752352" },
             
             // row 3
             { name: "Kanishk Srivasta", role: "Treasurer", image: "/Organizer Headshots/kanishk.jpg", linkedin: "https://www.linkedin.com/in/kanishksrivastava15/" },
@@ -88,7 +88,7 @@ export default function Team() {
             { name: "Momin Imran", role: "Tech Team", image: "/Organizer Headshots/momin.jpg", linkedin: "https://www.linkedin.com/in/mominimran1/" },
             
             // row 5
-            { name: "Jaebrel Santos", role: "Sponsorship Team", image: "/Organizer Headshots/jaeb.jpg", linkedin: "https://www.linkedin.com/in/jaebrel-santos-310752352" },
+            { name: "Hira Khan", role: "Sponsorship Team", image: "/Organizer Headshots/hira.jpg", linkedin: "https://www.linkedin.com/in/hirakhan22/" },
             { name: "Pooja Patel", role: "Design Team", image: "/Organizer Headshots/pooja.jpg", linkedin: "https://www.linkedin.com/in/pooja-patel-635151271/" },
             { name: "Shakib Chowdhury", role: "Tech Team", image: "/Organizer Headshots/shakib.jpg", linkedin: "https://www.linkedin.com/in/shakib-chowdhury-6bbbb2284/" },
             { name: "Sydney Spradlin", role: "Design Team", image: "/Organizer Headshots/sydney.jpg", linkedin: "https://www.linkedin.com/in/sydney-spradlin-1b46662ba/" },
