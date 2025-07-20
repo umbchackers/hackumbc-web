@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Upload } from "@aws-sdk/lib-storage";
 import { S3Client } from "@aws-sdk/client-s3";
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, PutItemCommand, GetItemCommand } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
 import { EmailTemplate } from './EmailTemplate';
 import { Resend } from 'resend';
@@ -77,30 +77,32 @@ export async function POST(request) {
     console.log(data);
     console.log(params);
 
-    dynamodb.putItem(params, (err, d) => {
-      if (err) {
-        console.error("Error" + err);
-        return NextResponse.json(
-          { error: "Failed to handle form data." },
-          { status: 500 }
-        )
-      } else {
-        console.log("Success", d);
-      }
-    });
-
+    // write item
     try {
-      let result = await dynamodb.getItem({
-        TableName: "hackumbc-2025", // should match table name
-        Key: {
-          'hackumbc_2025': { 'S': hackumbc_2025 }, // should match partition key
-          'email': { 'S': email }
-        }
-      }).promise();      
-      console.log('success');
-      console.log(JSON.stringify(result));
+      await dynamodb.send(new PutItemCommand(params));
+      console.log("Success", params);
+    } catch (err) {
+      console.error("Error" + err);
+      return NextResponse.json(
+        { error: "Failed to handle form data." },
+        { status: 500 }
+      );
     }
-    catch(err) {
+
+    // read item back
+    try {
+      let result = await dynamodb.send(
+        new GetItemCommand({
+          TableName: "hackumbc-2025", // should match table name
+          Key: {
+            hackumbc_2025: { S: hackumbc_2025 }, // should match partition key
+            email: { S: email },
+          },
+        })
+      );
+      console.log("success");
+      console.log(JSON.stringify(result));
+    } catch (err) {
       console.error(err);
     }
 
