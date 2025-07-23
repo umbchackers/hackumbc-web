@@ -131,13 +131,14 @@
     filter: drop-shadow(0 4px 16px rgba(0,0,0,0.18));
 }
 .sponsor-tier-label {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 12px;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 18px;
     text-align: center;
     color: #222;
     letter-spacing: 0.03em;
     width: 100%;
+    text-shadow: 0 0 8px rgba(0,0,0,0.10), 0 2px 12px rgba(0,0,0,0.08);
 }
 .diamond-label { color: #009cff; }
 .platinum-label { color: #bdbdbd; }
@@ -145,6 +146,16 @@
 .silver-label { color: #b0b0b0; }
 .bronze-label { color: #ff9800; }
 .partner-label { color: #222; }
+
+.sponsor-link.gold .sponsors-logo {
+    height: 60px;
+}
+@media (max-width: 900px) {
+    .sponsor-link.gold .sponsors-logo { height: 48px; }
+}
+@media (max-width: 600px) {
+    .sponsor-link.gold .sponsors-logo { height: 36px; }
+}
 
 @media (max-width: 900px) {
     .sponsors-logo { height: 60px; }
