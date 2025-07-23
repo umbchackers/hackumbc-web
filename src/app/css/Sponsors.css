@@ -36,7 +36,7 @@
     margin-bottom: 60px;
 }
 
-/* Unified sponsors container */
+/* unified sponsors container */
 .sponsors-unified-container {
     width: 100%;
     max-width: 1200px;
@@ -141,9 +141,9 @@
     text-shadow: 0 0 8px rgba(0,0,0,0.10), 0 2px 12px rgba(0,0,0,0.08);
 }
 .diamond-label { color: #009cff; }
-.platinum-label { color: #bdbdbd; }
+.platinum-label { color: #f4f6f7; }
 .gold-label { color: #ffd700; }
-.silver-label { color: #b0b0b0; }
+.silver-label { color: #cfcfcf; }
 .bronze-label { color: #ff9800; }
 .partner-label { color: #222; }
 
@@ -164,7 +164,7 @@
 @media (max-width: 600px) {
     .sponsors-logo { height: 40px; }
     .sponsor-link { padding: 6px; border-radius: 6px; }
-    .sponsor-tier-label { font-size: 1.1rem; }
+    .sponsor-tier-label { font-size: 1.5rem; }
 }
 
 @media (max-width: 768px) {

@@ -71,33 +71,33 @@ export default function Team() {
             { name: "Muhammad Umar", role: "External Vice President", image: "/Organizer Headshots/umar.jpg", linkedin: "https://www.linkedin.com/in/umbc-muhammadumar" },
             { name: "Pahal Dave", role: "Marketing Team Lead", image: "/Organizer Headshots/pahal.jpg", linkedin: "https://www.linkedin.com/in/pahaldave/" },
             { name: "Jay Gepilano", role: "Design Team Lead", image: "/Organizer Headshots/jay.jpg", linkedin: "https://www.linkedin.com/in/julianna-gepilano-686b22284/" },
-            { name: "Hira Khan", role: "Sponsorship Team Lead", image: "/Organizer Headshots/hira.jpg", linkedin: "https://www.linkedin.com/in/hirakhan22/" },
+            { name: "Jaebrel Santos", role: "Sponsorship Team Lead", image: "/Organizer Headshots/jaeb.jpg", linkedin: "https://www.linkedin.com/in/jaebrel-santos-310752352" },
             
             // row 3
             { name: "Kanishk Srivasta", role: "Treasurer", image: "/Organizer Headshots/kanishk.jpg", linkedin: "https://www.linkedin.com/in/kanishksrivastava15/" },
-            { name: "Romain Dzeinse", role: "Tech Team", image: "/Organizer Headshots/romain.jpg", linkedin: "https://www.linkedin.com/in/romaindzeinse/" },
+            { name: "Shakib Chowdhury", role: "Tech Team", image: "/Organizer Headshots/shakib.jpg", linkedin: "https://www.linkedin.com/in/shakib-chowdhury-6bbbb2284/" },
             { name: "Kimberly Calderon", role: "Tech Team", image: "/Organizer Headshots/kimberly.jpg", linkedin: "https://www.linkedin.com/in/kimberly-calderon3/" },
-            { name: "Jolin Jiang", role: "Marketing Team", image: "/Organizer Headshots/jolin.jpg", linkedin: "https://www.linkedin.com/in/jolin-jiang-a018a02b6/" },
-            { name: "Fatou Sonko", role: "Marketing Team", image: "/Organizer Headshots/fatou.jpg", linkedin: "https://www.linkedin.com/in/fatou-sonko/" },
+            { name: "Momin Imran", role: "Tech Team", image: "/Organizer Headshots/momin.jpg", linkedin: "https://www.linkedin.com/in/mominimran1/" },
+            { name: "Shrikant Bhatnagar", role: "Tech Team", image: "/Organizer Headshots/shrikant.jpg", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
             
             // row 4
-            { name: "Jillian Casey", role: "Design Team", image: "/Organizer Headshots/jillian.jpg", linkedin: "https://www.linkedin.com/in/jillian-casey-2757352b1/" },
-            { name: "Prajita Shrestha", role: "Marketing Team", image: "/Organizer Headshots/pj.jpg", linkedin: "https://www.linkedin.com/in/prajita/" },
+            { name: "Romain Dzeinse", role: "Tech Team", image: "/Organizer Headshots/romain.jpg", linkedin: "https://www.linkedin.com/in/romaindzeinse/" },
+            { name: "Victor Osunji", role: "Tech Team", image: "/Organizer Headshots/victor.jpg", linkedin: "https://www.linkedin.com/in/victor-osunji-bb030a232/" },
+            { name: "Jolin Jiang", role: "Marketing Team", image: "/Organizer Headshots/jolin.jpg", linkedin: "https://www.linkedin.com/in/jolin-jiang-a018a02b6/" },
             { name: "Angel Pham", role: "Marketing Team", image: "/Organizer Headshots/angel.jpg", linkedin: "https://www.linkedin.com/in/duyen-pham-b60465290/" },
-            { name: "Lilian Tapa", role: "Design Team", image: "/Organizer Headshots/lilian.jpg", linkedin: "https://www.linkedin.com/in/lil    ian-tapa-456177186/" },
-            { name: "Momin Imran", role: "Tech Team", image: "/Organizer Headshots/momin.jpg", linkedin: "https://www.linkedin.com/in/mominimran1/" },
+            { name: "Prajita Shrestha", role: "Marketing Team", image: "/Organizer Headshots/pj.jpg", linkedin: "https://www.linkedin.com/in/prajita/" },
             
             // row 5
-            { name: "Jaebrel Santos", role: "Sponsorship Team", image: "/Organizer Headshots/jaeb.jpg", linkedin: "https://www.linkedin.com/in/jaebrel-santos-310752352" },
-            { name: "Pooja Patel", role: "Design Team", image: "/Organizer Headshots/pooja.jpg", linkedin: "https://www.linkedin.com/in/pooja-patel-635151271/" },
-            { name: "Shakib Chowdhury", role: "Tech Team", image: "/Organizer Headshots/shakib.jpg", linkedin: "https://www.linkedin.com/in/shakib-chowdhury-6bbbb2284/" },
-            { name: "Sydney Spradlin", role: "Design Team", image: "/Organizer Headshots/sydney.jpg", linkedin: "https://www.linkedin.com/in/sydney-spradlin-1b46662ba/" },
+            { name: "Fatou Sonko", role: "Marketing Team", image: "/Organizer Headshots/fatou.jpg", linkedin: "https://www.linkedin.com/in/fatou-sonko/" },
             { name: "Natalie Watson", role: "Marketing Team", image: "/Organizer Headshots/natalie.jpg", linkedin: "https://www.linkedin.com/in/natalie-w-17a7a3242/" },
+            { name: "Jillian Casey", role: "Design Team", image: "/Organizer Headshots/jillian.jpg", linkedin: "https://www.linkedin.com/in/jillian-casey-2757352b1/" },
+            { name: "Lilian Tapa", role: "Design Team", image: "/Organizer Headshots/lilian.jpg", linkedin: "https://www.linkedin.com/in/lil    ian-tapa-456177186/" },
+            { name: "Pooja Patel", role: "Design Team", image: "/Organizer Headshots/pooja.jpg", linkedin: "https://www.linkedin.com/in/pooja-patel-635151271/" },
             
             // row 6
+            { name: "Sydney Spradlin", role: "Design Team", image: "/Organizer Headshots/sydney.jpg", linkedin: "https://www.linkedin.com/in/sydney-spradlin-1b46662ba/" },
+            { name: "Hira Khan", role: "Sponsorship Team", image: "/Organizer Headshots/hira.jpg", linkedin: "https://www.linkedin.com/in/hirakhan22/" },
             { name: "Fiona Acquah", role: "Sponsorship Team", image: "/Organizer Headshots/fiona.jpg", linkedin: "https://www.linkedin.com/in/darshp623/" },
-            { name: "Shrikant Bhatnagar", role: "Tech Team", image: "/Organizer Headshots/shrikant.jpg", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
-            { name: "Victor Osunji", role: "Tech Team", image: "/Organizer Headshots/victor.jpg", linkedin: "https://www.linkedin.com/in/victor-osunji-bb030a232/" },
             { name: "Waasi Ahmad", role: "Sponsorship Team", image: "/Organizer Headshots/waasi.jpg", linkedin: "https://www.linkedin.com/in/waasi-ahmad-0231b9292/" },
             { name: "Abdullah Gill", role: "Sponsorship Team", image: "/Organizer Headshots/abdullah.jpg", linkedin: "https://www.linkedin.com/in/abdullah-gill-9a5672273/" },
         ];
