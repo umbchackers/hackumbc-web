@@ -128,8 +128,9 @@ export default function Team() {
     };
 
     return (
-        <div className="team-page-wrapper" ref={pageRef} style={{ 
-            minHeight: '100vh', 
+    <main id="team">
+        <div id="team" className="team-page-wrapper" ref={pageRef} style={{ 
+            minHeight: '100vh',
             width: '100%', 
             position: 'relative', 
             overflowY: 'auto',
@@ -155,5 +156,6 @@ export default function Team() {
                 </div>
             </div>
         </div>
+        </main>
     );
 } 

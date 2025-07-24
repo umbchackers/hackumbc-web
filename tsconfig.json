@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/lib/log_pg_sizes.js", "src/lib/client_wrapper.js"  ],
   "exclude": [
     "node_modules"
   ]

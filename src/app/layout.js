@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import CursorTrail from "./components/cursor-trail";
+import ClientWrapper from "../lib/client_wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,10 +39,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
+        <ClientWrapper /> {/* runs logging in browser only */}
         <div className="flex flex-col min-h-screen">
-          <div className="flex-grow">
-            {children}
-          </div>
+          <div className="flex-grow">{children}</div>
         </div>
         <CursorTrail />
       </body>
