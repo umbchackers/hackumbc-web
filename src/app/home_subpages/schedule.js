@@ -106,40 +106,37 @@ export default function Schedule() {
 
     // Schedule data for day 1
     const day1Schedule = [
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' }
+        { time: '9:00 AM', endTime: '10:00 AM', event: 'Check-In', location: 'ITE ATRIUM' },
+        { time: '10:00 AM', endTime: '11:00 AM', event: 'Sponsorship Networking', location: 'ENGR ATRIUM' },
+        { time: '11:00 AM', endTime: '12:00 PM', event: 'Opening Ceremony', location: 'ENGR ATRIUM' },
+        { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Begins!', location: 'ITE/ENG' },
+        { time: '12:30 PM', endTime: '1:30 PM', event: 'Lunch', location: 'ENGR ATRIUM' },
+        { time: '1:00 PM', endTime: '1:30 PM', event: 'Sponsored Talk', location: 'ITE First Floor' },
+        { time: '1:30 PM', endTime: '2:00 PM', event: 'Sponsored Talk', location: 'ITE First Floor' },
+        { time: '2:15 PM', endTime: '2:45 PM', event: 'Workshop', location: 'ITE First Floor' },
+        { time: '3:00 PM', endTime: '3:30 PM', event: 'Workshop', location: 'ITE First Floor' },
+        { time: '3:45 PM', endTime: '4:15 PM', event: 'Workshop', location: 'ITE First Floor' },
+        { time: '4:30 PM', endTime: '5:00 PM', event: 'Workshop', location: 'ITE First Floor' },
+        { time: '5:15 PM', endTime: '5:45 PM', event: 'Workshop', location: 'ITE First Floor' },
+        { time: '6:00 PM', endTime: '7:00 PM', event: 'Dinner', location: 'TBD' },
+        { time: '7:00 PM', endTime: '7:45 PM', event: 'Shirts!', location: 'TBA' },
+        { time: '8:00 PM', endTime: '8:15 PM', event: 'Smash Tournament', location: 'ITE 233' },
+        { time: '8:30 PM', endTime: '9:15 PM', event: 'MLH', location: 'ITE 456' },
+        { time: '9:30 PM', endTime: '9:45 PM', event: 'Spaghetti Tower Competition', location: 'ITE 456' },
+        { time: '10:00 PM', endTime: '11:00 PM', event: 'Late Night Snack', location: 'ITE Second Floor' },
+        { time: '11:00 PM', endTime: '12:00 AM', event: 'Mario Kart Session', location: 'ITE 456' }
     ];
 
     // Schedule data for day 2
     const day2Schedule = [
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' }
+        { time: '9:00 AM', endTime: '10:00 AM', event: 'Breakfast', location: 'ENGR ATRIUM' },
+        { time: '11:00 AM', endTime: '12:00 PM', event: 'Begin Hack Submission', location: 'ITE Second Floor' },
+        { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Ends!', location: 'ITE Second Floor' },
+        { time: '12:30 PM', endTime: '1:00 PM', event: 'Submission Ends', location: 'ITE Second Floor' },
+        { time: '1:00 PM', endTime: '2:00 PM', event: 'Lunch', location: 'ENGR ATRIUM' },
+        { time: '2:00 PM', endTime: '3:30 PM', event: 'Expo Begins', location: 'UC Ballroom' },
+        { time: '3:30 PM', endTime: '4:00 PM', event: 'Expo Ends', location: 'UC Ballroom' },
+        { time: '4:30 PM', endTime: '5:00 PM', event: 'Closing Ceremony', location: 'UC Ballroom' },
     ];
 
 
@@ -164,6 +161,7 @@ export default function Schedule() {
                                 <div className={`timeline-card ${isCurrentlyHappening ? 'current-event' : ''}`}>
                                     <div className="timeline-card-header">
                                         <span>{formatTime(item.time)}</span>
+                                        <span className="time-separator">to</span>
                                         <span>{formatTime(item.endTime)}</span>
                                     </div>
                                     <div className="timeline-card-content">

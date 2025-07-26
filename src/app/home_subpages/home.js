@@ -57,11 +57,11 @@ export default function Home() {
           position: isMobile ? "relative" : "absolute",
           bottom: isMobile ? "auto" : "100px",
         }}>
-          {/*<LinkBox
+          {<LinkBox
             href="/sign-up"
-            desc="Want to experience a code rush? Register for our upcoming 8 hour mini event!"
-            title="Registration Closed"
-          />*/}
+            desc="Registration for hackUMBC 2025 is now open! Click this button to go to the sign up page!"
+            title="Registration"
+          />}
           <LinkBox
             href="https://hackumbc-fall-2024.devpost.com/"
             desc="Click to visit Devpost, where you can view logistics for projects, teams, and prizes!"
