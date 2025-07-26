@@ -3,13 +3,15 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Music, Music2, Music3, Music4, Headphones, Mic, Volume2, Play, Pause, SkipForward, SkipBack } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export default function CursorTrail() {
+  const pathname = usePathname();
   const [musicNotes, setMusicNotes] = useState([]);
   const [particles, setParticles] = useState([]);
   const [soundWaves, setSoundWaves] = useState([]);
   const [isDesktop, setIsDesktop] = useState(true);
-  const [isEnabled, setIsEnabled] = useState(true);
+  const [isEnabled, setIsEnabled] = useState(pathname !== '/sign-up');
 
   // for position tracking
   const rawPos = useRef({ x: 0, y: 0 });

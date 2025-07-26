@@ -165,7 +165,7 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              (Sign Ups Closed Now)
+              Sign Ups Open Now!
             </h2>
             <p className="text-sm italic mb-6 text-center light-mode-text">
               Fields marked by <span className="text-red-500">*</span> are

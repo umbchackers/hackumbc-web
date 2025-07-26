@@ -9,6 +9,8 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
 
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
+const Table = process.env.NEXT_PUBLIC_AWS_TABLE_NAME;
+
 const s3 = new S3Client({
   region: process.env.NEXT_PUBLIC_AWS_REGION,
   credentials: {
@@ -32,7 +34,7 @@ export async function POST(request) {
       major: "",
     };
     const params = {
-      TableName: "hackumbc-2025", // name of table in dynamodb
+      TableName: Table, // name of table in dynamodb
       Item: {},
     };
     let resumeResult;
@@ -93,7 +95,7 @@ export async function POST(request) {
     try {
       let result = await dynamodb.send(
         new GetItemCommand({
-          TableName: "hackumbc-2025", // should match table name
+          TableName: Table, // should match table name
           Key: {
             hackumbc_2025: { S: hackumbc_2025 }, // should match partition key
             email: { S: email },
@@ -142,7 +144,7 @@ export async function POST(request) {
   }
 }
 
-// Function to handle resume upload
+// function to handle resume upload
 const sendResume = async (file) => {
   if (!file) {
     //empty, pass
@@ -157,14 +159,14 @@ const sendResume = async (file) => {
     const upload = new Upload({
       client: s3,
       params: {
-        Bucket: "hackumbc-2025", // should match s3 bucket name
+        Bucket: Bucket, // should match s3 bucket name
         Key: fileName,
         Body: file,
         ContentType: file.type,
       },
     });
 
-    // Monitor progress
+    // monitor progress
     upload.on("httpUploadProgress", (progress) => {
       //console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
     });
