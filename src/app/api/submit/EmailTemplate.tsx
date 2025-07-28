@@ -58,7 +58,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     </p>
 
     {/* qr code */}
-    <h2>🔗 Check-In QR Code</h2>
+    {/* <h2>🔗 Check-In QR Code</h2>
     <p>
       Don't forget! Your QR Code for check-in is attached below. Please have it
       ready to show the hackUMBC team when you arrive.
@@ -66,7 +66,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     <img
       src={`https://quickchart.io/qr?text=${email}`}
       alt="Check-In QR Code"
-    />
+    /> */}
 
     {/* closing */}
     <h2>🎉 We Can't Wait to See You!</h2>
