@@ -228,7 +228,7 @@ export default function Schedule() {
                 {renderTimeline()}
                 
                 <div className="timeline-help-text" data-aos="fade-up">
-                    Scroll horizontally to see all events
+                    Scroll horizontally, swipe, or hold middle mouse button and drag, to see all events
                 </div>
             </div>
         </div>    
