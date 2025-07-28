@@ -18,12 +18,12 @@ export default function Team() {
         checkMobile();
         window.addEventListener('resize', checkMobile);
       
-        // Initialize AOS with mobile-specific settings
+        // initialize AOS with mobile-specific settings
         AOS.init({
           duration: isMobile ? 800 : 1400,
           easing: 'ease-in-out',
           once: true,
-          disable: isMobile ? 'phone' : false, // Disable animations on mobile
+          disable: isMobile ? 'phone' : false, // disable animations on mobile
           startEvent: 'DOMContentLoaded',
         });
       
@@ -35,7 +35,7 @@ export default function Team() {
           document.documentElement.style.height = 'auto';
           document.body.style.position = 'relative';
       
-          // Instead of forcing a redraw on the body, only update the minHeight of your container
+          // instead of forcing a redraw on the body, only update the minHeight of your container
           setTimeout(() => {
             if (pageRef.current) {
               const height = pageRef.current.scrollHeight;
@@ -55,9 +55,9 @@ export default function Team() {
       }, [isMobile]);
          
 
-    // Function to create organizer cards
+    // function to create organizer cards
     const renderOrganizerCards = () => {
-        // Create array of 30 organizers with unique names and roles
+        // create array of 30 organizers with unique names and roles
         const organizers = [
             // row 1
             { name: "Chachi Watterson", role: "Team Spirit Animal", image: "/Organizer Headshots/chachi.jpg", linkedin: "https://www.linkedin.com/in/julian-chavez-b82a13254/" },

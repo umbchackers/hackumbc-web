@@ -23,13 +23,13 @@ export default function Home() {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    // Initial check on component mount
+    // initial check on component mount
     handleResize();
 
-    // Add event listener for resize events
+    // add event listener for resize events
     window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener on component unmount
+    // cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };

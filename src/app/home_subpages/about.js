@@ -16,7 +16,7 @@ export default function About() {
         });
         AOS.refresh();
 
-        // Check if mobile on component mount
+        // check if mobile on component mount
         const handleResize = () => {
           setIsMobile(window.innerWidth <= 768);
         };

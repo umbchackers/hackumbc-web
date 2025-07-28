@@ -20,7 +20,7 @@ export default function Schedule() {
         });
         AOS.refresh();
         
-        // Update current time every minute
+        // update current time every minute
         const timer = setInterval(() => {
             setCurrentDateTime(new Date());
         }, 60000);
@@ -28,23 +28,25 @@ export default function Schedule() {
         return () => clearInterval(timer);
     }, []);
     
-    // Scroll to current event when it changes
+    // scroll to current event when it changes
     useEffect(() => {
-        if (currentEventRef.current) {
+        if(currentEventRef.current) 
+        {
             const element = currentEventRef.current;
             element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
         }
     }, [currentEventIndex, activeDay]);
     
-    // Helper function to check if an event is currently happening
+    // helper function to check if an event is currently happening
     const isCurrentEvent = (startTime, endTime, eventDate, index) => {
-        if (!startTime || !endTime || !eventDate) return false;
+        if(!startTime || !endTime || !eventDate) return false;
         
         const now = currentDateTime;
         const today = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
         
         // Check if today is the event date
-        if (today.includes(eventDate.replace('September', 'Sep').replace('th', ''))) {
+        if(today.includes(eventDate.replace('September', 'Sep').replace('th', ''))) 
+        {
             const [startHour, startMinutes] = getTimeComponents(startTime);
             const [endHour, endMinutes] = getTimeComponents(endTime);
             
@@ -58,8 +60,9 @@ export default function Schedule() {
             
             const isCurrentlyHappening = now >= eventStart && now <= eventEnd;
             
-            // Set currentEventIndex if this event is happening now
-            if (isCurrentlyHappening) {
+            // set currentEventIndex if this event is happening now
+            if(isCurrentlyHappening) 
+            {
                 setCurrentEventIndex(index);
             }
             
@@ -69,7 +72,7 @@ export default function Schedule() {
         return false;
     };
     
-    // Helper to convert time strings (9:00am) to hours and minutes
+    // helper to convert time strings (9:00am) to hours and minutes
     const getTimeComponents = (timeString) => {
         const isPM = timeString.toLowerCase().includes('pm');
         let [hours, minutes] = timeString
@@ -79,64 +82,71 @@ export default function Schedule() {
             .split(':')
             .map(Number);
         
-        if (isPM && hours !== 12) hours += 12;
-        if (!isPM && hours === 12) hours = 0;
+        if(isPM && hours !== 12) hours += 12;
+        if(!isPM && hours === 12) hours = 0;
         
         return [hours, minutes || 0];
     };
     
-    // Get event type to apply appropriate styling
+    // get event type to apply appropriate styling
     const getEventType = (eventTitle) => {
         const title = eventTitle.toLowerCase();
-        if (title.includes('lunch') || title.includes('breakfast') || title.includes('dinner') || title.includes('snack')) {
+        if(title.includes('lunch') || title.includes('breakfast') || title.includes('dinner') || title.includes('snack')) 
+        {
             return 'food';
-        } else if (title.includes('workshop') || title.includes('talk')) {
+        } 
+        else if (title.includes('workshop') || title.includes('talk')) 
+        {
             return 'workshop';
-        } else if (title.includes('competition') || title.includes('tournament') || title.includes('contest')) {
+        } 
+        else if(title.includes('competition') || title.includes('tournament') || title.includes('contest')) 
+        {
             return 'competition';
-        } else {
+        } 
+        else 
+        {
             return 'event';
         }
     };
 
-    // Format time to be more readable
+    // format time to be more readable
     const formatTime = (time) => {
         return time.replace(/([0-9]+)([ap]m)/i, '$1 $2');
     };
 
-    // Schedule data for day 1
+    // schedule data for day 1
     const day1Schedule = [
-        { time: '9:00 AM', endTime: '10:00 AM', event: 'Check-In', location: 'ITE ATRIUM' },
-        { time: '10:00 AM', endTime: '11:00 AM', event: 'Sponsorship Networking', location: 'ENGR ATRIUM' },
-        { time: '11:00 AM', endTime: '12:00 PM', event: 'Opening Ceremony', location: 'ENGR ATRIUM' },
-        { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Begins!', location: 'ITE/ENG' },
-        { time: '12:30 PM', endTime: '1:30 PM', event: 'Lunch', location: 'ENGR ATRIUM' },
-        { time: '1:00 PM', endTime: '1:30 PM', event: 'Sponsored Talk', location: 'ITE First Floor' },
-        { time: '1:30 PM', endTime: '2:00 PM', event: 'Sponsored Talk', location: 'ITE First Floor' },
-        { time: '2:15 PM', endTime: '2:45 PM', event: 'Workshop', location: 'ITE First Floor' },
-        { time: '3:00 PM', endTime: '3:30 PM', event: 'Workshop', location: 'ITE First Floor' },
-        { time: '3:45 PM', endTime: '4:15 PM', event: 'Workshop', location: 'ITE First Floor' },
-        { time: '4:30 PM', endTime: '5:00 PM', event: 'Workshop', location: 'ITE First Floor' },
-        { time: '5:15 PM', endTime: '5:45 PM', event: 'Workshop', location: 'ITE First Floor' },
-        { time: '6:00 PM', endTime: '7:00 PM', event: 'Dinner', location: 'TBD' },
-        { time: '7:00 PM', endTime: '7:45 PM', event: 'Shirts!', location: 'TBA' },
-        { time: '8:00 PM', endTime: '8:15 PM', event: 'Smash Tournament', location: 'ITE 233' },
-        { time: '8:30 PM', endTime: '9:15 PM', event: 'MLH', location: 'ITE 456' },
-        { time: '9:30 PM', endTime: '9:45 PM', event: 'Spaghetti Tower Competition', location: 'ITE 456' },
-        { time: '10:00 PM', endTime: '11:00 PM', event: 'Late Night Snack', location: 'ITE Second Floor' },
-        { time: '11:00 PM', endTime: '12:00 AM', event: 'Mario Kart Session', location: 'ITE 456' }
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' }
     ];
 
-    // Schedule data for day 2
+    // schedule data for day 2
     const day2Schedule = [
-        { time: '9:00 AM', endTime: '10:00 AM', event: 'Breakfast', location: 'ENGR ATRIUM' },
-        { time: '11:00 AM', endTime: '12:00 PM', event: 'Begin Hack Submission', location: 'ITE Second Floor' },
-        { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Ends!', location: 'ITE Second Floor' },
-        { time: '12:30 PM', endTime: '1:00 PM', event: 'Submission Ends', location: 'ITE Second Floor' },
-        { time: '1:00 PM', endTime: '2:00 PM', event: 'Lunch', location: 'ENGR ATRIUM' },
-        { time: '2:00 PM', endTime: '3:30 PM', event: 'Expo Begins', location: 'UC Ballroom' },
-        { time: '3:30 PM', endTime: '4:00 PM', event: 'Expo Ends', location: 'UC Ballroom' },
-        { time: '4:30 PM', endTime: '5:00 PM', event: 'Closing Ceremony', location: 'UC Ballroom' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
     ];
 
 

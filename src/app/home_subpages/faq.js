@@ -31,7 +31,7 @@ export default function FAQ() {
         );
     }
 
-    // Define FAQs - splitting into two columns
+    // define FAQs - splitting into two columns
     const faqsColumnOne = [
         {
             question: "What is hackUMBC?",
