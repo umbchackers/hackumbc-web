@@ -15,7 +15,4 @@ frontend:
     files:
       - "**/*"
   cache:
-    paths:
-      - node_modules/**/*
-      - .next/cache/**/*
-      - ~/.npm/**/*
+    paths: []
