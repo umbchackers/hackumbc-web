@@ -54,7 +54,7 @@ export default function Navbar() {
                 }
               }}
             >
-              <img className="nav-logo light-mode-text" src="/darsh.webp" alt="logo" />
+              <img className="nav-logo light-mode-text" src="/organizers/darsh.webp" alt="logo" />
             </Link>
             <Link
               id="left-nav-button"
