@@ -112,7 +112,7 @@ export default function About() {
                     }}>
                         <Track
                             title="TBD"
-                            desc="TBD."
+                            desc="TBD"
                         >
                             <div className="track-image-container">
                                 <img
@@ -124,7 +124,7 @@ export default function About() {
                         </Track>
                         <Track
                             title="TBD"
-                            desc="TBD."
+                            desc="TBD"
                         >
                             <div className="track-image-container">
                                 <img
@@ -136,7 +136,7 @@ export default function About() {
                         </Track>
                         <Track
                             title="TBD"
-                            desc="TBD."
+                            desc="TBD"
                         >
                             <div className="track-image-container">
                                 <img
@@ -148,7 +148,7 @@ export default function About() {
                         </Track>
                         <Track
                             title="TBD"
-                            desc="TBD!">
+                            desc="TBD">
                             <div className="track-image-container">
                                 <img
                                     src="/sticker-4.webp"

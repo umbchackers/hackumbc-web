@@ -11,6 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "postinstall": "pnpm prune --ignore-scripts",
     "test": "jest"
   },
   "dependencies": {
