@@ -54,8 +54,26 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
+                        <a href="https://doit.umbc.edu/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="/doit.png"
+                                alt="DoIT"
+                                className="sponsors-logo"
+                                loading="eager"
+                            />
+                        </a>
                         
                         {/* Gold */}
+                        <a href="https://www.lockheedmartin.com/en-us/index.html" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="/lockheedmartin.png"
+                                alt="Lockheed Martin"
+                                className="sponsors-logo"
+                                loading="eager"
+                            />
+                        </a>
+                        
+                        {/* Silver */}
                         <a href="https://nightwing.us/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/nightwing.png"
@@ -64,8 +82,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                        {/* Silver */}
                         <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/apl.png"

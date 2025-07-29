@@ -384,4 +384,12 @@ body {
     .organizer-card a {
         touch-action: pan-y !important; /* Only allow vertical scrolling on links */
     }
+}
+
+/* Secret page specific overrides for mobile */
+@media (max-width: 768px) {
+    .secret-page {
+        min-height: 100vh !important;
+        height: 100vh !important;
+    }
 } 

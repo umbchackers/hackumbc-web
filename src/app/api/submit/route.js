@@ -100,6 +100,7 @@ export async function POST(request) {
           },
         })
       );
+      //DynamoDB logic above
       console.log("success");
       console.log(JSON.stringify(result));
     } catch (err) {
@@ -152,7 +153,7 @@ const sendResume = async (file) => {
   const ext = file.name.split(".").pop();
   const uid = uuidv4().replace(/-/g, "");
   const fileName = `${uid}${ext ? "." + ext : ""}`;
-
+  // S3 logic below
   try {
     const upload = new Upload({
       client: s3,

@@ -61,7 +61,7 @@ export default function Team() {
         const organizers = [
             // row 1
             { name: "Chachi Watterson", role: "Team Spirit Animal", image: "/Organizer Headshots/chachi.jpg", linkedin: "https://www.linkedin.com/in/julian-chavez-b82a13254/" },
-            { name: "Julian Chavez", role: "Advisor", image: "/Organizer Headshots/julian.jpg", linkedin: "https://www.linkedin.com/in/julian-chavez-b82a13254/" },
+            { name: "Julian Chavez", role: "Advisor", image: "/Organizer Headshots/julian.jpg", linkedin: "/secret" },
             { name: "Darsh Patel", role: "Tech Team Lead", image: "/Organizer Headshots/darsh.jpg", linkedin: "https://www.linkedin.com/in/darshp623/" },
             { name: "Bella Goltser", role: "President", image: "/Organizer Headshots/bella.jpg", linkedin: "https://www.linkedin.com/in/isabella-goltser-bb1b21284" },
             { name: "Jack Winkler", role: "Internal Vice President", image: "/Organizer Headshots/jack.jpg", linkedin: "https://www.linkedin.com/in/jack-winkler-159575276/" },
