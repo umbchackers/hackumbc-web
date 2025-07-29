@@ -30,13 +30,13 @@ export default function Footer() {
             <div className="footer-content" data-aos="fade-in">
                 <div className="tracks flex"> {/* adjusted the className styling for centering on mobile for tracks */}
                     <Track title="TWITTER" link="https://x.com/hackumbc2024">
-                        <img src="/twitter.png" alt="twitter-png" className="track-image"/>
+                        <img src="/twitter.webp" alt="twitter-png" className="track-image"/>
                     </Track>
                     <Track title="INSTAGRAM" link="https://www.instagram.com/hackumbc/?hl=en">
-                        <img src="/instagram.png" alt="insta-png" className="track-image"/>
+                        <img src="/instagram.webp" alt="insta-png" className="track-image"/>
                     </Track>
                     <Track title="GITHUB" link="https://github.com/umbchackers/hackumbc-web">
-                        <img src="/github.PNG" alt="github-png" className="track-image"/>
+                        <img src="/github.webp" alt="github-png" className="track-image"/>
                     </Track>
                 </div>
                 <div className="footer-info">

@@ -102,7 +102,7 @@ export default function FAQ() {
 
     return (
         <div className="faq-page relative" style={{
-            backgroundImage: "url('/hackumbc_bg.svg')",
+            backgroundImage: "url('/hackumbc_bg.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat"

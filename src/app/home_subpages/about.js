@@ -61,7 +61,7 @@ export default function About() {
 
     return (
         <div className="about-page" style={{
-            backgroundImage: "url('/hackumbc_bg.png')",
+            backgroundImage: "url('/hackumbc_bg2.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -116,7 +116,7 @@ export default function About() {
                         >
                             <div className="track-image-container">
                                 <img
-                                    src="/sticker-1.png"
+                                    src="/sticker-1.webp"
                                     alt="track-image"
                                     className="w-36 h-auto"
                                 />
@@ -128,7 +128,7 @@ export default function About() {
                         >
                             <div className="track-image-container">
                                 <img
-                                    src="/sticker-2.png"
+                                    src="/sticker-2.webp"
                                     alt="track-image"
                                     className="w-36 h-auto"
                                 />
@@ -140,7 +140,7 @@ export default function About() {
                         >
                             <div className="track-image-container">
                                 <img
-                                    src="/sticker-3.png"
+                                    src="/sticker-3.webp"
                                     alt="track-image"
                                     className="w-36 h-auto"
                                 />
@@ -151,7 +151,7 @@ export default function About() {
                             desc="TBD!">
                             <div className="track-image-container">
                                 <img
-                                    src="/sticker-4.png"
+                                    src="/sticker-4.webp"
                                     alt="track-image"
                                     className="w-36 h-auto"
                                 />

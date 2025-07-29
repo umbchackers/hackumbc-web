@@ -197,7 +197,7 @@ export default function Schedule() {
 
     return (
         <div className="schedule-page" style={{
-            backgroundImage: "url('/hackumbc_bg.png')",
+            backgroundImage: "url('/hackumbc_bg.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat"

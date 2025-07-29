@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <div className="home-page" style={{
-      backgroundImage: isMobile ? "url('/mobile-bg-home.gif')" : "url('/hackumbc_bg.gif')",
+      backgroundImage: isMobile ? `url('https://${process.env.NEXT_PUBLIC_AWS_CLOUDFRONT_URL}/mobile-bg-home.gif')` : `url('https://${process.env.NEXT_PUBLIC_AWS_CLOUDFRONT_URL}/hackumbc_bg.gif')`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",

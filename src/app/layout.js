@@ -20,7 +20,7 @@ export const metadata = {
     title: "hackUMBC 2025",
     description:
       "Register now for hackUMBC 2025, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
-    image: "/hackumbcdog2025.png",
+    image: "/hackumbcdog2025.webp",
   },
   twitter: {
     card: "summary_large_image",
@@ -31,7 +31,7 @@ export const metadata = {
     image: "",
   },
   icons: {
-    icon: "/hackumbcdog2025.png",
+    icon: "/hackumbcdog2025.webp",
   },
 };
 

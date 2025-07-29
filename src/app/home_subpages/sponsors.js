@@ -18,7 +18,7 @@ export default function Sponsors() {
 
     return (
         <div className="sponsors-page relative" style={{
-            backgroundImage: "url('/hackumbc_bg.png')",
+            backgroundImage: "url('/hackumbc_bg.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat"
@@ -38,7 +38,7 @@ export default function Sponsors() {
                         {/* diamond */}
                         <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/coeit.png"
+                                src="/coeit.webp"
                                 alt="COEIT"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -48,7 +48,7 @@ export default function Sponsors() {
                         {/* platinum */}
                         <a href="https://www.troweprice.com/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/trowepricelogo.jpg"
+                                src="/trowepricelogo.webp"
                                 alt="T. Rowe Price"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -58,7 +58,7 @@ export default function Sponsors() {
                         {/* gold */}
                         <a href="https://nightwing.us/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/nightwing.png"
+                                src="/nightwing.webp"
                                 alt="Nightwing"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -68,7 +68,7 @@ export default function Sponsors() {
                         {/* silver */}
                         <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/apl.png"
+                                src="/apl.webp"
                                 alt="Johns Hopkins APL"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -76,7 +76,7 @@ export default function Sponsors() {
                         </a>
                         <a href="https://www.ertcorp.com/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/ert.jpg"
+                                src="/ert.webp"
                                 alt="ERT"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -84,7 +84,7 @@ export default function Sponsors() {
                         </a>
                         <a href="https://entrepreneurship.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/alexbrowncenter.png"
+                                src="/alexbrowncenter.webp"
                                 alt="Alex Brown Center"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -92,7 +92,7 @@ export default function Sponsors() {
                         </a>
                         <a href="https://boozallen.com/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/BAH.png"
+                                src="/BAH.webp"
                                 alt="Booz Allen Hamilton"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -102,7 +102,7 @@ export default function Sponsors() {
                         {/* bronze */}
                         <a href="https://cwit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/CWIT.jpg"
+                                src="/CWIT.webp"
                                 alt="CWIT"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -110,7 +110,7 @@ export default function Sponsors() {
                         </a>
                         <a href="https://csee.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/CSEE.png"
+                                src="/CSEE.webp"
                                 alt="CSEE"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -118,7 +118,7 @@ export default function Sponsors() {
                         </a>
                         <a href="https://www.bestgateeng.com/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/bestgate.png"
+                                src="/bestgate.webp"
                                 alt="Bestgate"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -128,7 +128,7 @@ export default function Sponsors() {
                         {/* partners */}
                         <a href="https://standoutstickers.com/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/stand-out-stickers.png"
+                                src="/stand-out-stickers.webp"
                                 alt="Stand Out Stickers"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -144,7 +144,7 @@ export default function Sponsors() {
                         </a>
                         <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/northrop.png"
+                                src="/northrop.webp"
                                 alt="Northrop Grumman"
                                 className="sponsors-logo"
                                 loading="eager"
