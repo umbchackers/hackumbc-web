@@ -4,12 +4,14 @@ frontend:
     preBuild:
       commands:
         - nvm use 20
-        - npm ci --prefer-offline --no-audit --no-fund --silent
+        - corepack enable
+        - corepack prepare pnpm@latest --activate
+        - pnpm install --frozen-lockfile --prefer-offline
         - export NODE_OPTIONS="--max-old-space-size=4096"
     build:
       commands:
-        - npm test
-        - npm run build
+        - pnpm test
+        - pnpm run build
   artifacts:
     baseDirectory: .next
     files:
@@ -18,4 +20,4 @@ frontend:
     paths:
       - node_modules/**/*
       - .next/cache/**/*
-      - ~/.npm/**/*
+      - ~/.pnpm-store/**/*
