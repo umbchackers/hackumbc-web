@@ -15,7 +15,7 @@ export default function Home() {
     AOS.refresh();
   }, []);
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(null);
 
   // handle resize
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function Home() {
       height: "100vh",
       overflow: "hidden"
     }}>
-      <video
+      {isMobile !== null && <video
         autoPlay
         muted
         loop
@@ -51,7 +51,7 @@ export default function Home() {
       >
         <source src={isMobile ? '/hackumbc_bg_mobile.mp4' : '/hackumbc_bg.mp4'} type="video/mp4" />
         Your browser does not support the video tag
-      </video>
+      </video>}
       <div className="home-container" style={{ 
         zIndex: 10,
         display: "flex",
