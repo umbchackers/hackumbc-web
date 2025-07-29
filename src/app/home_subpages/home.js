@@ -37,11 +37,21 @@ export default function Home() {
 
   return (
     <div className="home-page" style={{
-      backgroundImage: isMobile ? `url('https://${process.env.NEXT_PUBLIC_AWS_CLOUDFRONT_URL}/mobile-bg-home.gif')` : `url('https://${process.env.NEXT_PUBLIC_AWS_CLOUDFRONT_URL}/hackumbc_bg.gif')`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
+      position: "relative",
+      height: "100vh",
+      overflow: "hidden"
     }}>
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src={isMobile ? '/hackumbc_bg_mobile.mp4' : '/hackumbc_bg.mp4'} type="video/mp4" />
+        Your browser does not support the video tag
+      </video>
       <div className="home-container" style={{ 
         zIndex: 10,
         display: "flex",

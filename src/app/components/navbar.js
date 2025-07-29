@@ -35,6 +35,7 @@ export default function Navbar() {
             <img
               src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-yellow.svg"
               alt="Major League Hacking 2026 Hackathon Season"
+              fetchPriority="high"
             />
           </a>
         )}
