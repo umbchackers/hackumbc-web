@@ -56,7 +56,7 @@ export default function Sponsors() {
                         </a>
                         <a href="https://doit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/doit.png"
+                                src="/doit.webp"
                                 alt="DoIT"
                                 className="sponsors-logo"
                                 loading="eager"
@@ -66,7 +66,7 @@ export default function Sponsors() {
                         {/* Gold */}
                         <a href="https://www.lockheedmartin.com/en-us/index.html" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/lockheedmartin.png"
+                                src="/lockheedmartin.webp"
                                 alt="Lockheed Martin"
                                 className="sponsors-logo"
                                 loading="eager"
