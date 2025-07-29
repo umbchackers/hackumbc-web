@@ -88,7 +88,7 @@ export default function LinkBox({ href, title, desc }) {
           {title}
           <span
             style={{
-              display: isMobile ? 'none' : 'inline-block',
+              display: 'inline-block',
               transition: 'transform 0.3s ease-in-out',
               marginLeft: '5px'
             }}

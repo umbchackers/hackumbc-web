@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import CursorTrail from "./components/cursor-trail";
+import ClientWrapper from "../lib/client_wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export const metadata = {
     title: "hackUMBC 2025",
     description:
       "Register now for hackUMBC 2025, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
-    image: "/hackumbcdog2025.png",
+    image: "/hackumbcdog2025.webp",
   },
   twitter: {
     card: "summary_large_image",
@@ -30,7 +31,7 @@ export const metadata = {
     image: "",
   },
   icons: {
-    icon: "/hackumbcdog2025.png",
+    icon: "/hackumbcdog2025.webp",
   },
 };
 
@@ -38,10 +39,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
+        <ClientWrapper /> {/* runs logging in browser only */}
         <div className="flex flex-col min-h-screen">
-          <div className="flex-grow">
-            {children}
-          </div>
+          <div className="flex-grow">{children}</div>
         </div>
         <CursorTrail />
       </body>

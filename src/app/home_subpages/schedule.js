@@ -20,7 +20,7 @@ export default function Schedule() {
         });
         AOS.refresh();
         
-        // Update current time every minute
+        // update current time every minute
         const timer = setInterval(() => {
             setCurrentDateTime(new Date());
         }, 60000);
@@ -28,23 +28,25 @@ export default function Schedule() {
         return () => clearInterval(timer);
     }, []);
     
-    // Scroll to current event when it changes
+    // scroll to current event when it changes
     useEffect(() => {
-        if (currentEventRef.current) {
+        if(currentEventRef.current) 
+        {
             const element = currentEventRef.current;
             element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
         }
     }, [currentEventIndex, activeDay]);
     
-    // Helper function to check if an event is currently happening
+    // helper function to check if an event is currently happening
     const isCurrentEvent = (startTime, endTime, eventDate, index) => {
-        if (!startTime || !endTime || !eventDate) return false;
+        if(!startTime || !endTime || !eventDate) return false;
         
         const now = currentDateTime;
         const today = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
         
         // Check if today is the event date
-        if (today.includes(eventDate.replace('September', 'Sep').replace('th', ''))) {
+        if(today.includes(eventDate.replace('September', 'Sep').replace('th', ''))) 
+        {
             const [startHour, startMinutes] = getTimeComponents(startTime);
             const [endHour, endMinutes] = getTimeComponents(endTime);
             
@@ -58,8 +60,9 @@ export default function Schedule() {
             
             const isCurrentlyHappening = now >= eventStart && now <= eventEnd;
             
-            // Set currentEventIndex if this event is happening now
-            if (isCurrentlyHappening) {
+            // set currentEventIndex if this event is happening now
+            if(isCurrentlyHappening) 
+            {
                 setCurrentEventIndex(index);
             }
             
@@ -69,7 +72,7 @@ export default function Schedule() {
         return false;
     };
     
-    // Helper to convert time strings (9:00am) to hours and minutes
+    // helper to convert time strings (9:00am) to hours and minutes
     const getTimeComponents = (timeString) => {
         const isPM = timeString.toLowerCase().includes('pm');
         let [hours, minutes] = timeString
@@ -79,36 +82,40 @@ export default function Schedule() {
             .split(':')
             .map(Number);
         
-        if (isPM && hours !== 12) hours += 12;
-        if (!isPM && hours === 12) hours = 0;
+        if(isPM && hours !== 12) hours += 12;
+        if(!isPM && hours === 12) hours = 0;
         
         return [hours, minutes || 0];
     };
     
-    // Get event type to apply appropriate styling
+    // get event type to apply appropriate styling
     const getEventType = (eventTitle) => {
         const title = eventTitle.toLowerCase();
-        if (title.includes('lunch') || title.includes('breakfast') || title.includes('dinner') || title.includes('snack')) {
+        if(title.includes('lunch') || title.includes('breakfast') || title.includes('dinner') || title.includes('snack')) 
+        {
             return 'food';
-        } else if (title.includes('workshop') || title.includes('talk')) {
+        } 
+        else if (title.includes('workshop') || title.includes('talk')) 
+        {
             return 'workshop';
-        } else if (title.includes('competition') || title.includes('tournament') || title.includes('contest')) {
+        } 
+        else if(title.includes('competition') || title.includes('tournament') || title.includes('contest')) 
+        {
             return 'competition';
-        } else {
+        } 
+        else 
+        {
             return 'event';
         }
     };
 
-    // Format time to be more readable
+    // format time to be more readable
     const formatTime = (time) => {
         return time.replace(/([0-9]+)([ap]m)/i, '$1 $2');
     };
 
-    // Schedule data for day 1
+    // schedule data for day 1
     const day1Schedule = [
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
         { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
         { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
         { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
@@ -130,7 +137,7 @@ export default function Schedule() {
         { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' }
     ];
 
-    // Schedule data for day 2
+    // schedule data for day 2
     const day2Schedule = [
         { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
         { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
@@ -139,7 +146,7 @@ export default function Schedule() {
         { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
         { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
         { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' }
+        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
     ];
 
 
@@ -164,6 +171,7 @@ export default function Schedule() {
                                 <div className={`timeline-card ${isCurrentlyHappening ? 'current-event' : ''}`}>
                                     <div className="timeline-card-header">
                                         <span>{formatTime(item.time)}</span>
+                                        <span className="time-separator">to</span>
                                         <span>{formatTime(item.endTime)}</span>
                                     </div>
                                     <div className="timeline-card-content">
@@ -189,7 +197,7 @@ export default function Schedule() {
 
     return (
         <div className="schedule-page" style={{
-            backgroundImage: "url('/hackumbc_bg.png')",
+            backgroundImage: "url('/hackumbc_bg.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat"
@@ -220,7 +228,7 @@ export default function Schedule() {
                 {renderTimeline()}
                 
                 <div className="timeline-help-text" data-aos="fade-up">
-                    Scroll horizontally to see all events
+                    Scroll horizontally, swipe, or hold middle mouse button and drag, to see all events
                 </div>
             </div>
         </div>    

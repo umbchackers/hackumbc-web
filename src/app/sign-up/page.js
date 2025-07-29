@@ -157,7 +157,7 @@ export default function Survey() {
             <div className="flex justify-center mb-6">
               <Image
                 className="hack-logo dark:drop-shadow-[0_0_0.3rem_#ffffff70] light:invert"
-                src="/hacklogo2025.png"
+                src="/hacklogo2025.webp"
                 alt="hackUMBC Logo"
                 width={480}
                 height={480}
@@ -165,7 +165,7 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              (Sign Ups Closed Now)
+              Sign Ups Open Now!
             </h2>
             <p className="text-sm italic mb-6 text-center light-mode-text">
               Fields marked by <span className="text-red-500">*</span> are
@@ -1006,7 +1006,7 @@ export default function Survey() {
                 </label>
               </div>
 
-              {/*<div className="flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 {<button
                   type="submit"
                   disabled={isSubmitting || !isAgreed}
@@ -1018,7 +1018,7 @@ export default function Survey() {
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}
                 </button>}
-              </div>*/} 
+              </div>
               {/* every year hide this^^ submit button so you dont need to delete entire file, 
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>

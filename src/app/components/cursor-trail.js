@@ -3,13 +3,19 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Music, Music2, Music3, Music4, Headphones, Mic, Volume2, Play, Pause, SkipForward, SkipBack } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export default function CursorTrail() {
+  const musicNotesRef = useRef([]);
+  const particlesRef = useRef([]);
+  const soundWavesRef = useRef([]);
+
+  const pathname = usePathname();
   const [musicNotes, setMusicNotes] = useState([]);
   const [particles, setParticles] = useState([]);
   const [soundWaves, setSoundWaves] = useState([]);
   const [isDesktop, setIsDesktop] = useState(true);
-  const [isEnabled, setIsEnabled] = useState(true);
+  const [isEnabled, setIsEnabled] = useState(pathname !== '/sign-up');
 
   // for position tracking
   const rawPos = useRef({ x: 0, y: 0 });
@@ -127,110 +133,98 @@ export default function CursorTrail() {
         const speed = Math.sqrt(velocity.current.x ** 2 + velocity.current.y ** 2);
         const accel = Math.sqrt(acceleration.current.x ** 2 + acceleration.current.y ** 2);
         
-        // update musical notes trail
-        setMusicNotes(prev => {
-          const newNotes = [...prev];
+        const newNotes = musicNotesRef.current;
+        
+        // add new note if enough distance moved or speed is high
+        const lastNote = newNotes[0];
+        if(!lastNote || 
+            Math.abs(displayPos.current.x - lastNote.x) > 8 || 
+            Math.abs(displayPos.current.y - lastNote.y) > 8 ||
+            speed > 5) {
           
-          // add new note if enough distance moved or speed is high
-          const lastNote = newNotes[0];
-          if(!lastNote || 
-              Math.abs(displayPos.current.x - lastNote.x) > 8 || 
-              Math.abs(displayPos.current.y - lastNote.y) > 8 ||
-              speed > 5) {
-            
-            const randomIcon = musicIcons[Math.floor(Math.random() * musicIcons.length)];
-            const randomRotation = (Math.random() - 0.5) * 60; // -30 to 30 degrees
-            const randomScale = 0.8 + Math.random() * 0.4; // 0.8 to 1.2
-            
-            newNotes.unshift({
-              id: noteId.current++,
-              x: displayPos.current.x + (Math.random() - 0.5) * 20,
-              y: displayPos.current.y + (Math.random() - 0.5) * 20,
-              time: time,
-              speed: speed,
-              acceleration: accel,
-              velocity: { x: velocity.current.x, y: velocity.current.y },
-              icon: randomIcon.icon,
-              color: randomIcon.color,
-              size: randomIcon.size,
-              rotation: randomRotation,
-              scale: randomScale,
-              life: 1,
-              decay: 0.008 + Math.random() * 0.004
-            });
-          }
+          const randomIcon = musicIcons[Math.floor(Math.random() * musicIcons.length)];
+          const randomRotation = (Math.random() - 0.5) * 60; // -30 to 30 degrees
+          const randomScale = 0.8 + Math.random() * 0.4; // 0.8 to 1.2
           
-          // update existing notes
-          const updatedNotes = newNotes.map(note => ({
+          newNotes.unshift({
+            id: noteId.current++,
+            x: displayPos.current.x + (Math.random() - 0.5) * 20,
+            y: displayPos.current.y + (Math.random() - 0.5) * 20,
+            time: time,
+            speed: speed,
+            acceleration: accel,
+            velocity: { x: velocity.current.x, y: velocity.current.y },
+            icon: randomIcon.icon,
+            color: randomIcon.color,
+            size: randomIcon.size,
+            rotation: randomRotation,
+            scale: randomScale,
+            life: 1,
+            decay: 0.008 + Math.random() * 0.004
+          });
+        }
+        
+        // update existing notes
+        musicNotesRef.current = newNotes
+          .map(note => ({
             ...note,
             life: note.life - note.decay,
             scale: note.scale * 0.995, // slowly shrink
             rotation: note.rotation + (note.speed * 0.5) // rotate based on speed
-          }));
-          
-          return updatedNotes
-            .filter(note => note.life > 0)
-            .slice(0, MAX_NOTES);
-        });
+          }))
+          .filter(note => note.life > 0)
+          .slice(0, MAX_NOTES);
 
         // enhanced particle generation
         if(speed > 2) {
-          setParticles(prev => {
-            const newParticles = [...prev];
-            if (Math.random() < 0.3) {
-              const angle = Math.atan2(velocity.current.y, velocity.current.x);
-              const spread = (Math.random() - 0.5) * Math.PI / 2;
-              const finalAngle = angle + spread;
-              const particleSpeed = 3 + Math.random() * 5;
-              
-              newParticles.push({
-                id: particleId.current++,
-                x: displayPos.current.x + Math.cos(finalAngle) * 15,
-                y: displayPos.current.y + Math.sin(finalAngle) * 15,
-                vx: Math.cos(finalAngle) * particleSpeed,
-                vy: Math.sin(finalAngle) * particleSpeed,
-                life: 1,
-                decay: 0.02 + Math.random() * 0.02,
-                size: 4 + Math.random() * 8,
-                color: `hsl(${200 + Math.random() * 80}, 80%, ${60 + Math.random() * 20}%)`,
-                type: 'sparkle',
-                rotation: Math.random() * 360
-              });
-            }
-            return newParticles
-              .map(p => ({ ...p, life: p.life - p.decay }))
-              .filter(p => p.life > 0)
-              .slice(0, MAX_PARTICLES);
-          });
+          if (Math.random() < 0.3) {
+            const angle = Math.atan2(velocity.current.y, velocity.current.x);
+            const spread = (Math.random() - 0.5) * Math.PI / 2;
+            const finalAngle = angle + spread;
+            const particleSpeed = 3 + Math.random() * 5;
+            
+            particlesRef.current.push({
+              id: particleId.current++,
+              x: displayPos.current.x + Math.cos(finalAngle) * 15,
+              y: displayPos.current.y + Math.sin(finalAngle) * 15,
+              vx: Math.cos(finalAngle) * particleSpeed,
+              vy: Math.sin(finalAngle) * particleSpeed,
+              life: 1,
+              decay: 0.02 + Math.random() * 0.02,
+              size: 4 + Math.random() * 8,
+              color: `hsl(${200 + Math.random() * 80}, 80%, ${60 + Math.random() * 20}%)`,
+              type: 'sparkle',
+              rotation: Math.random() * 360
+            });
+          }
+          particlesRef.current = particlesRef.current
+            .map(p => ({ ...p, life: p.life - p.decay }))
+            .filter(p => p.life > 0)
+            .slice(0, MAX_PARTICLES);              
         }
 
         // dynamic sound wave generation
         if(Math.random() < 0.005 + (speed * 0.002)) {
-          setSoundWaves(prev => {
-            const newWaves = [...prev];
-            newWaves.push({
-              id: waveId.current++,
-              x: displayPos.current.x,
-              y: displayPos.current.y,
-              radius: 0,
-              maxRadius: 1 + Math.random() * 0.02 + speed / 10,
-              speed: 1 + Math.random() * 0.25 + speed * 0.04,
-              opacity: .7,
-              color: `hsl(${180 + Math.random() * 60}, 80%, 60%)`,
-              thickness: 1 + Math.random() * 2
-            });
-            return newWaves.slice(0, MAX_WAVES);
+          soundWavesRef.current.push({
+            id: waveId.current++,
+            x: displayPos.current.x,
+            y: displayPos.current.y,
+            radius: 0,
+            maxRadius: 1 + Math.random() * 0.02 + speed / 10,
+            speed: 1 + Math.random() * 0.25 + speed * 0.04,
+            opacity: .7,
+            color: `hsl(${180 + Math.random() * 60}, 80%, 60%)`,
+            thickness: 1 + Math.random() * 2
           });
+          soundWavesRef.current = soundWavesRef.current.slice(-MAX_WAVES);
         }
-
-        // update sound waves
-        setSoundWaves(prev => 
-          prev.map(wave => ({
+        soundWavesRef.current = soundWavesRef.current
+          .map(wave => ({
             ...wave,
             radius: wave.radius + wave.speed,
             opacity: wave.opacity - 0.01
-          })).filter(wave => wave.opacity > 0)
-        );
+          }))
+          .filter(wave => wave.opacity > 0)
       }
       frameId = requestAnimationFrame(loop);
     };
@@ -238,6 +232,15 @@ export default function CursorTrail() {
     frameId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(frameId);
   }, [isDesktop, isEnabled]);
+
+  useEffect(() => {
+    const syncInterval = setInterval(() => {
+      setMusicNotes([...musicNotesRef.current]);
+      setParticles([...particlesRef.current]);
+      setSoundWaves([...soundWavesRef.current]);
+    }, 1000 / 60); // 60 fps
+    return () => clearInterval(syncInterval);
+  }, []);
 
   if(!isDesktop) return null;
 

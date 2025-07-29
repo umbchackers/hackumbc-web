@@ -15,7 +15,7 @@ export default function Home() {
     AOS.refresh();
   }, []);
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(null);
 
   // handle resize
   useEffect(() => {
@@ -23,13 +23,13 @@ export default function Home() {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    // Initial check on component mount
+    // initial check on component mount
     handleResize();
 
-    // Add event listener for resize events
+    // add event listener for resize events
     window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener on component unmount
+    // cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -37,11 +37,21 @@ export default function Home() {
 
   return (
     <div className="home-page" style={{
-      backgroundImage: isMobile ? "url('/mobile-bg-home.gif')" : "url('/hackumbc_bg.gif')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
+      position: "relative",
+      height: "100vh",
+      overflow: "hidden"
     }}>
+      {isMobile !== null && <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src={isMobile ? '/hackumbc_bg_mobile.mp4' : '/hackumbc_bg.mp4'} type="video/mp4" />
+        Your browser does not support the video tag
+      </video>}
       <div className="home-container" style={{ 
         zIndex: 10,
         display: "flex",
@@ -57,11 +67,11 @@ export default function Home() {
           position: isMobile ? "relative" : "absolute",
           bottom: isMobile ? "auto" : "100px",
         }}>
-          {/*<LinkBox
+          {<LinkBox
             href="/sign-up"
-            desc="Want to experience a code rush? Register for our upcoming 8 hour mini event!"
-            title="Registration Closed"
-          />*/}
+            desc="Registration for hackUMBC 2025 is now open! Click this button to go to the sign up page!"
+            title="Registration"
+          />}
           <LinkBox
             href="https://hackumbc-fall-2024.devpost.com/"
             desc="Click to visit Devpost, where you can view logistics for projects, teams, and prizes!"

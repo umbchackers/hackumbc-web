@@ -16,7 +16,7 @@ export default function About() {
         });
         AOS.refresh();
 
-        // Check if mobile on component mount
+        // check if mobile on component mount
         const handleResize = () => {
           setIsMobile(window.innerWidth <= 768);
         };
@@ -61,7 +61,7 @@ export default function About() {
 
     return (
         <div className="about-page" style={{
-            backgroundImage: "url('/hackumbc_bg.png')",
+            backgroundImage: "url('/hackumbc_bg.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -77,10 +77,9 @@ export default function About() {
                     </div>
                     <div className="about-text text-black" style={{ width: isMobile ? "100%" : "auto", maxWidth: "700px" }}>
                         <p>
-                            Join hackUMBC for the 11th year of our 24-hour hackathon event,  
-                            <span style={{color: "rgb(186, 65, 38)", fontWeight: 700, textDecoration: "underline"}}> September 27th & 28th</span>, 
-                            where we compete to bring our innovation to life! 
-                            Team up with students and develop your skills in our workshop sessions!
+                            Join hackUMBC for the 11th year of our 24-hour hackathon event, <span style={{color: "rgb(186, 65, 38)", 
+                            fontWeight: 700, textDecoration: "underline"}}>September 27th & 28th</span>, where we compete to bring 
+                            our innovation to life! Team up with students and develop your skills in our workshop sessions!
                         </p>
                         <br/>
                         <p>
@@ -113,11 +112,11 @@ export default function About() {
                     }}>
                         <Track
                             title="TBD"
-                            desc="TBD."
+                            desc="TBD"
                         >
                             <div className="track-image-container">
                                 <img
-                                    src="/sticker-1.png"
+                                    src="/sticker-1.webp"
                                     alt="track-image"
                                     className="w-36 h-auto"
                                 />
@@ -125,11 +124,11 @@ export default function About() {
                         </Track>
                         <Track
                             title="TBD"
-                            desc="TBD."
+                            desc="TBD"
                         >
                             <div className="track-image-container">
                                 <img
-                                    src="/sticker-2.png"
+                                    src="/sticker-2.webp"
                                     alt="track-image"
                                     className="w-36 h-auto"
                                 />
@@ -137,11 +136,11 @@ export default function About() {
                         </Track>
                         <Track
                             title="TBD"
-                            desc="TBD."
+                            desc="TBD"
                         >
                             <div className="track-image-container">
                                 <img
-                                    src="/sticker-3.png"
+                                    src="/sticker-3.webp"
                                     alt="track-image"
                                     className="w-36 h-auto"
                                 />
@@ -149,10 +148,10 @@ export default function About() {
                         </Track>
                         <Track
                             title="TBD"
-                            desc="TBD!">
+                            desc="TBD">
                             <div className="track-image-container">
                                 <img
-                                    src="/sticker-4.png"
+                                    src="/sticker-4.webp"
                                     alt="track-image"
                                     className="w-36 h-auto"
                                 />
