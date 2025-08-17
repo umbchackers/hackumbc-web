@@ -144,10 +144,10 @@ export default function Sponsors() {
                         </a>
                         
                         {/* partners */}
-                        <a href="https://standoutstickers.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/stand-out-stickers.webp"
-                                alt="Stand Out Stickers"
+                                src="/pure-buttons.webp"
+                                alt="Pure Buttons"
                                 className="sponsors-logo"
                                 loading="eager"
                             />
