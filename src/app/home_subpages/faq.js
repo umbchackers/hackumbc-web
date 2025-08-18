@@ -4,8 +4,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
+import useIsMobile from '../../lib/use_is_mobile';
+import MobileSvgTiler from '../components/mobile-svg-tiler';
 
 export default function FAQ() {
+    const isMobile = useIsMobile();
+    const showContent = true;
 
     useEffect(() => {
         AOS.init({
@@ -102,11 +106,20 @@ export default function FAQ() {
 
     return (
         <div className="faq-page relative" style={{
-            backgroundImage: "url('/hackumbc_bg.webp')",
+            backgroundImage: "url('/hackumbc_bg_faq.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat"
+            backgroundRepeat: "no-repeat",
+            position: "relative",
         }}>
+            <MobileSvgTiler 
+                show={isMobile} 
+                topSrc="/hackumbc_bg_mobile_faq.svg" 
+                tileSrc="/hackumbc_bg_mobile_faq2.svg" 
+                aspectRatio={1440/1019.2}
+            />
+            {showContent && (
+                <>
             <div className="faq-section-title relative z-10 text-black" data-aos="fade-up">
                 <SectionTitle title="FAQ"/>
             </div>
@@ -132,7 +145,9 @@ export default function FAQ() {
                         ))}
                     </div>
                 </div>
-            </div>
+                </div>
+            </>
+            )}
         </div>
     );
 }

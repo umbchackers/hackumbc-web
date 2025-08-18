@@ -7,10 +7,11 @@
     padding: 5px 0;
     padding-bottom: 20px;
     position: relative;
-    background-image: url('/hackumbc_bg.webp');
+    background-color: #fed5a9;
+    /* background-image: url('/hackumbc_bg.webp');
     background-size: cover;
     background-position: center top;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 .footer-content {
@@ -71,11 +72,23 @@
 .footer-link:hover {
     text-decoration: underline;
 }
+.footer-svg {
+    display: none;
+}
 
 @media (max-width: 768px) {
 
-    .footer-page {
-        background-image: url('/hackumbc_bg2.webp');
+    .footer-svg {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;        
+        height: auto;
+        display: block;
+        pointer-events: none;
+        z-index: 1; 
+        margin-top: -1px;
     }
 
     .tracks {

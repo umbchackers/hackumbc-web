@@ -4,8 +4,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
+import useIsMobile from '../../lib/use_is_mobile';
+import MobileSvgTiler from '../components/mobile-svg-tiler';
 
 export default function Sponsors() {
+
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         AOS.init({
@@ -18,11 +22,18 @@ export default function Sponsors() {
 
     return (
         <div className="sponsors-page relative" style={{
-            backgroundImage: "url('/hackumbc_bg.webp')",
+            backgroundImage: "url('/hackumbc_bg_sponsors.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat"
+            backgroundRepeat: "no-repeat",
+            position: "relative"
         }}>
+            <MobileSvgTiler 
+                show={isMobile} 
+                topSrc="/hackumbc_bg_mobile_sponsors3.svg" 
+                tileSrc="/hackumbc_bg_mobile_sponsors3.svg" 
+                aspectRatio={1440/1019.2}
+            />
             <div className="sponsors-section-title relative z-10 text-black" data-aos="fade-up">
                 <SectionTitle title="SPONSORS"/>
             </div>

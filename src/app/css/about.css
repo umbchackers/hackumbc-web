@@ -99,14 +99,44 @@
 
 @media (max-width: 768px) {
     .about-page {
+        background-image: none;
+        background-color: #fed5a9;
+        position: relative;
+        overflow: hidden;
         width: 100%;
         padding: 20px 0;
     }
 
-    .about-content {
-        padding: 20px 15px;
-        margin: 0 auto;
+    .mobile-svg-background {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .svg-about {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
+        height: auto;
+        aspect-ratio: 1440 / 960;
+    }
+
+    .svg-bottom {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: calc(100vw / 1.5);              /* 100vw ÷ (1440/960) = height of first SVG */
+        height: calc(100% - (100vw / 1.5));  /* fill the remainder */
+        background: url('/hackumbc_bg_mobile_about2.svg') top center / 100% auto repeat-y;
+    
+    }
+
+    .about-content {
+        position: relative;
+        z-index: 2;
     }
 
     .text-container, .tracks-container {

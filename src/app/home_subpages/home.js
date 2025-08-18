@@ -49,7 +49,7 @@ export default function Home() {
         preload="auto"
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
-        <source src={isMobile ? '/hackumbc_bg_mobile.mp4' : '/hackumbc_bg.mp4'} type="video/mp4" />
+        <source src={isMobile ? '/hackumbc_bg_mobile.mp4' : '/hackumbc_bg_home.mp4'} type="video/mp4" />
         Your browser does not support the video tag
       </video>}
       <div className="home-container" style={{ 

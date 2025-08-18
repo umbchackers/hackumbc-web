@@ -4,6 +4,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect, useState, useRef } from 'react';
 import SectionTitle from "../components/title";
+import useIsMobile from '../../lib/use_is_mobile';
+import MobileSvgTiler from '../components/mobile-svg-tiler';
 
 export default function Schedule() {
     const [activeDay, setActiveDay] = useState('September 28th');
@@ -11,6 +13,7 @@ export default function Schedule() {
     const timelineRef = useRef(null);
     const currentEventRef = useRef(null);
     const [currentEventIndex, setCurrentEventIndex] = useState(-1);
+    const isMobile = useIsMobile();
     
     useEffect(() => {
         AOS.init({
@@ -197,11 +200,18 @@ export default function Schedule() {
 
     return (
         <div className="schedule-page" style={{
-            backgroundImage: "url('/hackumbc_bg.webp')",
+            backgroundImage: "url('/hackumbc_bg_schedule.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat"
+            backgroundRepeat: "no-repeat",
+            position: "relative",
         }}>
+            <MobileSvgTiler 
+                show={isMobile} 
+                topSrc="/hackumbc_bg_mobile_schedule.svg" 
+                tileSrc="/hackumbc_bg_mobile_schedule2.svg" 
+                aspectRatio={1.5}
+            />
             <div className="schedule-content">
                 <div className="schedule-section-title" data-aos="fade-up">
                     <SectionTitle title="SCHEDULE"/>
