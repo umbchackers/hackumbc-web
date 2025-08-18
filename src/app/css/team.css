@@ -22,13 +22,16 @@ body {
 }
 
 .team-page {
-    background-image: url('/hackumbc_bg.webp');
+    background-image: url('/hackumbc_bg_team.webp');
     min-height: auto;
     height: auto;
     padding: 100px 0;
     display: block;
     position: relative;
     width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .team-content {

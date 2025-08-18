@@ -43,6 +43,7 @@
     margin-bottom: 50px;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 /* Tabs navigation styling */

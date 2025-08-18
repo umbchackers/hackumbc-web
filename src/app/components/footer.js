@@ -27,6 +27,7 @@ export default function Footer() {
 
     return (
         <div className="footer-page">
+            <img src="/hackumbc_bg_mobile_sponsors.svg" className="footer-svg"/>
             <div className="footer-content" data-aos="fade-in">
                 <div className="tracks flex"> {/* adjusted the className styling for centering on mobile for tracks */}
                     <Track title="TWITTER" link="https://x.com/hackumbc">

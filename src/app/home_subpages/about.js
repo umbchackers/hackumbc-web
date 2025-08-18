@@ -4,26 +4,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect, useState } from 'react';
 import SectionTitle from "../components/title";
+import useIsMobile from '../../lib/use_is_mobile';
+import MobileSvgTiler from '../components/mobile-svg-tiler';
 
 export default function About() {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        AOS.init({
-            duration: 1200,
-            easing: 'ease-in-out',
-            once: true,
-        });
-        AOS.refresh();
-
-        // check if mobile on component mount
-        const handleResize = () => {
-          setIsMobile(window.innerWidth <= 768);
-        };
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    const isMobile = useIsMobile();
 
     function Track({ title, desc, children }) {
         return (
@@ -61,12 +46,19 @@ export default function About() {
 
     return (
         <div className="about-page" style={{
-            backgroundImage: "url('/hackumbc_bg.webp')",
+            backgroundImage: "url('/hackumbc_bg_about.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             padding: isMobile ? "40px 0" : "0"
         }}>
+            <MobileSvgTiler 
+                show={isMobile} 
+                topSrc="/hackumbc_bg_mobile_about.svg" 
+                tileSrc="/hackumbc_bg_mobile_about2.svg" 
+                aspectRatio={1.5}
+            />
+        
             <div className="about-content">
                 <div className="text-container" data-aos="fade-up">
                     <div className="about-section-title text-black"> 
@@ -75,7 +67,7 @@ export default function About() {
                     <div className="about-title-subheading text-black">
                         All About hackUMBC
                     </div>
-                    <div className="about-text text-black" style={{ width: isMobile ? "100%" : "auto", maxWidth: "700px" }}>
+                    <div className="about-text text-black" style={{paddingLeft: isMobile ? "10px" : "0px", width: isMobile ? "90%" : "auto", maxWidth: "700px" }}>
                         <p>
                             Join hackUMBC for the 11th year of our 24-hour hackathon event, <span style={{color: "rgb(186, 65, 38)", 
                             fontWeight: 700, textDecoration: "underline"}}>September 27th & 28th</span>, where we compete to bring 

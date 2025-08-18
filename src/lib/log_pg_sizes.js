@@ -1,6 +1,5 @@
 export function logPageSectionSizes() {
     const sections = document.querySelectorAll('main >div[id]');
-    console.clear();
     console.table(
       Array.from(sections).map((section) => {
         const rect = section.getBoundingClientRect();
