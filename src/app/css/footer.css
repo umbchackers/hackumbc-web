@@ -46,15 +46,15 @@
 }
 
 .track-title {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 1.2vw, 1.3rem);
     font-weight: bold;
     color: #000000;
 }
 
 .track-image {
-    width: 100px; 
+    width: clamp(100px, 12vw, 140px); 
     height: auto;
-    scale: 0.8;
+    transform: none;
 }
 
 .footer-info {
@@ -77,7 +77,10 @@
 }
 
 @media (max-width: 768px) {
-
+    .footer-page {
+        /* Fixes the svg extending past the bottom of the page on smaller screens*/
+		min-height: calc((100vw / 1.5));
+	}
     .footer-svg {
         position: absolute;
         top: 0;
@@ -98,16 +101,16 @@
     }
 
     .track-item {
-        width: 12vh !important;
+        width: auto !important;
         padding: 5px;
     }
 
     .track-title {
-        font-size: 0.8rem !important;
+        font-size: clamp(0.9rem, 1.2vw, 1.3rem) !important;
     }
     
     .track-image {
-        scale: 1;
+        width: clamp(75px, 12vw, 175px) !important;
     }
 
     .footer-info p {
