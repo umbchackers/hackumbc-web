@@ -12,7 +12,7 @@ export default function About() {
 
     function Track({ title, desc, children }) {
         return (
-            <div className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-64'} rounded-lg border-transparent 
+                            <div className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-64'} rounded-lg border-transparent 
                 bg-white/10 hover:border-white/20 hover:shadow-lg backdrop-blur-sm cursor-default transition-all duration-300`}
                 style={{
                     padding: isMobile ? '15px 10px' : '0.5rem',
@@ -20,7 +20,8 @@ export default function About() {
                     margin: isMobile ? '0 auto' : '0',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                     justifyContent: isMobile ? 'flex-start' : 'space-between',
-                    height: isMobile ? 'auto' : '350px'
+                    height: isMobile ? 'auto' : 'auto',
+                    minHeight: isMobile ? 'auto' : '350px'
                 }}
                 data-aos="fade-up">
                 <div className={`flex items-center`}
@@ -69,18 +70,18 @@ export default function About() {
                     </div>
                     <div className="about-text text-black" style={{paddingLeft: isMobile ? "10px" : "0px", width: isMobile ? "90%" : "auto", maxWidth: "700px" }}>
                         <p>
-                            Join hackUMBC for the 11th year of our 24-hour hackathon event, <span style={{color: "rgb(186, 65, 38)", 
-                            fontWeight: 700, textDecoration: "underline"}}>September 27th & 28th</span>, where we compete to bring 
-                            our innovation to life! Team up with students and develop your skills in our workshop sessions!
+                        Join us at UMBC for the 11th annual hackUMBC, a 24-hour hackathon happening on <span style={{color: "rgb(186, 65, 38)", 
+                            fontWeight: 700, textDecoration: "underline"}}>September 27th & 28th</span>, 2025! Work alongside fellow students, 
+                            bring your ideas to life, and develop your skills through engaging workshops!
                         </p>
                         <br/>
                         <p>
-                            With lots of fun activities, $TBD in prizes, and swag for
-                            all participants, you'll be in for an exciting weekend!
+                        With exciting activities, over $7,000 in prizes, and swag for every 
+                        participant, hackUMBC is all about learning, creating, and having fun!
                         </p>
                         <br/>
                         <p>
-                            Want to learn more about the organizers behind hackUMBC? 
+                            Curious about the team that makes hackUMBC possible? 
                             <a
                                 href="/team"
                                 className="team-link rainbow-ripple"
@@ -103,8 +104,8 @@ export default function About() {
                         flexDirection: isMobile ? "column" : "row"
                     }}>
                         <Track
-                            title="TBD"
-                            desc="TBD"
+                            title="General Tracks"
+                            desc="Compete for overall awards and explore AI/ML, Health & Environment, and Education"
                         >
                             <div className="track-image-container">
                                 <img
@@ -115,8 +116,8 @@ export default function About() {
                             </div>
                         </Track>
                         <Track
-                            title="TBD"
-                            desc="TBD"
+                            title="Sponsor Tracks"
+                            desc="Take on challenges hosted by our sponsors"
                         >
                             <div className="track-image-container">
                                 <img
@@ -127,8 +128,8 @@ export default function About() {
                             </div>
                         </Track>
                         <Track
-                            title="TBD"
-                            desc="TBD"
+                            title="Club Tracks"
+                            desc="Special tracks from UMBC’s Game Developers Club and CyberDawgs"
                         >
                             <div className="track-image-container">
                                 <img
@@ -139,8 +140,8 @@ export default function About() {
                             </div>
                         </Track>
                         <Track
-                            title="TBD"
-                            desc="TBD">
+                            title="Miscellaneous Tracks"
+                            desc="Fun or creative focuses for projects and sub-categories">
                             <div className="track-image-container">
                                 <img
                                     src="/sticker-4.webp"

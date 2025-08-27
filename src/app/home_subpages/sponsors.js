@@ -83,12 +83,18 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                        {/* Silver */}
                         <a href="https://nightwing.us/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/nightwing.webp"
                                 alt="Nightwing"
+                                className="sponsors-logo"
+                                loading="eager"
+                            />
+                        </a>
+                        <a href="https://base44.com/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="/base44.webp"
+                                alt="Base44"
                                 className="sponsors-logo"
                                 loading="eager"
                             />
@@ -119,6 +125,7 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
+                        {/* bronze */}
                         <a href="https://boozallen.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/BAH.webp"
@@ -127,8 +134,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                        {/* bronze */}
                         <a href="https://cwit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/CWIT.webp"
@@ -153,6 +158,22 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
+                        <a href="https://www.nex-sys.tech/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="/nexsys.webp"
+                                alt="Nexsys Labs"
+                                className="sponsors-logo"
+                                loading="eager"
+                            />
+                        </a>
+                        <a href="https://firaxis.com/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="/Firaxis.webp"
+                                alt="Firaxis Games"
+                                className="sponsors-logo"
+                                loading="eager"
+                            />
+                        </a>
                         
                         {/* partners */}
                         <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" rel="noopener noreferrer">
@@ -171,14 +192,14 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
+                        {/* <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/northrop.webp"
                                 alt="Northrop Grumman"
                                 className="sponsors-logo"
                                 loading="eager"
                             />
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>

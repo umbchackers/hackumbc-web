@@ -119,37 +119,35 @@ export default function Schedule() {
 
     // schedule data for day 1
     const day1Schedule = [
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' }
+        { time: '9 AM', endTime: '10 AM', event: 'Check In', location: 'ENGINEERING ATRIUM' },
+        { time: '10 AM', endTime: '11 AM', event: 'Networking Fair', location: 'ENGINEERING ATRIUM' },
+        { time: '11 AM', endTime: '12 PM', event: 'Opening Ceremony', location: 'ENGINEERING 027' },
+        { time: '12 PM', endTime: '12:30 PM', event: 'Hacking Begins / Team Formation', location: 'ITE/ENG' },
+        { time: '12:30 PM', endTime: '1 PM', event: 'Lunch', location: 'ENGINEERING ATRIUM' },
+        { time: '1 PM', endTime: '2 PM', event: 'Sponsored Talk', location: 'ITE FIRST FLOOR' },
+        { time: '2 PM', endTime: '3 PM', event: 'Workshops', location: 'ITE FIRST FLOOR' },
+        { time: '3 PM', endTime: '3:45 PM', event: 'Workshops', location: 'ITE FIRST FLOOR' },
+        { time: '4:30 PM', endTime: '5:15 PM', event: 'Workshops', location: 'ITE FIRST FLOOR' },
+        { time: '5:15 PM', endTime: '6:30 PM', event: 'Guest Panel', location: 'ITE FIRST FLOOR' },
+        { time: '6:30 PM', endTime: '7:30 PM', event: 'Dinner', location: 'ENGINEERING ATRIUM' },
+        { time: '8 PM', endTime: '8:30', event: 'Smash Tournament', location: 'ITE FIRST FLOOR' },
+        { time: '8:30 PM', endTime: '9:30 PM', event: 'MLH', location: 'ITE FIRST FLOOR' },
+        { time: '9:30 PM', endTime: '10 PM', event: 'Cup Stacking', location: 'ITE FIRST FLOOR' },
+        { time: '10 PM', endTime: '11 pm', event: 'Late Night Snack', location: 'ITE SECOND FLOOR' },
+        { time: '11 PM', endTime: '12 AM', event: 'Karaoke / Just Dance', location: 'ITE FIRST FLOOR' }
     ];
 
     // schedule data for day 2
     const day2Schedule = [
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
-        { time: 'TBD', endTime: 'TBD', event: 'TBD', location: 'TBD' },
+        { time: '9 AM', endTime: '11 AM', event: 'Breakfast', location: 'ENGINEERING ATRIUM' },
+        { time: '11 AM', endTime: '12 PM', event: 'Begin Hacking Submission', location: 'ITE SECOND FLOOR' },
+        { time: '12 PM', endTime: '12:30', event: 'Hacking Ends!', location: 'ITE SECOND FLOOR' },
+        { time: '12:30 PM', endTime: '1 PM', event: 'Judge Debrief', location: 'ITE SECOND FLOOR' },
+        { time: '1 PM', endTime: '2 PM', event: 'Lunch', location: 'ENGINEERING ATRIUM' },
+        { time: '2 PM', endTime: '3:10 PM', event: 'Judging Wave 1', location: 'UC BALLROOM' },
+        { time: '3:10 PM', endTime: '4:10 PM', event: 'Judging Wave 2', location: 'UC BALLROOM' },
+        { time: '4:10 PM', endTime: '4:30 PM', event: 'Judging Deliberation', location: 'UC BALLROOM SIDE ROOM' },
+        { time: '4:30 PM', endTime: '5 PM', event: 'Closing Ceremony', location: 'UC BALLROOM LOUNGE' },
     ];
 
 
