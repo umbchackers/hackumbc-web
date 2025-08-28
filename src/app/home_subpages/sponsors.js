@@ -163,7 +163,7 @@ export default function Sponsors() {
                         </a>
                         <a href="https://www.nex-sys.tech/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="/nexsys.webp"
+                                src="/Nexsys.webp"
                                 alt="Nexsys Labs"
                                 className="sponsors-logo"
                                 loading="eager"
