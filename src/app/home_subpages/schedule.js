@@ -141,12 +141,10 @@ export default function Schedule() {
     const day2Schedule = [
         { time: '9 AM', endTime: '11 AM', event: 'Breakfast', location: 'ENGINEERING ATRIUM' },
         { time: '11 AM', endTime: '12 PM', event: 'Begin Hacking Submission', location: 'ITE SECOND FLOOR' },
-        { time: '12 PM', endTime: '12:30', event: 'Hacking Ends!', location: 'ITE SECOND FLOOR' },
-        { time: '12:30 PM', endTime: '1 PM', event: 'Judge Debrief', location: 'ITE SECOND FLOOR' },
+        { time: '12 PM', endTime: '1 PM', event: 'Hacking Ends!', location: 'ITE SECOND FLOOR' },
         { time: '1 PM', endTime: '2 PM', event: 'Lunch', location: 'ENGINEERING ATRIUM' },
         { time: '2 PM', endTime: '3:10 PM', event: 'Judging Wave 1', location: 'UC BALLROOM' },
-        { time: '3:10 PM', endTime: '4:10 PM', event: 'Judging Wave 2', location: 'UC BALLROOM' },
-        { time: '4:10 PM', endTime: '4:30 PM', event: 'Judging Deliberation', location: 'UC BALLROOM SIDE ROOM' },
+        { time: '3:10 PM', endTime: '4:30 PM', event: 'Judging Wave 2', location: 'UC BALLROOM' },
         { time: '4:30 PM', endTime: '5 PM', event: 'Closing Ceremony', location: 'UC BALLROOM LOUNGE' },
     ];
 

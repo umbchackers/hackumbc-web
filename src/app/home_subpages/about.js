@@ -20,8 +20,8 @@ export default function About() {
                     margin: isMobile ? '0 auto' : '0',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                     justifyContent: isMobile ? 'flex-start' : 'space-between',
-                    height: isMobile ? 'auto' : 'auto',
-                    minHeight: isMobile ? 'auto' : '350px'
+                    height: isMobile ? 'auto' : '450px',
+                    minHeight: isMobile ? 'auto' : '405px'
                 }}
                 data-aos="fade-up">
                 <div className={`flex items-center`}
@@ -29,17 +29,26 @@ export default function About() {
                         padding: '15px 0px 15px 0px',
                         width: isMobile ? '150px' : '150px',
                         justifyContent: 'center',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        flexShrink: 0
                     }}>
                     {children}
                 </div>
-                <div>
-                    <h1 className={`${isMobile ? 'text-xl' : 'text-2xl'} mb-1 uppercase font-extrabold text-black`}>
-                        {title}
-                    </h1> 
-                    <p className={`text-center ${isMobile ? 'text-sm' : ''} mb-3 font-medium text-black`}>
-                        {desc}
-                    </p> 
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: isMobile ? 'auto' : '100%',
+                    flex: isMobile ? 'none' : 1
+                }}>
+                    <div>
+                        <h1 className={`${isMobile ? 'text-xl' : 'text-2xl'} mb-1 uppercase font-extrabold text-black`}>
+                            {title}
+                        </h1> 
+                        <p className={`text-center ${isMobile ? 'text-sm' : ''} mb-3 font-medium text-black`}>
+                            {desc}
+                        </p> 
+                    </div>
                 </div>
             </div>
         );
