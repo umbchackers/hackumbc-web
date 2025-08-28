@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import SectionTitle from "../components/title";
 import useIsMobile from '../../lib/use_is_mobile';
-import MobileSvgTiler from '../components/mobile-svg-tiler';
+import SvgTiler from '../components/svg-tiler';
 
 export default function About() {
     const isMobile = useIsMobile();
@@ -47,17 +47,21 @@ export default function About() {
 
     return (
         <div className="about-page" style={{
-            backgroundImage: "url('/hackumbc_bg_about.webp')",
+            // backgroundImage: "url('/hackumbc_bg_about.webp')",
+            backgroundColor: "#fed5a9",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            padding: isMobile ? "40px 0" : "0"
+            padding: isMobile ? "40px 0" : "0",
+            position: "relative"
         }}>
-            <MobileSvgTiler 
-                show={isMobile} 
-                topSrc="/hackumbc_bg_mobile_about.svg" 
+            <SvgTiler 
+                key={isMobile ? 'mobile' : 'desktop'}
+                show={true} 
+                topSrc={isMobile ? "/hackumbc_bg_mobile_about.svg" : "/hackumbc_bg_about.svg"}
                 tileSrc="/hackumbc_bg_mobile_about2.svg" 
                 aspectRatio={1.5}
+                isMobile={isMobile}
             />
         
             <div className="about-content">

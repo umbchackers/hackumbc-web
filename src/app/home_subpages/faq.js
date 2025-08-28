@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
 import useIsMobile from '../../lib/use_is_mobile';
-import MobileSvgTiler from '../components/mobile-svg-tiler';
+import SvgTiler from '../components/svg-tiler';
 
 export default function FAQ() {
     const isMobile = useIsMobile();
@@ -110,17 +110,19 @@ export default function FAQ() {
 
     return (
         <div className="faq-page relative" style={{
-            backgroundImage: "url('/hackumbc_bg_faq.webp')",
+            // backgroundImage: "url('/hackumbc_bg_faq.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             position: "relative",
         }}>
-            <MobileSvgTiler 
-                show={isMobile} 
-                topSrc="/hackumbc_bg_mobile_faq.svg" 
+            <SvgTiler 
+                key={isMobile ? 'mobile' : 'desktop'}
+                show={true} 
+                topSrc={isMobile ? "/hackumbc_bg_mobile_faq.svg" : "/hackumbc_bg_faq.svg"}
                 tileSrc="/hackumbc_bg_mobile_faq2.svg" 
                 aspectRatio={1440/1019.2}
+                isMobile={isMobile}
             />
             {showContent && (
                 <>

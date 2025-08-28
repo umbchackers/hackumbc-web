@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
 import useIsMobile from '../../lib/use_is_mobile';
-import MobileSvgTiler from '../components/mobile-svg-tiler';
+import SvgTiler from '../components/svg-tiler';
 
 export default function Sponsors() {
 
@@ -22,17 +22,20 @@ export default function Sponsors() {
 
     return (
         <div className="sponsors-page relative" style={{
-            backgroundImage: "url('/hackumbc_bg_sponsors.webp')",
+            // backgroundImage: "url('/hackumbc_bg_sponsors.webp')",
+            backgroundColor: "#fed5a9",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             position: "relative"
         }}>
-            <MobileSvgTiler 
-                show={isMobile} 
+            <SvgTiler 
+                key={isMobile ? 'mobile' : 'desktop'}
+                show={true} 
                 topSrc="/hackumbc_bg_mobile_sponsors3.svg" 
                 tileSrc="/hackumbc_bg_mobile_sponsors3.svg" 
-                aspectRatio={1440/1019.2}
+                aspectRatio={1.5}
+                isMobile={isMobile}
             />
             <div className="sponsors-section-title relative z-10 text-black" data-aos="fade-up">
                 <SectionTitle title="SPONSORS"/>

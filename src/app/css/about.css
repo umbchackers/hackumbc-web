@@ -12,6 +12,8 @@
     text-align: center;
     width: 100%;
     max-width: 1200px;
+    position: relative;
+    z-index: 2;
 }
 
 .about-section-title {

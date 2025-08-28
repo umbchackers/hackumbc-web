@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import { useEffect, useState, useRef } from 'react';
 import SectionTitle from "../components/title";
 import useIsMobile from '../../lib/use_is_mobile';
-import MobileSvgTiler from '../components/mobile-svg-tiler';
+import SvgTiler from '../components/svg-tiler';
 
 export default function Schedule() {
     const [activeDay, setActiveDay] = useState('September 28th');
@@ -198,16 +198,17 @@ export default function Schedule() {
 
     return (
         <div className="schedule-page" style={{
-            backgroundImage: "url('/hackumbc_bg_schedule.webp')",
+            // backgroundImage: "url('/hackumbc_bg_schedule.webp')",
+            backgroundColor: "#fed5a9",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             position: "relative",
         }}>
-            <MobileSvgTiler 
-                show={isMobile} 
-                topSrc="/hackumbc_bg_mobile_schedule.svg" 
-                tileSrc="/hackumbc_bg_mobile_schedule2.svg" 
+            <SvgTiler 
+                show={true}
+                topSrc={isMobile ? "/hackumbc_bg_mobile_schedule.svg" : "/hackumbc_bg_schedule.svg"}
+                tileSrc="/hackumbc_bg_mobile_schedule2.svg"
                 aspectRatio={1.5}
             />
             <div className="schedule-content">

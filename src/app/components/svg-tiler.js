@@ -20,6 +20,12 @@ export default function SvgTiler({
 	const [firstHeightPx, setFirstHeightPx] = useState(0);
 
 	useEffect(() => {
+		// Only run desktop calculations when not mobile
+		if (isMobile) {
+			setFirstHeightPx(0); // Reset height when switching to mobile
+			return;
+		}
+		
 		if (!wrapperRef.current) return;
 		let raf = 0;
 		const update = () => {
@@ -37,8 +43,58 @@ export default function SvgTiler({
 			ro.disconnect();
 			cancelAnimationFrame(raf);
 		};
-	}, [aspectRatio]);
+	}, [aspectRatio, isMobile]); 
 
+	// Mobile version: use viewport units and simpler layout
+	if (isMobile) {
+		const firstHeight = `calc(100vw / ${aspectRatio})`;
+		
+		return (
+			<div
+				className={className}
+				style={{
+					position: 'absolute',
+					inset: 0,
+					pointerEvents: 'none',
+					zIndex: 1,
+					overflow: 'hidden',
+					width: '100%',
+					left: 0,
+					transform: 'none'
+				}}
+			>
+				{/* Top, non-repeating SVG header */}
+				<img
+					src={topSrc}
+					alt=""
+					style={{
+						position: 'absolute',
+						top: 0,
+						left: 0,
+						width: '100%',
+						height: 'auto',
+						aspectRatio: `${aspectRatio}`,
+						display: 'block'
+					}}
+				/>
+
+				{/* Tiled continuation: repeats vertically to fill the remainder */}
+				<div
+					aria-hidden="true"
+					style={{
+						position: 'absolute',
+						left: 0,
+						width: '100%',
+						top: firstHeight,
+						height: `calc(100% - ${firstHeight})`,
+						background: `url('${tileSrc || topSrc}') top center / 100% auto repeat-y`
+					}}
+				/>
+			</div>
+		);
+	}
+
+	// Desktop version: use pixel-based calculations and support maxWidth
 	return (
 		<div
 			ref={wrapperRef}
@@ -50,22 +106,16 @@ export default function SvgTiler({
 				zIndex: 1,
 				overflow: 'hidden',
 				// Desktop: respect container max-width without centering transform
-				...(maxWidth && !isMobile && {
+				...(maxWidth && {
 					maxWidth: maxWidth,
 					left: 0,
 					transform: 'none',
 					width: '100%'
-				}),
-				// Mobile: full width
-				...(isMobile && {
-					width: '100%',
-					left: 0,
-					transform: 'none'
 				})
 			}}
 		>
-						{/* Top, non-repeating SVG header */}
-						<img
+			{/* Top, non-repeating SVG header */}
+			<img
 				src={topSrc}
 				alt=""
 				style={{
@@ -75,13 +125,13 @@ export default function SvgTiler({
 					width: '100%',
 					height: `${firstHeightPx}px`,
 					display: 'block',
-					objectFit: 'cover',  // Add this
-					objectPosition: 'left top'  // Add this
+					objectFit: 'cover',
+					objectPosition: 'left top'
 				}}
 			/>
 
-						{/* Tiled continuation: background is phase-aligned to the top slice */}
-						<div
+			{/* Tiled continuation: background is phase-aligned to the top slice */}
+			<div
 				aria-hidden="true"
 				style={{
 					position: 'absolute',
@@ -93,7 +143,7 @@ export default function SvgTiler({
 					backgroundRepeat: 'repeat-y',
 					backgroundSize: '100% auto',
 					backgroundPosition: `left -${firstHeightPx}px`,
-					backgroundAttachment: 'local'  // Add this
+					backgroundAttachment: 'local'
 				}}
 			/>
 		</div>
