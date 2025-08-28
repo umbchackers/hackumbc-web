@@ -44,7 +44,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
       instructions in the <i>#rules-and-roles</i> channel after joining!
     </p>
     <p>
-      <a href="https://discord.gg/PE4mbB9MFn" style={{
+      <a href="https://discord.gg/cBVF7vHdUK" style={{
         display: 'inline-block',
         backgroundColor: '#5865F2',
         color: '#ffffff !important',
