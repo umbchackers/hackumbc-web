@@ -4,8 +4,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from 'react';
 import Link from 'next/link'; 
-
+import useIsMobile from '../../lib/use_is_mobile';
 export default function Footer() {
+    const isMobile = useIsMobile();
     useEffect(() => {
         AOS.init({
             duration: 1400,
@@ -27,7 +28,11 @@ export default function Footer() {
 
     return (
         <div className="footer-page">
-            <img src="/hackumbc_bg_mobile_sponsors.svg" className="footer-svg"/>
+            <img 
+            src={isMobile ? "/hackumbc_bg_mobile_sponsors.svg" : "/hackumbc_bg_footer.svg"}
+            className="footer-svg"
+            alt=""
+        />
             <div className="footer-content" data-aos="fade-in">
                 <div className="tracks flex"> {/* adjusted the className styling for centering on mobile for tracks */}
                     <Track title="TWITTER" link="https://x.com/hackumbc">

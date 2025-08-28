@@ -1,11 +1,11 @@
 .footer-page {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
-    min-height: 20vh; 
+    min-height: 8vh; 
     padding: 5px 0;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     position: relative;
     background-color: #fed5a9;
     /* background-image: url('/hackumbc_bg.webp');
@@ -20,12 +20,24 @@
     z-index: 2;
 }
 
+.footer-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;        
+    height: auto;
+    display: block;
+    pointer-events: none;
+    z-index: 1; 
+    margin-top: -1px;
+}
+
 .tracks {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px; 
-    margin-bottom: 10px; 
+    margin-bottom: 5px; 
     flex-wrap: wrap;
 }
 
@@ -46,15 +58,15 @@
 }
 
 .track-title {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 1.2vw, 1.3rem);
     font-weight: bold;
     color: #000000;
 }
 
 .track-image {
-    width: 100px; 
+    width: clamp(100px, 12vw, 140px); 
     height: auto;
-    scale: 0.8;
+    transform: none;
 }
 
 .footer-info {
@@ -72,25 +84,15 @@
 .footer-link:hover {
     text-decoration: underline;
 }
-.footer-svg {
-    display: none;
+.footer-page {
+    /* Fixes the svg extending past the bottom of the page on smaller screens*/
+    min-height: calc((100vw / 1.5));
 }
 
 @media (max-width: 768px) {
+    
 
-    .footer-svg {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100vw;        
-        height: auto;
-        display: block;
-        pointer-events: none;
-        z-index: 1; 
-        margin-top: -1px;
-    }
-
+    
     .tracks {
         flex-direction: row !important;
         justify-content: center !important; 
@@ -98,16 +100,16 @@
     }
 
     .track-item {
-        width: 12vh !important;
+        width: auto !important;
         padding: 5px;
     }
 
     .track-title {
-        font-size: 0.8rem !important;
+        font-size: clamp(0.9rem, 1.2vw, 1.3rem) !important;
     }
     
     .track-image {
-        scale: 1;
+        width: clamp(75px, 12vw, 175px) !important;
     }
 
     .footer-info p {

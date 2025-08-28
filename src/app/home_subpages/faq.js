@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
 import useIsMobile from '../../lib/use_is_mobile';
-import MobileSvgTiler from '../components/mobile-svg-tiler';
+import SvgTiler from '../components/svg-tiler';
 
 export default function FAQ() {
     const isMobile = useIsMobile();
@@ -39,15 +39,15 @@ export default function FAQ() {
     const faqsColumnOne = [
         {
             question: "What is hackUMBC?",
-            answer: "hackUMBC is a 24-hour hackathon, usually in September, held at the University of Maryland, Baltimore County, in the TBD building. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types."
+            answer: "hackUMBC is a 24-hour hackathon, from September 27th to September 28th, held at the University of Maryland, Baltimore County. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types. is a 24-hour hackathon, usually in September, held at the University of Maryland, Baltimore County, in the TBD building. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types."
         },
         {
             question: "Who can attend the hackathon?",
-            answer: "We invite any highschool, undergraduate, or graduate students to participate in hackUMBC! You do not need to be enrolled at UMBC to attend, but the event will be taking place at the University, in the TBD building."
+            answer: "Any high school or university student is welcome! You don’t need to be a UMBC student to participate, though the event will be held on campus."
         },
         {
             question: "How do I register?",
-            answer: "You can register by filling out the registration form, by clicking the registration button on the home page of this site! You will need your government issued, or student ID, and you will also have the option of submitting your resume!"
+            answer: "Click the registration button on our home page and fill out the form. You’ll also have the option to submit your resume!"
         },
         {
             question: "How do teams work for the hackathon?",
@@ -56,6 +56,42 @@ export default function FAQ() {
         {
             question: "What can I make? May I build on an existing project?",
             answer: "You can make anything you want! Web, mobile, hardware, and desktop projects are all encouraged and welcome! However, we strongly discourage building upon existing projects, as they will not be eligible for prizes."
+        },
+        {
+            question: "Will there be FREE FOOD provided?",
+            answer: "Yes, and we accommodate all dietary restrictions, including vegan, vegetarian, halal, gluten free, and common allergies. Just let us know on the registration form!"
+        }
+    ];
+
+    const faqsColumnTwo = [
+        {
+            question: "Do I have to be an expert programmer, or know how to code?",
+            answer: "Not at all! hackUMBC is a great way to learn something new! Workshops for beginners will be readily available to all participants!"
+        },
+        {
+            question: "What if I have other obligations during the hackathon?",
+            answer: "We understand that it may be challenging to clear up the whole weekend, so you are allowed to come and go as needed!"
+        },
+        {
+            question: "Is travel reimbursement provided?",
+            answer: "Unfortunately, we aren’t able to offer travel reimbursements this year due to budget limitations. We’d still love to have you join us at hackUMBC, and we’ll make sure the weekend is worth the trip!"
+        },
+        {
+            question: "What if I would like to help out with the hackathon?",
+            answer: "You can fill out a volunteer interest form that will be released a few weeks before hackUMBC begins. We will also begin looking for new organizers in the spring!"
+        },
+        {
+            question: "Is there anywhere I can see some examples of old contestants’ projects?",
+            answer: <>
+                Yes! You can see examples at:{" "}
+                <a
+                    href="https://hackumbc-fall-2024.devpost.com/project-gallery"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                >
+                    https://hackumbc-fall-2024.devpost.com/project-gallery
+                </a>
+            </>
         },
         {
             question: "Where can I view the MLH Code of Conduct?",
@@ -72,51 +108,21 @@ export default function FAQ() {
         }
     ];
 
-    const faqsColumnTwo = [
-        {
-            question: "Do I have to be an expert programmer, or know how to code?",
-            answer: "Not at all! hackUMBC is a great way to learn something new! Workshops for beginners will be readily available to all attendees!"
-        },
-        {
-            question: "What if I have other obligations during the hackathon?",
-            answer: "We understand that it may be challenging to clear up the whole weekend, so you are allowed to come and go as needed!"
-        },
-        {
-            question: "What if I would like to help out with the hackathon?",
-            answer: "You can fill out a volunteer interest form that will be released a few weeks before hackUMBC begins. We will also begin looking for new organizers in the spring!"
-        },
-        {
-            question: "Is there anywhere I can see some examples of old contestants projects?",
-            answer: <>
-                Yes! You can see examples at:{" "}
-                <a
-                    href="https://hackumbc-fall-2022.devpost.com/project-gallery"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                >
-                    https://hackumbc-fall-2022.devpost.com/project-gallery
-                </a>
-            </>
-        },
-        {
-            question: "Will there be FREE FOOD provided?",
-            answer: "Yes, and we accommodate all dietary restrictions, including vegans, vegetarians, halal, Gluten Free, and all allergies! Simply inform us of any such restrictions on the registration form!"
-        }
-    ];
-
     return (
         <div className="faq-page relative" style={{
-            backgroundImage: "url('/hackumbc_bg_faq.webp')",
+            // backgroundImage: "url('/hackumbc_bg_faq.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             position: "relative",
         }}>
-            <MobileSvgTiler 
-                show={isMobile} 
-                topSrc="/hackumbc_bg_mobile_faq.svg" 
+            <SvgTiler 
+                key={isMobile ? 'mobile' : 'desktop'}
+                show={true} 
+                topSrc={isMobile ? "/hackumbc_bg_mobile_faq.svg" : "/hackumbc_bg_faq.svg"}
                 tileSrc="/hackumbc_bg_mobile_faq2.svg" 
                 aspectRatio={1440/1019.2}
+                isMobile={isMobile}
             />
             {showContent && (
                 <>
