@@ -78,9 +78,9 @@ export default function Home() {
             title="Devpost"
           />
           <LinkBox
-            href="mailto:sponsor@hackumbc.tech"
-            desc="Curious about sponsorship? Click here to email us: sponsor@hackumbc.tech"
-            title="Sponsorship"
+            href="https://hackumbc.typeform.com/to/c7JqYV9s"
+            desc="Want to be part of the behind-the-scenes magic? Click this button to sign up for our volunteer team!"
+            title="Volunteer"
           />
         </div>
       </div>
