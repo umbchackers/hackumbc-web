@@ -74,7 +74,7 @@ export default function Home() {
           />}
           <LinkBox
             href="https://hackumbc-fall-2024.devpost.com/"
-            desc="Click to visit Devpost, where you can view logistics for projects, teams, and prizes!"
+            desc="Visit hackUMBC's Devpost to see project logistics, teams, and prizes!"
             title="Devpost"
           />
           <LinkBox
