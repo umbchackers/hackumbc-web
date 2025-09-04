@@ -8,6 +8,10 @@
     padding-bottom: 5px;
     position: relative;
     background-color: #fed5a9;
+    overflow: hidden;
+    margin-top: 0;
+    top: 0;
+    transform: translateZ(0);
     /* background-image: url('/hackumbc_bg.webp');
     background-size: cover;
     background-position: center top;
@@ -22,14 +26,17 @@
 
 .footer-svg {
     position: absolute;
-    top: 0;
+    top: 0px;
     left: 0;
     width: 100%;        
     height: auto;
     display: block;
     pointer-events: none;
     z-index: 1; 
-    margin-top: -1px;
+    margin-top: 0;
+    transform: translate3d(0, 0, 0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .tracks {
@@ -84,14 +91,14 @@
 .footer-link:hover {
     text-decoration: underline;
 }
-.footer-page {
-    /* Fixes the svg extending past the bottom of the page on smaller screens*/
-    min-height: calc((100vw / 1.5));
+
+@media (min-width: 769px) {
+    .footer-page {
+        min-height: 40vh;
+    }
 }
 
 @media (max-width: 768px) {
-    
-
     
     .tracks {
         flex-direction: row !important;

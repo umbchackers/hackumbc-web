@@ -3,8 +3,9 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
-    flex-direction: column; 
+    min-height: auto;
+    flex-direction: column;
+    position: relative;
 }
 
 .sponsors-section-title {
@@ -30,10 +31,12 @@
     width: 90%;
     max-width: 1200px;
     padding: 2vw;
-    margin-top: -30px;
+    margin-top: 0;
     overflow: hidden;
     border-radius: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 0px;
+    position: relative;
+    transform: translateZ(0);
 }
 
 /* unified sponsors container */
