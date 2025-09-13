@@ -78,9 +78,9 @@ export default function Home() {
             title="Devpost"
           />
           <LinkBox
-            href="https://hackumbc.typeform.com/to/c7JqYV9s"
-            desc="Want to be part of the behind-the-scenes magic? Click this button to sign up for our volunteer team!"
-            title="Volunteer"
+            href="#sponsors"
+            desc="Want to sponsor hackUMBC? Click this button to learn more!"
+            title="Sponsor"
           />
         </div>
       </div>
