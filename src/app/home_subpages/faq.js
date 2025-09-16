@@ -119,7 +119,7 @@ export default function FAQ() {
             <SvgTiler 
                 key={isMobile ? 'mobile' : 'desktop'}
                 show={true} 
-                topSrc={isMobile ? "/hackumbc_bg_mobile_faq.svg" : "/hackumbc_bg_faq.svg"}
+                topSrc={isMobile ? "/hackumbc_bg_mobile_faq.svg" : "/hackumbc_bg_faq1.svg"}
                 tileSrc={isMobile ? "/hackumbc_bg_mobile_faq2.svg" : "/hackumbc_bg_faq2.svg"} 
                 aspectRatio={1440/1019.2}
                 isMobile={isMobile}

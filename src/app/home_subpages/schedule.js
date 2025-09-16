@@ -205,7 +205,7 @@ export default function Schedule() {
         }}>
             <SvgTiler 
                 show={true}
-                topSrc={isMobile ? "/hackumbc_bg_mobile_schedule.svg" : "/hackumbc_bg_schedule.svg"}
+                topSrc={isMobile ? "/hackumbc_bg_mobile_schedule.svg" : "/hackumbc_bg_schedule1.svg"}
                 tileSrc={isMobile ? "/hackumbc_bg_mobile_schedule2.svg" : "/hackumbc_bg_schedule2.svg"}
                 aspectRatio={1.5}
             />

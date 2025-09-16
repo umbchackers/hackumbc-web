@@ -67,7 +67,7 @@ export default function About() {
             <SvgTiler 
                 key={isMobile ? 'mobile' : 'desktop'}
                 show={true} 
-                topSrc={isMobile ? "/hackumbc_bg_mobile_about.svg" : "/hackumbc_bg_about.svg"}
+                topSrc={isMobile ? "/hackumbc_bg_mobile_about.svg" : "/hackumbc_bg_about1.svg"}
                 tileSrc={isMobile ? "/hackumbc_bg_mobile_about2.svg" : "/hackumbc_bg_about2.svg"} 
                 aspectRatio={1.5}
                 isMobile={isMobile}

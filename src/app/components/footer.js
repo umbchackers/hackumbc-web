@@ -29,7 +29,7 @@ export default function Footer() {
     return (
         <div className="footer-page">
             <img 
-            src={isMobile ? "/hackumbc_bg_mobile_sponsors.svg" : "/hackumbc_bg_footer.svg"}
+            src={isMobile ? "/hackumbc_bg_mobile_sponsors.svg" : "/hackumbc_bg_footer1.svg"}
             className="footer-svg"
             alt=""
         />
