@@ -92,14 +92,15 @@
     text-decoration: underline;
 }
 
-@media (min-width: 769px) {
+    .footer-page {
+        min-height: 70vh;
+    }
+
+
+@media (max-width: 768px) {
     .footer-page {
         min-height: 40vh;
     }
-}
-
-@media (max-width: 768px) {
-    
     .tracks {
         flex-direction: row !important;
         justify-content: center !important; 

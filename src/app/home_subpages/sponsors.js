@@ -32,8 +32,8 @@ export default function Sponsors() {
             <SvgTiler 
                 key={isMobile ? 'mobile' : 'desktop'}
                 show={true} 
-                topSrc="/hackumbc_bg_mobile_sponsors3.svg" 
-                tileSrc="/hackumbc_bg_mobile_sponsors3.svg" 
+                topSrc={isMobile ? "/hackumbc_bg_mobile_sponsors3.svg" : "/hackumbc_bg_faq2.svg"} 
+                tileSrc={isMobile ? "/hackumbc_bg_mobile_sponsors3.svg" : "/hackumbc_bg_faq2.svg"} 
                 aspectRatio={1.5}
                 isMobile={isMobile}
             />
@@ -173,6 +173,14 @@ export default function Sponsors() {
                             <img
                                 src="/Firaxis.webp"
                                 alt="Firaxis Games"
+                                className="sponsors-logo"
+                                loading="eager"
+                            />
+                        </a>
+                        <a href="https://www.clipstudio.net/en/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="/clip-studio.webp"
+                                alt="Clip Studio Paint"
                                 className="sponsors-logo"
                                 loading="eager"
                             />

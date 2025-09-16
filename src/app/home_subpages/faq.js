@@ -120,7 +120,7 @@ export default function FAQ() {
                 key={isMobile ? 'mobile' : 'desktop'}
                 show={true} 
                 topSrc={isMobile ? "/hackumbc_bg_mobile_faq.svg" : "/hackumbc_bg_faq.svg"}
-                tileSrc="/hackumbc_bg_mobile_faq2.svg" 
+                tileSrc={isMobile ? "/hackumbc_bg_mobile_faq2.svg" : "/hackumbc_bg_faq2.svg"} 
                 aspectRatio={1440/1019.2}
                 isMobile={isMobile}
             />
