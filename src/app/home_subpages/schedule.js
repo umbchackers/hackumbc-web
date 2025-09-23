@@ -126,7 +126,7 @@ export default function Schedule() {
         { time: '12:30 PM', endTime: '1 PM', event: 'Lunch', location: 'ENGINEERING ATRIUM' },
         { time: '1 PM', endTime: '2 PM', event: 'T. Rowe Price Sponsor Talk: Fireside Chat with UMBC Alums', location: 'ITE FIRST FLOOR' },
         { time: '2 PM', endTime: '3 PM', event: 'Drawing Insights from Student Data (DoIT) & Hack the Flag: Playing and Designing CTF Challenges (CyberDawgs)', location: 'ITE FIRST FLOOR' },
-        { time: '3 PM', endTime: '4 PM', event: 'How to Land a Cybersecurity Job (Nightwing) & Git your Git Together (GDG)', location: 'ITE FIRST FLOOR' },
+        { time: '3 PM', endTime: '4 PM', event: 'How to Land a Cybersecurity Job (Nightwing) & Git your Git Together (GDC)', location: 'ITE FIRST FLOOR' },
         { time: '4 PM', endTime: '4:30 PM', event: 'Sharing Your Projects with the Online World (SAD) & Arduino Workshop (IEEE)', location: 'ITE FIRST FLOOR' },
         { time: '4:30 PM', endTime: '5:15 PM', event: 'Build with AI (GDG) & HackUMBC Career Toolkit', location: 'ITE FIRST FLOOR' },
         { time: '5:15 PM', endTime: '6:30 PM', event: 'Guest Panel: Aria Kim, Aashrey Sharma, Phoebe Yu, Justin Chavez & Julian Chavez', location: 'ITE FIRST FLOOR' },
