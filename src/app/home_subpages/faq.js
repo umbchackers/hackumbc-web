@@ -39,7 +39,7 @@ export default function FAQ() {
     const faqsColumnOne = [
         {
             question: "What is hackUMBC?",
-            answer: "hackUMBC is a 24-hour hackathon, from September 27th to September 28th, held at the University of Maryland, Baltimore County. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types. is a 24-hour hackathon, usually in September, held at the University of Maryland, Baltimore County, in the TBD building. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types."
+            answer: "hackUMBC is a 24-hour hackathon, from September 27th to September 28th, held at the University of Maryland, Baltimore County. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types. is a 24-hour hackathon, usually in September, held at the University of Maryland, Baltimore County, in ITE, Engineering, and University Center buildings. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types."
         },
         {
             question: "Who can attend the hackathon?",

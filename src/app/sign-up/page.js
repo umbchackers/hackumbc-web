@@ -894,9 +894,8 @@ export default function Survey() {
 
               {/* MLH Checkmark Agreement, remove paragraph once done */}
               <p className="p-2 font-bold text-md light-mode-text">
-                We are currently in the process of partnering with MLH. The
-                following checkbox is for this partnership. If we do not end up
-                partnering with MLH, your information will not be shared
+                We are partnered with MLH. The following checkbox is 
+                for this partnership. 
               </p>
               <div className="p-2 mb-4 flex items-center">
                 <input
@@ -912,10 +911,12 @@ export default function Survey() {
                   I authorize you to share my application/registration
                   information with Major League Hacking for event
                   administration, ranking, and MLH administration in-line with
-                  the MLH Privacy Policy https://mlh.io/privacy. I further agree
-                  to the terms of both the MLH Contest Terms and Conditions
+                  the MLH Privacy Policy https://mlh.io/privacy. I further 
+                  acknowledge to have read and agree to the terms of both 
+                  the MLH Contest Terms and Conditions
                   (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
-                  and the MLH Privacy Policy https://mlh.io/privacy.
+                  and the MLH Code of Conduct 
+                  (https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md).
                   <span className="text-red-500">*</span>
                 </label>
               </div>
