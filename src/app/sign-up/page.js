@@ -908,15 +908,13 @@ export default function Survey() {
                   required
                 />
                 <label htmlFor="agree" className="text-white text-sm">
-                  I authorize you to share my application/registration
-                  information with Major League Hacking for event
-                  administration, ranking, and MLH administration in-line with
-                  the MLH Privacy Policy https://mlh.io/privacy. I further 
-                  acknowledge to have read and agree to the terms of both 
-                  the MLH Contest Terms and Conditions
-                  (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
-                  and the MLH Code of Conduct 
-                  (https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md).
+                I authorize you to share my application/registration 
+                information with Major League Hacking for event administration,
+                 ranking, and MLH administration in-line with the MLH Privacy Policy
+                  https://mlh.io/privacy. I further acknowledge to have read and 
+                  agree to the terms of both the MLH Contest Terms and Conditions 
+                  (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md) 
+                  and the MLH Privacy Policy (https://mlh.io/privacy).
                   <span className="text-red-500">*</span>
                 </label>
               </div>
@@ -932,11 +930,8 @@ export default function Survey() {
                   required
                 />
                 <label htmlFor="agree2" className="text-white text-sm">
-                  I further agree to the terms of both the MLH Contest Terms and
-                  Conditions
-                  (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
-                  and the MLH Privacy Policy https://mlh.io/privacy.
-                  announcements.
+                I have read and agree to the MLH Code of Conduct 
+                (https://mlh.io/code-of-conduct)
                   <span className="text-red-500">*</span>
                 </label>
               </div>
