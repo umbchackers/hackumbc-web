@@ -126,16 +126,16 @@ export default function Schedule() {
         { time: '12:30 PM', endTime: '1 PM', event: 'Lunch', location: 'ENGINEERING ATRIUM' },
         { time: '1 PM', endTime: '2 PM', event: 'T. Rowe Price Sponsor Talk: Fireside Chat with UMBC Alums', location: 'ITE FIRST FLOOR' },
         { time: '2 PM', endTime: '3 PM', event: 'Drawing Insights from Student Data (DoIT) & Hack the Flag: Playing and Designing CTF Challenges (CyberDawgs)', location: 'ITE FIRST FLOOR' },
-        { time: '3 PM', endTime: '4 PM', event: 'How to Land a Cybersecurity Job (Nightwing) & Git your Git Together (GDC)', location: 'ITE FIRST FLOOR' },
-        { time: '4 PM', endTime: '4:30 PM', event: 'Sharing Your Projects with the Online World (SAD) & Arduino Workshop (IEEE)', location: 'ITE FIRST FLOOR' },
-        { time: '4:30 PM', endTime: '5:15 PM', event: 'Build with AI (GDG) & HackUMBC Career Toolkit', location: 'ITE FIRST FLOOR' },
-        { time: '5:15 PM', endTime: '6:30 PM', event: 'Guest Panel: Aria Kim, Aashrey Sharma, Phoebe Yu, Justin Chavez & Julian Chavez', location: 'ITE FIRST FLOOR' },
+        { time: '3 PM', endTime: '4 PM', event: 'How to Land a Cybersecurity Job (Nightwing) & Git your Git Together (GDC)', location: 'ITE 102/104' },
+        { time: '4 PM', endTime: '4:30 PM', event: 'Sharing Your Projects with the Online World (SAD) & Arduino Workshop (IEEE)', location: 'ITE 102/104' },
+        { time: '4:30 PM', endTime: '5:15 PM', event: 'Build with AI (GDG) & HackUMBC Career Toolkit', location: 'ITE 102/104' },
+        { time: '5:15 PM', endTime: '6:30 PM', event: 'Guest Panel: Aria Kim, Aashrey Sharma, Phoebe Yu, Justin Chavez & Julian Chavez', location: 'ITE 102/104' },
         { time: '6:30 PM', endTime: '7:30 PM', event: 'Dinner', location: 'ENGINEERING ATRIUM' },
-        { time: '8 PM', endTime: '8:30', event: 'Smash Tournament', location: 'ITE FIRST FLOOR' },
-        { time: '8:30 PM', endTime: '9:30 PM', event: 'MLH', location: 'ITE FIRST FLOOR' },
-        { time: '9:30 PM', endTime: '10 PM', event: 'Cup Stacking', location: 'ITE FIRST FLOOR' },
+        { time: '8 PM', endTime: '8:30', event: 'Smash Tournament', location: 'ITE 104' },
+        { time: '8:30 PM', endTime: '9:30 PM', event: 'MLH', location: 'ITE 102' },
+        { time: '9:30 PM', endTime: '10 PM', event: 'Cup Stacking', location: 'ITE 102' },
         { time: '10 PM', endTime: '11 pm', event: 'Late Night Snack', location: 'ITE SECOND FLOOR' },
-        { time: '11 PM', endTime: '12 AM', event: 'Karaoke / Just Dance', location: 'ITE FIRST FLOOR' }
+        { time: '11 PM', endTime: '12 AM', event: 'Karaoke / Just Dance', location: 'ITE 102' }
     ];
 
     // schedule data for day 2
