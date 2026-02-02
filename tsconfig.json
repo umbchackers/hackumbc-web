@@ -15,7 +15,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "plugins": [
       {
         "name": "next"
@@ -27,8 +27,14 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/lib/log_pg_sizes.js", "src/lib/client_wrapper.js", "src/app/api/submit/route.js", "src/app/api/submit/EmailTemplate.jsx", "src/app/api/submit/EmailTemplate.jsx"  ],
+    "**/*.tsx",
+    "src/lib/log_pg_sizes.js",
+    "src/lib/client_wrapper.js",
+    "src/app/api/submit/route.js",
+    "src/app/api/submit/EmailTemplate.jsx",
+    "src/app/api/submit/EmailTemplate.jsx",
+    ".next/dev/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
