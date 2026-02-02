@@ -152,7 +152,7 @@ export default function Survey() {
       {/* for the pop up^ */}
       <Navbar />
       <div className="sign-up bg-scroll relative">
-        <StarsBackground className="absolute inset-0 z-0" />
+        <StarsBackground className="absolute inset-0 -z-10" />
         <div className="flex justify-center items-center min-h-screen">
           <div className="w-full max-w-2xl p-8 rounded-lg formBox">
             <div className="flex justify-center mb-6">
@@ -682,7 +682,7 @@ export default function Survey() {
               </div>
 
               {/* Discord ID (Optional) */}
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="discordId"
@@ -696,24 +696,24 @@ export default function Survey() {
                   type="text"
                   placeholder="Enter your Discord ID"
                 />
-              </div>
+              </div> */}
 
               {/* LinkedIn (Optional) */}
-              <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="discordId"
-                >
-                  LinkedIn <span className="text-gray-400">(Optional)</span>
-                </label>
-                <input
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="linkedIn"
-                  name="linkedIn"
-                  type="text"
-                  placeholder="Enter your LinkedIn"
-                />
-              </div>
+              {/* <div className="mb-4">
+              //   <label
+              //     className="block text-white text-sm font-bold mb-2"
+              //     htmlFor="discordId"
+              //   >
+              //     LinkedIn <span className="text-gray-400">(Optional)</span>
+              //   </label>
+              //   <input
+              //     className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+              //     id="linkedIn"
+              //     name="linkedIn"
+              //     type="text"
+              //     placeholder="Enter your LinkedIn"
+              //   />
+              // </div> */}
 
               {/* T-Shirt Size */}
               <div className="mb-4">
@@ -884,7 +884,7 @@ export default function Survey() {
               </div>
 
               {/* Resume Upload Field */}
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="resume"
@@ -899,7 +899,7 @@ export default function Survey() {
                   type="file"
                   accept="application/pdf"
                 />
-              </div>
+              </div> */}
 
               {/* MLH Checkmark Agreement, remove paragraph once done */}
               <p className="p-2 font-bold text-md light-mode-text">
@@ -1012,19 +1012,21 @@ export default function Survey() {
                 </label>
               </div>
 
-              {/* <div className="flex items-center justify-between">
-                {<button
-                  type="submit"
-                  disabled={isSubmitting || !isAgreed}
-                  className={`btn-custom transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
-                    isSubmitting
-                      ? "opacity-50 cursor-not-allowed"
-                      : "hover:scale-105"
-                  }`}
-                >
-                  {isSubmitting ? "Submitting..." : "Submit"}
-                </button>}
-              </div> */}
+              <div className="flex items-center justify-between">
+                {
+                  <button
+                    type="submit"
+                    disabled={isSubmitting || !isAgreed}
+                    className={`btn-custom transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
+                      isSubmitting
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:scale-105"
+                    }`}
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit"}
+                  </button>
+                }
+              </div>
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>

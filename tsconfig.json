@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -18,10 +14,10 @@
     "jsx": "react-jsx",
     "plugins": [
       {
-        "name": "next"
-      }
+        "name": "next",
+      },
     ],
-    "target": "ES2017"
+    "target": "ES2017",
   },
   "include": [
     "next-env.d.ts",
@@ -33,9 +29,7 @@
     "src/app/api/submit/route.js",
     "src/app/api/submit/EmailTemplate.jsx",
     "src/app/api/submit/EmailTemplate.jsx",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"],
 }

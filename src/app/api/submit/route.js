@@ -3,12 +3,13 @@ import { Upload } from "@aws-sdk/lib-storage";
 import { S3Client, DeleteObjectCommand } from "@aws-sdk/client-s3";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
-import { EmailTemplate } from './EmailTemplate';
-import { Resend } from 'resend';
+import { EmailTemplate } from "./EmailTemplate";
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
-const Table = process.env.NEXT_PUBLIC_AWS_TABLE_NAME;
+const Table =
+  process.env.NEXT_PUBLIC_AWS_TABLE_NAME || "mini-hackathon-2026-registration";
 
 const s3 = new S3Client({
   region: process.env.NEXT_PUBLIC_AWS_REGION,
@@ -53,7 +54,7 @@ export async function POST(request) {
         key === "mlh_emailagreement"
       ) {
         data[key] = value === "on";
-        params.Item[key] = { S : (value === "on").toString() };
+        params.Item[key] = { S: (value === "on").toString() };
       } else {
         data[key] = value;
         params.Item[key] = { S: value };
@@ -63,10 +64,10 @@ export async function POST(request) {
     const userId = uuidv4();
     params.Item["user_id"] = { S: userId.toString() };
 
-    const hackumbc_2025 = "hackumbc_registration_2025"; // static partition key for the mini-event
+    // const hackumbc_2025 = "hackumbc_registration_2025"; // static partition key for the mini-event
     const email = data["email"]; // email as the sort key
-    
-    params.Item["hackumbc_2025"] = { S: hackumbc_2025 }; // should match partition key
+
+    // params.Item["hackumbc_2025"] = { S: hackumbc_2025 }; should match partition key
     params.Item["email"] = { S: email };
 
     // write item
@@ -80,38 +81,46 @@ export async function POST(request) {
         await s3.send(new DeleteObjectCommand({ Bucket, Key: resumeKey }));
         console.log("S3 upload roll-back...");
       }
-      return NextResponse.json({ error: "Transaction failed" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Transaction failed" },
+        { status: 500 },
+      );
     }
 
     try {
       const { d, error } = await resend.emails.send({
-        from: 'hackUMBC <send@hackumbc.tech>',
+        from: "hackUMBC <send@hackumbc.tech>",
         to: [data.email],
-        subject: 'hackUMBC 2025 Registration Confirmation',
-        react: EmailTemplate({ 
+        subject: "hackUMBC 2025 Registration Confirmation",
+        react: EmailTemplate({
           firstName: data.firstName,
           lastName: data.lastName,
-          email: data.email
-         }),
+          email: data.email,
+        }),
       });
-  
+
       if (error) {
         console.error(error);
         return NextResponse.json({ error }, { status: 500 });
       }
-  
+
       return NextResponse.json(
         { message: "Form data sent successfully!", d },
-        { status: 200 }
+        { status: 200 },
       );
     } catch (error) {
       console.error("Failed to send email", error);
-      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Failed to send email" },
+        { status: 500 },
+      );
     }
-    
   } catch (error) {
     console.error("Unexpected error", error);
-    return NextResponse.json({ error: `Internal server error: ${error}` }, { status: 500 });
+    return NextResponse.json(
+      { error: `Internal server error: ${error}` },
+      { status: 500 },
+    );
   }
 }
 
