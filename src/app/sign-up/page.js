@@ -19,20 +19,20 @@ export default function Survey() {
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [otherSchool, setOtherSchool] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isAgreed, setIsAgreed] = useState(false);
-  const [isAgreed2, setIsAgreed2] = useState(false);
+  //const [isAgreed, setIsAgreed] = useState(false);
+ // const [isAgreed2, setIsAgreed2] = useState(false);
   const [shareEmail, setShareEmail] = useState(false);
   const [mediaConsent, setMediaConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleCheckboxChange = (event) => {
-    setIsAgreed(event.target.checked);
-  };
+  //const handleCheckboxChange = (event) => {
+  //  setIsAgreed(event.target.checked);
+  //};
 
-  const handleCheckboxChange2 = (event) => {
-    setIsAgreed2(event.target.checked);
-  };
+  //const handleCheckboxChange2 = (event) => {
+   // setIsAgreed2(event.target.checked);
+  //};
 
   const handleUniversityChange = (event) => {
     const selectedValue = event.target.value;
@@ -92,10 +92,10 @@ export default function Survey() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!isAgreed || !isAgreed2) {
-      setError("You must agree to the conditions to proceed.");
-      return;
-    }
+  // if (!isAgreed || !isAgreed2) {
+  //  setError("You must agree to the conditions to proceed.");
+  //  return;
+  // }
 
     setIsSubmitting(true);
     setLoading(true);
@@ -151,7 +151,7 @@ export default function Survey() {
       {/* for the pop up^ */}
       <Navbar />
       <div className="sign-up bg-scroll relative">
-      <StarsBackground className="absolute inset-0 z-0" />
+      <StarsBackground className="absolute inset-0 -z-10" />
         <div className="flex justify-center items-center min-h-screen">
           <div className="w-full max-w-2xl p-8 rounded-lg formBox">
             <div className="flex justify-center mb-6">
@@ -678,7 +678,7 @@ export default function Survey() {
                 </select>
               </div>
 
-              {/* Discord ID (Optional) */}
+              {/* Discord ID (Optional) 
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
@@ -695,7 +695,7 @@ export default function Survey() {
                 />
               </div>
 
-              {/* LinkedIn (Optional) */}
+              {/* LinkedIn (Optional) 
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
@@ -710,7 +710,7 @@ export default function Survey() {
                   type="text"
                   placeholder="Enter your LinkedIn"
                 />
-              </div>
+              </div> */}
 
               {/* T-Shirt Size */}
               <div className="mb-4">
@@ -874,7 +874,7 @@ export default function Survey() {
                 </select>
               </div>
 
-              {/* Resume Upload Field */}
+              {/* Resume Upload Field 
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
@@ -890,9 +890,9 @@ export default function Survey() {
                   type="file"
                   accept="application/pdf"
                 />
-              </div>
+              </div> */}
 
-              {/* MLH Checkmark Agreement, remove paragraph once done */}
+               {/* MLH Checkmark Agreement, remove paragraph once done }
               <p className="p-2 font-bold text-md light-mode-text">
                 We are partnered with MLH. The following checkbox is 
                 for this partnership. 
@@ -952,7 +952,7 @@ export default function Survey() {
                 </label>
               </div>
 
-              {/* Email Sharing Agreement */}
+              {/* Email Sharing Agreement }
               <p className="p-2 font-bold text-md light-mode-text">
                 hackUMBC Privacy and Consent Agreements
               </p>
@@ -971,7 +971,7 @@ export default function Survey() {
                 </label>
               </div>
 
-              {/* Media Consent Agreement */}
+              {/* Media Consent Agreement 
               <div className="p-2 mb-4 flex items-center">
                 <input
                   id="mediaConsent"
@@ -1000,12 +1000,13 @@ export default function Survey() {
                   for the unrestricted use of any imagery encompassing my
                   voluntary presence (e.g., "photobombing").
                 </label>
-              </div>
+              </div> */}
 
-              {/* <div className="flex items-center justify-between">
+               <div className="flex items-center justify-between">
                 {<button
                   type="submit"
-                  disabled={isSubmitting || !isAgreed}
+                 // disabled={isSubmitting || !isAgreed}
+                  disabled={isSubmitting}
                   className={`btn-custom transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
                     isSubmitting
                       ? "opacity-50 cursor-not-allowed"
@@ -1014,7 +1015,7 @@ export default function Survey() {
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}
                 </button>}
-              </div> */}
+              </div> 
               {/* every year hide this^^ submit button so you dont need to delete entire file, 
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>
