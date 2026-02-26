@@ -54,7 +54,7 @@ export default function Navbar() {
                 }
               }}
             >
-              <img className="nav-logo light-mode-text" src="hackumbcdog2025.webp" alt="logo" />
+              <img className="nav-logo light-mode-text" src="/hackumbc 2026 logo.svg" alt="logo" />
             </Link>
             <Link
               id="left-nav-button"

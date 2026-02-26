@@ -123,7 +123,7 @@
     content: '';
     position: absolute;
     height: 3px;
-    background-color: #c03e21;
+    background-color: #690010;
     top: 40%;
     left: 0;
     right: 0;
@@ -154,8 +154,8 @@
     content: '';
     width: 14px;
     height: 14px;
-    background-color: #c03e21;
-    border: 2px solid #c03e21;
+    background-color: #690010;
+    border: 2px solid #690010;
     border-radius: 50%;
     position: absolute;
     z-index: 10;
@@ -191,7 +191,7 @@
 }
 
 .timeline-card-header {
-    background-color: #ba4126;
+    background-color: #515128;
     color: white;
     padding: 0.4rem 0.7rem;
     font-weight: 600;
@@ -230,7 +230,7 @@
 
 .timeline-card-location svg {
     margin-right: 0.5rem;
-    color: #ba4126;
+    color: #690010;
     flex-shrink: 0;
     width: 14px;
     height: 14px;
