@@ -19,20 +19,20 @@ export default function Survey() {
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [otherSchool, setOtherSchool] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isAgreed, setIsAgreed] = useState(false);
-  const [isAgreed2, setIsAgreed2] = useState(false);
+  //const [isAgreed, setIsAgreed] = useState(false);
+ // const [isAgreed2, setIsAgreed2] = useState(false);
   const [shareEmail, setShareEmail] = useState(false);
   const [mediaConsent, setMediaConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleCheckboxChange = (event) => {
-    setIsAgreed(event.target.checked);
-  };
+  //const handleCheckboxChange = (event) => {
+  //  setIsAgreed(event.target.checked);
+  //};
 
-  const handleCheckboxChange2 = (event) => {
-    setIsAgreed2(event.target.checked);
-  };
+  //const handleCheckboxChange2 = (event) => {
+   // setIsAgreed2(event.target.checked);
+  //};
 
   const handleUniversityChange = (event) => {
     const selectedValue = event.target.value;
@@ -88,10 +88,10 @@ export default function Survey() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!isAgreed || !isAgreed2) {
-      setError("You must agree to the conditions to proceed.");
-      return;
-    }
+  // if (!isAgreed || !isAgreed2) {
+  //  setError("You must agree to the conditions to proceed.");
+  //  return;
+  // }
 
     setIsSubmitting(true);
     setLoading(true);
@@ -152,7 +152,7 @@ export default function Survey() {
       {/* for the pop up^ */}
       <Navbar />
       <div className="sign-up bg-scroll relative">
-        <StarsBackground className="absolute inset-0 -z-10" />
+      <StarsBackground className="absolute inset-0 -z-10" />
         <div className="flex justify-center items-center min-h-screen">
           <div className="w-full max-w-2xl p-8 rounded-lg formBox">
             <div className="flex justify-center mb-6">
@@ -980,7 +980,7 @@ export default function Survey() {
                 </label>
               </div> */}
 
-              {/* Email Sharing Agreement */}
+              {/* Email Sharing Agreement }
               <p className="p-2 font-bold text-md light-mode-text">
                 hackUMBC Privacy and Consent Agreements
               </p>
@@ -999,7 +999,7 @@ export default function Survey() {
                 </label>
               </div>
 
-              {/* Media Consent Agreement */}
+              {/* Media Consent Agreement 
               <div className="p-2 mb-4 flex items-center">
                 <input
                   id="mediaConsent"
@@ -1028,7 +1028,7 @@ export default function Survey() {
                   for the unrestricted use of any imagery encompassing my
                   voluntary presence (e.g., "photobombing").
                 </label>
-              </div>
+              </div> */}
 
               {/* <div className="flex items-center justify-between">
                 {
