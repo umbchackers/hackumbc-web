@@ -902,7 +902,7 @@ export default function Survey() {
               </div> */}
 
               {/* MLH Checkmark Agreement, remove paragraph once done */}
-              <p className="p-2 font-bold text-md light-mode-text">
+              {/* <p className="p-2 font-bold text-md light-mode-text">
                 We are partnered with MLH. The following checkbox is for this
                 partnership.
               </p>
@@ -960,7 +960,7 @@ export default function Survey() {
                   I authorize MLH to send me occasional emails about relevant
                   events, career opportunities, and community announcements.
                 </label>
-              </div>
+              </div> */}
 
               {/* Email Sharing Agreement */}
               <p className="p-2 font-bold text-md light-mode-text">
@@ -1012,7 +1012,7 @@ export default function Survey() {
                 </label>
               </div>
 
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 {
                   <button
                     type="submit"
@@ -1026,7 +1026,7 @@ export default function Survey() {
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 }
-              </div>
+              </div> */}
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>
