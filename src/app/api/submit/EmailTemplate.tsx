@@ -13,41 +13,41 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
 }) => (
   <>
     {/* greeting */}
-    <p>Hi {firstName} {lastName},</p>
-
     <p>
-      You’re officially signed up for the <b>hackUMBC Mini Hackathon</b>! We're excited to see what you 
-      build during this high-energy, 12-hour sprint!
+      Hi {firstName} {lastName},
     </p>
 
-    {/* theme & rules */}
-    <div style={{ border: '1px solid #ddd', padding: '10px', borderRadius: '5px', backgroundColor: '#fcfcfc' }}>
-      <p style={{ margin: 0 }}><b>💡 Theme:</b> Open-Ended</p>
-      <p style={{ margin: '5px 0 0 0' }}><b>👥 Team Size:</b> Maximum of 3 people</p>
-    </div>
+    <p>
+      You’re officially signed up for the <b>hackUMBC Mini Hackathon</b>! We're
+      excited to see what you build during this high-energy, 12-hour sprint!
+    </p>
 
     {/* event details */}
     <h2>📅 Event Details</h2>
-    <ul>
-      <li>
-        <b>🗓 Date:</b> April&nbsp;18th, 2026
+    <ul
+      style={{
+        listStyleType: "disc",
+        paddingLeft: "20px",
+        margin: "10px 0",
+        lineHeight: "1.6",
+      }}
+    >
+      <li style={{ marginBottom: "10px" }}>
+        <b>💡 Theme:</b> Open-Ended
       </li>
-      <li>
-        <b>⏰ Check-In:</b> Saturday, April 18th at 7:30 AM - ITE
-        2nd Floor
+      <li style={{ marginBottom: "10px" }}>
+        <b>👥 Team Size:</b> Maximum of 3 people
       </li>
-      <li>
-        <b>📍 Location:</b> UMBC Information Technology Engineering (ITE) Building, 1000 Hilltop Circle,
-        Baltimore, MD 21250
+      <li style={{ marginBottom: "10px" }}>
+        <b>🗓 Date:</b> April 18th, 2026
       </li>
-    </ul>
-
-    {/* workshops & prizes */}
-    <h2>🏆 Why Attend?</h2>
-    <p>We have an incredible lineup for this mini hackathon, including:</p>
-    <ul>
-       <li><b>Workshops:</b> Technical sessions hosted by <b>GDG</b> and <b>CWIT Cyber Leads</b>.</li>
-       <li><b>Big Prizes:</b> Win a <b>Nintendo Switch 2</b> (1st), <b>Holy Stone Drones</b> (2nd), or <b>Amazon Fire Sticks 4K</b> (3rd)!</li>
+      <li style={{ marginBottom: "10px" }}>
+        <b>⏰ Check-In:</b> Saturday, April 18th at 7:30 AM - ITE 2nd Floor
+      </li>
+      <li style={{ marginBottom: "10px" }}>
+        <b>📍 Location:</b> UMBC Information Technology Engineering (ITE)
+        Building, 1000 Hilltop Circle, Baltimore, MD 21250
+      </li>
     </ul>
 
     {/* discord */}
@@ -58,17 +58,22 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
       instructions in the <i>#rules-and-roles</i> channel after joining!
     </p>
     <p>
-      <a href="https://discord.gg/cBVF7vHdUK" style={{
-        display: 'inline-block',
-        backgroundColor: '#5865F2',
-        color: '#ffffff !important',
-        padding: '10px 20px',
-        textDecoration: 'none',
-        borderRadius: '5px',
-        fontWeight: 'bold',
-        border: 'none',
-        cursor: 'pointer'
-      }}>Join here!</a>
+      <a
+        href="https://discord.gg/cBVF7vHdUK"
+        style={{
+          display: "inline-block",
+          backgroundColor: "#5865F2",
+          color: "#ffffff !important",
+          padding: "10px 20px",
+          textDecoration: "none",
+          borderRadius: "5px",
+          fontWeight: "bold",
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
+        Join here!
+      </a>
     </p>
 
     {/* qr code */}
@@ -83,10 +88,11 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     /> */}
 
     {/* closing */}
-    <h2>🎉 We can't wait to see you!</h2>
+    <h2>🎉 We Can't Wait to See You!</h2>
     <p>
-      As the event gets closer, we'll send another email with details on parking information, the full schedule, 
-      and the free meals you'll get throughout the day.
+      As the event gets closer, we'll send another email with details on parking
+      information, the full schedule, and the free meals you'll get throughout
+      the day.
     </p>
 
     <p>
@@ -94,6 +100,8 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
       <a href="mailto:hackumbc@gmail.com">hackumbc@gmail.com</a>.
     </p>
 
-    <p><b>- The hackUMBC Team</b></p>
+    <p>
+      <b>- The hackUMBC Team</b>
+    </p>
   </>
 );
