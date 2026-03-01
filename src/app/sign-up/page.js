@@ -19,20 +19,20 @@ export default function Survey() {
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [otherSchool, setOtherSchool] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isAgreed, setIsAgreed] = useState(false);
-  const [isAgreed2, setIsAgreed2] = useState(false);
+  //const [isAgreed, setIsAgreed] = useState(false);
+ // const [isAgreed2, setIsAgreed2] = useState(false);
   const [shareEmail, setShareEmail] = useState(false);
   const [mediaConsent, setMediaConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleCheckboxChange = (event) => {
-    setIsAgreed(event.target.checked);
-  };
+  //const handleCheckboxChange = (event) => {
+  //  setIsAgreed(event.target.checked);
+  //};
 
-  const handleCheckboxChange2 = (event) => {
-    setIsAgreed2(event.target.checked);
-  };
+  //const handleCheckboxChange2 = (event) => {
+   // setIsAgreed2(event.target.checked);
+  //};
 
   const handleUniversityChange = (event) => {
     const selectedValue = event.target.value;
@@ -49,12 +49,8 @@ export default function Survey() {
   };
 
   const PopupNotification = ({ message, position }) => {
-    return (
-      <div className={`popup-notification ${position}`}>
-        {message}
-      </div>
-    );
-  };  
+    return <div className={`popup-notification ${position}`}>{message}</div>;
+  };
   /*pop up noti */
 
   useEffect(() => {
@@ -77,7 +73,7 @@ export default function Survey() {
 
   const handleDietaryChange = (event) => {
     const selectedOptions = Array.from(event.target.selectedOptions).map(
-      (option) => option.value
+      (option) => option.value,
     );
     setDietaryRestrictions(selectedOptions);
 
@@ -92,10 +88,10 @@ export default function Survey() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!isAgreed || !isAgreed2) {
-      setError("You must agree to the conditions to proceed.");
-      return;
-    }
+  // if (!isAgreed || !isAgreed2) {
+  //  setError("You must agree to the conditions to proceed.");
+  //  return;
+  // }
 
     setIsSubmitting(true);
     setLoading(true);
@@ -125,9 +121,9 @@ export default function Survey() {
       setError(null);
 
       //pop up
-      setIsSubmitted(true);  // pop-up appears
+      setIsSubmitted(true); // pop-up appears
       setTimeout(() => {
-        setIsSubmitted(false);  // pop-up disappears after 3 seconds
+        setIsSubmitted(false); // pop-up disappears after 3 seconds
       }, 3000);
 
       setTimeout(() => {
@@ -147,11 +143,16 @@ export default function Survey() {
 
   return (
     <>
-      {savedData && isSubmitted && <PopupNotification message="Form submitted successfully!" position="top-center" />}
+      {savedData && isSubmitted && (
+        <PopupNotification
+          message="Form submitted successfully!"
+          position="top-center"
+        />
+      )}
       {/* for the pop up^ */}
       <Navbar />
       <div className="sign-up bg-scroll relative">
-      <StarsBackground className="absolute inset-0 z-0" />
+      <StarsBackground className="absolute inset-0 -z-10" />
         <div className="flex justify-center items-center min-h-screen">
           <div className="w-full max-w-2xl p-8 rounded-lg formBox">
             <div className="flex justify-center mb-6">
@@ -175,7 +176,9 @@ export default function Survey() {
             <hr className="w-full border-gray-300 mb-6" />
 
             <form className="px-1" onSubmit={handleSubmit}>
-              <p className="py-1.5 font-bold text-md light-mode-text">Personal Information</p>
+              <p className="py-1.5 font-bold text-md light-mode-text">
+                Personal Information
+              </p>
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
@@ -679,7 +682,7 @@ export default function Survey() {
               </div>
 
               {/* Discord ID (Optional) */}
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="discordId"
@@ -693,24 +696,24 @@ export default function Survey() {
                   type="text"
                   placeholder="Enter your Discord ID"
                 />
-              </div>
+              </div> */}
 
               {/* LinkedIn (Optional) */}
-              <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="discordId"
-                >
-                  LinkedIn <span className="text-gray-400">(Optional)</span>
-                </label>
-                <input
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="linkedIn"
-                  name="linkedIn"
-                  type="text"
-                  placeholder="Enter your LinkedIn"
-                />
-              </div>
+              {/* <div className="mb-4">
+              //   <label
+              //     className="block text-white text-sm font-bold mb-2"
+              //     htmlFor="discordId"
+              //   >
+              //     LinkedIn <span className="text-gray-400">(Optional)</span>
+              //   </label>
+              //   <input
+              //     className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+              //     id="linkedIn"
+              //     name="linkedIn"
+              //     type="text"
+              //     placeholder="Enter your LinkedIn"
+              //   />
+              // </div> */}
 
               {/* T-Shirt Size */}
               <div className="mb-4">
@@ -734,6 +737,24 @@ export default function Survey() {
                   <option value="xxl">XXL</option>
                 </select>
               </div>
+              {/* How many hackathons */}
+              <div className="mb-4">
+                <label
+                  className="block text-white text-sm font-bold mb-2"
+                  htmlFor="previousHackathonsAttended"
+                >
+                  How many previous hackathons have you attended?{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+                <input
+                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                  type="number"
+                  id="previousHackathonsAttended"
+                  defaultValue={0}
+                  placeholder="# of hackathons attended"
+                  required
+                />
+              </div>
 
               {/* Dietary Restrictions */}
               <div className="mb-4">
@@ -741,8 +762,14 @@ export default function Survey() {
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="dietaryRestrictions"
                 >
-                  Select Dietary Restrictions {" "} <span className="text-gray-400">(Optional)</span>
-                  <p><i>(Ctrl + Click on Windows or Cmd + Click on MacOS to select multiple)</i></p>
+                  Select Dietary Restrictions{" "}
+                  <span className="text-gray-400">(Optional)</span>
+                  <p>
+                    <i>
+                      (Ctrl + Click on Windows or Cmd + Click on MacOS to select
+                      multiple)
+                    </i>
+                  </p>
                 </label>
                 <select
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
@@ -875,7 +902,7 @@ export default function Survey() {
               </div>
 
               {/* Resume Upload Field */}
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="resume"
@@ -890,12 +917,12 @@ export default function Survey() {
                   type="file"
                   accept="application/pdf"
                 />
-              </div>
+              </div> */}
 
               {/* MLH Checkmark Agreement, remove paragraph once done */}
-              <p className="p-2 font-bold text-md light-mode-text">
-                We are partnered with MLH. The following checkbox is 
-                for this partnership. 
+              {/* <p className="p-2 font-bold text-md light-mode-text">
+                We are partnered with MLH. The following checkbox is for this
+                partnership.
               </p>
               <div className="p-2 mb-4 flex items-center">
                 <input
@@ -908,12 +935,13 @@ export default function Survey() {
                   required
                 />
                 <label htmlFor="agree" className="text-white text-sm">
-                I authorize you to share my application/registration 
-                information with Major League Hacking for event administration,
-                 ranking, and MLH administration in-line with the MLH Privacy Policy
-                  https://mlh.io/privacy. I further acknowledge to have read and 
-                  agree to the terms of both the MLH Contest Terms and Conditions 
-                  (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md) 
+                  I authorize you to share my application/registration
+                  information with Major League Hacking for event
+                  administration, ranking, and MLH administration in-line with
+                  the MLH Privacy Policy https://mlh.io/privacy. I further
+                  acknowledge to have read and agree to the terms of both the
+                  MLH Contest Terms and Conditions
+                  (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
                   and the MLH Privacy Policy (https://mlh.io/privacy).
                   <span className="text-red-500">*</span>
                 </label>
@@ -930,8 +958,8 @@ export default function Survey() {
                   required
                 />
                 <label htmlFor="agree2" className="text-white text-sm">
-                I have read and agree to the MLH Code of Conduct 
-                (https://mlh.io/code-of-conduct)
+                  I have read and agree to the MLH Code of Conduct
+                  (https://mlh.io/code-of-conduct)
                   <span className="text-red-500">*</span>
                 </label>
               </div>
@@ -950,9 +978,9 @@ export default function Survey() {
                   I authorize MLH to send me occasional emails about relevant
                   events, career opportunities, and community announcements.
                 </label>
-              </div>
+              </div> */}
 
-              {/* Email Sharing Agreement */}
+              {/* Email Sharing Agreement }
               <p className="p-2 font-bold text-md light-mode-text">
                 hackUMBC Privacy and Consent Agreements
               </p>
@@ -971,7 +999,7 @@ export default function Survey() {
                 </label>
               </div>
 
-              {/* Media Consent Agreement */}
+              {/* Media Consent Agreement 
               <div className="p-2 mb-4 flex items-center">
                 <input
                   id="mediaConsent"
@@ -1000,22 +1028,24 @@ export default function Survey() {
                   for the unrestricted use of any imagery encompassing my
                   voluntary presence (e.g., "photobombing").
                 </label>
-              </div>
+              </div> */}
 
               {/* <div className="flex items-center justify-between">
-                {<button
-                  type="submit"
-                  disabled={isSubmitting || !isAgreed}
-                  className={`btn-custom transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
-                    isSubmitting
-                      ? "opacity-50 cursor-not-allowed"
-                      : "hover:scale-105"
-                  }`}
-                >
-                  {isSubmitting ? "Submitting..." : "Submit"}
-                </button>}
+                {
+                  <button
+                    type="submit"
+                    disabled={isSubmitting || !isAgreed}
+                    className={`btn-custom transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
+                      isSubmitting
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:scale-105"
+                    }`}
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit"}
+                  </button>
+                }
               </div> */}
-              {/* every year hide this^^ submit button so you dont need to delete entire file, 
+              {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>
             {error && <p className="text-red-500 mt-4">{error}</p>}
@@ -1029,13 +1059,20 @@ export default function Survey() {
         <div className="footer-info">
           <p>&copy; 2025 hackUMBC. All rights reserved.</p>
           <p className="mt-2">
-            <a href="/privacy-policy" className="footer-link">Privacy Policy</a> |
-            <a href="/terms-of-service" className="footer-link">Terms of Service</a> |
-            <a href="mailto:hackumbc@umbc.edu" className="footer-link">Contact Us</a>
+            <a href="/privacy-policy" className="footer-link">
+              Privacy Policy
+            </a>{" "}
+            |
+            <a href="/terms-of-service" className="footer-link">
+              Terms of Service
+            </a>{" "}
+            |
+            <a href="mailto:hackumbc@umbc.edu" className="footer-link">
+              Contact Us
+            </a>
           </p>
         </div>
       </div>
     </>
   );
 }
-

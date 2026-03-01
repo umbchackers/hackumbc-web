@@ -15,7 +15,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@aws-amplify/ui-react": "^6.11.2",
+    "@aws-amplify/ui-react": "^6.13.2",
     "@aws-sdk/client-dynamodb": "^3.826.0",
     "@aws-sdk/client-s3": "^3.826.0",
     "@aws-sdk/client-ses": "^3.826.0",
@@ -24,12 +24,12 @@
     "@material-tailwind/react": "^2.1.9",
     "aos": "^2.3.4",
     "autoprefixer": "^10.4.20",
-    "aws-amplify": "^6.15.0",
+    "aws-amplify": "^6.16.0",
     "clsx": "^2.1.1",
     "eslint-config-next": "^15.5.2",
     "framer-motion": "^12.16.0",
     "lucide-react": "^0.525.0",
-    "next": "^15.5.2",
+    "next": "^16.1.6",
     "papaparse": "^5.4.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -55,6 +55,8 @@
     "typescript": "5.6.2"
   },
   "overrides": {
-    "@types/react": "19.1.12"
+    "@types/react": "19.1.12",
+    "fast-xml-parser": "^5.3.4",
+    "lodash": "^4.17.21"
   }
 }

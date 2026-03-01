@@ -7,7 +7,8 @@
     padding: 20px;
     min-height: 100vh;
     padding-bottom: 20vh;
-    background-color: #fed5a9;
+   /* background-color: #E8C48D; */
+    background-color: #E8C48D !important;
     /* background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); for blend */
   }
   
@@ -32,7 +33,7 @@
     max-width: 1200px;
     width: 100%;
     padding: 30px;
-    background-color: #ba4126; /*matching background*/
+    background-color: #690010; /*matching background*/
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
                 inset 0 0 10px rgba(255, 255, 255, 0.15); 
@@ -76,7 +77,7 @@
     position: relative;
     user-select: none;
     border: none;
-    background-color: #912b0d; /* Darker rust color for questions */
+    background-color: #964c57; /* Darker rust color for questions */
     text-align: left;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -122,7 +123,7 @@
     font-size: 1rem;
     line-height: 1.5;
     color: #ffffff;
-    background-color: #d65e3f; /* Lighter rust color for answers */
+    background-color: #b47f87; /* Lighter rust color for answers */
     border-top: 3px solid rgba(233, 216, 166, 0.3);
   }
   

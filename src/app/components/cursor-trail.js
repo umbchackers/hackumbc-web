@@ -2,18 +2,19 @@
 
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Music, Music2, Music3, Music4, Headphones, Mic, Volume2, Play, Pause, SkipForward, SkipBack } from 'lucide-react';
+
+import { Swords, Crown, Flame, Shield, Gem, Star, Sparkles, Wand2, Feather, Skull, Zap } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 export default function CursorTrail() {
-  const musicNotesRef = useRef([]);
+  const medievalIconsRef = useRef([]);
   const particlesRef = useRef([]);
-  const soundWavesRef = useRef([]);
+  const magicRingsRef = useRef([]);
 
   const pathname = usePathname();
-  const [musicNotes, setMusicNotes] = useState([]);
+  const [medievalIcons, setMedievalIcons] = useState([]);
   const [particles, setParticles] = useState([]);
-  const [soundWaves, setSoundWaves] = useState([]);
+  const [magicRings, setMagicRings] = useState([]);
   const [isDesktop, setIsDesktop] = useState(true);
   const [isEnabled, setIsEnabled] = useState(pathname !== '/sign-up');
 
@@ -24,29 +25,29 @@ export default function CursorTrail() {
   const lastPos = useRef({ x: 0, y: 0 });
   const acceleration = useRef({ x: 0, y: 0 });
 
-  const noteId = useRef(0);
+  const iconId = useRef(0);
   const particleId = useRef(0);
-  const waveId = useRef(0);
+  const ringId = useRef(0);
   
-  const MAX_NOTES = 12;
+  const MAX_ICONS = 12;
   const SMOOTHING_FACTOR = 0.92;
   const VELOCITY_DECAY = 0.95;
   const MAX_PARTICLES = 30;
-  const MAX_WAVES = 4;
+  const MAX_RINGS = 4;
 
-  // musical note icons array
-  const musicIcons = [
-    { icon: Music, color: '#f6c78b', size: 20 },
-    { icon: Music2, color: '#00ffff', size: 18 },
-    { icon: Music3, color: '#ff00ff', size: 22 },
-    { icon: Music4, color: '#ffff00', size: 16 },
-    { icon: Headphones, color: '#00ff00', size: 24 },
-    { icon: Mic, color: '#ff8800', size: 20 },
-    { icon: Volume2, color: '#ff0080', size: 18 },
-    { icon: Play, color: '#f6c78b', size: 16 },
-    { icon: Pause, color: '#00ffff', size: 16 },
-    { icon: SkipForward, color: '#ff00ff', size: 18 },
-    { icon: SkipBack, color: '#ffff00', size: 18 }
+  // medieval icons array using the color palette from the design sheet
+  const medievalIconsdefs = [
+    { icon: Swords, color: '#E8C48D', size: 22 },
+    { icon: Crown, color: '#DD9E45', size: 20 },
+    { icon: Flame, color: '#A34F2B', size: 20 },
+    { icon: Shield, color: '#690010', size: 22 },
+    { icon: Gem, color: '#391C36', size: 18 },
+    { icon: Star, color: '#DD9E45', size: 16 },
+    { icon: Sparkles, color: '#E8C48D', size: 18 },
+    { icon: Wand2, color: '#510E23', size: 20 },
+    { icon: Feather, color: '#515128', size: 18 },
+    { icon: Skull, color: '#C68A5C', size: 18 },
+    { icon: Zap, color: '#977837', size: 16 }
   ];
 
   // desktop detection
@@ -110,7 +111,7 @@ export default function CursorTrail() {
     };
   }, [isDesktop, isEnabled]);
 
-  // animation loop w/ musical notes
+  // main animation loop 
   useEffect(() => {
     let frameId;
     let time = 0;
@@ -133,30 +134,29 @@ export default function CursorTrail() {
         const speed = Math.sqrt(velocity.current.x ** 2 + velocity.current.y ** 2);
         const accel = Math.sqrt(acceleration.current.x ** 2 + acceleration.current.y ** 2);
         
-        const newNotes = musicNotesRef.current;
-        
-        // add new note if enough distance moved or speed is high
-        const lastNote = newNotes[0];
-        if(!lastNote || 
-            Math.abs(displayPos.current.x - lastNote.x) > 8 || 
-            Math.abs(displayPos.current.y - lastNote.y) > 8 ||
+        //midieval icons trail
+        const icons = medievalIconsRef.current; 
+        const lastIcon = icons[0];
+        if(!lastIcon || 
+            Math.abs(displayPos.current.x - lastIcon.x) > 8 || 
+            Math.abs(displayPos.current.y - lastIcon.y) > 8 ||
             speed > 5) {
           
-          const randomIcon = musicIcons[Math.floor(Math.random() * musicIcons.length)];
-          const randomRotation = (Math.random() - 0.5) * 60; // -30 to 30 degrees
-          const randomScale = 0.8 + Math.random() * 0.4; // 0.8 to 1.2
+          const pick = medievalIconsdefs[Math.floor(Math.random() * medievalIconsdefs.length)];
+          const randomRotation = (Math.random() - 0.5) * 60;
+          const randomScale = 0.8 + Math.random() * 0.4;
           
-          newNotes.unshift({
-            id: noteId.current++,
+          icons.unshift({
+            id: iconId.current++,
             x: displayPos.current.x + (Math.random() - 0.5) * 20,
             y: displayPos.current.y + (Math.random() - 0.5) * 20,
             time: time,
             speed: speed,
             acceleration: accel,
             velocity: { x: velocity.current.x, y: velocity.current.y },
-            icon: randomIcon.icon,
-            color: randomIcon.color,
-            size: randomIcon.size,
+            icon: pick.icon,
+            color: pick.color,
+            size: pick.size,
             rotation: randomRotation,
             scale: randomScale,
             life: 1,
@@ -165,15 +165,15 @@ export default function CursorTrail() {
         }
         
         // update existing notes
-        musicNotesRef.current = newNotes
-          .map(note => ({
-            ...note,
-            life: note.life - note.decay,
-            scale: note.scale * 0.995, // slowly shrink
-            rotation: note.rotation + (note.speed * 0.5) // rotate based on speed
+        medievalIconsRef.current = icons
+          .map(icon => ({
+            ...icon,
+            life: icon.life - icon.decay,
+            scale: icon.scale * 0.995, // slowly shrink
+            rotation: icon.rotation + (icon.speed * 0.5) // rotate based on speed
           }))
-          .filter(note => note.life > 0)
-          .slice(0, MAX_NOTES);
+          .filter(icon => icon.life > 0)
+          .slice(0, MAX_ICONS);
 
         // enhanced particle generation
         if(speed > 2) {
@@ -192,7 +192,7 @@ export default function CursorTrail() {
               life: 1,
               decay: 0.02 + Math.random() * 0.02,
               size: 4 + Math.random() * 8,
-              color: `hsl(${200 + Math.random() * 80}, 80%, ${60 + Math.random() * 20}%)`,
+              color: ['#A34F2B', '#DD9E45', '#977837', '#690010', '#E8C48D'][Math.floor(Math.random() * 5)],
               type: 'sparkle',
               rotation: Math.random() * 360
             });
@@ -203,28 +203,28 @@ export default function CursorTrail() {
             .slice(0, MAX_PARTICLES);              
         }
 
-        // dynamic sound wave generation
+        // dynamic magic ripples generation 
         if(Math.random() < 0.005 + (speed * 0.002)) {
-          soundWavesRef.current.push({
-            id: waveId.current++,
+          magicRingsRef.current.push({
+            id: ringId.current++,
             x: displayPos.current.x,
             y: displayPos.current.y,
             radius: 0,
             maxRadius: 1 + Math.random() * 0.02 + speed / 10,
             speed: 1 + Math.random() * 0.25 + speed * 0.04,
             opacity: .7,
-            color: `hsl(${180 + Math.random() * 60}, 80%, 60%)`,
+            color: ['#DD9E45', '#690010', '#391C36', '#977837'][Math.floor(Math.random() * 4)],
             thickness: 1 + Math.random() * 2
           });
-          soundWavesRef.current = soundWavesRef.current.slice(-MAX_WAVES);
+          magicRingsRef.current = magicRingsRef.current.slice(-MAX_RINGS);
         }
-        soundWavesRef.current = soundWavesRef.current
-          .map(wave => ({
-            ...wave,
-            radius: wave.radius + wave.speed,
-            opacity: wave.opacity - 0.01
+        magicRingsRef.current = magicRingsRef.current
+          .map(ring => ({
+            ...ring,
+            radius: ring.radius + ring.speed,
+            opacity: ring.opacity - 0.01
           }))
-          .filter(wave => wave.opacity > 0)
+          .filter(ring => ring.opacity > 0)
       }
       frameId = requestAnimationFrame(loop);
     };
@@ -235,9 +235,9 @@ export default function CursorTrail() {
 
   useEffect(() => {
     const syncInterval = setInterval(() => {
-      setMusicNotes([...musicNotesRef.current]);
+      setMedievalIcons([...medievalIconsRef.current]);
       setParticles([...particlesRef.current]);
-      setSoundWaves([...soundWavesRef.current]);
+      setMagicRings([...magicRingsRef.current]);
     }, 1000 / 60); // 60 fps
     return () => clearInterval(syncInterval);
   }, []);
@@ -255,37 +255,36 @@ export default function CursorTrail() {
             className="fixed inset-0 pointer-events-none z-50"
           >
             <svg className="absolute inset-0 w-full h-full">
-              {/* sound waves with enhanced visuals */}
-              {soundWaves.map(wave => (
+              {/* magic ripples with enhanced visuals */}
+              {magicRings.map(ring => (
                 <motion.circle
-                  key={wave.id}
-                  cx={wave.x}
-                  cy={wave.y}
-                  r={wave.radius}
+                  key={ring.id}
+                  cx={ring.x}
+                  cy={ring.y}
+                  r={ring.radius}
                   fill="none"
-                  stroke={wave.color}
-                  strokeWidth={wave.thickness}
-                  opacity={wave.opacity}
-                  className="drop-shadow-[0_0_15px_rgba(0,255,255,0.6)]"
+                  stroke={ring.color}
+                  strokeWidth={ring.thickness}
+                  opacity={ring.opacity}
                 />
               ))}
             </svg>
 
-            {/* musical notes trail */}
-            {musicNotes.map(note => {
-              const IconComponent = note.icon;
+            {/* medieval icon trail */}
+            {medievalIcons.map(item => {
+              const IconComponent = item.icon;
               return (
                 <motion.div
-                  key={note.id}
+                  key={item.id}
                   className="absolute pointer-events-none"
                   style={{
-                    left: note.x - note.size / 2,
-                    top: note.y - note.size / 2,
-                    opacity: note.life,
+                    left: item.x - item.size / 2,
+                    top: item.y - item.size / 2,
+                    opacity: item.life,
                   }}
                   animate={{
-                    scale: note.scale,
-                    rotate: note.rotation,
+                    scale: item.scale,
+                    rotate: item.rotation,
                     y: [0, -10, -20],
                   }}
                   transition={{
@@ -294,11 +293,11 @@ export default function CursorTrail() {
                   }}
                 >
                   <IconComponent
-                    size={note.size}
-                    color={note.color}
+                    size={item.size}
+                    color={item.color}
                     className="drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
                     style={{
-                      filter: `drop-shadow(0 0 6px ${note.color}40)`,
+                      filter: `drop-shadow(0 0 6px ${item.color}40)`,
                     }}
                   />
                 </motion.div>
@@ -356,9 +355,21 @@ export default function CursorTrail() {
                 ease: "linear",
               }}
             >
-              <div className="w-full h-full rounded-full bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 opacity-90 blur-sm" />
-              <div className="absolute inset-2 rounded-full bg-white opacity-70" />
-              <div className="absolute inset-3 rounded-full bg-gradient-to-r from-cyan-300 to-purple-300 opacity-50" />
+              {/* outer ring - crimson glow */}
+              <div
+                className="w-full h-full rounded-full opacity-80 blur-sm"
+                style={{ background: 'radial-gradient(circle, #DD9E45, #690010)' }}
+              />
+              {/* inner ring - parchment gold */}
+              <div
+                className="absolute inset-1 rounded-full opacity-90"
+                style={{ background: 'radial-gradient(circle, #E8C48D, #977837)' }}
+              />
+                {/* inner core - bright gold */}
+              <div
+                className="absolute inset-2 rounded-full"
+                style={{ background: 'radial-gradient(circle, #FFE599, #DD9E45)' }}
+              />
             </motion.div>
           </motion.div>
         )}
@@ -368,32 +379,33 @@ export default function CursorTrail() {
       <motion.button
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="fixed bottom-6 right-6 z-50 bg-black/95 backdrop-blur-lg border border-cyan-400/60 rounded-2xl px-5 py-3 text-cyan-400 hover:bg-gray-900/95 hover:border-cyan-300/80 transition-all duration-300 hidden md:flex items-center gap-3 shadow-2xl shadow-cyan-400/30"
+         className="fixed bottom-6 right-6 z-50 backdrop-blur-lg rounded-2xl px-5 py-3 hidden md:flex items-center gap-3 shadow-2xl transition-all duration-300"
+        style={{
+          backgroundColor: 'rgba(26, 10, 5, 0.95)',
+          border: '1px solid #977837',
+          boxShadow: '0 0 20px #69001044',
+        }}
         onClick={() => setIsEnabled(!isEnabled)}
-        aria-label={isEnabled ? "Disable music trail" : "Enable music trail"}
+        aria-label={isEnabled ? "Disable cursor trail" : "Enable cursor trail"}
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
       >
         {isEnabled ? (
-          <svg
-            className="w-5 h-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
+        <Swords className="w-5 h-5" style={{ color: '#DD9E45' }} />
         ) : (
-          <Music className="w-5 h-5" />
+          <Sparkles className="w-5 h-5" style={{ color: '#DD9E45' }} />
         )}
-        <span className="text-sm font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-          {isEnabled ? 'Disable Music Trail' : 'Enable Music Trail'}
+        <span
+          className="text-sm font-bold"
+          style={{
+            background: 'linear-gradient(to right, #DD9E45, #E8C48D, #977837)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}
+        >
+          {isEnabled ? 'Disable cursor trail' : 'Enable cursor trail'}
         </span>
       </motion.button>
     </>
   );
-} 
+}

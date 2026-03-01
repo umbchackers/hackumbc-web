@@ -22,7 +22,8 @@ body {
 }
 
 .team-page {
-    background-image: url('/hackumbc_bg_team.webp');
+   /* background-image: url('/hackumbc_bg_team.webp'); */
+     background-color: #E8C48D;
     min-height: auto;
     height: auto;
     padding: 100px 0;
@@ -40,9 +41,9 @@ body {
     margin: 0 auto;
     padding: 30px;
     border-radius: 12px;
-    background-color: rgba(186, 65, 38, 0.9);
+    background-color: rgba(105, 0, 16, 0.8);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border: 2px solid #fff;
+    border: 2px solid #510E23;
 }
 
 .team-title-container {
@@ -138,7 +139,7 @@ body {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #ba4126;
+    color: #690010;
 }
 
 .organizer-role {

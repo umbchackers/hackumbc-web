@@ -23,20 +23,20 @@ export default function Sponsors() {
     return (
         <div className="sponsors-page relative" style={{
             // backgroundImage: "url('/hackumbc_bg_sponsors.webp')",
-            backgroundColor: "#fed5a9",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+           backgroundColor: "#E8C48D",
+            //backgroundSize: "cover",
+           // backgroundPosition: "center",
+            // backgroundRepeat: "no-repeat",
             position: "relative"
         }}>
-            <SvgTiler 
+            {/*<SvgTiler 
                 key={isMobile ? 'mobile' : 'desktop'}
                 show={true} 
                 topSrc={isMobile ? "/hackumbc_bg_mobile_sponsors3.svg" : "/hackumbc_bg_faq2.svg"} 
                 tileSrc={isMobile ? "/hackumbc_bg_mobile_sponsors3.svg" : "/hackumbc_bg_faq2.svg"} 
                 aspectRatio={1.5}
                 isMobile={isMobile}
-            />
+            /> */}
             <div className="sponsors-section-title relative z-10 text-black" data-aos="fade-up">
                 <SectionTitle title="SPONSORS"/>
             </div>
