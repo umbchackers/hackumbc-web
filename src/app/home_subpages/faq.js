@@ -93,19 +93,19 @@ export default function FAQ() {
                 </a>
             </>
         },
-        {/*
-            question: "Where can I view the MLH Code of Conduct?",
-            answer: <>
-                You can view it here:{" "}
-                <a
-                    href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    MLH Code of Conduct
-                </a>
-            </>
-        */}  
+        // {/*
+        //     question: "Where can I view the MLH Code of Conduct?",
+        //     answer: <>
+        //         You can view it here:{" "}
+        //         <a
+        //             href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md"
+        //             target="_blank"
+        //             rel="noopener noreferrer"
+        //         >
+        //             MLH Code of Conduct
+        //         </a>
+        //     </>
+        // */}  
     ];
 
     return (
