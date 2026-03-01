@@ -19,6 +19,21 @@ export default function Sponsors() {
         });
         AOS.refresh();
     }, []);
+ 
+
+    //add
+    const workshops = [
+    {
+        title: "GDG Workshop: Getting Started with Google Cloud",
+        host: "Google Developer Groups (GDG)",
+        description: "This Google Developer Groups (GDG) workshop will introduce participants to the fundamentals of deploying an application on Google Cloud. Attendees will learn how to set up a cloud project, configure authentication, and deploy a live application using Cloud Run. Designed for beginners, this session requires no prior cloud experience."
+    },
+    {
+        title: "CWIT Cyber Leads Workshop",
+        host: "CWIT",
+        description: "TBD"
+    }
+];
 
     return (
         <div className="sponsors-page relative" style={{
@@ -38,18 +53,23 @@ export default function Sponsors() {
                 isMobile={isMobile}
             /> */}
             <div className="sponsors-section-title relative z-10 text-black" data-aos="fade-up">
-                <SectionTitle title="SPONSORS"/>
+               {/* <SectionTitle title="SPONSORS"/> */}
+               <SectionTitle title="WORKSHOPS"/>
             </div>
             <div className="sponsors-title-subheading relative z-10 text-black" data-aos="fade-up">
-                Thank You to Our Incredible Sponsors!
+               {/*} Thank You to Our Incredible Sponsors!*/}
+               Check Out Our Workshops!
             </div>
             <div className="sponsors-content relative z-10" data-aos="fade-up">
                 <div className="sponsors-unified-container" data-aos="fade-up">
                     <div className="sponsors-intro-text">
-                        hackUMBC wouldn't be possible without the generous support of our sponsors, click on their logos to check them out!
+                       {/*} hackUMBC wouldn't be possible without the generous support of our sponsors, click on their logos to check them out! */}
+                       Explore our workshops below!
                     </div>
+
+                    {/* ── OLD SPONSOR LOGOS (commented out) ──
                     <div className="sponsors-all-logos">
-                        {/* diamond */}
+                         //diamond 
                         <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/coeit.webp"
@@ -59,7 +79,7 @@ export default function Sponsors() {
                             />
                         </a>
                         
-                        {/* platinum */}
+                         //platinum 
                         <a href="https://www.troweprice.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/trowepricelogo.webp"
@@ -77,7 +97,7 @@ export default function Sponsors() {
                             />
                         </a>
                         
-                        {/* Gold */}
+                                   //Gold 
                         <a href="https://www.lockheedmartin.com/en-us/index.html" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/lockheedmartin.webp"
@@ -103,7 +123,7 @@ export default function Sponsors() {
                             />
                         </a>
                         
-                        {/* silver */}
+                        
                         <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/apl.webp"
@@ -128,7 +148,7 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        {/* bronze */}
+                              //bronze 
                         <a href="https://boozallen.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/BAH.webp"
@@ -186,7 +206,7 @@ export default function Sponsors() {
                             />
                         </a>
                         
-                        {/* partners */}
+                        // partners 
                         <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/pure-buttons.webp"
@@ -210,10 +230,22 @@ export default function Sponsors() {
                                 className="sponsors-logo"
                                 loading="eager"
                             />
-                        </a> */}
+                        </a> 
+                    </div>
+                    ── END OLD SPONSOR LOGOS ── */}
+                     {/* ── WORKSHOPS ── */}
+                    <div className="workshops-list">
+                        {workshops.map((workshop, index) => (
+                            <div className="workshop-card" key={index} data-aos="fade-up">
+                                <h3 className="workshop-title">{workshop.title}</h3>
+                                <p className="workshop-host">Hosted by: {workshop.host}</p>
+                                <p className="workshop-description">{workshop.description}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
         </div>
+
     );
 }

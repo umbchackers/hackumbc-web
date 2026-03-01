@@ -193,3 +193,59 @@
         font-size: 0.9rem;
     }
 }
+
+/* ── Workshop Cards ── */
+.workshops-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 10px 0;
+}
+
+.workshop-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    padding: 28px 32px;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.workshop-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.workshop-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.workshop-host {
+    font-size: 1rem;
+    color: #f0c87a;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.workshop-description {
+    font-size: 1rem;
+    color: #f0e6d3;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .workshop-card {
+        padding: 20px 18px;
+    }
+
+    .workshop-title {
+        font-size: 1.15rem;
+    }
+
+    .workshop-description {
+        font-size: 0.9rem;
+    }
+}
