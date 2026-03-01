@@ -85,11 +85,11 @@ export default function FAQ() {
             answer: <>
                 Yes! You can see examples at:{" "}
                 <a
-                    href="https://hackumbc-fall-2024.devpost.com/project-gallery"
+                    href="https://hackumbc-2025.devpost.com/project-gallery"
                     target="_blank" 
                     rel="noopener noreferrer"
                 >
-                    https://hackumbc-fall-2024.devpost.com/project-gallery
+                    https://hackumbc-2025.devpost.com/project-gallery
                 </a>
             </>
         },

@@ -61,8 +61,8 @@ export default function Home() {
       {/* Medieval text */}
         <div className="absolute top-0 left-0 w-full h-full z-10 flex flex-col items-center justify-center pointer-events-none" style={{ paddingBottom: isMobile ? '0' : '200px' }}>
           
-          <img 
-           src="/hackumbc 2026 text.svg" 
+          <object 
+           data="/hackumbc 2026 text.svg" 
            alt="hackUMBC 2026" 
            style={{ width: isMobile ? '90%' : '60%', maxWidth: '800px', height: 'auto' }}
           />
