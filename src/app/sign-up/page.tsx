@@ -8,6 +8,7 @@ import Papa from "papaparse";
 // import "react-phone-input-2/lib/style.css";`
 import "../globals.css";
 import { StarsBackground } from "../components/stars-background";
+import { MultiSelect } from "@/components/ui/multi-select";
 
 export default function Survey() {
   const [savedData, setSavedData] = useState(null);
@@ -20,7 +21,7 @@ export default function Survey() {
   const [otherSchool, setOtherSchool] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   //const [isAgreed, setIsAgreed] = useState(false);
- // const [isAgreed2, setIsAgreed2] = useState(false);
+  // const [isAgreed2, setIsAgreed2] = useState(false);
   const [shareEmail, setShareEmail] = useState(false);
   const [mediaConsent, setMediaConsent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -31,7 +32,7 @@ export default function Survey() {
   //};
 
   //const handleCheckboxChange2 = (event) => {
-   // setIsAgreed2(event.target.checked);
+  // setIsAgreed2(event.target.checked);
   //};
 
   const handleUniversityChange = (event) => {
@@ -71,10 +72,7 @@ export default function Survey() {
 
   const [dietaryRestrictions, setDietaryRestrictions] = useState([]);
 
-  const handleDietaryChange = (event) => {
-    const selectedOptions = Array.from(event.target.selectedOptions).map(
-      (option) => option.value,
-    );
+  const handleDietaryChange = (selectedOptions) => {
     setDietaryRestrictions(selectedOptions);
 
     if (selectedOptions.includes("allergies")) {
@@ -88,10 +86,10 @@ export default function Survey() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-  // if (!isAgreed || !isAgreed2) {
-  //  setError("You must agree to the conditions to proceed.");
-  //  return;
-  // }
+    // if (!isAgreed || !isAgreed2) {
+    //  setError("You must agree to the conditions to proceed.");
+    //  return;
+    // }
 
     setIsSubmitting(true);
     setLoading(true);
@@ -152,7 +150,7 @@ export default function Survey() {
       {/* for the pop up^ */}
       <Navbar />
       <div className="sign-up bg-scroll relative">
-      <StarsBackground className="absolute inset-0 -z-10" />
+        <StarsBackground className="absolute inset-0 -z-10" />
         <div className="flex justify-center items-center min-h-screen">
           <div className="w-full max-w-2xl p-8 rounded-lg formBox">
             <div className="flex justify-center mb-6">
@@ -273,7 +271,6 @@ export default function Survey() {
                   <option value="other">Other</option>
                 </select>
               </div>
-
               {isOtherSelected && (
                 <div className="mb-4">
                   <label
@@ -294,7 +291,6 @@ export default function Survey() {
                   />
                 </div>
               )}
-
               {!isNonUniStudent && !isOtherSelected && (
                 <>
                   {/* Major Field */}
@@ -340,7 +336,6 @@ export default function Survey() {
                   </div>
                 </>
               )}
-
               <div className="mb-4">
                 <label className="block text-white text-sm font-bold mb-2">
                   What is your level of study?{" "}
@@ -433,7 +428,6 @@ export default function Survey() {
                   </label>
                 </div>
               </div>
-
               {/* Age Field */}
               <div className="mb-4">
                 <label
@@ -451,7 +445,6 @@ export default function Survey() {
                   required
                 />
               </div>
-
               {/* Country Field */}
               <div className="mb-4">
                 <label
@@ -680,7 +673,6 @@ export default function Survey() {
                   <option value="other">Other</option>
                 </select>
               </div>
-
               {/* Discord ID (Optional) */}
               {/* <div className="mb-4">
                 <label
@@ -697,7 +689,6 @@ export default function Survey() {
                   placeholder="Enter your Discord ID"
                 />
               </div> */}
-
               {/* LinkedIn (Optional) */}
               {/* <div className="mb-4">
               //   <label
@@ -714,7 +705,6 @@ export default function Survey() {
               //     placeholder="Enter your LinkedIn"
               //   />
               // </div> */}
-
               {/* T-Shirt Size */}
               <div className="mb-4">
                 <label
@@ -764,14 +754,14 @@ export default function Survey() {
                 >
                   Select Dietary Restrictions{" "}
                   <span className="text-gray-400">(Optional)</span>
-                  <p>
+                  {/* <p>
                     <i>
                       (Ctrl + Click on Windows or Cmd + Click on MacOS to select
                       multiple)
                     </i>
-                  </p>
+                  </p>*/}
                 </label>
-                <select
+                {/* <select
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                   id="dietaryRestrictions"
                   name="dietaryRestrictions"
@@ -783,8 +773,32 @@ export default function Survey() {
                   <option value="halal">Halal</option>
                   <option value="vegetarian">Vegetarian</option>
                   <option value="allergies">Allergies</option>
-                </select>
+                </select>*/}
               </div>
+              <MultiSelect
+                className="bg-gray-800 text-white border border-gray-600 hover:bg-gray-800 focus:outline-none focus:border-blue-500"
+                placeholder="Select Dietary Restrictions (Optional)"
+                onValueChange={handleDietaryChange}
+                options={[
+                  { value: "vegan", label: "Vegan" },
+                  {
+                    value: "glutenfree",
+                    label: "Gluten Free",
+                  },
+                  {
+                    value: "halal",
+                    label: "Halal",
+                  },
+                  {
+                    value: "vegetarian",
+                    label: "Vegetarian",
+                  },
+                  {
+                    value: "allergies",
+                    label: "Allergies",
+                  },
+                ]}
+              />
               {allergies && (
                 <div className="mb-4">
                   <label
@@ -804,7 +818,6 @@ export default function Survey() {
                   />
                 </div>
               )}
-
               {/* Ethnicity Field */}
               <div className="mb-4">
                 <label
@@ -852,7 +865,6 @@ export default function Survey() {
                   </option>
                 </select>
               </div>
-
               {/* Gender Field */}
               <div className="mb-4">
                 <label
@@ -876,7 +888,6 @@ export default function Survey() {
                   <option value="preferNotToSay">Prefer not to say</option>
                 </select>
               </div>
-
               {/* Pronouns Field */}
               <div className="mb-4">
                 <label
@@ -900,7 +911,6 @@ export default function Survey() {
                   <option value="other">Other</option>
                 </select>
               </div>
-
               {/* Resume Upload Field */}
               {/* <div className="mb-4">
                 <label
@@ -918,7 +928,6 @@ export default function Survey() {
                   accept="application/pdf"
                 />
               </div> */}
-
               {/* MLH Checkmark Agreement, remove paragraph once done */}
               {/* <p className="p-2 font-bold text-md light-mode-text">
                 We are partnered with MLH. The following checkbox is for this
@@ -946,7 +955,6 @@ export default function Survey() {
                   <span className="text-red-500">*</span>
                 </label>
               </div>
-
               <div className="p-2 mb-4 flex items-center">
                 <input
                   id="agree2"
@@ -963,7 +971,6 @@ export default function Survey() {
                   <span className="text-red-500">*</span>
                 </label>
               </div>
-
               <div className="p-2 mb-4 flex items-center">
                 <input
                   id="mlh_emailagreement"
@@ -999,7 +1006,7 @@ export default function Survey() {
                 </label>
               </div>
 
-              {/* Media Consent Agreement 
+              {/* Media Consent Agreement
               <div className="p-2 mb-4 flex items-center">
                 <input
                   id="mediaConsent"
@@ -1054,7 +1061,7 @@ export default function Survey() {
                 Form submitted successfully!
               </p>
             )}
-          </div>
+          </div>{" "}
         </div>
         <div className="footer-info">
           <p>&copy; 2025 hackUMBC. All rights reserved.</p>
