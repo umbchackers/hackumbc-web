@@ -118,7 +118,7 @@ export default function Schedule() {
     };
 
     // schedule data for day 1
-    const day1Schedule = [
+    /* const day1Schedule = [
         { time: '9 AM', endTime: '10 AM', event: 'Check In', location: 'ENGINEERING ATRIUM' },
         { time: '10 AM', endTime: '11 AM', event: 'Networking Fair', location: 'ENGINEERING ATRIUM' },
         { time: '11 AM', endTime: '12 PM', event: 'Opening Ceremony', location: 'ENGINEERING 027' },
@@ -147,17 +147,29 @@ export default function Schedule() {
         { time: '2 PM', endTime: '3:10 PM', event: 'Judging Wave 1', location: 'UC BALLROOM' },
         { time: '3:10 PM', endTime: '4:30 PM', event: 'Judging Wave 2', location: 'UC BALLROOM' },
         { time: '4:30 PM', endTime: '5 PM', event: 'Closing Ceremony', location: 'UC BALLROOM LOUNGE' },
-    ];
+    ]; */
+
+    //mini Hackathon schedule
+    const scheduleData = [
+    { time: '7:30 AM', endTime: '8:00 AM', event: 'Check In & Breakfast', location: 'ITE 233', notes: 'Team Formation & Networking' },
+    { time: '8:00 AM', endTime: '8:15 AM', event: 'Opening Remarks', location: 'ITE 233' },
+    { time: '8:15 AM', endTime: '8:30 AM', event: 'Coding Begins', location: '' },
+    { time: '10:00 AM', endTime: '11:00 AM', event: 'GDG Workshop', location: 'ITE 237', notes: 'GDG' },
+    { time: '12:00 PM', endTime: '1:00 PM', event: 'Lunch', location: '' },
+    { time: '1:00 PM', endTime: '3:00 PM', event: 'Continue Coding', location: '' },
+    { time: '3:00 PM', endTime: '4:00 PM', event: 'Cwit Cyber Leads Workshop', location: 'ITE 237', notes: 'CWIT Cyber Leads' },
+    { time: '6:00 PM', endTime: '7:00 PM', event: 'Dinner', location: '' },
+    { time: '7:00 PM', endTime: '8:00 PM', event: 'Final Touches & Submissions', location: '' },
+    { time: '8:00 PM', endTime: '9:00 PM', event: 'Judging / Demos / Closing Remarks', location: '' },
+];
 
 
     const renderTimeline = () => {
-        const scheduleData = activeDay === 'September 28th' ? day1Schedule : day2Schedule;
-        
-        return (
-            <div className="timeline-container" ref={timelineRef}>
-                <div className="timeline">
-                    {scheduleData.map((item, index) => {
-                        const isCurrentlyHappening = isCurrentEvent(item.time, item.endTime, activeDay, index);
+    return (
+        <div className="timeline-container" ref={timelineRef}>
+            <div className="timeline">
+                {scheduleData.map((item, index) => {
+                        const isCurrentlyHappening = isCurrentEvent(item.time, item.endTime, 'April 18th', index);
                         const eventType = getEventType(item.event);
                         
                         return (
@@ -198,27 +210,27 @@ export default function Schedule() {
     return (
         <div className="schedule-page" style={{
             // backgroundImage: "url('/hackumbc_bg_schedule.webp')",
-            backgroundColor: "#fed5a9",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+            backgroundColor: "#E8C48D",
+           // backgroundSize: "cover",
+           // backgroundPosition: "center",
+            // backgroundRepeat: "no-repeat",
             position: "relative",
         }}>
-            <SvgTiler 
+           {/*} <SvgTiler 
                 show={true}
                 topSrc={isMobile ? "/hackumbc_bg_mobile_schedule.svg" : "/hackumbc_bg_schedule1.svg"}
                 tileSrc={isMobile ? "/hackumbc_bg_mobile_schedule2.svg" : "/hackumbc_bg_schedule2.svg"}
                 aspectRatio={1.5}
-            />
+            /> */}
             <div className="schedule-content">
                 <div className="schedule-section-title" data-aos="fade-up">
                     <SectionTitle title="SCHEDULE"/>
                 </div>
                 <div className="schedule-title-subheading" data-aos="fade-up">
-                    hackUMBC 2025 Schedule
+                    hackUMBC 2026 Mini Hackathon Schedule
                 </div>
                 
-                <div className="schedule-day-switch" data-aos="fade-up">
+              {/*  <div className="schedule-day-switch" data-aos="fade-up">
                     <button 
                         className={`tab-button ${activeDay === 'September 28th' ? 'active-tab' : ''}`} 
                         onClick={() => setActiveDay('September 28th')}
@@ -231,7 +243,7 @@ export default function Schedule() {
                     >
                         Day 2
                     </button>
-                </div>
+                </div> */}
                 
                 {renderTimeline()}
                 

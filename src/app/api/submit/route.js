@@ -8,8 +8,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
-const Table =
-  process.env.NEXT_PUBLIC_AWS_TABLE_NAME || "mini-hackathon-2026-registration";
+const Table = process.env.NEXT_PUBLIC_AWS_TABLE_NAME || "mini-hackathon-2026-registration";
 
 const s3 = new S3Client({
   region: process.env.NEXT_PUBLIC_AWS_REGION,

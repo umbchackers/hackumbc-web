@@ -27,12 +27,15 @@ export default function Footer() {
     }
 
     return (
-        <div className="footer-page">
-            <img 
+        <div className="footer-page" style={{
+            backgroundColor: "#E8C48D",
+            position: "relative"
+        }}>
+           {/* <img 
             src={isMobile ? "/hackumbc_bg_mobile_sponsors.svg" : "/hackumbc_bg_footer1.svg"}
             className="footer-svg"
             alt=""
-        />
+        /> */}
             <div className="footer-content" data-aos="fade-in">
                 <div className="tracks flex"> {/* adjusted the className styling for centering on mobile for tracks */}
                     <Track title="TWITTER" link="https://x.com/hackumbc">
@@ -46,7 +49,7 @@ export default function Footer() {
                     </Track>
                 </div>
                 <div className="footer-info">
-                    <p>&copy; 2025 hackUMBC. All rights reserved.</p>
+                    <p>&copy; 2026 hackUMBC. All rights reserved.</p>
                     <p className="mt-2">
                       <Link href="/privacy-policy" className="footer-link"> Privacy Policy</Link> |
                       <Link href="/terms-of-service" className="footer-link">Terms of Service</Link> |

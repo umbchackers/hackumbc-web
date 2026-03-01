@@ -41,7 +41,7 @@ export default function Home() {
       height: "100vh",
       overflow: "hidden"
     }}>
-      {isMobile !== null && <video
+      {/* isMobile !== null && <video
         autoPlay
         muted
         loop
@@ -51,7 +51,25 @@ export default function Home() {
       >
         <source src={isMobile ? '/hackumbc_bg_mobile.mp4' : '/hackumbc_bg_home.mp4'} type="video/mp4" />
         Your browser does not support the video tag
-      </video>}
+      </video> */}
+
+    {/* Basic medieval background - placeholder until full bg is ready */}
+    <div className="absolute top-0 left-0 w-full h-full z-0" 
+     style={{ backgroundColor: '#E8C48D' }}
+      />
+
+      {/* Medieval text */}
+        <div className="absolute top-0 left-0 w-full h-full z-10 flex flex-col items-center justify-center pointer-events-none" style={{ paddingBottom: isMobile ? '0' : '200px' }}>
+          
+          <object 
+           data="/hackumbc 2026 text.svg" 
+           alt="hackUMBC 2026" 
+           style={{ width: isMobile ? '90%' : '60%', maxWidth: '800px', height: 'auto' }}
+          />
+        </div>
+
+
+
       <div className="home-container" style={{ 
         zIndex: 10,
         display: "flex",

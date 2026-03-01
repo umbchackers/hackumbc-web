@@ -39,7 +39,7 @@ export default function FAQ() {
     const faqsColumnOne = [
         {
             question: "What is hackUMBC?",
-            answer: "hackUMBC is a 24-hour hackathon, from September 27th to September 28th, held at the University of Maryland, Baltimore County. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types. is a 24-hour hackathon, usually in September, held at the University of Maryland, Baltimore County, in ITE, Engineering, and University Center buildings. The event brings students together from different backgrounds and skill levels, all with the goal of using hardware and software to design and create projects of all types."
+            answer: "hackUMBC is UMBC’s official student run hackathon, best known for hosting the university’s annual 24 hour hackathon each fall. It brings together students of all backgrounds and skill levels to learn new technologies, collaborate on creative projects, and build software or hardware solutions in a supportive, hands on environment."
         },
         {
             question: "Who can attend the hackathon?",
@@ -51,7 +51,7 @@ export default function FAQ() {
         },
         {
             question: "How do teams work for the hackathon?",
-            answer: "You can either work solo or in teams of up to 4 members, and we will offer time at the beginning of the hackathon to network with potential team members."
+            answer: "You can either work solo or in teams of up to 3 members."
         },
         {
             question: "What can I make? May I build on an existing project?",
@@ -85,45 +85,46 @@ export default function FAQ() {
             answer: <>
                 Yes! You can see examples at:{" "}
                 <a
-                    href="https://hackumbc-fall-2024.devpost.com/project-gallery"
+                    href="https://hackumbc-2025.devpost.com/project-gallery"
                     target="_blank" 
                     rel="noopener noreferrer"
                 >
-                    https://hackumbc-fall-2024.devpost.com/project-gallery
+                    https://hackumbc-2025.devpost.com/project-gallery
                 </a>
             </>
         },
-        {
-            question: "Where can I view the MLH Code of Conduct?",
-            answer: <>
-                You can view it here:{" "}
-                <a
-                    href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    MLH Code of Conduct
-                </a>
-            </>
-        }
+        // {/*
+        //     question: "Where can I view the MLH Code of Conduct?",
+        //     answer: <>
+        //         You can view it here:{" "}
+        //         <a
+        //             href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md"
+        //             target="_blank"
+        //             rel="noopener noreferrer"
+        //         >
+        //             MLH Code of Conduct
+        //         </a>
+        //     </>
+        // */}  
     ];
 
     return (
         <div className="faq-page relative" style={{
             // backgroundImage: "url('/hackumbc_bg_faq.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+            backgroundColor: "#E8C48D",
+          //  backgroundSize: "cover",
+          //  backgroundPosition: "center",
+          //  backgroundRepeat: "no-repeat",
             position: "relative",
         }}>
-            <SvgTiler 
+            {/* <SvgTiler 
                 key={isMobile ? 'mobile' : 'desktop'}
                 show={true} 
                 topSrc={isMobile ? "/hackumbc_bg_mobile_faq.svg" : "/hackumbc_bg_faq1.svg"}
                 tileSrc={isMobile ? "/hackumbc_bg_mobile_faq2.svg" : "/hackumbc_bg_faq2.svg"} 
                 aspectRatio={1440/1019.2}
                 isMobile={isMobile}
-            />
+            /> */}
             {showContent && (
                 <>
             <div className="faq-section-title relative z-10 text-black" data-aos="fade-up">

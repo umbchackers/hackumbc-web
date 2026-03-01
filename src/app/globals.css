@@ -21,16 +21,16 @@ canvas {
   background-color: black !important;
 }
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     width: 100%;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
@@ -40,9 +40,13 @@ canvas {
     background: black !important;
     color: white !important;
   }
-}
+} */
 
 body {
+  color: rgb(var(--foreground-rgb));
+  /* background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
   overflow-x: hidden;
 }
 
@@ -63,8 +67,6 @@ body {
   color: #f6c78b;
   margin-left: 14px;
 }
-
-
 
 @layer base {
   :root {

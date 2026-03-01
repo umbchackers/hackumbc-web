@@ -80,6 +80,7 @@
     align-items: center;
     min-height: 100vh;
     width: 100%;
+     background-color: #E8C48D !important;
 }
 
 .light-mode-text {
@@ -102,7 +103,8 @@
 @media (max-width: 768px) {
     .about-page {
         background-image: none;
-        background-color: #fed5a9;
+      /* background-color: #fed5a9; */
+         background: linear-gradient(135deg, #E8C48D, #C68A5C) !important;
         position: relative;
         overflow: hidden;
         width: 100%;
@@ -208,7 +210,7 @@
 }
 
 .rainbow-ripple {
-    background: linear-gradient(90deg, #ff0004, #ff5500, #c7a600, #5cf100, #00a6ff, #8c00ff, #ff00ae, #ff0004);
+    background: linear-gradient(90deg, #690010, #A34F2B, #977837, #DD9E45, #510E23, #391C36, #690010);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -226,7 +228,7 @@
     width: 100%;
     margin-top: 2px;
     border-radius: 2px;
-    background: linear-gradient(90deg, #ff0004, #ff5500, #c7a600, #5cf100, #00a6ff, #8c00ff, #ff00ae, #ff0004);
+    background: linear-gradient(90deg, #690010, #A34F2B, #977837, #DD9E45, #510E23, #391C36, #690010);
     background-size: 200% 100%;
     animation: rainbow-ripple-bounce 3s ease-in-out infinite;
 }

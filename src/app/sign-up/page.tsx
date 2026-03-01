@@ -20,20 +20,20 @@ export default function Survey() {
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [otherSchool, setOtherSchool] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isAgreed, setIsAgreed] = useState(false);
-  const [isAgreed2, setIsAgreed2] = useState(false);
+  //const [isAgreed, setIsAgreed] = useState(false);
+  // const [isAgreed2, setIsAgreed2] = useState(false);
   const [shareEmail, setShareEmail] = useState(false);
   const [mediaConsent, setMediaConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleCheckboxChange = (event) => {
-    setIsAgreed(event.target.checked);
-  };
+  //const handleCheckboxChange = (event) => {
+  //  setIsAgreed(event.target.checked);
+  //};
 
-  const handleCheckboxChange2 = (event) => {
-    setIsAgreed2(event.target.checked);
-  };
+  //const handleCheckboxChange2 = (event) => {
+  // setIsAgreed2(event.target.checked);
+  //};
 
   const handleUniversityChange = (event) => {
     const selectedValue = event.target.value;
@@ -86,10 +86,10 @@ export default function Survey() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!isAgreed || !isAgreed2) {
-      setError("You must agree to the conditions to proceed.");
-      return;
-    }
+    // if (!isAgreed || !isAgreed2) {
+    //  setError("You must agree to the conditions to proceed.");
+    //  return;
+    // }
 
     setIsSubmitting(true);
     setLoading(true);
@@ -929,7 +929,7 @@ export default function Survey() {
                 />
               </div> */}
               {/* MLH Checkmark Agreement, remove paragraph once done */}
-              <p className="p-2 font-bold text-md light-mode-text">
+              {/* <p className="p-2 font-bold text-md light-mode-text">
                 We are partnered with MLH. The following checkbox is for this
                 partnership.
               </p>
@@ -985,8 +985,9 @@ export default function Survey() {
                   I authorize MLH to send me occasional emails about relevant
                   events, career opportunities, and community announcements.
                 </label>
-              </div>
-              {/* Email Sharing Agreement */}
+              </div> */}
+
+              {/* Email Sharing Agreement }
               <p className="p-2 font-bold text-md light-mode-text">
                 hackUMBC Privacy and Consent Agreements
               </p>
@@ -1004,7 +1005,8 @@ export default function Survey() {
                   receive emails about internship/job opportunities.
                 </label>
               </div>
-              {/* Media Consent Agreement */}
+
+              {/* Media Consent Agreement
               <div className="p-2 mb-4 flex items-center">
                 <input
                   id="mediaConsent"
@@ -1033,8 +1035,9 @@ export default function Survey() {
                   for the unrestricted use of any imagery encompassing my
                   voluntary presence (e.g., "photobombing").
                 </label>
-              </div>
-              <div className="flex items-center justify-between">
+              </div> */}
+
+              {/* <div className="flex items-center justify-between">
                 {
                   <button
                     type="submit"
@@ -1048,7 +1051,7 @@ export default function Survey() {
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 }
-              </div>
+              </div> */}
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>
@@ -1058,7 +1061,7 @@ export default function Survey() {
                 Form submitted successfully!
               </p>
             )}
-          </div>
+          </div>{" "}
         </div>
         <div className="footer-info">
           <p>&copy; 2025 hackUMBC. All rights reserved.</p>
