@@ -781,7 +781,7 @@ export default function Survey() {
                 className="bg-gray-800 text-white border border-gray-600 hover:bg-gray-800 focus:outline-none focus:border-blue-500"
                 placeholder="Select Dietary Restrictions (Optional)"
                 onValueChange={handleDietaryChange}
-                value={["vegan"]}
+                defaultValue={dietaryRestrictions}
                 options={[
                   { value: "vegan", label: "Vegan" },
                   {
