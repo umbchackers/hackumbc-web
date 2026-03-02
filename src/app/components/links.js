@@ -116,7 +116,7 @@ export default function LinkBox({ href, title, desc }) {
           left: 0,
           width: '100%',
           height: '100%',
-          background: '#d64727',
+          background: '#A34F2B',
           zIndex: 1,
           transition: 'top 0.5s ease',
           display: isMobile ? 'none' : 'block' // Hide hover effect on mobile
