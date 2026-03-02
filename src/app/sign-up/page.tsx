@@ -1040,7 +1040,7 @@ export default function Survey() {
                 </label>
               </div> */}
 
-              {
+              {/*
                 <div className="flex items-center justify-between">
                   <button
                     type="submit"
@@ -1054,7 +1054,7 @@ export default function Survey() {
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 </div>
-              }
+                */}
 
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
