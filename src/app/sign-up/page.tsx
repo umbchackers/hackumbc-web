@@ -164,7 +164,7 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Ups Are CLOSED!
+              Sign Ups Are OPEN!
             </h2>
             <p className="text-sm italic mb-6 text-center light-mode-text">
               Fields marked by <span className="text-red-500">*</span> are
@@ -1037,11 +1037,11 @@ export default function Survey() {
                 </label>
               </div> */}
 
-              {/* <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 {
                   <button
                     type="submit"
-                    disabled={isSubmitting || !isAgreed}
+                    disabled={isSubmitting}
                     className={`btn-custom transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
                       isSubmitting
                         ? "opacity-50 cursor-not-allowed"
@@ -1051,7 +1051,7 @@ export default function Survey() {
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 }
-              </div> */}
+              </div>
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>
