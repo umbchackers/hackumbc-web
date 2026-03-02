@@ -130,6 +130,8 @@ export default function Survey() {
         setSavedData(null);
         event.target.reset(); // Reset the form
       }, 8000);
+
+      setDietaryRestrictions([]);
     } catch (error) {
       setTimeout(() => {
         setLoading(false);
@@ -261,7 +263,7 @@ export default function Survey() {
                   required
                   onChange={handleUniversityChange}
                 >
-                  <option> Select Option</option>
+                  <option value={""}> Select Option</option>
                   <option value="not_uni">Not a University Student</option>
                   {universities.map((university, index) => (
                     <option key={index} value={university}>
@@ -779,6 +781,7 @@ export default function Survey() {
                 className="bg-gray-800 text-white border border-gray-600 hover:bg-gray-800 focus:outline-none focus:border-blue-500"
                 placeholder="Select Dietary Restrictions (Optional)"
                 onValueChange={handleDietaryChange}
+                value={["vegan"]}
                 options={[
                   { value: "vegan", label: "Vegan" },
                   {
@@ -1037,21 +1040,22 @@ export default function Survey() {
                 </label>
               </div> */}
 
-              {/* <div className="flex items-center justify-between">
-                {
+              {
+                <div className="flex items-center justify-between">
                   <button
                     type="submit"
-                    disabled={isSubmitting || !isAgreed}
+                    disabled={isSubmitting}
                     className={`btn-custom transform transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 ${
                       isSubmitting
                         ? "opacity-50 cursor-not-allowed"
                         : "hover:scale-105"
-                    }`}
+                    }`} // this
                   >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
-                }
-              </div> */}
+                </div>
+              }
+
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>
