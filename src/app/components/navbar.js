@@ -124,7 +124,7 @@ export default function Navbar() {
                 }
               }}
             >
-              Sponsors
+              Workshops
             </Link>
             <Link
               id="left-nav-button"

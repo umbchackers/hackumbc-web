@@ -1,6 +1,5 @@
 .privacy-policy-page {
-    /* background-image: url('/hackumbc_bg.webp'); */
-    background: linear-gradient(to bottom, #E8C48D, #C68A5C, #A34F2B);
+    background-image: url('/hackumbc_bg.webp');
     color: #000000;
     min-height: 100vh;
     display: flex;
@@ -15,7 +14,6 @@
     margin: 0 auto;
     padding-top: 50px;
     margin-top: 1.5rem;
-    
 }
 
 .privacy-policy-content p {
@@ -43,7 +41,7 @@ a:hover {
 }
 
 .special-text {
-    color: #7EB8C9;
+    color: #00bbff;
     font-weight: 600;
     text-decoration: underline;
 }

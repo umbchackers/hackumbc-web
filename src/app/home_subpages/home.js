@@ -61,8 +61,8 @@ export default function Home() {
       {/* Medieval text */}
         <div className="absolute top-0 left-0 w-full h-full z-10 flex flex-col items-center justify-center pointer-events-none" style={{ paddingBottom: isMobile ? '0' : '200px' }}>
           
-          <img 
-           src="/hackumbc 2026 text.svg" 
+          <object 
+           data="/hackumbc 2026 text.svg" 
            alt="hackUMBC 2026" 
            style={{ width: isMobile ? '90%' : '60%', maxWidth: '800px', height: 'auto' }}
           />
@@ -85,10 +85,15 @@ export default function Home() {
           position: isMobile ? "relative" : "absolute",
           bottom: isMobile ? "auto" : "100px",
         }}>
-          <LinkBox
+          {/* <LinkBox
             href="https://hackumbc.typeform.com/to/qM9YbL6E"
             desc="Apply to be an Organizer for hackUMBC 2026! Applications are open until 10/25."
             title="Apply to Organize"
+          /> */}
+          <LinkBox
+            href="/sign-up"
+            desc="Registration for hackUMBC 2026 mini-hackathon is now open! Click this button to go to the sign up page!"
+            title="Registration"
           />
           <LinkBox
             href="https://hackumbc-2025.devpost.com/"
