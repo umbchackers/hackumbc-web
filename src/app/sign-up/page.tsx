@@ -130,6 +130,8 @@ export default function Survey() {
         setSavedData(null);
         event.target.reset(); // Reset the form
       }, 8000);
+
+      setDietaryRestrictions([]);
     } catch (error) {
       setTimeout(() => {
         setLoading(false);
@@ -261,7 +263,7 @@ export default function Survey() {
                   required
                   onChange={handleUniversityChange}
                 >
-                  <option> Select Option</option>
+                  <option value={""}> Select Option</option>
                   <option value="not_uni">Not a University Student</option>
                   {universities.map((university, index) => (
                     <option key={index} value={university}>
@@ -779,6 +781,7 @@ export default function Survey() {
                 className="bg-gray-800 text-white border border-gray-600 hover:bg-gray-800 focus:outline-none focus:border-blue-500"
                 placeholder="Select Dietary Restrictions (Optional)"
                 onValueChange={handleDietaryChange}
+                defaultValue={dietaryRestrictions}
                 options={[
                   { value: "vegan", label: "Vegan" },
                   {
@@ -1046,7 +1049,7 @@ export default function Survey() {
                       isSubmitting
                         ? "opacity-50 cursor-not-allowed"
                         : "hover:scale-105"
-                    }`}
+                    }`} // this
                   >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
