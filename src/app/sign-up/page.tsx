@@ -1067,7 +1067,7 @@ export default function Survey() {
           </div>{" "}
         </div>
         <div className="footer-info">
-          <p>&copy; 2025 hackUMBC. All rights reserved.</p>
+          <p>&copy; 2026 hackUMBC. All rights reserved.</p>
           <p className="mt-2">
             <a href="/privacy-policy" className="footer-link">
               Privacy Policy
