@@ -5,6 +5,7 @@ import FAQ from "./home_subpages/faq.js";
 import Sponsors from "./home_subpages/sponsors.js";
 import Navbar from "./components/navbar.js";
 import Footer from "./components/footer.js";
+import AnalyticFrames from "./home_subpages/AnalyticFrames";
 
 //updated main with ids for navbar, so links are fixed now
 export default function Main() {
@@ -16,6 +17,9 @@ export default function Main() {
       </div>
       <div id="about">
         <About />
+      </div>
+      <div>
+        <AnalyticFrames />
       </div>
       <div id="schedule">
         <Schedule />
