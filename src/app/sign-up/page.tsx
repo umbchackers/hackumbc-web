@@ -151,8 +151,9 @@ export default function Survey() {
       )}
       {/* for the pop up^ */}
       <Navbar />
-      <div className="sign-up bg-scroll relative">
-        <StarsBackground className="absolute inset-0 -z-10" />
+      <div className="sign-up bg-scroll relative bg-black">
+        {/*<StarsBackground className="absolute inset-0 -z-10" />*/}
+
         <div className="flex justify-center items-center min-h-screen">
           <div className="w-full max-w-2xl p-8 rounded-lg formBox">
             <div className="flex justify-center mb-6">
