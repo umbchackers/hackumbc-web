@@ -36,11 +36,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="home-page" style={{
-      position: "relative",
-      height: "100vh",
-      overflow: "hidden"
-    }}>
+    <div className="home-page" style={{       //allows scrolling on mobile
+  position: "relative",
+  height: isMobile ? "auto" : "100vh",
+  overflow: isMobile ? "visible" : "hidden",
+  minHeight: "100vh"
+}}>
       {/* isMobile !== null && <video
         autoPlay
         muted
@@ -59,8 +60,8 @@ export default function Home() {
       />
 
       {/* Medieval text */}
-        <div className="absolute top-0 left-0 w-full h-full z-10 flex flex-col items-center justify-center pointer-events-none" style={{ paddingBottom: isMobile ? '0' : '200px' }}>
-          
+        <div className="absolute top-0 left-0 w-full flex flex-col items-center pointer-events-none"
+  style={{ paddingBottom: isMobile ? '0' : '200px', paddingTop: isMobile ? '20px' : '0', top: isMobile ? '15%' : '0', height: '100%', justifyContent: isMobile ? 'flex-start' : 'center', zIndex: 20 }}>
           <object 
            data="/hackumbc 2026 text.svg" 
            alt="hackUMBC 2026" 
