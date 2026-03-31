@@ -59,32 +59,30 @@ export default function Home() {
      style={{ backgroundColor: '#E8C48D' }}
       />
 
-      {/* Medieval text */}
-        <div className="absolute top-0 left-0 w-full flex flex-col items-center pointer-events-none"
-  style={{ paddingBottom: isMobile ? '0' : '200px', paddingTop: isMobile ? '20px' : '0', top: isMobile ? '15%' : '0', height: '100%', justifyContent: isMobile ? 'flex-start' : 'center', zIndex: 20 }}>
-          <object 
-           data="/hackumbc 2026 text.svg" 
-           alt="hackUMBC 2026" 
-           style={{ width: isMobile ? '90%' : '60%', maxWidth: '800px', height: 'auto' }}
-          />
-        </div>
-
-
-
       <div className="home-container" style={{ 
         zIndex: 10,
         display: "flex",
-        alignItems: isMobile ? "flex-start" : "center",
+        alignItems: "center",
         justifyContent: "center",
-        paddingTop: isMobile ? "50vh" : "0" // reduced button height on mobile
+        flexDirection: "column",
+        gap: isMobile ? "12px" : "clamp(12px, 2.5vh, 28px)",
+        paddingTop: isMobile ? "72px" : "clamp(96px, 14vh, 150px)",
+        paddingBottom: isMobile ? "0" : "clamp(24px, 8vh, 100px)"
       }}>
+        <div className="pointer-events-none" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+          <object 
+            data="/hackumbc 2026 text.svg" 
+            alt="hackUMBC 2026" 
+            style={{ width: isMobile ? '90%' : 'clamp(420px, 58vw, 800px)', maxWidth: '800px', height: 'auto' }}
+          />
+        </div>
         <div className="footer" style={{ 
           width: isMobile ? "90%" : "100%", 
           flexWrap: isMobile ? "nowrap" : "wrap",
           flexDirection: isMobile ? "column" : "row",
           gap: isMobile ? "10px" : "20px",
-          position: isMobile ? "relative" : "absolute",
-          bottom: isMobile ? "auto" : "100px",
+          position: "relative",
+          bottom: "auto",
         }}>
           {/* <LinkBox
             href="https://hackumbc.typeform.com/to/qM9YbL6E"
