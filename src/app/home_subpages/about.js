@@ -58,7 +58,7 @@ export default function About() {
     return (
         <div className="about-page" style={{
             // backgroundImage: "url('/hackumbc_bg_about.webp')",
-            backgroundColor: "#E8C48D",
+            backgroundColor: "transparent",
            // backgroundPosition: "center",
            // backgroundRepeat: "no-repeat",
             padding: isMobile ? "40px 0" : "0",

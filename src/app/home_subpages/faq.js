@@ -111,7 +111,7 @@ export default function FAQ() {
     return (
         <div className="faq-page relative" style={{
             // backgroundImage: "url('/hackumbc_bg_faq.webp')",
-            backgroundColor: "#E8C48D",
+            backgroundColor: "transparent",
           //  backgroundSize: "cover",
           //  backgroundPosition: "center",
           //  backgroundRepeat: "no-repeat",

@@ -28,7 +28,7 @@ export default function Footer() {
 
     return (
         <div className="footer-page" style={{
-            backgroundColor: "#E8C48D",
+            backgroundColor: "transparent",
             position: "relative"
         }}>
            {/* <img 

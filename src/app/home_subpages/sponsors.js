@@ -38,7 +38,7 @@ export default function Sponsors() {
     return (
         <div className="sponsors-page relative" style={{
             // backgroundImage: "url('/hackumbc_bg_sponsors.webp')",
-           backgroundColor: "#E8C48D",
+           backgroundColor: "transparent",
             //backgroundSize: "cover",
            // backgroundPosition: "center",
             // backgroundRepeat: "no-repeat",

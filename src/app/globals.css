@@ -42,6 +42,17 @@ canvas {
   }
 } */
 
+ 
+.master-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: unset;
+  object-position: top center;
+  vertical-align: top;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   /* background: linear-gradient(to bottom,

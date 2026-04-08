@@ -14,7 +14,7 @@ function Frame({ imgPath }: { imgPath: string }) {
 
 export default function AnalyticFrames() {
   return (
-    <div className="bg-[#E8C48D] py-10 flex justify-center items-center flex-wrap gap-6 p-4">
+    <div className="bg-transparent py-10 flex justify-center items-center flex-wrap gap-6 p-4">
       <Frame imgPath="/p-analyt-cropped.svg" />
       <Frame imgPath="/r-analyt-cropped.svg" />
       <Frame imgPath="/ps-analytF-cropped.svg" />
