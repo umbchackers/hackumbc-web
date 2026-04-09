@@ -86,34 +86,35 @@ export async function POST(request) {
       );
     }
 
-    try {
-      const { d, error } = await resend.emails.send({
-        from: "hackUMBC <send@hackumbc.tech>",
-        to: [data.email],
-        subject: "hackUMBC Mini Hackathon Registration Confirmation",
-        react: EmailTemplate({
-          firstName: data.firstName,
-          lastName: data.lastName,
-          email: data.email,
-        }),
-      });
+    // try {
+    //   const { d, error } = await resend.emails.send({
+    //     from: "hackUMBC <send@hackumbc.tech>",
+    //     to: [data.email],
+    //     subject: "hackUMBC Mini Hackathon Registration Confirmation",
+    //     react: EmailTemplate({
+    //       firstName: data.firstName,
+    //       lastName: data.lastName,
+    //       email: data.email,
+    //     }),
+    //   });
 
-      if (error) {
-        console.error(error);
-        return NextResponse.json({ error }, { status: 500 });
-      }
+    //   if (error) {
+    //     console.error(error);
+    //     return NextResponse.json({ error }, { status: 500 });
+    //   }
 
       return NextResponse.json(
-        { message: "Form data sent successfully!", d },
+        // { message: "Form data sent successfully!", d },
+        { message: "Form data sent successfully!"},
         { status: 200 },
       );
-    } catch (error) {
-      console.error("Failed to send email", error);
-      return NextResponse.json(
-        { error: "Failed to send email" },
-        { status: 500 },
-      );
-    }
+    // } catch (error) {
+    //   console.error("Failed to send email", error);
+    //   return NextResponse.json(
+    //     { error: "Failed to send email" },
+    //     { status: 500 },
+    //   );
+    // }
   } catch (error) {
     console.error("Unexpected error", error);
     return NextResponse.json(

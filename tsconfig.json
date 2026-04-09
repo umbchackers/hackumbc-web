@@ -40,7 +40,7 @@
     "src/app/api/submit/EmailTemplate.jsx",
     "src/app/api/submit/EmailTemplate.jsx",
     ".next/dev/types/**/*.ts"
-  ],
+, "src/app/components/master-site-background.js"  ],
   "exclude": [
     "node_modules"
   ]
