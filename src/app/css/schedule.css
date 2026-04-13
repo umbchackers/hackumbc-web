@@ -301,7 +301,7 @@
     .timeline-item::before {
         width: 12px;
         height: 12px;
-        top: 37%;
+        top: 35%;
     }
 
     .timeline {
@@ -370,8 +370,15 @@
         padding: 50px 0;
     }
 
+.timeline-item::before {
+    top: 35%;
+}
+
+
+
+
     .timeline::after {
-        top: 40%;
+        top: 35%;
     }
 
     .timeline-item {

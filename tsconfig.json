@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -14,14 +18,16 @@
     "jsx": "react-jsx",
     "plugins": [
       {
-        "name": "next",
-      },
+        "name": "next"
+      }
     ],
     "target": "ES2017",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-    },
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -33,7 +39,9 @@
     "src/app/api/submit/route.ts",
     "src/app/api/submit/EmailTemplate.jsx",
     "src/app/api/submit/EmailTemplate.jsx",
-    ".next/dev/types/**/*.ts",
-  ],
-  "exclude": ["node_modules"],
+    ".next/dev/types/**/*.ts"
+, "src/app/components/master-site-background.js"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -29,9 +29,9 @@ export default function Sponsors() {
         description: "This Google Developer Groups (GDG) workshop will introduce participants to the fundamentals of deploying an application on Google Cloud. Attendees will learn how to set up a cloud project, configure authentication, and deploy a live application using Cloud Run. Designed for beginners, this session requires no prior cloud experience."
     },
     {
-        title: "CWIT Cyber Leads Workshop",
-        host: "CWIT",
-        description: "TBD"
+        title: "Digital Detectives: Solving a Cyber Mystery with KC7",
+        host: "CWIT Cyber Leads",
+        description: "Join the CWIT Cyber Leads for a hands-on introduction to cybersecurity analysis. In this workshop, attendees will use the KC7 Cyber platform to bridge the gap between theory and practice. You’ll learn how to navigate security logs, identify malicious activity, and solve a mystery. This is designed for those who love solving puzzles and want to experience the reality of a cyber investigation."
     }
 ];
 
