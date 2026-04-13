@@ -5,6 +5,7 @@ import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
 import { EmailTemplate } from "./EmailTemplate";
 import { Resend } from "resend";
+import { TurnstileServerValidationResponse } from "@marsidev/react-turnstile";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
@@ -28,11 +29,34 @@ const dynamodb = new DynamoDBClient({
 
 export async function POST(request) {
   let resumeKey;
-
+  const verifyEndpoint =
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+  const secret = process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY;
   try {
     const formData = await request.formData();
+    const token = formData.get("cf-turnstile-response");
     const data = { major: "" };
     const params = { TableName: Table, Item: {} };
+
+    const res = await fetch(verifyEndpoint, {
+      method: "POST",
+      body: JSON.stringify({
+        secret,
+        response: token,
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    const result = await res.json();
+    if (!result.success) {
+      console.log(result["error-codes"]);
+      console.log(result);
+      return NextResponse.json(
+        { error: "Failed Verification" },
+        { status: 400 },
+      );
+    }
 
     for (let [key, value] of formData.entries()) {
       if (key === "agree" || key === "agree2") continue;
