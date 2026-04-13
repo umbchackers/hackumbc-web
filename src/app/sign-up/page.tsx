@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../css/form.css";
 import Image from "next/image";
 import Navbar from "../components/navbar";
@@ -9,6 +9,10 @@ import Papa from "papaparse";
 import "../globals.css";
 import { StarsBackground } from "../components/stars-background";
 import { MultiSelect } from "@/components/ui/multi-select";
+import {
+  Turnstile,
+  TurnstileServerValidationResponse,
+} from "@marsidev/react-turnstile";
 
 export default function Survey() {
   const [savedData, setSavedData] = useState(null);
@@ -83,6 +87,8 @@ export default function Survey() {
     }
   };
 
+  const turnstileRef = useRef(null);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -90,13 +96,14 @@ export default function Survey() {
     //  setError("You must agree to the conditions to proceed.");
     //  return;
     // }
+    //
 
     setIsSubmitting(true);
     setLoading(true);
-
+    const token = await turnstileRef.current?.getResponse();
     const formData = new FormData(event.target);
     formData.append("dietaryRestrictions", dietaryRestrictions.join(", "));
-
+    formData.append("cf-turnstile-response", token);
     if (isOtherSelected && otherSchool === "") {
       setError("Please specify your school.");
       setLoading(false);
@@ -132,7 +139,9 @@ export default function Survey() {
       }, 8000);
 
       setDietaryRestrictions([]);
+      turnstileRef.current?.reset();
     } catch (error) {
+      turnstileRef.current?.reset();
       setTimeout(() => {
         setLoading(false);
         setIsSubmitting(false);
@@ -1040,7 +1049,13 @@ export default function Survey() {
                   voluntary presence (e.g., "photobombing").
                 </label>
               </div> */}
-
+              {/*0x4AAAAAAC82BBSYUgHFxg81 */}
+              <div>
+                <Turnstile
+                  ref={turnstileRef}
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                />
+              </div>
               <div className="flex items-center justify-between">
                 {
                   <button
@@ -1068,7 +1083,7 @@ export default function Survey() {
           </div>{" "}
         </div>
         <div className="footer-info">
-          <p>&copy; 2025 hackUMBC. All rights reserved.</p>
+          <p>&copy; 2026 hackUMBC. All rights reserved.</p>
           <p className="mt-2">
             <a href="/privacy-policy" className="footer-link">
               Privacy Policy
