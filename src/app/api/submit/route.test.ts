@@ -23,6 +23,9 @@ DynamoDBClient.prototype.send = mockDynamoSend;
 describe("Form Handler", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    global.fetch = jest.fn().mockResolvedValue({
+      json: async () => ({ success: true }),
+    } as Response);
   });
 
   it("succeeds in full transaction", async () => {

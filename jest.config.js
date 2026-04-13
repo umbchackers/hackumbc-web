@@ -6,6 +6,7 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
     moduleDirectories: ['node_modules', __dirname],
+    modulePathIgnorePatterns: ['<rootDir>/.next/'],
     transformIgnorePatterns: ['node_modules/(?!(sucrase)/)'],
     transform: {
         '^.+\\.(js|jsx|ts|tsx|mjs)$': ['babel-jest', { configFile: './babel.test.config.js' }]

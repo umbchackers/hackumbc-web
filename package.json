@@ -50,7 +50,6 @@
   "devDependencies": {
     "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
-    "@next/env": "15.5.2",
     "@types/jest": "^30.0.0",
     "@types/node": "22.7.4",
     "@types/react": "19.1.12",

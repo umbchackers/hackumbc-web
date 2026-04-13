@@ -8,7 +8,7 @@ frontend:
         - export NODE_OPTIONS="--max-old-space-size=4096"
     build:
       commands:
-        - npm test
+        - npm test -- --ci --watchman=false --runInBand
         - npm run build
   artifacts:
     baseDirectory: .next

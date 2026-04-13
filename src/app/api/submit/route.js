@@ -5,7 +5,6 @@ import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
 import { EmailTemplate } from "./EmailTemplate";
 import { Resend } from "resend";
-import { TurnstileServerValidationResponse } from "@marsidev/react-turnstile";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
