@@ -169,7 +169,7 @@ export default function Survey() {
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
               Sign Ups Are OPEN!
             </h2>
-            <p className="text-sm italic mb-6 text-center light-mode-text">
+            <p className="text-sm italic mb-6 text-center text-red-500">
               Fields marked by <span className="text-red-500">*</span> are
               required
             </p>
