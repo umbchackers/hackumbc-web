@@ -9,7 +9,7 @@ import SvgTiler from '../components/svg-tiler';
 
 export default function About() {
     const isMobile = useIsMobile();
-
+    
     function Track({ title, desc, color, children }) {
     return (
         <div className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-64'} rounded-lg border-transparent 
@@ -115,29 +115,33 @@ export default function About() {
     <div className="about-title-subheading text-black" style={{ marginTop: isMobile ? "20px" : "3vh" }}>
         Prizes
     </div>
-    <div className="tracks" style={{ 
-        gap: isMobile ? "15px" : "30px",
-        marginTop: isMobile ? "20px" : "2vh",
-        flexDirection: isMobile ? "column" : "row"
-    }}>
-        <Track title="1st Place" desc="Nintendo Switch 2 (x3)" color="#DD9E45">
-            <div className="track-image-container" style={{ fontSize: '4rem' }}>
-                🏆
-            </div>
-        </Track>
-        <Track title="2nd Place" desc="Holy Stone Drones (x3)" color="#977837">
-            <div className="track-image-container" style={{ fontSize: '4rem' }}>
-                🥈
-            </div>
-        </Track>
-        <Track title="3rd Place" desc="Amazon Fire Sticks 4K (x3)" color="#A34F2B">
-            <div className="track-image-container" style={{ fontSize: '4rem' }}>
-                🥉
-            </div>
-        </Track>
-    </div>
+    <div style={{
+    display: "flex",
+    flexDirection: isMobile ? "column" : "row",
+    gap: "20px",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    padding: "10px 50px",
+    marginTop: isMobile ? "20px" : "2vh"
+}}>
+    <Track title="1st Place" desc="Nintendo Switch 2 (x3)" color="#DD9E45">
+        <div className="track-image-container" style={{ fontSize: '4rem' }}>🏆</div>
+    </Track>
+    <Track title="2nd Place" desc="Holy Stone Drones (x3)" color="#977837">
+        <div className="track-image-container" style={{ fontSize: '4rem' }}>🥈</div>
+    </Track>
+    <Track title="3rd Place" desc="Amazon Fire Sticks 4K (x3)" color="#A34F2B">
+        <div className="track-image-container" style={{ fontSize: '4rem' }}>🥉</div>
+    </Track>
+    <Track title="Best Use of Gemini API" desc="Google Swag Kits (x2)" color="#515128">
+        <div className="track-image-container" style={{ fontSize: '4rem' }}>✨</div>
+    </Track>
+</div>
+    
 </div>
             </div>    
         </div>
     );
+
+    
 }
