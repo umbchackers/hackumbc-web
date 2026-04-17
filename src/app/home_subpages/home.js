@@ -89,11 +89,11 @@ export default function Home() {
             desc="Apply to be an Organizer for hackUMBC 2026! Applications are open until 10/25."
             title="Apply to Organize"
           /> */}
-          <LinkBox
+          {/* <LinkBox
             href="/sign-up"
             desc="Registration for hackUMBC 2026 mini-hackathon is now open! Click this button to go to the sign up page!"
             title="Registration"
-          />
+          /> */}
           <LinkBox
             href="https://hackumbc-2025.devpost.com/"
             desc="Visit hackUMBC's Devpost to see project logistics, teams, and prizes!"
