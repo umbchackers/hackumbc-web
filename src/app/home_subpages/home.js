@@ -95,7 +95,7 @@ export default function Home() {
             title="Registration"
           /> */}
           <LinkBox
-            href="https://hackumbc-2025.devpost.com/"
+            href="https://hackumbc-minihackathon.devpost.com/"
             desc="Visit hackUMBC's Devpost to see project logistics, teams, and prizes!"
             title="Devpost"
           />
