@@ -169,7 +169,7 @@ export default function Schedule() {
         <div className="timeline-container" ref={timelineRef}>
             <div className="timeline">
                 {scheduleData.map((item, index) => {
-                        const isCurrentlyHappening = isCurrentEvent(item.time, item.endTime, 'April 18th', index);
+                        const isCurrentlyHappening = isCurrentEvent(item.time, item.endTime, 'May 10th', index);
                         const eventType = getEventType(item.event);
                         
                         return (
