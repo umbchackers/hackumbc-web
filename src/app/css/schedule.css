@@ -244,18 +244,22 @@
     z-index: 3;
 }
 
-.current-event::after {
-    content: 'HAPPENING NOW';
-    position: absolute;
-    top: -10px;
-    right: 10px;
+.timeline-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-card-live-badge {
     background-color: #E9D8A6;
     color: #333;
     padding: 2px 6px;
     border-radius: 10px;
     font-size: 0.6rem;
     font-weight: bold;
-    z-index: 4;
+    white-space: nowrap;
 }
 
 .timeline-card-type {
@@ -348,9 +352,7 @@
         font-size: 1.8rem;
     }
 
-    .current-event::after {
-        top: -8px;
-        right: 8px;
+    .timeline-card-live-badge {
         font-size: 0.6rem;
         padding: 1px 6px;
     }
@@ -403,9 +405,7 @@
         font-size: 0.8rem;
     }
 
-    .current-event::after {
-        top: -8px;
-        right: 8px;
+    .timeline-card-live-badge {
         font-size: 0.6rem;
         padding: 1px 6px;
     }
