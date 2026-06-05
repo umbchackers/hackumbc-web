@@ -9,8 +9,7 @@ import { TurnstileServerValidationResponse } from "@marsidev/react-turnstile";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
-const Table =
-  process.env.NEXT_PUBLIC_AWS_TABLE_NAME || "mini-hackathon-2026-registration";
+const Table = process.env.NEXT_PUBLIC_AWS_TABLE_NAME;
 
 const s3 = new S3Client({
   region: process.env.NEXT_PUBLIC_AWS_REGION,
@@ -111,34 +110,35 @@ export async function POST(request) {
       );
     }
 
-    try {
-      const { d, error } = await resend.emails.send({
-        from: "hackUMBC <send@hackumbc.tech>",
-        to: [data.email],
-        subject: "hackUMBC 2025 Registration Confirmation",
-        react: EmailTemplate({
-          firstName: data.firstName,
-          lastName: data.lastName,
-          email: data.email,
-        }),
-      });
+    // try {
+    //   const { d, error } = await resend.emails.send({
+    //     from: "hackUMBC <send@hackumbc.tech>",
+    //     to: [data.email],
+    //     subject: "hackUMBC Mini Hackathon Registration Confirmation",
+    //     react: EmailTemplate({
+    //       firstName: data.firstName,
+    //       lastName: data.lastName,
+    //       email: data.email,
+    //     }),
+    //   });
 
-      if (error) {
-        console.error(error);
-        return NextResponse.json({ error }, { status: 500 });
-      }
+    //   if (error) {
+    //     console.error(error);
+    //     return NextResponse.json({ error }, { status: 500 });
+    //   }
 
       return NextResponse.json(
-        { message: "Form data sent successfully!", d },
+        // { message: "Form data sent successfully!", d },
+        { message: "Form data sent successfully!"},
         { status: 200 },
       );
-    } catch (error) {
-      console.error("Failed to send email", error);
-      return NextResponse.json(
-        { error: "Failed to send email" },
-        { status: 500 },
-      );
-    }
+    // } catch (error) {
+    //   console.error("Failed to send email", error);
+    //   return NextResponse.json(
+    //     { error: "Failed to send email" },
+    //     { status: 500 },
+    //   );
+    // }
   } catch (error) {
     console.error("Unexpected error", error);
     return NextResponse.json(

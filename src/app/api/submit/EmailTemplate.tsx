@@ -50,12 +50,35 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
       </li>
     </ul>
 
+    {/* MLH registration */}
+    <h2>Official MLH Registration</h2>
+    <p>
+      To make things official and ensure you're eligible for prizes, please 
+      complete your registration on the <b>Major League Hacking (MLH)</b> platform:
+    </p>
+    <p>
+      <a
+        href="https://events.mlh.io/events/13940-hackumbc-mini-hackathon"
+        style={{
+          display: "inline-block",
+          backgroundColor: "#be1e2d",
+          color: "#ffffff",
+          padding: "10px 20px",
+          textDecoration: "none",
+          borderRadius: "5px",
+          fontWeight: "bold",
+        }}
+      >
+        Complete MLH Registration
+      </a>
+    </p>
+
     {/* discord */}
     <h2>🎧 Join the Discord</h2>
     <p>
       Connect with fellow participants, share ideas, and get updates by joining
       the hackUMBC Community Discord server. Make sure to follow the
-      instructions in the <i>#rules-and-roles</i> channel after joining!
+      instructions in the <i>#rules</i> channel after joining!
     </p>
     <p>
       <a

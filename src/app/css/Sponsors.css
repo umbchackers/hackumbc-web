@@ -194,7 +194,7 @@
     }
 }
 
-/* ── Workshop Cards ── */
+/* ── Workshop Cards ── can remove this whole block after mini event */
 .workshops-list {
     display: flex;
     flex-direction: column;
