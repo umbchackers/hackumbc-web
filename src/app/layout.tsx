@@ -6,9 +6,9 @@ import ClientWrapper from "../lib/client_wrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "hackUMBC 2025",
+  title: "hackUMBC 2026",
   description:
-    "Register now for hackUMBC 2025, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
+    "Register now for hackUMBC 2026, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
   keywords:
     "hackUMBC 2025, hackathon, UMBC, tech event, coding competition, innovation, collaboration, registration",
   author: "hackUMBC Organizers",
@@ -25,9 +25,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@hackUMBC",
-    title: "hackUMBC 2025 - Join the Ultimate Hackathon Experience!",
+    title: "hackUMBC 2026 - Join the Ultimate Hackathon Experience!",
     description:
-      "Register now for hackUMBC 2025, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
+      "Register now for hackUMBC 2026, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
     image: "",
   },
   icons: {
