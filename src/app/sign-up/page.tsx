@@ -956,7 +956,6 @@ export default function Survey() {
                   position: "fixed",
                   right: "50px",
                   top: "0",
-                  width: "10%",
                   zIndex: "10000",
                   width: "100%",
                 }}
