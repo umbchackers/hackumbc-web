@@ -177,9 +177,9 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Ups Are CLOSED!
+              Sign Ups Are OPEN!
             </h2>
-            <p className="text-sm italic mb-6 text-center text-red-500">
+            <p className="text-sm italic mb-6 text-center light-mode-text">
               Fields marked by <span className="text-red-500">*</span> are
               required
             </p>
@@ -774,7 +774,7 @@ export default function Survey() {
                     </i>
                   </p>*/}
                 </label>
-                <select
+                {/* <select
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                   id="dietaryRestrictions"
                   name="dietaryRestrictions"
@@ -786,8 +786,7 @@ export default function Survey() {
                   <option value="halal">Halal</option>
                   <option value="vegetarian">Vegetarian</option>
                   <option value="allergies">Allergies</option>
-                  <option value="allergies">Kosher</option>
-                </select>
+                </select>*/}
               </div>
               <MultiSelect
                 className="bg-gray-800 text-white border border-gray-600 hover:bg-gray-800 focus:outline-none focus:border-blue-500"
@@ -795,6 +794,7 @@ export default function Survey() {
                 onValueChange={handleDietaryChange}
                 defaultValue={dietaryRestrictions}
                 options={[
+                  { value: "kosher", label: "Kosher" },
                   { value: "vegan", label: "Vegan" },
                   {
                     value: "glutenfree",
@@ -1085,7 +1085,7 @@ export default function Survey() {
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                 />
               </div>
-              {/* <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 {
                   <button
                     type="submit"
@@ -1099,7 +1099,7 @@ export default function Survey() {
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 }
-              </div> */}
+              </div>
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>
