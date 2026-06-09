@@ -177,9 +177,9 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Ups Are OPEN!
+              Sign Ups Are CLOSED!
             </h2>
-            <p className="text-sm italic mb-6 text-center light-mode-text">
+            <p className="text-sm italic mb-6 text-center text-red-500">
               Fields marked by <span className="text-red-500">*</span> are
               required
             </p>
@@ -1085,7 +1085,7 @@ export default function Survey() {
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                 />
               </div>
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 {
                   <button
                     type="submit"
@@ -1099,7 +1099,7 @@ export default function Survey() {
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 }
-              </div>
+              </div> */}
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>

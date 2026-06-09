@@ -8,6 +8,8 @@ import useIsMobile from '../../lib/use_is_mobile';
 import SvgTiler from '../components/svg-tiler';
 
 export default function Schedule() {
+    // Update this in one place when the event date changes (YYYY-MM-DD).
+    const EVENT_DATE = '2026-04-29';
     const [activeDay, setActiveDay] = useState('September 28th');
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
     const timelineRef = useRef(null);
@@ -41,14 +43,14 @@ export default function Schedule() {
     }, [currentEventIndex, activeDay]);
     
     // helper function to check if an event is currently happening
-    const isCurrentEvent = (startTime, endTime, eventDate, index) => {
-        if(!startTime || !endTime || !eventDate) return false;
+    const isCurrentEvent = (startTime, endTime) => {
+        if(!startTime || !endTime) return false;
         
         const now = currentDateTime;
-        const today = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+        const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
         
         // Check if today is the event date
-        if(today.includes(eventDate.replace('September', 'Sep').replace('th', ''))) 
+        if(todayKey === EVENT_DATE) 
         {
             const [startHour, startMinutes] = getTimeComponents(startTime);
             const [endHour, endMinutes] = getTimeComponents(endTime);
@@ -61,19 +63,19 @@ export default function Schedule() {
             eventEnd.setHours(endHour);
             eventEnd.setMinutes(endMinutes);
             
-            const isCurrentlyHappening = now >= eventStart && now <= eventEnd;
-            
-            // set currentEventIndex if this event is happening now
-            if(isCurrentlyHappening) 
-            {
-                setCurrentEventIndex(index);
-            }
-            
-            return isCurrentlyHappening;
+            return now >= eventStart && now <= eventEnd;
         }
         
         return false;
     };
+
+    // Keep state updates out of render to avoid React re-render crashes.
+    useEffect(() => {
+        const currentIndex = scheduleData.findIndex((item) =>
+            isCurrentEvent(item.time, item.endTime)
+        );
+        setCurrentEventIndex(currentIndex);
+    }, [currentDateTime]);
     
     // helper to convert time strings (9:00am) to hours and minutes
     const getTimeComponents = (timeString) => {
@@ -151,14 +153,14 @@ export default function Schedule() {
 
     //mini Hackathon schedule
     const scheduleData = [
-    { time: '7:30 AM', endTime: '8:00 AM', event: 'Check In & Breakfast', location: 'ITE 233', notes: 'Team Formation & Networking' },
-    { time: '8:00 AM', endTime: '8:15 AM', event: 'Opening Remarks', location: 'ITE 233' },
+    { time: '7:30 AM', endTime: '8:00 AM', event: 'Check In & Breakfast', location: 'ITE Second Floor', notes: 'Team Formation & Networking' },
+    { time: '8:00 AM', endTime: '8:15 AM', event: 'Opening Remarks', location: 'ITE 237' },
     { time: '8:15 AM', endTime: '8:30 AM', event: 'Coding Begins', location: '' },
-    { time: '10:00 AM', endTime: '11:00 AM', event: 'GDG Workshop', location: 'ITE 237', notes: 'GDG' },
-    { time: '12:00 PM', endTime: '1:00 PM', event: 'Lunch', location: '' },
+    { time: '10:00 AM', endTime: '11:00 AM', event: 'GDG Workshop', location: 'ITE 231', notes: 'GDG' },
+    { time: '12:00 PM', endTime: '1:00 PM', event: 'Lunch', location: 'ITE Second Floor' },
     { time: '1:00 PM', endTime: '3:00 PM', event: 'Continue Coding', location: '' },
-    { time: '3:00 PM', endTime: '4:00 PM', event: 'Cwit Cyber Leads Workshop', location: 'ITE 237', notes: 'CWIT Cyber Leads' },
-    { time: '6:00 PM', endTime: '7:00 PM', event: 'Dinner', location: '' },
+    { time: '3:00 PM', endTime: '4:00 PM', event: 'Cwit Cyber Leads Workshop', location: 'ITE 231', notes: 'CWIT Cyber Leads' },
+    { time: '6:00 PM', endTime: '7:00 PM', event: 'Dinner', location: 'ITE Second Floor' },
     { time: '7:00 PM', endTime: '8:00 PM', event: 'Final Touches & Submissions', location: '' },
     { time: '8:00 PM', endTime: '9:00 PM', event: 'Judging / Demos / Closing Remarks', location: '' },
 ];
@@ -169,14 +171,14 @@ export default function Schedule() {
         <div className="timeline-container" ref={timelineRef}>
             <div className="timeline">
                 {scheduleData.map((item, index) => {
-                        const isCurrentlyHappening = isCurrentEvent(item.time, item.endTime, 'April 18th', index);
+                        const isCurrentlyHappening = isCurrentEvent(item.time, item.endTime);
                         const eventType = getEventType(item.event);
                         
                         return (
                             <div 
                                 key={index} 
                                 className="timeline-item"
-                                ref={isCurrentlyHappening ? timelineRef : null}
+                                ref={isCurrentlyHappening ? currentEventRef : null}
                                 data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
                                 data-aos-delay={100 + (index * 30)}
                             >
@@ -187,9 +189,14 @@ export default function Schedule() {
                                         <span>{formatTime(item.endTime)}</span>
                                     </div>
                                     <div className="timeline-card-content">
-                                        <span className={`timeline-card-type ${eventType.toLowerCase()}`}>
-                                            {eventType.charAt(0).toUpperCase() + eventType.slice(1)}
-                                        </span>
+                                        <div className="timeline-card-meta">
+                                            <span className={`timeline-card-type ${eventType.toLowerCase()}`}>
+                                                {eventType.charAt(0).toUpperCase() + eventType.slice(1)}
+                                            </span>
+                                            {isCurrentlyHappening && (
+                                                <span className="timeline-card-live-badge">HAPPENING NOW</span>
+                                            )}
+                                        </div>
                                         <h3 className="timeline-card-title">{item.event}</h3>
                                         <div className="timeline-card-location">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
