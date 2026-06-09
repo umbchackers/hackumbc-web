@@ -774,7 +774,7 @@ export default function Survey() {
                     </i>
                   </p>*/}
                 </label>
-                {/* <select
+                <select
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                   id="dietaryRestrictions"
                   name="dietaryRestrictions"
@@ -786,7 +786,8 @@ export default function Survey() {
                   <option value="halal">Halal</option>
                   <option value="vegetarian">Vegetarian</option>
                   <option value="allergies">Allergies</option>
-                </select>*/}
+                  <option value="allergies">Kosher</option>
+                </select>
               </div>
               <MultiSelect
                 className="bg-gray-800 text-white border border-gray-600 hover:bg-gray-800 focus:outline-none focus:border-blue-500"
