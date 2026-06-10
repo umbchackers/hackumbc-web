@@ -11,9 +11,9 @@ import MasterSiteBackground from "./components/master-site-background";
 //updated main with ids for navbar, so links are fixed now
 export default function Main() {
   return (
-    <div className="relative isolate min-h-screen min-h-[100dvh] w-full">
+    <main className="relative min-h-screen min-h-[100dvh] w-full">
       <MasterSiteBackground />
-      <main className="relative z-[1] w-full">
+      <div className="relative z-[1] w-full">
         <Navbar />
         <div id="home">
           <Home />
@@ -34,7 +34,7 @@ export default function Main() {
           <Sponsors />
         </div>
         <Footer />
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
