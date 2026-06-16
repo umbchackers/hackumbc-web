@@ -43,28 +43,21 @@ export default function Sponsors() {
            // backgroundPosition: "center",
             // backgroundRepeat: "no-repeat",
             position: "relative"
-        }}>
-            {/*<SvgTiler 
-                key={isMobile ? 'mobile' : 'desktop'}
-                show={true} 
-                topSrc={isMobile ? "/hackumbc_bg_mobile_sponsors3.svg" : "/hackumbc_bg_faq2.svg"} 
-                tileSrc={isMobile ? "/hackumbc_bg_mobile_sponsors3.svg" : "/hackumbc_bg_faq2.svg"} 
-                aspectRatio={1.5}
-                isMobile={isMobile}
-            /> */}
+        }}> 
+
             <div className="sponsors-section-title relative z-10 text-black" data-aos="fade-up">
-               {/* <SectionTitle title="SPONSORS"/> */}
-               <SectionTitle title="WORKSHOPS"/>
+               <SectionTitle title="SPONSORS"/>
+               {/* <SectionTitle title="WORKSHOPS"/> */}
             </div>
             <div className="sponsors-title-subheading relative z-10 text-black" data-aos="fade-up">
-               {/*} Thank You to Our Incredible Sponsors!*/}
-               Check Out Our Workshops!
+                 Thank You to Our Incredible Sponsors!
+               {/* Check Out Our Workshops! */}
             </div>
             <div className="sponsors-content relative z-10" data-aos="fade-up">
                 <div className="sponsors-unified-container" data-aos="fade-up">
                     <div className="sponsors-intro-text">
-                       {/*} hackUMBC wouldn't be possible without the generous support of our sponsors, click on their logos to check them out! */}
-                       Explore our workshops below!
+                       hackUMBC wouldn't be possible without the generous support of our sponsors, click on their logos to check them out!
+                       {/* Explore our workshops below! */}
                     </div>
 
                     {/* ── OLD SPONSOR LOGOS (commented out) ──
@@ -234,7 +227,7 @@ export default function Sponsors() {
                     </div>
                     ── END OLD SPONSOR LOGOS ── */}
                      {/* ── WORKSHOPS ── */}
-                    <div className="workshops-list">
+                    {/* <div className="workshops-list">
                         {workshops.map((workshop, index) => (
                             <div className="workshop-card" key={index} data-aos="fade-up">
                                 <h3 className="workshop-title">{workshop.title}</h3>
@@ -242,7 +235,7 @@ export default function Sponsors() {
                                 <p className="workshop-description">{workshop.description}</p>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
