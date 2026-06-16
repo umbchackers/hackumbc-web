@@ -60,9 +60,9 @@ export default function Sponsors() {
                        {/* Explore our workshops below! */}
                     </div>
 
-                    {/* ── OLD SPONSOR LOGOS (commented out) ──
+                    {/* SPONSOR LOGOS ── */}
+                    {/*
                     <div className="sponsors-all-logos">
-                         //diamond 
                         <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/coeit.webp"
@@ -71,8 +71,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                         //platinum 
                         <a href="https://www.troweprice.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/trowepricelogo.webp"
@@ -89,8 +87,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                                   //Gold 
                         <a href="https://www.lockheedmartin.com/en-us/index.html" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/lockheedmartin.webp"
@@ -115,8 +111,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                        
                         <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/apl.webp"
@@ -141,7 +135,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                              //bronze 
                         <a href="https://boozallen.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/BAH.webp"
@@ -198,8 +191,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                        // partners 
                         <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/pure-buttons.webp"
@@ -216,16 +207,16 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        {/* <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/northrop.webp"
                                 alt="Northrop Grumman"
                                 className="sponsors-logo"
                                 loading="eager"
                             />
-                        </a> 
+                        </a>
                     </div>
-                    ── END OLD SPONSOR LOGOS ── */}
+                    */}
                      {/* ── WORKSHOPS ── */}
                     {/* <div className="workshops-list">
                         {workshops.map((workshop, index) => (
