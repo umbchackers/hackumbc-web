@@ -13,7 +13,8 @@ import {
   Turnstile,
   TurnstileServerValidationResponse,
 } from "@marsidev/react-turnstile";
-//
+import Link from "next/link";
+
 export default function Survey() {
   const [savedData, setSavedData] = useState(null);
   const [error, setError] = useState(null);
@@ -24,20 +25,20 @@ export default function Survey() {
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [otherSchool, setOtherSchool] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  //const [isAgreed, setIsAgreed] = useState(false);
-  // const [isAgreed2, setIsAgreed2] = useState(false);
+  const [isAgreed, setIsAgreed] = useState(false);
+  const [isAgreed2, setIsAgreed2] = useState(false);
   const [shareEmail, setShareEmail] = useState(false);
   const [mediaConsent, setMediaConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  //const handleCheckboxChange = (event) => {
-  //  setIsAgreed(event.target.checked);
-  //};
+  const handleCheckboxChange = (event) => {
+    setIsAgreed(event.target.checked);
+  };
 
-  //const handleCheckboxChange2 = (event) => {
-  // setIsAgreed2(event.target.checked);
-  //};
+  const handleCheckboxChange2 = (event) => {
+    setIsAgreed2(event.target.checked);
+  };
 
   const handleUniversityChange = (event) => {
     const selectedValue = event.target.value;
@@ -176,9 +177,9 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Ups Are CLOSED!
+              Sign Ups Are OPEN!
             </h2>
-            <p className="text-sm italic mb-6 text-center text-red-500">
+            <p className="text-sm italic mb-6 text-center light-mode-text">
               Fields marked by <span className="text-red-500">*</span> are
               required
             </p>
@@ -793,6 +794,7 @@ export default function Survey() {
                 onValueChange={handleDietaryChange}
                 defaultValue={dietaryRestrictions}
                 options={[
+                  { value: "kosher", label: "Kosher" },
                   { value: "vegan", label: "Vegan" },
                   {
                     value: "glutenfree",
@@ -925,26 +927,52 @@ export default function Survey() {
                 </select>
               </div>
               {/* Resume Upload Field */}
-              {/* <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="resume"
-                >
-                  Upload Resume{" "}
-                  <span className="text-gray-400">(PDF Only)</span>
-                </label>
-                <input
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="resume"
-                  name="resume"
-                  type="file"
-                  accept="application/pdf"
-                />
-              </div> */}
+              {/*<div className="mb-4">
+              //   <label
+              //     className="block text-white text-sm font-bold mb-2"
+              //     htmlFor="resume"
+              //   >
+              //     Upload Resume{" "}
+              //     <span className="text-gray-400">(PDF Only)</span>
+              //   </label>
+              //   <input
+              //     className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+              //     id="resume"
+              //     name="resume"
+              //     type="file"
+              //     accept="application/pdf"
+              //   />
+              // </div> */}
               {/* MLH Checkmark Agreement, remove paragraph once done */}
-              {/* <p className="p-2 font-bold text-md light-mode-text">
-                We are partnered with MLH. The following checkbox is for this
-                partnership.
+              <p className="p-2 font-bold text-md  text-white">
+                We are partnered with MLH.
+              </p>
+              <Link
+                id="mlh-trust-badge"
+                style={{
+                  display: "block",
+                  maxWidth: "100px",
+                  minWidth: "60px",
+                  position: "fixed",
+                  right: "50px",
+                  top: "0",
+                  zIndex: "10000",
+                  width: "100%",
+                }}
+                href="https://mlh.io/seasons/2027/hackathon-season"
+                target="_blank"
+              >
+                <Image
+                  src="https://logged-assets.s3.amazonaws.com/trust-badge/2027/mlh-trust-badge-2027-white.svg"
+                  alt="Major
+                League Hacking 2026 Hackathon Season"
+                  width={100}
+                  height={60}
+                />
+              </Link>
+              <p className="p-2 font-bold text-md  text-white">
+                {" "}
+                The following checkbox is for this partnership.
               </p>
               <div className="p-2 mb-4 flex items-center">
                 <input
@@ -998,7 +1026,7 @@ export default function Survey() {
                   I authorize MLH to send me occasional emails about relevant
                   events, career opportunities, and community announcements.
                 </label>
-              </div> */}
+              </div>
 
               {/* Email Sharing Agreement }
               <p className="p-2 font-bold text-md light-mode-text">
@@ -1048,7 +1076,7 @@ export default function Survey() {
                   for the unrestricted use of any imagery encompassing my
                   voluntary presence (e.g., "photobombing").
                 </label>
-              </div> */}
+              </div>
               {/*0x4AAAAAAC82BBSYUgHFxg81 */}
               <div>
                 <Turnstile
@@ -1056,7 +1084,7 @@ export default function Survey() {
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                 />
               </div>
-              {/* <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 {
                   <button
                     type="submit"
@@ -1070,7 +1098,7 @@ export default function Survey() {
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 }
-              </div> */}
+              </div>
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
             </form>
