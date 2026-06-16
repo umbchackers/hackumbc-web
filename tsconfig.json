@@ -36,11 +36,11 @@
     "**/*.tsx",
     "src/lib/log_pg_sizes.js",
     "src/lib/client_wrapper.js",
-    "src/app/api/submit/route.js",
+    "src/app/api/submit/route.ts",
     "src/app/api/submit/EmailTemplate.jsx",
     "src/app/api/submit/EmailTemplate.jsx",
     ".next/dev/types/**/*.ts"
-  ],
+, "src/app/components/master-site-background.js"  ],
   "exclude": [
     "node_modules"
   ]

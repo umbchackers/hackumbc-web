@@ -28,11 +28,34 @@ const dynamodb = new DynamoDBClient({
 
 export async function POST(request) {
   let resumeKey;
-
+  const verifyEndpoint =
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+  const secret = process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY;
   try {
     const formData = await request.formData();
+    const token = formData.get("cf-turnstile-response");
     const data = { major: "" };
     const params = { TableName: Table, Item: {} };
+
+    const res = await fetch(verifyEndpoint, {
+      method: "POST",
+      body: JSON.stringify({
+        secret,
+        response: token,
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    const result = await res.json();
+    if (!result.success) {
+      console.log(result["error-codes"]);
+      console.log(result);
+      return NextResponse.json(
+        { error: "Failed Verification" },
+        { status: 400 },
+      );
+    }
 
     for (let [key, value] of formData.entries()) {
       if (key === "agree" || key === "agree2") continue;
@@ -90,7 +113,7 @@ export async function POST(request) {
       const { d, error } = await resend.emails.send({
         from: "hackUMBC <send@hackumbc.tech>",
         to: [data.email],
-        subject: "hackUMBC 2025 Registration Confirmation",
+        subject: "hackUMBC Mini Hackathon Registration Confirmation",
         react: EmailTemplate({
           firstName: data.firstName,
           lastName: data.lastName,

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../css/form.css";
 import Image from "next/image";
 import Navbar from "../components/navbar";
@@ -9,6 +9,11 @@ import Papa from "papaparse";
 import "../globals.css";
 import { StarsBackground } from "../components/stars-background";
 import { MultiSelect } from "@/components/ui/multi-select";
+import {
+  Turnstile,
+  TurnstileServerValidationResponse,
+} from "@marsidev/react-turnstile";
+import Link from "next/link";
 
 export default function Survey() {
   const [savedData, setSavedData] = useState(null);
@@ -20,20 +25,20 @@ export default function Survey() {
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [otherSchool, setOtherSchool] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  //const [isAgreed, setIsAgreed] = useState(false);
-  // const [isAgreed2, setIsAgreed2] = useState(false);
+  const [isAgreed, setIsAgreed] = useState(false);
+  const [isAgreed2, setIsAgreed2] = useState(false);
   const [shareEmail, setShareEmail] = useState(false);
   const [mediaConsent, setMediaConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  //const handleCheckboxChange = (event) => {
-  //  setIsAgreed(event.target.checked);
-  //};
+  const handleCheckboxChange = (event) => {
+    setIsAgreed(event.target.checked);
+  };
 
-  //const handleCheckboxChange2 = (event) => {
-  // setIsAgreed2(event.target.checked);
-  //};
+  const handleCheckboxChange2 = (event) => {
+    setIsAgreed2(event.target.checked);
+  };
 
   const handleUniversityChange = (event) => {
     const selectedValue = event.target.value;
@@ -83,6 +88,8 @@ export default function Survey() {
     }
   };
 
+  const turnstileRef = useRef(null);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -90,13 +97,14 @@ export default function Survey() {
     //  setError("You must agree to the conditions to proceed.");
     //  return;
     // }
+    //
 
     setIsSubmitting(true);
     setLoading(true);
-
+    const token = await turnstileRef.current?.getResponse();
     const formData = new FormData(event.target);
     formData.append("dietaryRestrictions", dietaryRestrictions.join(", "));
-
+    formData.append("cf-turnstile-response", token);
     if (isOtherSelected && otherSchool === "") {
       setError("Please specify your school.");
       setLoading(false);
@@ -132,7 +140,9 @@ export default function Survey() {
       }, 8000);
 
       setDietaryRestrictions([]);
+      turnstileRef.current?.reset();
     } catch (error) {
+      turnstileRef.current?.reset();
       setTimeout(() => {
         setLoading(false);
         setIsSubmitting(false);
@@ -784,6 +794,7 @@ export default function Survey() {
                 onValueChange={handleDietaryChange}
                 defaultValue={dietaryRestrictions}
                 options={[
+                  { value: "kosher", label: "Kosher" },
                   { value: "vegan", label: "Vegan" },
                   {
                     value: "glutenfree",
@@ -916,26 +927,52 @@ export default function Survey() {
                 </select>
               </div>
               {/* Resume Upload Field */}
-              {/* <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="resume"
-                >
-                  Upload Resume{" "}
-                  <span className="text-gray-400">(PDF Only)</span>
-                </label>
-                <input
-                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                  id="resume"
-                  name="resume"
-                  type="file"
-                  accept="application/pdf"
-                />
-              </div> */}
+              {/*<div className="mb-4">
+              //   <label
+              //     className="block text-white text-sm font-bold mb-2"
+              //     htmlFor="resume"
+              //   >
+              //     Upload Resume{" "}
+              //     <span className="text-gray-400">(PDF Only)</span>
+              //   </label>
+              //   <input
+              //     className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+              //     id="resume"
+              //     name="resume"
+              //     type="file"
+              //     accept="application/pdf"
+              //   />
+              // </div> */}
               {/* MLH Checkmark Agreement, remove paragraph once done */}
-              {/* <p className="p-2 font-bold text-md light-mode-text">
-                We are partnered with MLH. The following checkbox is for this
-                partnership.
+              <p className="p-2 font-bold text-md  text-white">
+                We are partnered with MLH.
+              </p>
+              <Link
+                id="mlh-trust-badge"
+                style={{
+                  display: "block",
+                  maxWidth: "100px",
+                  minWidth: "60px",
+                  position: "fixed",
+                  right: "50px",
+                  top: "0",
+                  zIndex: "10000",
+                  width: "100%",
+                }}
+                href="https://mlh.io/seasons/2027/hackathon-season"
+                target="_blank"
+              >
+                <Image
+                  src="https://logged-assets.s3.amazonaws.com/trust-badge/2027/mlh-trust-badge-2027-white.svg"
+                  alt="Major
+                League Hacking 2026 Hackathon Season"
+                  width={100}
+                  height={60}
+                />
+              </Link>
+              <p className="p-2 font-bold text-md  text-white">
+                {" "}
+                The following checkbox is for this partnership.
               </p>
               <div className="p-2 mb-4 flex items-center">
                 <input
@@ -989,7 +1026,7 @@ export default function Survey() {
                   I authorize MLH to send me occasional emails about relevant
                   events, career opportunities, and community announcements.
                 </label>
-              </div> */}
+              </div>
 
               {/* Email Sharing Agreement }
               <p className="p-2 font-bold text-md light-mode-text">
@@ -1039,8 +1076,14 @@ export default function Survey() {
                   for the unrestricted use of any imagery encompassing my
                   voluntary presence (e.g., "photobombing").
                 </label>
-              </div> */}
-
+              </div>
+              {/*0x4AAAAAAC82BBSYUgHFxg81 */}
+              <div>
+                <Turnstile
+                  ref={turnstileRef}
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                />
+              </div>
               <div className="flex items-center justify-between">
                 {
                   <button

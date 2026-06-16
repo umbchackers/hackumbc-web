@@ -1,12 +1,14 @@
 import Image from "next/image";
 
-function Frame({ imgPath }: { imgPath: string }) {
+function Frame({ imgPath, eager = false }: { imgPath: string; eager?: boolean }) {
   return (
     <Image
-      width={250}
-      height={100}
+      width={6648}
+      height={5630}
       alt="Analytic frame"
       src={imgPath}
+      loading={eager ? "eager" : "lazy"}
+      style={{ width: "250px", height: "auto" }}
       className=""
     />
   );
