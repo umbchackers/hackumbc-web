@@ -153,16 +153,16 @@ export default function Schedule() {
 
     //mini Hackathon schedule
     const scheduleData = [
-    { time: '7:30 AM', endTime: '8:00 AM', event: 'Check In & Breakfast', location: 'ITE Second Floor', notes: 'Team Formation & Networking' },
-    { time: '8:00 AM', endTime: '8:15 AM', event: 'Opening Remarks', location: 'ITE 237' },
-    { time: '8:15 AM', endTime: '8:30 AM', event: 'Coding Begins', location: '' },
-    { time: '10:00 AM', endTime: '11:00 AM', event: 'GDG Workshop', location: 'ITE 231', notes: 'GDG' },
-    { time: '12:00 PM', endTime: '1:00 PM', event: 'Lunch', location: 'ITE Second Floor' },
-    { time: '1:00 PM', endTime: '3:00 PM', event: 'Continue Coding', location: '' },
-    { time: '3:00 PM', endTime: '4:00 PM', event: 'Cwit Cyber Leads Workshop', location: 'ITE 231', notes: 'CWIT Cyber Leads' },
-    { time: '6:00 PM', endTime: '7:00 PM', event: 'Dinner', location: 'ITE Second Floor' },
-    { time: '7:00 PM', endTime: '8:00 PM', event: 'Final Touches & Submissions', location: '' },
-    { time: '8:00 PM', endTime: '9:00 PM', event: 'Judging / Demos / Closing Remarks', location: '' },
+    { time: '7:30 AM', endTime: '8:00 AM', event: 'TBD', location: 'TBD'},
+    { time: '8:00 AM', endTime: '8:15 AM', event: 'TBD', location: 'TBD' },
+    { time: '8:15 AM', endTime: '8:30 AM', event: 'TBD', location: 'TBD' },
+    { time: '10:00 AM', endTime: '11:00 AM', event: 'TBD', location: 'TBD'},
+    { time: '12:00 PM', endTime: '1:00 PM', event: 'TBD', location: 'TBD' },
+    { time: '1:00 PM', endTime: '3:00 PM', event: 'TBD', location: 'TBD' },
+    { time: '3:00 PM', endTime: '4:00 PM', event: 'TBD', location: 'TBD' },
+    { time: '6:00 PM', endTime: '7:00 PM', event: 'TBD', location: 'TBD' },
+    { time: '7:00 PM', endTime: '8:00 PM', event: 'TBD', location: 'TBD' },
+    { time: '8:00 PM', endTime: '9:00 PM', event: 'TBD', location: 'TBD' },
 ];
 
 
