@@ -42,12 +42,35 @@ canvas {
   }
 } */
 
+ 
+.master-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: unset;
+  object-position: top center;
+  vertical-align: top;
+  pointer-events: none;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   /* background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
   overflow-x: hidden;
+}
+
+/* AOS hides elements before its JS runs. If client JS fails to load (e.g. dev over
+   a LAN IP), keep content visible until AOS successfully initializes. */
+html:not(.aos-init) [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 @layer utilities {

@@ -55,9 +55,7 @@ export default function Home() {
       </video> */}
 
     {/* Basic medieval background - placeholder until full bg is ready */}
-    <div className="absolute top-0 left-0 w-full h-full z-0" 
-     style={{ backgroundColor: '#E8C48D' }}
-      />
+    <div className="absolute top-0 left-0 w-full h-full z-0 bg-transparent" />
 
       <div className="home-container" style={{ 
         zIndex: 10,

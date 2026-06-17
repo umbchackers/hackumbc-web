@@ -40,8 +40,8 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <ClientWrapper /> {/* runs logging in browser only */}
-        <div className="flex flex-col min-h-screen">
-          <div className="flex-grow">{children}</div>
+        <div className="flex min-h-screen min-h-[100dvh] w-full flex-col">
+          <div className="min-h-screen min-h-[100dvh] w-full flex-1">{children}</div>
         </div>
         <CursorTrail />
       </body>

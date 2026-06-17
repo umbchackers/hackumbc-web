@@ -26,19 +26,19 @@ export default function Navbar() {
   return (
     <>
       <div className="nav-bar-container w-full flex justify-center py-2.5 light-mode-text">
-        { /* !isMobile && (
+         {!isMobile && (
           <a
              id="mlh-trust-badge" 
-            href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content"
+            href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white"
             target="_blank"
           >
             <img
-              src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-yellow.svg"
+              src="https://logged-assets.s3.amazonaws.com/trust-badge/2027/mlh-trust-badge-2027-white.svg"
               alt="Major League Hacking 2026 Hackathon Season"
               fetchPriority="high"
             />
           </a>   
-        )} */}
+        )} 
         <nav className="nav-desktop light-mode-text">
           <div className="nav-left">
             <Link

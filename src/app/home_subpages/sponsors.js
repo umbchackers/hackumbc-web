@@ -38,38 +38,31 @@ export default function Sponsors() {
     return (
         <div className="sponsors-page relative" style={{
             // backgroundImage: "url('/hackumbc_bg_sponsors.webp')",
-           backgroundColor: "#E8C48D",
+           backgroundColor: "transparent",
             //backgroundSize: "cover",
            // backgroundPosition: "center",
             // backgroundRepeat: "no-repeat",
             position: "relative"
-        }}>
-            {/*<SvgTiler 
-                key={isMobile ? 'mobile' : 'desktop'}
-                show={true} 
-                topSrc={isMobile ? "/hackumbc_bg_mobile_sponsors3.svg" : "/hackumbc_bg_faq2.svg"} 
-                tileSrc={isMobile ? "/hackumbc_bg_mobile_sponsors3.svg" : "/hackumbc_bg_faq2.svg"} 
-                aspectRatio={1.5}
-                isMobile={isMobile}
-            /> */}
+        }}> 
+
             <div className="sponsors-section-title relative z-10 text-black" data-aos="fade-up">
-               {/* <SectionTitle title="SPONSORS"/> */}
-               <SectionTitle title="WORKSHOPS"/>
+               <SectionTitle title="SPONSORS"/>
+               {/* <SectionTitle title="WORKSHOPS"/> */}
             </div>
             <div className="sponsors-title-subheading relative z-10 text-black" data-aos="fade-up">
-               {/*} Thank You to Our Incredible Sponsors!*/}
-               Check Out Our Workshops!
+                 Thank You to Our Incredible Sponsors!
+               {/* Check Out Our Workshops! */}
             </div>
             <div className="sponsors-content relative z-10" data-aos="fade-up">
                 <div className="sponsors-unified-container" data-aos="fade-up">
                     <div className="sponsors-intro-text">
-                       {/*} hackUMBC wouldn't be possible without the generous support of our sponsors, click on their logos to check them out! */}
-                       Explore our workshops below!
+                       hackUMBC wouldn't be possible without the generous support of our sponsors, click on their logos to check them out!
+                       {/* Explore our workshops below! */}
                     </div>
 
-                    {/* ── OLD SPONSOR LOGOS (commented out) ──
+                    {/* SPONSOR LOGOS ── */}
+                    {/*
                     <div className="sponsors-all-logos">
-                         //diamond 
                         <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/coeit.webp"
@@ -78,8 +71,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                         //platinum 
                         <a href="https://www.troweprice.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/trowepricelogo.webp"
@@ -96,8 +87,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                                   //Gold 
                         <a href="https://www.lockheedmartin.com/en-us/index.html" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/lockheedmartin.webp"
@@ -122,8 +111,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                        
                         <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/apl.webp"
@@ -148,7 +135,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                              //bronze 
                         <a href="https://boozallen.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/BAH.webp"
@@ -205,8 +191,6 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        
-                        // partners 
                         <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/pure-buttons.webp"
@@ -223,18 +207,18 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        {/* <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/northrop.webp"
                                 alt="Northrop Grumman"
                                 className="sponsors-logo"
                                 loading="eager"
                             />
-                        </a> 
+                        </a>
                     </div>
-                    ── END OLD SPONSOR LOGOS ── */}
+                    */}
                      {/* ── WORKSHOPS ── */}
-                    <div className="workshops-list">
+                    {/* <div className="workshops-list">
                         {workshops.map((workshop, index) => (
                             <div className="workshop-card" key={index} data-aos="fade-up">
                                 <h3 className="workshop-title">{workshop.title}</h3>
@@ -242,7 +226,7 @@ export default function Sponsors() {
                                 <p className="workshop-description">{workshop.description}</p>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
