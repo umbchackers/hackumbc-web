@@ -177,7 +177,7 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Ups Are OPEN!
+              Sign Ups Are CLOSED!
             </h2>
             <p className="text-sm italic mb-6 text-center text-white">
               Fields marked by <span className="text-red-500">*</span> are
@@ -985,14 +985,13 @@ export default function Survey() {
                   required
                 />
                 <label htmlFor="agree" className="text-white text-sm">
-                  I authorize you to share my application/registration
-                  information with Major League Hacking for event
-                  administration, ranking, and MLH administration in-line with
-                  the MLH Privacy Policy https://mlh.io/privacy. I further
-                  acknowledge to have read and agree to the terms of both the
-                  MLH Contest Terms and Conditions
-                  (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
-                  and the MLH Privacy Policy (https://mlh.io/privacy).
+                I authorize you to share my application/registration information 
+                with Major League Hacking for event administration, ranking, and 
+                administration (including the creation of linked accounts on MLH 
+                and DEV (dev.to)) in line with the MLH Privacy Policy. I further 
+                agree to the terms of both the MLH Contest Terms and Conditions 
+                (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md) 
+                and the MLH Privacy Policy
                   <span className="text-red-500">*</span>
                 </label>
               </div>
@@ -1023,8 +1022,8 @@ export default function Survey() {
                   htmlFor="mlh_emailagreement"
                   className="text-white text-sm"
                 >
-                  I authorize MLH to send me occasional emails about relevant
-                  events, career opportunities, and community announcements.
+                  I authorize MLH + DEV to send me occasional emails about relevant events, 
+                  career opportunities, and community announcements.
                 </label>
               </div>
 
@@ -1085,7 +1084,7 @@ export default function Survey() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                {
+                {/* {
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -1097,7 +1096,7 @@ export default function Survey() {
                   >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
-                }
+                } */}
               </div>
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
