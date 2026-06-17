@@ -84,7 +84,7 @@ export default function About() {
                     <div className="about-text text-black" style={{paddingLeft: isMobile ? "10px" : "0px", width: isMobile ? "90%" : "auto", maxWidth: "700px" }}>
                         <p>
                         Join us at UMBC for a 12-hour hackathon happening on <span style={{color: "rgba(105, 0, 16, 0.8)", 
-                            fontWeight: 700, textDecoration: "underline"}}>April 18th</span>, 2026! Work alongside fellow students, 
+                            fontWeight: 700, textDecoration: "underline"}}>TDB.</span> Work alongside fellow students, 
                             bring your ideas to life, and develop your skills through engaging workshops!
                         </p>
                         <br/>
@@ -124,18 +124,18 @@ export default function About() {
     padding: "10px 50px",
     marginTop: isMobile ? "20px" : "2vh"
 }}>
-    <Track title="1st Place" desc="Nintendo Switch 2 (x3)" color="#DD9E45">
+    <Track title="1st Place" desc="TBD" color="#DD9E45">
         <div className="track-image-container" style={{ fontSize: '4rem' }}>🏆</div>
     </Track>
-    <Track title="2nd Place" desc="Holy Stone Drones (x3)" color="#977837">
+    <Track title="2nd Place" desc="TBD" color="#977837">
         <div className="track-image-container" style={{ fontSize: '4rem' }}>🥈</div>
     </Track>
-    <Track title="3rd Place" desc="Amazon Fire Sticks 4K (x3)" color="#A34F2B">
+    <Track title="3rd Place" desc="TBD" color="#A34F2B">
         <div className="track-image-container" style={{ fontSize: '4rem' }}>🥉</div>
     </Track>
-    <Track title="Best Use of Gemini API" desc="Google Swag Kits (x2)" color="#515128">
+    {/* <Track title="Best Use of Gemini API" desc="Google Swag Kits (x2)" color="#515128">
         <div className="track-image-container" style={{ fontSize: '4rem' }}>✨</div>
-    </Track>
+    </Track> */}
 </div>
     
 </div>
