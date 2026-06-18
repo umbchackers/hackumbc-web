@@ -234,7 +234,7 @@ export default function Schedule() {
                     <SectionTitle title="SCHEDULE"/>
                 </div>
                 <div className="schedule-title-subheading" data-aos="fade-up">
-                    hackUMBC 2026 Mini Hackathon Schedule
+                    hackUMBC 2026 Hackathon Schedule
                 </div>
                 
               {/*  <div className="schedule-day-switch" data-aos="fade-up">
