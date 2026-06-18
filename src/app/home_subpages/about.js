@@ -84,7 +84,7 @@ export default function About() {
                     <div className="about-text text-black" style={{paddingLeft: isMobile ? "10px" : "0px", width: isMobile ? "90%" : "auto", maxWidth: "700px" }}>
                         <p>
                         Join us at UMBC for a 24-hour hackathon happening on <span style={{color: "rgba(105, 0, 16, 0.8)", 
-                            fontWeight: 700, textDecoration: "underline"}}>September 26th-27th</span>
+                            fontWeight: 700, textDecoration: "underline"}}>September 26th-27th </span>
                              in the ITE and Engineering Buildings. Work alongside fellow students, 
                             bring your ideas to life, and develop your skills through engaging workshops!
                         </p>
