@@ -93,6 +93,11 @@ export default function Home() {
             title="Registration"
           /> */}
           <LinkBox
+            href="https://forms.gle/MeqFXxhzQoa87ffo6"
+            desc="Click this button to fill out the interest form for hackUMBC 2026 hackathon!"
+            title="Interest Form"
+          />
+          <LinkBox
             href="https://hackumbc-minihackathon.devpost.com/"
             desc="Visit hackUMBC's Devpost to see project logistics, teams, and prizes!"
             title="Devpost"

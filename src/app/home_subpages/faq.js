@@ -51,7 +51,7 @@ export default function FAQ() {
         },
         {
             question: "How do teams work for the hackathon?",
-            answer: "You can either work solo or in teams of up to 3 members."
+            answer: "You can either work solo or in teams of up to 4 members."
         },
         {
             question: "What can I make? May I build on an existing project?",
