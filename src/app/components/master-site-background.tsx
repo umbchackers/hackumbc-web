@@ -1,5 +1,5 @@
 export const MASTER_SVG_FILENAME = '/master.svg';
-export const MOBILE_MASTER_SVG_FILENAME = '/mobile_master.svg';
+export const MOBILE_MASTER_SVG_FILENAME = '/mobileBG_master.svg';
 
 type MasterSiteBackgroundProps = {
   src?: string;
