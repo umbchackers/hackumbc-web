@@ -122,10 +122,42 @@ body {
     object-fit: cover;
     transition: transform 0.5s ease;
     border-radius: 0; /* Reset to ensure consistency */
+    padding: 8px; /* Space for frame */
+    box-sizing: border-box;
 }
 
 .organizer-card:hover .organizer-image {
     transform: scale(1.1);
+}
+
+/* Headshot frame styling */
+.organizer-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(221, 158, 69, 0.8) 0%, rgba(151, 120, 55, 0.8) 50%, rgba(105, 0, 16, 0.8) 100%);
+    border-radius: 10px 10px 0 0;
+    z-index: 1;
+}
+
+.organizer-image-container::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    background: linear-gradient(135deg, rgba(163, 79, 43, 0.6) 0%, rgba(81, 14, 35, 0.6) 50%, rgba(57, 28, 54, 0.6) 100%);
+    border-radius: 8px 8px 0 0;
+    z-index: 1;
+}
+
+.organizer-image {
+    z-index: 2;
+    border-radius: 6px 6px 0 0;
 }
 
 .organizer-info {
@@ -238,10 +270,18 @@ body {
     .organizer-image-container {
         border-radius: 10px 10px 0 0; /* Match the card's top corners */
         overflow: hidden !important;
+        aspect-ratio: 1;
     }
-    
+
+    /* Remove frames on mobile for clean grid look */
+    .organizer-image-container::before,
+    .organizer-image-container::after {
+        display: none;
+    }
+
     .organizer-image {
         border-radius: 5px 5px 0 0; /* Subtle rounding on the actual image */
+        padding: 0;
     }
     
     .organizer-name {
@@ -336,16 +376,26 @@ body {
 @media (max-width: 380px) {
     .organizers-grid {
         grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+    
+    .organizer-card {
+        border-radius: 8px;
         max-width: 230px;
         margin: 0 auto;
     }
     
+    .organizer-info {
+        padding: 8px;
+        border-radius: 0 0 8px 8px;
+    }
+    
     .organizer-name {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .organizer-role {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
     
     .organizer-image-container {
