@@ -5,7 +5,12 @@ import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
 import { EmailTemplate } from "./EmailTemplate";
 import { Resend } from "resend";
+import { BrevoClient } from "@getbrevo/brevo";
 
+
+const brevo = new BrevoClient({
+  apiKey: process.env.NEXT_PUBLIC_BREVO_KEY,
+});
 const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
 const Table = process.env.NEXT_PUBLIC_AWS_TABLE_NAME;
@@ -27,10 +32,16 @@ const dynamodb = new DynamoDBClient({
 });
 
 export async function POST(request) {
+
   let resumeKey;
   const verifyEndpoint =
     "https://challenges.cloudflare.com/turnstile/v0/siteverify";
-  const secret = process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY;
+  // In local dev, use Cloudflare's dummy "always passes" secret so a real
+  // Turnstile challenge isn't required. Production uses the real secret.
+  const secret =
+    process.env.NODE_ENV === "development"
+      ? "1x0000000000000000000000000000000AA"
+      : process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY;
   try {
     const formData = await request.formData();
     const token = formData.get("cf-turnstile-response");
@@ -110,24 +121,31 @@ export async function POST(request) {
     }
 
     try {
-      const { d, error } = await resend.emails.send({
-        from: "hackUMBC <send@hackumbc.tech>",
-        to: [data.email],
-        subject: "hackUMBC Mini Hackathon Registration Confirmation",
-        react: EmailTemplate({
-          firstName: data.firstName,
-          lastName: data.lastName,
-          email: data.email,
-        }),
-      });
+      // const { d, error } = await resend.emails.send({
+      //   from: "hackUMBC <send@hackumbc.tech>",
+      //   to: [data.email],
+      //   subject: "hackUMBC Mini Hackathon Registration Confirmation",
+      //   react: EmailTemplate({
+      //     firstName: data.firstName,
+      //     lastName: data.lastName,
+      //     email: data.email,
+      //   }),
+      // });
 
-      if (error) {
-        console.error(error);
-        return NextResponse.json({ error }, { status: 500 });
-      }
+      const response = await brevo.transactionalEmails.sendTransacEmail({
+        sender: { name: "hackUMBC", email: "heroemenalom73@gmail.com" },
+        to: [{ email: data.email, name: `${data.firstName} ${data.lastName}` }],
+        subject: "hackUMBC Hackathon Registration Confirmation",
+        htmlContent: 'insert template here'
+      })
+
+      // if (error) {
+      //   console.error(error);
+      //   return NextResponse.json({ error }, { status: 500 });
+      // }
 
       return NextResponse.json(
-        { message: "Form data sent successfully!", d },
+        { message: "Form data sent successfully!", d: response },
         { status: 200 },
       );
     } catch (error) {
