@@ -72,7 +72,7 @@ export default function Team() {
             { name: "Jaebrel Santos", role: "Sponsorship Team Director", image: "/organizers/jaebrel.webp", linkedin: "https://www.linkedin.com/in/jaebrel-santos-310752352" },
             
             // row 3
-            { name: "Nareh Avagyan", role: "Tech Team", image: "/organizes/nareh.webp", linkedin: "https://www.linkedin.com/in/nareh-avagyan/"},
+            { name: "Nareh Avagyan", role: "Tech Team", image: "/organizers/nareh.webp", linkedin: "https://www.linkedin.com/in/nareh-avagyan/"},
             { name: "Hero Emenalom", role: "Tech Team", image: "/organizers/hero.webp", linkedin: "https://www.linkedin.com/in/heroemenalom/" },
             { name: "Marianne Nguyen", role: "Tech Team", image: "/organizers/marianne.webp", linkedin: "https://www.linkedin.com/in/marianne-p-nguyen/" },
             { name: "Connor Wu", role: "Tech Team", image: "/organizers/connor.webp", linkedin: "https://www.linkedin.com/in/connor-wu-776551291/" },
