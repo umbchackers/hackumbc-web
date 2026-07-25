@@ -226,7 +226,7 @@ body {
     }
 
     .team-content {
-        width: fit-content;
+        width: 95%;
         max-width: 95%;
         padding: 20px 15px;
         margin-top: 20px;
@@ -248,8 +248,8 @@ body {
 
     .organizers-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0;
-        width: min(92vw, 420px);
+        gap: 15px;
+        width: 100%;
         overflow: visible !important;
         -ms-overflow-style: none !important;
         scrollbar-width: none !important;
@@ -259,27 +259,73 @@ body {
         display: none !important;
     }
     
+    /* Classic card layout: no decorative frame */
     .organizer-card {
-        overflow: visible !important;
-        border-radius: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        overflow: hidden !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin: 0;
         max-width: none;
+    }
+
+    .organizer-frame {
+        display: none;
+    }
+
+    .organizer-portrait {
+        aspect-ratio: auto;
+        overflow: visible;
+    }
+
+    .organizer-image {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        display: block;
+        object-fit: cover;
+        object-position: center top;
+        border-radius: 5px 5px 0 0;
+        transform: none;
+        z-index: auto;
+    }
+
+    .organizer-card:hover .organizer-image {
+        transform: none;
+    }
+
+    .organizer-nameplate {
+        position: static;
+        left: auto;
+        top: auto;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 0 0 10px 10px;
+        overflow: visible;
+        gap: 2px;
+        pointer-events: auto;
     }
     
     .organizer-name {
-        font-size: clamp(0.45rem, 2.4vw, 0.7rem);
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #690010;
     }
 
     .organizer-role {
-        font-size: clamp(0.35rem, 1.8vw, 0.55rem);
+        font-size: 0.8rem;
         margin-top: 0;
+        color: #666;
     }
     
     .organizer-card:hover {
         transform: translateY(-5px);
-    }
-
-    .organizer-card:hover .organizer-image {
-        transform: none; /* Avoid awkward crop on small screens */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
     html, body {
@@ -307,7 +353,7 @@ body {
 
     .team-content {
         padding: 15px 10px;
-        width: fit-content;
+        width: 92%;
         max-width: 92%;
         margin-top: 50px;
     }
@@ -328,20 +374,29 @@ body {
 
     .organizers-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0;
+        gap: 10px;
     }
     
     .organizer-card {
-        border-radius: 0;
-        box-shadow: none;
+        border-radius: 12px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .organizer-nameplate {
+        padding: 8px 5px;
+        border-radius: 0 0 12px 12px;
     }
     
     .organizer-name {
-        font-size: clamp(0.4rem, 2.6vw, 0.65rem);
+        font-size: 0.8rem;
     }
     
     .organizer-role {
-        font-size: clamp(0.32rem, 2vw, 0.5rem);
+        font-size: 0.7rem;
+    }
+
+    .organizer-image {
+        border-radius: 6px 6px 0 0;
     }
 }
 
@@ -349,21 +404,26 @@ body {
 @media (max-width: 380px) {
     .organizers-grid {
         grid-template-columns: repeat(1, 1fr);
-        gap: 0;
+        gap: 10px;
     }
     
     .organizer-card {
-        border-radius: 0;
+        border-radius: 12px;
         max-width: 260px;
         margin: 0 auto;
     }
     
+    .organizer-nameplate {
+        padding: 8px;
+        border-radius: 0 0 12px 12px;
+    }
+    
     .organizer-name {
-        font-size: clamp(0.5rem, 3vw, 0.75rem);
+        font-size: 0.85rem;
     }
     
     .organizer-role {
-        font-size: clamp(0.38rem, 2.2vw, 0.55rem);
+        font-size: 0.75rem;
     }
 }
 
@@ -375,8 +435,6 @@ body {
     }
     
     .organizers-grid,
-    .organizer-card,
-    .organizer-portrait,
     .team-content {
         overflow: visible !important;
         touch-action: auto !important;
