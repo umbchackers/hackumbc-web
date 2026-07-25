@@ -92,7 +92,7 @@ export default function Team() {
             { name: "Deborah Olunuga", role: "Design Team", image: "/organizers/deborah.webp", linkedin: "https://www.linkedin.com/in/deborah-olunuga-706534390/" },
             
             // row 6
-            { name: "Fiona Acquah", role: "Sponsorship Team", image: "/organizers/fiona.webp", linkedin: "https://www.linkedin.com/in/darshp623/" },
+            { name: "Fiona Acquah", role: "Sponsorship Team", image: "/organizers/fiona.webp", linkedin: "https://www.linkedin.com/in/fiona-acquah/" },
             { name: "Romain Dzeinse", role: "Sponsorship Team", image: "/organizers/romain.webp", linkedin: "https://www.linkedin.com/in/romaindzeinse/" },
             { name: "Andy Cruz", role: "Sponsorship Team", image: "/organizers/andy.webp", linkedin: "https://www.linkedin.com/in/cruz-andy/" },
             { name: "Jagrat Patel", role: "Sponsorship Team", image: "/organizers/jagrat.webp", linkedin: "https://www.linkedin.com/in/stayjagrat/" },
