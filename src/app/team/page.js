@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SectionTitle from "../components/title";
+import MasterSiteBackground from "../components/master-site-background";
 
 export default function Team() {
     const pageRef = useRef(null);
@@ -129,8 +130,9 @@ export default function Team() {
     };
 
     return (
-    <main id="team">
-        <div id="team" className="team-page-wrapper" ref={pageRef} style={{ 
+    <main id="team" className="relative min-h-screen min-h-[100dvh] w-full">
+        <MasterSiteBackground />
+        <div className="team-page-wrapper relative z-[1]" ref={pageRef} style={{ 
             minHeight: '100vh',
             width: '100%', 
             position: 'relative', 

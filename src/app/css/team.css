@@ -22,17 +22,13 @@ body {
 }
 
 .team-page {
-   /* background-image: url('/hackumbc_bg_team.webp'); */
-     background-color: #E8C48D;
+    background-color: transparent;
     min-height: auto;
     height: auto;
     padding: 100px 0;
     display: block;
     position: relative;
     width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .team-content {
@@ -85,7 +81,7 @@ body {
     justify-content: center;
     overflow: visible; /* Ensure grid doesn't capture scroll */
     -webkit-overflow-scrolling: none;
-    width: min(92vw, 920px);
+    width: min(92vw, 1200px);
     margin: 0 auto;
 }
 
