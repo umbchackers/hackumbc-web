@@ -36,10 +36,10 @@ body {
 }
 
 .team-content {
-    width: 90%;
-    max-width: 1200px;
+    width: fit-content;
+    max-width: 94%;
     margin: 0 auto;
-    padding: 30px;
+    padding: 30px 24px;
     border-radius: 12px;
     background-color: rgba(105, 0, 16, 0.8);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -80,24 +80,26 @@ body {
 
 .organizers-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
     justify-content: center;
     overflow: visible; /* Ensure grid doesn't capture scroll */
     -webkit-overflow-scrolling: none;
+    width: min(92vw, 920px);
+    margin: 0 auto;
 }
 
 .organizer-card {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    transition: transform 0.3s ease;
+    box-shadow: none;
+    margin: -6% -5%;
 }
 
 .organizer-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
 }
 
 .organizer-card a {
@@ -106,77 +108,72 @@ body {
     display: block;
 }
 
-.organizer-image-container {
+/* Square canvas matching headshot-frame.webp proportions */
+.organizer-portrait {
     width: 100%;
     position: relative;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
+    aspect-ratio: 1;
     overflow: hidden;
 }
 
+/* Photo sits in the frame's transparent opening */
 .organizer-image {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    left: 29.9%;
+    top: 26%;
+    width: 41.1%;
+    height: 52%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-    border-radius: 0; /* Reset to ensure consistency */
-    padding: 8px; /* Space for frame */
-    box-sizing: border-box;
+    object-position: center top;
+    z-index: 1;
+    transition: transform 0.4s ease;
 }
 
 .organizer-card:hover .organizer-image {
-    transform: scale(1.1);
+    transform: scale(1.06);
 }
 
-/* Headshot frame styling */
-.organizer-image-container::before {
-    content: '';
+.organizer-frame {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(221, 158, 69, 0.8) 0%, rgba(151, 120, 55, 0.8) 50%, rgba(105, 0, 16, 0.8) 100%);
-    border-radius: 10px 10px 0 0;
-    z-index: 1;
-}
-
-.organizer-image-container::after {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
-    background: linear-gradient(135deg, rgba(163, 79, 43, 0.6) 0%, rgba(81, 14, 35, 0.6) 50%, rgba(57, 28, 54, 0.6) 100%);
-    border-radius: 8px 8px 0 0;
-    z-index: 1;
-}
-
-.organizer-image {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     z-index: 2;
-    border-radius: 6px 6px 0 0;
+    pointer-events: none;
+    user-select: none;
 }
 
-.organizer-info {
-    padding: 15px;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 0 0 10px 10px; /* Subtle rounding matching the card */
-}
-
+/* Name sits inside the gold nameplate */
 .organizer-name {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #690010;
+    position: absolute;
+    left: 25.5%;
+    top: 82%;
+    width: 49%;
+    height: 11%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0 1.5%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: clamp(0.65rem, 1.9vw, 1.05rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #510E23;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 .organizer-role {
+    margin: 0;
+    padding: 0 4px;
+    text-align: center;
     font-size: 0.85rem;
-    color: #666;
+    color: #fff;
+    font-weight: 500;
 }
 
 .light-mode-text {
@@ -198,14 +195,17 @@ body {
 /* Media Queries for Responsive Design */
 @media (max-width: 1200px) {
     .organizers-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        width: min(92vw, 820px);
     }
 }
 
 @media (max-width: 992px) {
     .organizers-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        width: min(92vw, 560px);
     }
 }
 
@@ -226,7 +226,8 @@ body {
     }
 
     .team-content {
-        width: 95%;
+        width: fit-content;
+        max-width: 95%;
         padding: 20px 15px;
         margin-top: 20px;
     }
@@ -247,7 +248,8 @@ body {
 
     .organizers-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 0;
+        width: min(92vw, 420px);
         overflow: visible !important;
         -ms-overflow-style: none !important;
         scrollbar-width: none !important;
@@ -259,41 +261,25 @@ body {
     
     .organizer-card {
         overflow: visible !important;
-        border-radius: 10px; /* Keep consistent with desktop */
-    }
-    
-    .organizer-info {
-        padding: 10px;
-        border-radius: 0 0 10px 10px; /* Keep consistent with desktop */
-    }
-    
-    .organizer-image-container {
-        border-radius: 10px 10px 0 0; /* Match the card's top corners */
-        overflow: hidden !important;
-        aspect-ratio: 1;
-    }
-
-    /* Remove frames on mobile for clean grid look */
-    .organizer-image-container::before,
-    .organizer-image-container::after {
-        display: none;
-    }
-
-    .organizer-image {
-        border-radius: 5px 5px 0 0; /* Subtle rounding on the actual image */
-        padding: 0;
+        border-radius: 0;
+        max-width: none;
     }
     
     .organizer-name {
-        font-size: 0.9rem;
+        font-size: clamp(0.5rem, 2.8vw, 0.75rem);
     }
 
     .organizer-role {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        margin-top: 4px;
     }
     
     .organizer-card:hover {
-        transform: translateY(-5px); /* Reduced hover effect for mobile */
+        transform: translateY(-5px);
+    }
+
+    .organizer-card:hover .organizer-image {
+        transform: none; /* Avoid awkward crop on small screens */
     }
 
     html, body {
@@ -321,7 +307,8 @@ body {
 
     .team-content {
         padding: 15px 10px;
-        width: 92%;
+        width: fit-content;
+        max-width: 92%;
         margin-top: 50px;
     }
     
@@ -341,34 +328,20 @@ body {
 
     .organizers-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 0;
     }
     
     .organizer-card {
-        border-radius: 12px; /* Slightly more rounded but still subtle */
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    .organizer-info {
-        padding: 8px 5px;
-        border-radius: 0 0 12px 12px; /* Match the card */
+        border-radius: 0;
+        box-shadow: none;
     }
     
     .organizer-name {
-        font-size: 0.8rem;
-        margin-bottom: 2px;
+        font-size: clamp(0.45rem, 3vw, 0.7rem);
     }
     
     .organizer-role {
         font-size: 0.7rem;
-    }
-
-    .organizer-image-container {
-        border-radius: 12px 12px 0 0; /* Match the card's top corners */
-    }
-    
-    .organizer-image {
-        border-radius: 6px 6px 0 0; /* Subtle rounding on the actual image */
     }
 }
 
@@ -376,42 +349,21 @@ body {
 @media (max-width: 380px) {
     .organizers-grid {
         grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
+        gap: 0;
     }
     
     .organizer-card {
-        border-radius: 8px;
-        max-width: 230px;
+        border-radius: 0;
+        max-width: 260px;
         margin: 0 auto;
     }
     
-    .organizer-info {
-        padding: 8px;
-        border-radius: 0 0 8px 8px;
-    }
-    
     .organizer-name {
-        font-size: 0.85rem;
+        font-size: clamp(0.55rem, 3.5vw, 0.8rem);
     }
     
     .organizer-role {
         font-size: 0.75rem;
-    }
-    
-    .organizer-image-container {
-        padding-top: 100%; /* Maintain square aspect */
-    }
-
-    .organizer-card {
-        border-radius: 12px; /* Keep consistent */
-    }
-    
-    .organizer-info {
-        border-radius: 0 0 12px 12px; /* Match the card */
-    }
-    
-    .organizer-image-container {
-        border-radius: 12px 12px 0 0; /* Match the card's top corners */
     }
 }
 
@@ -424,19 +376,20 @@ body {
     
     .organizers-grid,
     .organizer-card,
-    .organizer-image-container,
+    .organizer-portrait,
     .team-content {
         overflow: visible !important;
         touch-action: auto !important;
         -webkit-overflow-scrolling: none !important;
     }
     
-    .organizer-image {
-        pointer-events: none; /* Allow touch to pass through to parent for better scrolling */
+    .organizer-image,
+    .organizer-frame {
+        pointer-events: none;
     }
     
     .organizer-card a {
-        touch-action: pan-y !important; /* Only allow vertical scrolling on links */
+        touch-action: pan-y !important;
     }
 }
 

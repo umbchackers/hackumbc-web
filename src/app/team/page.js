@@ -106,18 +106,23 @@ export default function Team() {
                 data-aos-delay={isMobile ? "" : (100 + (index % 5) * 100)}
             >
                 <a href={organizer.linkedin} target="_blank" rel="noopener noreferrer">
-                    <div className="organizer-image-container">
+                    <div className="organizer-portrait">
                         <img 
                             src={organizer.image} 
                             alt={organizer.name}
                             className="organizer-image"
                             loading={index < 10 ? "eager" : "lazy"}
                         />
-                    </div>
-                    <div className="organizer-info">
+                        <img 
+                            src="/headshot-frame.webp" 
+                            alt="" 
+                            className="organizer-frame"
+                            aria-hidden="true"
+                            draggable="false"
+                        />
                         <h3 className="organizer-name">{organizer.name}</h3>
-                        <p className="organizer-role">{organizer.role}</p>
                     </div>
+                    <p className="organizer-role">{organizer.role}</p>
                 </a>
             </div>
         ));
