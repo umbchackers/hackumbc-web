@@ -79,21 +79,19 @@ export default function Team() {
             { name: "Shrikant Bhatnagar", role: "Tech Team", image: "/organizers/shrikant.webp", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
             
             // row 4
-            { name: "Emma Hurd", role: "Marketing Team", image: "/organizers/romain.webp", linkedin: "https://www.linkedin.com/in/emma-hurd/" },
+            { name: "Emma Hurd", role: "Marketing Team", image: "/organizers/emma.webp", linkedin: "https://www.linkedin.com/in/emma-hurd/" },
             { name: "Cullen Pepper", role: "Marketing Team", image: "/organizers/cullen.webp", linkedin: "https://www.linkedin.com/in/cullen-pepper-10aa22379/" },
             { name: "Angel Pham", role: "Marketing Team", image: "/organizers/angel.webp", linkedin: "https://www.linkedin.com/in/duyen-pham-b60465290/" },
             { name: "Hafsah Khan", role: "Marketing Team", image: "/organizers/hafsah.webp", linkedin: "https://www.linkedin.com/in/hafsah-khan-468b06310/" },
             { name: "Adriel Beckly", role: "Marketing Team", image: "/organizers/adriel.webp", linkedin: "https://www.linkedin.com/in/adrielbeckley/" },
             
             // row 5
-            { name: "Fatou Sonko", role: "Design Team", image: "/organizers/fatou.webp", linkedin: "https://www.linkedin.com/in/fatou-sonko/" },
             { name: "Jolin Jiang", role: "Design Team", image: "/organizers/jolin.webp", linkedin: "https://www.linkedin.com/in/jolin-jiang-a018a02b6/" },
             { name: "Sydney Spradlin", role: "Design Team", image: "/organizers/sydney.webp", linkedin: "https://www.linkedin.com/in/sydney-spradlin-7186052b1/" },
             { name: "Andrew Shindle", role: "Design Team", image: "/organizers/andrew.webp", linkedin: "https://www.linkedin.com/in/ashindle/" },
             { name: "Deborah Olunuga", role: "Design Team", image: "/organizers/deborah.webp", linkedin: "https://www.linkedin.com/in/deborah-olunuga-706534390/" },
             
             // row 6
-            { name: "Prajita Shrestha", role: "Sponsorship Team", image: "/organizers/prajita.webp", linkedin: "https://www.linkedin.com/in/prajita/" },
             { name: "Fiona Acquah", role: "Sponsorship Team", image: "/organizers/fiona.webp", linkedin: "https://www.linkedin.com/in/darshp623/" },
             { name: "Romain Dzeinse", role: "Sponsorship Team", image: "/organizers/romain.webp", linkedin: "https://www.linkedin.com/in/romaindzeinse/" },
             { name: "Andy Cruz", role: "Sponsorship Team", image: "/organizers/andy.webp", linkedin: "https://www.linkedin.com/in/cruz-andy/" },
