@@ -32,7 +32,7 @@
     max-width: 1200px;
     width: 100%;
     padding: 30px;
-    background-color: #690010; /*matching background*/
+    background: linear-gradient(to bottom, #a4502c, #dc9a44, #a4502c);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
                 inset 0 0 10px rgba(255, 255, 255, 0.15); 
@@ -76,7 +76,7 @@
     position: relative;
     user-select: none;
     border: none;
-    background-color: #964c57; /* Darker rust color for questions */
+    background: linear-gradient(to bottom, #a4502c, #dc9a44, #a4502c);
     text-align: left;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -122,7 +122,7 @@
     font-size: 1rem;
     line-height: 1.5;
     color: #ffffff;
-    background-color: #b47f87; /* Lighter rust color for answers */
+    background: linear-gradient(to bottom, #680a15, #a34e2b, #680a15);
     border-top: 3px solid rgba(233, 216, 166, 0.3);
   }
   
