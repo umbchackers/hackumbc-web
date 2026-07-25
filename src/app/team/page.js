@@ -121,9 +121,11 @@ export default function Team() {
                             aria-hidden="true"
                             draggable="false"
                         />
-                        <h3 className="organizer-name">{organizer.name}</h3>
+                        <div className="organizer-nameplate">
+                            <h3 className="organizer-name">{organizer.name}</h3>
+                            <p className="organizer-role">{organizer.role}</p>
+                        </div>
                     </div>
-                    <p className="organizer-role">{organizer.role}</p>
                 </a>
             </div>
         ));
