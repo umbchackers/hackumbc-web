@@ -83,7 +83,7 @@ export default function Team() {
             { name: "Emma Hurd", role: "Marketing Team", image: "/organizers/emma.webp", linkedin: "https://www.linkedin.com/in/emma-hurd/" },
             { name: "Cullen Pepper", role: "Marketing Team", image: "/organizers/cullen.webp", linkedin: "https://www.linkedin.com/in/cullen-pepper-10aa22379/" },
             { name: "Angel Pham", role: "Marketing Team", image: "/organizers/angel.webp", linkedin: "https://www.linkedin.com/in/duyen-pham-b60465290/" },
-            { name: "Hafsah Khan", role: "Marketing Team", image: "/organizers/hafsah.webp", linkedin: "https://www.linkedin.com/in/hafsah-khan-468b06310/" },
+            // { name: "Hafsah Khan", role: "Marketing Team", image: "/organizers/hafsah.webp", linkedin: "https://www.linkedin.com/in/hafsah-khan-468b06310/" },
             { name: "Adriel Beckly", role: "Marketing Team", image: "/organizers/adriel.webp", linkedin: "https://www.linkedin.com/in/adrielbeckley/" },
             
             // row 5
@@ -95,7 +95,7 @@ export default function Team() {
             // row 6
             { name: "Fiona Acquah", role: "Sponsorship Team", image: "/organizers/fiona.webp", linkedin: "https://www.linkedin.com/in/fiona-acquah/" },
             { name: "Romain Dzeinse", role: "Sponsorship Team", image: "/organizers/romain.webp", linkedin: "https://www.linkedin.com/in/romaindzeinse/" },
-            { name: "Andy Cruz", role: "Sponsorship Team", image: "/organizers/andy.webp", linkedin: "https://www.linkedin.com/in/cruz-andy/" },
+            // { name: "Andy Cruz", role: "Sponsorship Team", image: "/organizers/andy.webp", linkedin: "https://www.linkedin.com/in/cruz-andy/" },
             { name: "Jagrat Patel", role: "Sponsorship Team", image: "/organizers/jagrat.webp", linkedin: "https://www.linkedin.com/in/stayjagrat/" },
         ];
         
