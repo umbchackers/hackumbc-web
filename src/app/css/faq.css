@@ -13,7 +13,7 @@
   
   .faq-section-title {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 8px;
     width: 100%;
     max-width: 1200px;
     padding: 0 16px;
@@ -77,7 +77,7 @@
     position: relative;
     user-select: none;
     border: none;
-    background: linear-gradient(to bottom, #a4502c, #dc9a44, #a4502c);
+    background: #690010;
     text-align: left;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -98,22 +98,22 @@
   }
   
   .faq-question:hover {
-    background-color: #E9D8A6; /* Even darker on hover */
-    color: #000000;
+    background: #8a0015;
+    color: #ffffff;
   }
 
   .faq-question:hover::after {
-    color: #000000;
+    color: #E9D8A6;
   }
   
   .faq-toggle:checked + .faq-question {
-    background-color: #E9D8A6; /* Match hover color when active */
-    color: #000000;
-    border-bottom: 1px solid #E9D8A6;
+    background: #690010;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(233, 216, 166, 0.4);
   }
 
   .faq-toggle:checked + .faq-question::after {
-    color: #000000;
+    color: #E9D8A6;
     transform: rotate(180deg);
   }
 
@@ -122,9 +122,9 @@
     display: none;
     font-size: 1rem;
     line-height: 1.5;
-    color: #ffffff;
-    background: linear-gradient(to bottom, #680a15, #a34e2b, #680a15);
-    border-top: 3px solid rgba(233, 216, 166, 0.3);
+    color: #391C36;
+    background: #E9D8A6;
+    border-top: 3px solid rgba(105, 0, 16, 0.25);
   }
   
   .faq-toggle:checked + .faq-question + .faq-answer {
@@ -138,15 +138,15 @@
   }
   
   .faq-answer a {
-    color: #E9D8A6;
+    color: #690010;
     text-decoration: underline;
     transition: color 0.3s;
     font-weight: bold;
   }
 
   .faq-answer a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    color: #a4502c;
+    text-shadow: none;
   }
   
   @media (max-width: 768px) {
@@ -174,10 +174,16 @@
     }
 
     .faq-section-title {
-      margin: 0 -20px 20px;
+      margin: 0 -28px 4px;
       padding: 0;
-      width: calc(100% + 40px);
+      width: calc(100% + 56px);
       max-width: none;
+    }
+
+    .faq-header-img {
+      width: 100%;
+      transform: scale(1.12);
+      transform-origin: center;
     }
   }
   
