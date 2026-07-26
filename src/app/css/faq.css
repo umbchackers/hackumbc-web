@@ -32,7 +32,7 @@
     max-width: 1200px;
     width: 100%;
     padding: 30px;
-    background-color: #690010; /*matching background*/
+    background: linear-gradient(to bottom, #a4502c, #dc9a44, #a4502c);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
                 inset 0 0 10px rgba(255, 255, 255, 0.15); 
@@ -76,7 +76,7 @@
     position: relative;
     user-select: none;
     border: none;
-    background-color: #964c57; /* Darker rust color for questions */
+    background: #690010;
     text-align: left;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -97,22 +97,22 @@
   }
   
   .faq-question:hover {
-    background-color: #E9D8A6; /* Even darker on hover */
-    color: #000000;
+    background: #8a0015;
+    color: #ffffff;
   }
 
   .faq-question:hover::after {
-    color: #000000;
+    color: #E9D8A6;
   }
   
   .faq-toggle:checked + .faq-question {
-    background-color: #E9D8A6; /* Match hover color when active */
-    color: #000000;
-    border-bottom: 1px solid #E9D8A6;
+    background: #690010;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(233, 216, 166, 0.4);
   }
 
   .faq-toggle:checked + .faq-question::after {
-    color: #000000;
+    color: #E9D8A6;
     transform: rotate(180deg);
   }
 
@@ -121,9 +121,9 @@
     display: none;
     font-size: 1rem;
     line-height: 1.5;
-    color: #ffffff;
-    background-color: #b47f87; /* Lighter rust color for answers */
-    border-top: 3px solid rgba(233, 216, 166, 0.3);
+    color: #391C36;
+    background: #E9D8A6;
+    border-top: 3px solid rgba(105, 0, 16, 0.25);
   }
   
   .faq-toggle:checked + .faq-question + .faq-answer {
@@ -137,15 +137,15 @@
   }
   
   .faq-answer a {
-    color: #E9D8A6;
+    color: #690010;
     text-decoration: underline;
     transition: color 0.3s;
     font-weight: bold;
   }
 
   .faq-answer a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    color: #a4502c;
+    text-shadow: none;
   }
   
   @media (max-width: 768px) {
