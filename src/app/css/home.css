@@ -35,6 +35,61 @@
     z-index: 10;
 }
 
+/* register button with frame image */
+.register-link-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 390px;
+    aspect-ratio: 1024 / 287;
+    height: auto;
+    margin: 4px 0;
+    transform: scale(1.04);
+}
+
+.register-link-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.register-link-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 3.5rem;
+    max-width: 82%;
+    font-weight: 600;
+}
+
+.register-link-content h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.register-link-content h2 span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.register-link-content p {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    color: #ffffff;
+}
+
 /* link box component*/ 
 .link-box-container {
     display: flex;
@@ -145,7 +200,34 @@
         bottom: auto;
         width: 90%;
         margin: 0 auto;
-        padding: 10px 0;
+        padding: 4px 0;
+        gap: 2px;
+    }
+
+    .register-link-box {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        aspect-ratio: 1024 / 287;
+        margin: 0;
+    }
+
+    .register-link-content {
+        padding: 0 2.75rem;
+        max-width: 84%;
+    }
+
+    .register-link-content h2 {
+        font-size: 1rem;
+        padding-bottom: 5px;
+    }
+
+    .register-link-content h2 span {
+        display: none;
+    }
+
+    .register-link-content p {
+        font-size: 0.7rem;
     }
 
     .link-box-container {

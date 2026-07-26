@@ -78,7 +78,7 @@ export default function Home() {
           width: isMobile ? "90%" : "100%", 
           flexWrap: isMobile ? "nowrap" : "wrap",
           flexDirection: isMobile ? "column" : "row",
-          gap: isMobile ? "10px" : "20px",
+          gap: isMobile ? "2px" : "4px",
           position: "relative",
           bottom: "auto",
         }}>
@@ -89,23 +89,27 @@ export default function Home() {
           /> */}
           {/* <LinkBox
             href="/sign-up"
-            desc="Registration for hackUMBC 2026 mini-hackathon is now open! Click this button to go to the sign up page!"
-            title="Registration"
+            desc="Registration for hackUMBC 2026 is now open! Click this button to go to the sign up page!"
+            title="Register"
+            bgImage="/register_button.png"
           /> */}
-          <LinkBox
-            href="https://forms.gle/MeqFXxhzQoa87ffo6"
-            desc="Click this button to fill out the interest form for hackUMBC 2026 hackathon!"
-            title="Interest Form"
-          />
           <LinkBox
             href="https://hackumbc-minihackathon.devpost.com/"
             desc="Visit hackUMBC's Devpost to see project logistics, teams, and prizes!"
             title="Devpost"
+            bgImage="/devpost_sponsor_button.png"
+          />
+          <LinkBox
+            href="https://forms.gle/MeqFXxhzQoa87ffo6"
+            desc="Click this button to fill out the interest form for hackUMBC 2026 hackathon!"
+            title="Interest Form"
+            bgImage="/register_button.png"
           />
           <LinkBox
             href="#sponsors"
             desc="Want to sponsor hackUMBC? Click this button to learn more!"
             title="Sponsor"
+            bgImage="/devpost_sponsor_button.png"
           />
         </div>
       </div>
