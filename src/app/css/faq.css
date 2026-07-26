@@ -16,6 +16,12 @@
     margin-bottom: 15px;
     color: #000;
   }
+
+  .faq-header-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
   
   .faq-title-subheading {
     text-align: center;
@@ -175,6 +181,19 @@
     .faq-section-title,
     .faq-title-subheading {
       color: #000;
+    }
+
+    .faq-section-title {
+      margin: 0 -28px 8px;
+      padding: 0;
+      width: calc(100% + 56px);
+      max-width: none;
+    }
+
+    .faq-header-img {
+      width: 100%;
+      transform: scale(1.2);
+      transform-origin: center;
     }
   }
   
