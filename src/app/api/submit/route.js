@@ -3,17 +3,18 @@ import { Upload } from "@aws-sdk/lib-storage";
 import { S3Client, DeleteObjectCommand } from "@aws-sdk/client-s3";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
-import { EmailTemplate } from "./EmailTemplate";
+//import { EmailTemplate } from "./EmailTemplate";
 import { Resend } from "resend";
 import { BrevoClient } from "@getbrevo/brevo";
 
 
 const brevo = new BrevoClient({
-  apiKey: process.env.NEXT_PUBLIC_BREVO_KEY,
+  apiKey: process.env.BREVO_API_KEY,
 });
-const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
+//const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
 const Table = process.env.NEXT_PUBLIC_AWS_TABLE_NAME;
+const PwaTable = process.env.NEXT_PUBLIC_AWS_PWA_TABLE_NAME;
 
 const s3 = new S3Client({
   region: process.env.NEXT_PUBLIC_AWS_REGION,
@@ -120,6 +121,49 @@ export async function POST(request) {
       );
     }
 
+    // add new addition to PWA table
+    try {
+      const pwaParams = {
+        TableName: PwaTable,
+        Item: {
+          pk: { S: `USER#${email}` },
+          sk: { S: "METADATA" },
+          email: { S: email },
+          name: { S: `${data.firstName} ${data.lastName}`.trim() },
+          checkedIn: { BOOL: false },
+          createdAt: { S: new Date().toISOString() },
+          role: { S: "student" },
+          points: { N: "0" },
+          tshirtSize: { S: data.tshirtSize},
+          dietaryRestriction: { S: data.dietaryRestriction || "None"},
+          profilePic: { S: "assets/profile.png" },
+          meals: {
+            M: {
+              day1_lunch: { BOOL: false },
+              day1_dinner: { BOOL: false },
+              day1_midnight_snack: { BOOL: false},
+              day2_breakfast: { BOOL: false },
+              day2_lunch: { BOOL: false },
+            },
+          },
+          merch: {
+            M: {
+              tshirt: { BOOL: false },
+              frisbee: { BOOL: false },
+              spinner: { BOOL: false},
+              toy: {BOOL: false},
+              sword: {BOOL: false},
+              bottle: {BOOL: false},
+            },
+          },
+        },
+      };
+
+      await dynamodb.send(new PutItemCommand(pwaParams));
+    } catch (err) {
+      console.error("PWA Table DynamoDB write failed", err);
+    }
+
     try {
       // const { d, error } = await resend.emails.send({
       //   from: "hackUMBC <send@hackumbc.tech>",
@@ -133,10 +177,9 @@ export async function POST(request) {
       // });
 
       const response = await brevo.transactionalEmails.sendTransacEmail({
-        sender: { name: "hackUMBC", email: "heroemenalom73@gmail.com" },
+        templateId: 2,
         to: [{ email: data.email, name: `${data.firstName} ${data.lastName}` }],
-        subject: "hackUMBC Hackathon Registration Confirmation",
-        htmlContent: 'insert template here'
+        params: {FIRSTNAME: data.firstName, EMAIL: data.email},
       })
 
       // if (error) {
