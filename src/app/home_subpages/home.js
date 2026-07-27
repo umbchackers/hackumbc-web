@@ -40,7 +40,7 @@ export default function Home() {
   position: "relative",
   height: isMobile ? "auto" : "100vh",
   overflow: isMobile ? "visible" : "hidden",
-  minHeight: "100vh"
+  minHeight: isMobile? "auto" : "100vh"
 }}>
       {/* isMobile !== null && <video
         autoPlay
@@ -61,11 +61,11 @@ export default function Home() {
         zIndex: 10,
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         flexDirection: "column",
-        gap: isMobile ? "12px" : "clamp(12px, 2.5vh, 28px)",
-        paddingTop: isMobile ? "72px" : "clamp(96px, 14vh, 150px)",
-        paddingBottom: isMobile ? "0" : "clamp(24px, 8vh, 100px)"
+        gap: isMobile ? "16px" : "clamp(12px, 2.5vh, 28px)",
+        paddingTop: isMobile ? "110px" : "clamp(96px, 14vh, 150px)",
+        paddingBottom: isMobile ? "40px" : "clamp(24px, 8vh, 100px)"
       }}>
         <div className="pointer-events-none" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
           <object 
