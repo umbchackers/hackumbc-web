@@ -165,7 +165,7 @@ export async function POST(request) {
     }
 
     try {
-      const apiKey = process.env.BREVO_API_KEY;
+      const apiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY;
       if (!apiKey) {
         console.error("BREVO_API_KEY is not defined in environment variables!");
         return NextResponse.json(
