@@ -60,6 +60,19 @@ export default function Survey() {
   /*pop up noti */
 
   useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (isSubmitting) {
+        e.preventDefault();
+        e.returnValue = "Your submission is still processing. Are you sure you want to exit?";
+        return e.returnValue;
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [isSubmitting]);
+
+  useEffect(() => {
     fetch("/mlh_schools.csv")
       .then((response) => response.text())
       .then((data) => {
@@ -928,7 +941,7 @@ export default function Survey() {
               </div>
               Resume Upload Field
               <div className="mb-4">
-              //   <label
+                 <label
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="resume"
                 >
