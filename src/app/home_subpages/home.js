@@ -100,13 +100,13 @@ export default function Home() {
             bgImage="/devpost_sponsor_button.png"
           />
           <LinkBox
-            href="https://forms.gle/MeqFXxhzQoa87ffo6"
-            desc="Click this button to fill out the interest form for hackUMBC 2026 hackathon!"
-            title="Interest Form"
+            href="https://hackumbc.tech/sign-up"
+            desc="Click this button to sign up for hackUMBC 2026!"
+            title="Sign-Up"
             bgImage="/register_button.png"
           />
           <LinkBox
-            href="#sponsors"
+            href="hackumbc@gmail.com"
             desc="Want to sponsor hackUMBC? Click this button to learn more!"
             title="Sponsor"
             bgImage="/devpost_sponsor_button.png"

@@ -177,7 +177,7 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Ups Are CLOSED!
+              Sign Ups Are OPEN!
             </h2>
             <p className="text-sm italic mb-6 text-center text-white">
               Fields marked by <span className="text-red-500">*</span> are
@@ -926,27 +926,24 @@ export default function Survey() {
                   <option value="other">Other</option>
                 </select>
               </div>
-              {/* Resume Upload Field */}
-              {/*<div className="mb-4">
+              Resume Upload Field
+              <div className="mb-4">
               //   <label
-              //     className="block text-white text-sm font-bold mb-2"
-              //     htmlFor="resume"
-              //   >
-              //     Upload Resume{" "}
-              //     <span className="text-gray-400">(PDF Only)</span>
-              //   </label>
-              //   <input
-              //     className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-              //     id="resume"
-              //     name="resume"
-              //     type="file"
-              //     accept="application/pdf"
-              //   />
-              // </div> */}
+                  className="block text-white text-sm font-bold mb-2"
+                  htmlFor="resume"
+                >
+                  Upload Resume{" "}
+                  <span className="text-gray-400">(PDF Only)</span>
+                </label>
+                <input
+                  className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
+                  id="resume"
+                  name="resume"
+                  type="file"
+                  accept="application/pdf"
+                />
+              </div>
               {/* MLH Checkmark Agreement, remove paragraph once done */}
-              <p className="p-2 font-bold text-md  text-white">
-                We are partnered with MLH.
-              </p>
               <Link
                 id="mlh-trust-badge"
                 style={{
@@ -970,9 +967,8 @@ export default function Survey() {
                   height={60}
                 />
               </Link>
-              <p className="p-2 font-bold text-md  text-white">
-                {" "}
-                The following checkbox is for this partnership.
+              <p className="p-2 font-bold text-md text-white">
+                MLH Agreements
               </p>
               <div className="p-2 mb-4 flex items-center">
                 <input
@@ -1027,8 +1023,8 @@ export default function Survey() {
                 </label>
               </div>
 
-              {/* Email Sharing Agreement }
-              <p className="p-2 font-bold text-md light-mode-text">
+              {/* Email Sharing Agreement */}
+              <p className="p-2 font-bold text-md text-white">
                 hackUMBC Privacy and Consent Agreements
               </p>
               <div className="p-2 mb-4 flex items-center">
@@ -1046,7 +1042,7 @@ export default function Survey() {
                 </label>
               </div>
 
-              {/* Media Consent Agreement
+              {/* Media Consent Agreement */}
               <div className="p-2 mb-4 flex items-center">
                 <input
                   id="mediaConsent"
@@ -1076,7 +1072,6 @@ export default function Survey() {
                   voluntary presence (e.g., "photobombing").
                 </label>
               </div>
-              {/*0x4AAAAAAC82BBSYUgHFxg81 */}
               <div>
                 <Turnstile
                   ref={turnstileRef}
