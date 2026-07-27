@@ -1,81 +1,68 @@
 "use client";
 import "../css/about.css";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
-import { useEffect, useState } from 'react';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 import SectionTitle from "../components/title";
 import useIsMobile from '../../lib/use_is_mobile';
-import SvgTiler from '../components/svg-tiler';
+
+const TRACKS = [
+    {
+        frameSrc: "/main-tracks.webp",
+        alt: "Main Tracks",
+        textColor: "#1a1523",
+        description: "Compete for prizes across domains like AI/ML, Health, Sustainability, and Education",
+    },
+    {
+        frameSrc: "/club-track.webp",
+        alt: "Club Tracks",
+        textColor: "#cab183",
+        description: "Unique challenges hosted by campus club partners",
+    },
+    {
+        frameSrc: "/sponsorship-tracks.webp",
+        alt: "Sponsorship Tracks",
+        textColor: "#ceac80",
+        description: "Tackle real-world challenges hosted by our industry sponsors",
+    },
+    {
+        frameSrc: "/mis-tracks.webp",
+        alt: "Miscellaneous Tracks",
+        textColor: "#a4adb1",
+        description: "Fun or creative focuses for projects and sub-categories",
+    },
+];
+
+function Track({ frameSrc, alt, textColor, description }) {
+    return (
+        <div className="track-frame" data-aos="fade-up">
+            <img src={frameSrc} alt={alt} className="track-frame-img" />
+            <div className="track-frame-content" style={{ color: textColor }}>
+                <p className="track-frame-text">{description}</p>
+            </div>
+        </div>
+    );
+}
 
 export default function About() {
     const isMobile = useIsMobile();
-    
-    function Track({ title, desc, color, children }) {
-    return (
-        <div className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-64'} rounded-lg border-transparent 
-            bg-white/10 hover:border-white/20 hover:shadow-lg backdrop-blur-sm cursor-default transition-all duration-300`}
-            style={{
-                padding: isMobile ? '15px 10px' : '0.5rem',
-                maxWidth: isMobile ? '300px' : 'none',
-                margin: isMobile ? '0 auto' : '0',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                justifyContent: isMobile ? 'flex-start' : 'space-between',
-                height: isMobile ? 'auto' : '450px',
-                minHeight: isMobile ? 'auto' : '405px',
-                backgroundColor: color || 'transparent'
-            }}
-            data-aos="fade-up">
-                <div className={`flex items-center`}
-                    style={{
-                        padding: '15px 0px 15px 0px',
-                        width: isMobile ? '150px' : '150px',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        flexShrink: 0
-                    }}>
-                    {children}
-                </div>
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    height: isMobile ? 'auto' : '100%',
-                    flex: isMobile ? 'none' : 1
-                }}>
-                    <div>
-                        <h1 className={`${isMobile ? 'text-xl' : 'text-2xl'} mb-1 uppercase font-extrabold text-black`}>
-                            {title}
-                        </h1> 
-                        <p className={`text-center ${isMobile ? 'text-sm' : ''} mb-3 font-medium text-black`}>
-                            {desc}
-                        </p> 
-                    </div>
-                </div>
-            </div>
-        );
-    }
+
+    useEffect(() => {
+        AOS.init({ duration: 800, once: true });
+    }, []);
 
     return (
-        <div className="about-page" style={{
-            // backgroundImage: "url('/hackumbc_bg_about.webp')",
-            backgroundColor: "transparent",
-           // backgroundPosition: "center",
-           // backgroundRepeat: "no-repeat",
-            padding: isMobile ? "40px 0" : "0",
-            position: "relative"
-        }}>
-           {/* <SvgTiler 
-                key={isMobile ? 'mobile' : 'desktop'}
-                show={true} 
-                topSrc={isMobile ? "/hackumbc_bg_mobile_about.svg" : "/hackumbc_bg_about1.svg"}
-                tileSrc={isMobile ? "/hackumbc_bg_mobile_about2.svg" : "/hackumbc_bg_about2.svg"} 
-                aspectRatio={1.5}
-                isMobile={isMobile}
-            /> */}
-        
+        <div
+            className="about-page"
+            style={{
+                backgroundColor: "transparent",
+                padding: isMobile ? "40px 0" : "0",
+                position: "relative",
+            }}
+        >
             <div className="about-content">
                 <div className="text-container" data-aos="fade-up">
-                    <div className="about-section-title text-black"> 
+                    <div className="about-section-title text-black">
                         <SectionTitle title="ABOUT" />
                     </div>
                     <div className="about-title-subheading text-black">
@@ -88,20 +75,20 @@ export default function About() {
                              in the ITE and Engineering Buildings. Work alongside fellow students, 
                             bring your ideas to life, and develop your skills through engaging workshops!
                         </p>
-                        <br/>
+                        <br />
                         <p>
-                        With lots of fun activities, amazing prizes, and swag for all participants, you'll be in for an exciting day!
+                            With lots of fun activities, amazing prizes, and swag for all participants, you'll be in for an exciting day!
                         </p>
-                        <br/>
+                        <br />
                         <p>
-                            Curious about the team that makes hackUMBC possible? 
+                            Curious about the team that makes hackUMBC possible?
                             <a
                                 href="/team"
                                 className="team-link rainbow-ripple"
                                 style={{
-                                    WebkitTextStroke: '0.5px rgba(0,0,0,0.1)',
-                                    marginLeft: '5px',
-                                    transition: 'all 0.3s ease'
+                                    WebkitTextStroke: "0.5px rgba(0,0,0,0.1)",
+                                    marginLeft: "5px",
+                                    transition: "all 0.3s ease",
                                 }}
                             >
                                 Meet our organizing team! (Click here)
@@ -109,40 +96,21 @@ export default function About() {
                         </p>
                     </div>
                 </div>
-                
-                {/* Prizes section - old tracks commented out */}
-{/* <div className="tracks-container" data-aos="fade-up"> old tracks */}
-<div className="tracks-container" data-aos="fade-up">
-    <div className="about-title-subheading text-black" style={{ marginTop: isMobile ? "20px" : "3vh" }}>
-        Prizes
-    </div>
-    <div style={{
-    display: "flex",
-    flexDirection: isMobile ? "column" : "row",
-    gap: "20px",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    padding: "10px 50px",
-    marginTop: isMobile ? "20px" : "2vh"
-}}>
-    <Track title="1st Place" desc="TBD" color="#DD9E45">
-        <div className="track-image-container" style={{ fontSize: '4rem' }}>🏆</div>
-    </Track>
-    <Track title="2nd Place" desc="TBD" color="#977837">
-        <div className="track-image-container" style={{ fontSize: '4rem' }}>🥈</div>
-    </Track>
-    <Track title="3rd Place" desc="TBD" color="#A34F2B">
-        <div className="track-image-container" style={{ fontSize: '4rem' }}>🥉</div>
-    </Track>
-    {/* <Track title="Best Use of Gemini API" desc="Google Swag Kits (x2)" color="#515128">
-        <div className="track-image-container" style={{ fontSize: '4rem' }}>✨</div>
-    </Track> */}
-</div>
-    
-</div>
-            </div>    
+
+                <div className="tracks-container" data-aos="fade-up">
+                    <div
+                        className="about-section-title text-black"
+                        style={{ marginTop: isMobile ? "20px" : "3vh" }}
+                    >
+                        <SectionTitle title="TRACKS" />
+                    </div>
+                    <div className="tracks-row">
+                        {TRACKS.map((track) => (
+                            <Track key={track.alt} {...track} />
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
     );
-
-    
 }
