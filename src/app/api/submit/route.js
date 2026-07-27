@@ -7,10 +7,6 @@ import { v4 as uuidv4 } from "uuid";
 import { Resend } from "resend";
 import { BrevoClient } from "@getbrevo/brevo";
 
-
-const brevo = new BrevoClient({
-  apiKey: process.env.BREVO_API_KEY,
-});
 //const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
 const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
 const Table = process.env.NEXT_PUBLIC_AWS_TABLE_NAME;
@@ -169,27 +165,21 @@ export async function POST(request) {
     }
 
     try {
-      // const { d, error } = await resend.emails.send({
-      //   from: "hackUMBC <send@hackumbc.tech>",
-      //   to: [data.email],
-      //   subject: "hackUMBC Mini Hackathon Registration Confirmation",
-      //   react: EmailTemplate({
-      //     firstName: data.firstName,
-      //     lastName: data.lastName,
-      //     email: data.email,
-      //   }),
-      // });
+      const apiKey = process.env.BREVO_API_KEY;
+      if (!apiKey) {
+        console.error("BREVO_API_KEY is not defined in environment variables!");
+        return NextResponse.json(
+          { message: "Registration saved, but BREVO_API_KEY is missing." },
+          { status: 200 }
+        );
+      }
+      const brevo = new BrevoClient({ apiKey });
 
       const response = await brevo.transactionalEmails.sendTransacEmail({
         templateId: 2,
         to: [{ email: data.email, name: `${data.firstName} ${data.lastName}` }],
         params: {FIRSTNAME: data.firstName, EMAIL: data.email},
       })
-
-      // if (error) {
-      //   console.error(error);
-      //   return NextResponse.json({ error }, { status: 500 });
-      // }
 
       return NextResponse.json(
         { message: "Form data sent successfully!", d: response },
