@@ -39,26 +39,23 @@ export async function POST(request) {
     "https://challenges.cloudflare.com/turnstile/v0/siteverify";
   // In local dev, use Cloudflare's dummy "always passes" secret so a real
   // Turnstile challenge isn't required. Production uses the real secret.
-  const secret =
-    process.env.NODE_ENV === "development"
-      ? "1x0000000000000000000000000000000AA"
-      : process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY;
+  const secret = process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY || "1x0000000000000000000000000000000AA";
   try {
     const formData = await request.formData();
     const token = formData.get("cf-turnstile-response");
-    const data = { major: "" };
-    const params = { TableName: Table, Item: {} };
+
+    const verifyFormData = new URLSearchParams();
+    verifyFormData.append("secret", secret);
+    verifyFormData.append("response", token || "");
 
     const res = await fetch(verifyEndpoint, {
       method: "POST",
-      body: JSON.stringify({
-        secret,
-        response: token,
-      }),
+      body: verifyFormData,
       headers: {
-        "content-type": "application/json",
+        "content-type": "application/x-www-form-urlencoded",
       },
     });
+
     const result = await res.json();
     if (!result.success) {
       console.log(result["error-codes"]);
@@ -69,8 +66,11 @@ export async function POST(request) {
       );
     }
 
+    const data = { major: "" };
+    const params = { TableName: Table, Item: {} };
+
     for (let [key, value] of formData.entries()) {
-      if (key === "agree" || key === "agree2") continue;
+      if (key === "agree" || key === "agree2" || key === "cf-turnstile-response") continue;
       if (key === "resume") {
         if (value.size > 0) {
           resumeKey = await sendResume(value);
@@ -82,26 +82,30 @@ export async function POST(request) {
         }
         continue;
       }
-      if (
-        key === "shareEmail" ||
-        key === "mediaConsent" ||
-        key === "mlh_emailagreement"
-      ) {
-        data[key] = value === "on";
-        params.Item[key] = { S: (value === "on").toString() };
+      if (key === "shareEmail" || key === "mediaConsent" || key === "mlh_emailagreement") {
+        const isChecked = value === "on" || value === "true" || value === true;
+        data[key] = isChecked;
+        params.Item[key] = { BOOL: isChecked };
       } else {
-        data[key] = value;
-        params.Item[key] = { S: value };
+        const strValue = value !== undefined && value !== null ? String(value) : "";
+        data[key] = strValue;
+        params.Item[key] = { S: strValue };
+      }
+    }
+
+    const consentFields = ["shareEmail", "mediaConsent", "mlh_emailagreement"];
+    for (const field of consentFields) {
+      if (!(field in params.Item)) {
+        data[field] = false;
+        params.Item[field] = { BOOL: false };
       }
     }
 
     const userId = uuidv4();
     params.Item["user_id"] = { S: userId.toString() };
 
-    // const hackumbc_2025 = "hackumbc_registration_2025"; // static partition key for the mini-event
     const email = data["email"]; // email as the sort key
 
-    // params.Item["hackumbc_2025"] = { S: hackumbc_2025 }; should match partition key
     params.Item["email"] = { S: email };
 
     // write item
