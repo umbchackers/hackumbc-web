@@ -985,12 +985,12 @@ export default function Survey() {
                   required
                 />
                 <label htmlFor="agree" className="text-white text-sm">
-                I authorize you to share my application/registration information 
-                with Major League Hacking for event administration, ranking, and 
-                administration (including the creation of linked accounts on MLH 
-                and DEV (dev.to)) in line with the MLH Privacy Policy. I further 
-                agree to the terms of both the MLH Contest Terms and Conditions 
-                (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md) 
+                I authorize you to share my application/registration information
+                with Major League Hacking for event administration, ranking, and
+                administration (including the creation of linked accounts on MLH
+                and DEV (dev.to)) in line with the MLH Privacy Policy. I further
+                agree to the terms of both the MLH Contest Terms and Conditions
+                (https://github.com/MLH/mlh-policies/blob/main/contest-terms.md)
                 and the MLH Privacy Policy
                   <span className="text-red-500">*</span>
                 </label>
@@ -1022,7 +1022,7 @@ export default function Survey() {
                   htmlFor="mlh_emailagreement"
                   className="text-white text-sm"
                 >
-                  I authorize MLH + DEV to send me occasional emails about relevant events, 
+                  I authorize MLH + DEV to send me occasional emails about relevant events,
                   career opportunities, and community announcements.
                 </label>
               </div>
@@ -1080,11 +1080,15 @@ export default function Survey() {
               <div>
                 <Turnstile
                   ref={turnstileRef}
-                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                  siteKey={
+                    process.env.NODE_ENV === "development"
+                      ? "1x00000000000000000000AA"
+                      : process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+                  }
                 />
               </div>
               <div className="flex items-center justify-between">
-                {/* {
+                 {
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -1096,7 +1100,7 @@ export default function Survey() {
                   >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
-                } */}
+                }
               </div>
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}
