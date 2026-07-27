@@ -56,7 +56,7 @@ export default function Sponsors() {
             <div className="sponsors-content relative z-10" data-aos="fade-up">
                 <div className="sponsors-unified-container" data-aos="fade-up">
                     <div className="sponsors-intro-text">
-                       hackUMBC wouldn't be possible without the generous support of our sponsors, click on their logos to check them out!
+                       Our 2026 sponsors are coming soon! Stay tuned to see the amazing organizations supporting hackUMBC.
                        {/* Explore our workshops below! */}
                     </div>
 

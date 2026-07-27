@@ -33,7 +33,7 @@ const TRACKS = [
     },
 ];
 
-function Track({ frameSrc, alt, textColor, description }) {
+function TrackItem({ frameSrc, alt, textColor, description }) {
     return (
         <div className="track-frame" data-aos="fade-up">
             <img src={frameSrc} alt={alt} className="track-frame-img" />
@@ -44,7 +44,7 @@ function Track({ frameSrc, alt, textColor, description }) {
     );
 }
 
-export default function About() {
+export function About() {
     const isMobile = useIsMobile();
 
     useEffect(() => {
@@ -56,7 +56,7 @@ export default function About() {
             className="about-page"
             style={{
                 backgroundColor: "transparent",
-                padding: isMobile ? "40px 0" : "0",
+                padding: isMobile ? "80px 0 20px 0" : "0",
                 position: "relative",
             }}
         >
@@ -64,9 +64,6 @@ export default function About() {
                 <div className="text-container" data-aos="fade-up">
                     <div className="about-section-title text-black">
                         <SectionTitle title="ABOUT" />
-                    </div>
-                    <div className="about-title-subheading text-black">
-                        All About hackUMBC
                     </div>
                     <div className="about-text text-black" style={{paddingLeft: isMobile ? "10px" : "0px", width: isMobile ? "90%" : "auto", maxWidth: "700px" }}>
                         <p>
@@ -96,21 +93,40 @@ export default function About() {
                         </p>
                     </div>
                 </div>
-
-                <div className="tracks-container" data-aos="fade-up">
-                    <div
-                        className="about-section-title text-black"
-                        style={{ marginTop: isMobile ? "20px" : "3vh" }}
-                    >
-                        <SectionTitle title="TRACKS" />
-                    </div>
-                    <div className="tracks-row">
-                        {TRACKS.map((track) => (
-                            <Track key={track.alt} {...track} />
-                        ))}
-                    </div>
-                </div>
             </div>
         </div>
     );
 }
+
+export function Tracks() {
+    const isMobile = useIsMobile();
+
+    useEffect(() => {
+        AOS.init({ duration: 800, once: true });
+    }, []);
+
+    return (
+        <div
+            className="tracks-container"
+            data-aos="fade-up"
+            style={{
+                padding: isMobile ? "20px 0" : "0",
+                position: "relative",
+            }}
+        >
+            <div
+                className="about-section-title text-black"
+                style={{ marginBottom: "50px", marginTop: "0" }}
+            >
+                <SectionTitle title="TRACKS" />
+            </div>
+            <div className="tracks-row" style={{ marginTop: "0"}}>
+                {TRACKS.map((track) => (
+                    <TrackItem key={track.alt} {...track} />
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default About

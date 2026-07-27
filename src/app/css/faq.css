@@ -6,7 +6,7 @@
     width: 100%;
     padding: 20px;
     min-height: 100vh;
-    padding-bottom: 20vh;
+    padding-bottom: 15vh;
     background-color: transparent !important;
     /* background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); for blend */
   }
