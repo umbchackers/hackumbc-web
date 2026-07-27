@@ -174,12 +174,29 @@ export default function Survey() {
       )}
       {/* for the pop up^ */}
       <Navbar />
+
+       <Link
+          id="mlh-trust-badge"
+          className="fixed top-0 right-2 w-[55px] sm:right-10 sm:w-[90px] block z-[10000]"
+          href="https://mlh.io/seasons/2027/hackathon-season"
+          target="_blank"
+        >
+          <Image
+            src="https://logged-assets.s3.amazonaws.com/trust-badge/2027/mlh-trust-badge-2027-white.svg"
+            alt="Major
+          League Hacking 2026 Hackathon Season"
+            width={90}
+            height={55}
+            className="w-full h-auto"
+          />
+      </Link>
+
       <div className="sign-up bg-scroll relative bg-black">
         {/*<StarsBackground className="absolute inset-0 -z-10" />*/}
 
-        <div className="flex justify-center items-center min-h-screen">
-          <div className="w-full max-w-2xl p-8 rounded-lg formBox">
-            <div className="flex justify-center mb-6">
+        <div className="flex justify-center items-center min-h-screen pt-12">
+          <div className="w-full max-w-2xl p-6 sm:p-8 rounded-lg formBox mt-8">
+            <div className="flex justify-center mb-4">
               <Image
                 className="hack-logo dark:drop-shadow-[0_0_0.3rem_#ffffff70] light:invert"
                 src="/hackumbc 2026 text.svg"
@@ -957,29 +974,6 @@ export default function Survey() {
                 />
               </div>
               {/* MLH Checkmark Agreement, remove paragraph once done */}
-              <Link
-                id="mlh-trust-badge"
-                style={{
-                  display: "block",
-                  maxWidth: "100px",
-                  minWidth: "60px",
-                  position: "fixed",
-                  right: "50px",
-                  top: "0",
-                  zIndex: "10000",
-                  width: "100%",
-                }}
-                href="https://mlh.io/seasons/2027/hackathon-season"
-                target="_blank"
-              >
-                <Image
-                  src="https://logged-assets.s3.amazonaws.com/trust-badge/2027/mlh-trust-badge-2027-white.svg"
-                  alt="Major
-                League Hacking 2026 Hackathon Season"
-                  width={100}
-                  height={60}
-                />
-              </Link>
               <p className="p-2 font-bold text-md text-white">
                 MLH Agreements
               </p>
