@@ -10,6 +10,10 @@
     background-color: transparent !important;
     /* background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); for blend */
   }
+
+  .faq-toggle {
+      display: none !important;
+  }
   
   .faq-section-title {
     text-align: center;
@@ -28,10 +32,6 @@
     margin-bottom: 25px;
     color: #000;
     font-size: 1.2rem;
-  }
-
-  .text-black {
-    color: #000 !important;
   }
 
   .faq-content {
@@ -76,16 +76,16 @@
     display: block;
     padding: 16px 20px;
     font-size: 1.1rem;
-    color: #ffffff;
+    color: #f6c78b;
     cursor: pointer;
     font-weight: bold;
     position: relative;
     user-select: none;
-    border: none;
     background: #690010;
     text-align: left;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
   }
   
   .faq-question::after {
@@ -93,18 +93,16 @@
     position: absolute;
     right: 20px;
     font-size: 0.9rem;
-    transition: transform 0.3s, color 0.3s;
-    opacity: 0.8;
-    color: #E9D8A6;
-  }
-  
-  .faq-toggle:checked + .faq-question::after {
-    transform: rotate(180deg);
+    transition: transform 0.3s, color 0.3s ease;
+    opacity: 0.9;
+    color: #f6c78b;
   }
   
   .faq-question:hover {
-    background: #8a0015;
+    background: #510E23;
     color: #ffffff;
+    border-color: #f6c78b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   .faq-question:hover::after {
@@ -113,12 +111,14 @@
   
   .faq-toggle:checked + .faq-question {
     background: #690010;
-    color: #ffffff;
-    border-bottom: 1px solid rgba(233, 216, 166, 0.4);
+    color: #f6c89b;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 1px solid rgba(246, 199, 139, 0.4);
   }
 
   .faq-toggle:checked + .faq-question::after {
-    color: #E9D8A6;
+    color: #ffffff;
     transform: rotate(180deg);
   }
 
@@ -129,7 +129,10 @@
     line-height: 1.5;
     color: #391C36;
     background: #E9D8A6;
-    border-top: 3px solid rgba(105, 0, 16, 0.25);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid rgba(246, 199, 139, 0.3);
+    border-top: none;
   }
   
   .faq-toggle:checked + .faq-question + .faq-answer {
@@ -155,9 +158,6 @@
   }
   
   @media (max-width: 768px) {
-    .title {
-      font-size: 1.5rem;
-    }
     .faq-content {
       padding: 15px;
       margin: 0 10px;
@@ -178,12 +178,8 @@
       padding: 15px;
     }
 
-    .faq-section-title,
-    .faq-title-subheading {
-      color: #000;
-    }
-
     .faq-section-title {
+      color: #000;
       margin: 0 -28px 8px;
       padding: 0;
       width: calc(100% + 56px);

@@ -9,14 +9,55 @@ import SvgTiler from '../components/svg-tiler';
 
 export default function Schedule() {
     // Update this in one place when the event date changes (YYYY-MM-DD).
-    const EVENT_DATE = '2026-04-29';
-    const [activeDay, setActiveDay] = useState('September 28th');
+    const EVENT_DATE = '2026-09-26';
+    const [activeDay, setActiveDay] = useState('Day 1');
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
     const timelineRef = useRef(null);
     const currentEventRef = useRef(null);
     const [currentEventIndex, setCurrentEventIndex] = useState(-1);
     const isMobile = useIsMobile();
     
+    // Schedule Data for Day 1
+    const day1Schedule = [
+        { time: '7:30 AM', endTime: '8:00 AM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '8:00 AM', endTime: '8:15 AM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '8:15 AM', endTime: '8:30 AM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '10:00 AM', endTime: '11:00 AM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '12:00 PM', endTime: '1:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '1:00 PM', endTime: '3:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '3:00 PM', endTime: '4:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '6:00 PM', endTime: '7:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '7:00 PM', endTime: '8:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '8:00 PM', endTime: '9:00 PM', event: 'TBD', location: 'TBD', type: 'event' }
+    ];
+
+    // Schedule Data for Day 2
+    const day2Schedule = [
+        { time: '8:00 AM', endTime: '9:00 AM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '9:00 AM', endTime: '11:00 AM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '11:00 AM', endTime: '12:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '12:00 PM', endTime: '1:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '1:00 PM', endTime: '2:30 PM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '2:30 PM', endTime: '4:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
+        { time: '4:00 PM', endTime: '5:00 PM', event: 'TBD', location: 'TBD', type: 'event' }
+    ];
+
+        //mini Hackathon schedule
+    //     const scheduleData = [
+    //     { time: '7:30 AM', endTime: '8:00 AM', event: 'TBD', location: 'TBD'},
+    //     { time: '8:00 AM', endTime: '8:15 AM', event: 'TBD', location: 'TBD' },
+    //     { time: '8:15 AM', endTime: '8:30 AM', event: 'TBD', location: 'TBD' },
+    //     { time: '10:00 AM', endTime: '11:00 AM', event: 'TBD', location: 'TBD'},
+    //     { time: '12:00 PM', endTime: '1:00 PM', event: 'TBD', location: 'TBD' },
+    //     { time: '1:00 PM', endTime: '3:00 PM', event: 'TBD', location: 'TBD' },
+    //     { time: '3:00 PM', endTime: '4:00 PM', event: 'TBD', location: 'TBD' },
+    //     { time: '6:00 PM', endTime: '7:00 PM', event: 'TBD', location: 'TBD' },
+    //     { time: '7:00 PM', endTime: '8:00 PM', event: 'TBD', location: 'TBD' },
+    //     { time: '8:00 PM', endTime: '9:00 PM', event: 'TBD', location: 'TBD' },
+    // ];
+
+    const currentSchedule = activeDay === 'Day 1' ? day1Schedule : day2Schedule;
+
     useEffect(() => {
         AOS.init({
             duration: 1200,
@@ -33,6 +74,10 @@ export default function Schedule() {
         return () => clearInterval(timer);
     }, []);
     
+    useEffect(() => {
+        AOS.refresh();
+    }, [activeDay]);
+
     // scroll to current event when it changes
     useEffect(() => {
         if(currentEventRef.current) 
@@ -71,11 +116,11 @@ export default function Schedule() {
 
     // Keep state updates out of render to avoid React re-render crashes.
     useEffect(() => {
-        const currentIndex = scheduleData.findIndex((item) =>
+        const currentIndex = currentSchedule.findIndex((item) =>
             isCurrentEvent(item.time, item.endTime)
         );
         setCurrentEventIndex(currentIndex);
-    }, [currentDateTime]);
+    }, [currentDateTime, activeDay]);
     
     // helper to convert time strings (9:00am) to hours and minutes
     const getTimeComponents = (timeString) => {
@@ -119,64 +164,17 @@ export default function Schedule() {
         return time.replace(/([0-9]+)([ap]m)/i, '$1 $2');
     };
 
-    // schedule data for day 1
-    /* const day1Schedule = [
-        { time: '9 AM', endTime: '10 AM', event: 'Check In', location: 'ENGINEERING ATRIUM' },
-        { time: '10 AM', endTime: '11 AM', event: 'Networking Fair', location: 'ENGINEERING ATRIUM' },
-        { time: '11 AM', endTime: '12 PM', event: 'Opening Ceremony', location: 'ENGINEERING 027' },
-        { time: '12 PM', endTime: '12:30 PM', event: 'Hacking Begins / Team Formation', location: 'ITE/ENG' },
-        { time: '12:30 PM', endTime: '1 PM', event: 'Lunch', location: 'ENGINEERING ATRIUM' },
-        { time: '1 PM', endTime: '2 PM', event: 'T. Rowe Price Sponsor Talk: Fireside Chat with UMBC Alums', location: 'ITE FIRST FLOOR' },
-        { time: '2 PM', endTime: '3 PM', event: 'Drawing Insights from Student Data (DoIT) & Hack the Flag: Playing and Designing CTF Challenges (CyberDawgs)', location: 'ITE FIRST FLOOR' },
-        { time: '3 PM', endTime: '4 PM', event: 'How to Land a Cybersecurity Job (Nightwing) & Git your Git Together (GDC)', location: 'ITE 102/104' },
-        { time: '4 PM', endTime: '4:30 PM', event: 'Sharing Your Projects with the Online World (SAD) & Arduino Workshop (IEEE)', location: 'ITE 102/104' },
-        { time: '4:30 PM', endTime: '5:15 PM', event: 'Build with AI (GDG) & HackUMBC Career Toolkit', location: 'ITE 102/104' },
-        { time: '5:15 PM', endTime: '6:30 PM', event: 'Guest Panel: Aria Kim, Aashrey Sharma, Phoebe Yu, Justin Chavez & Julian Chavez', location: 'ITE 102/104' },
-        { time: '6:30 PM', endTime: '7:30 PM', event: 'Dinner', location: 'ENGINEERING ATRIUM' },
-        { time: '8 PM', endTime: '8:30', event: 'Smash Tournament', location: 'ITE 104' },
-        { time: '8:30 PM', endTime: '9:30 PM', event: 'MLH', location: 'ITE 102' },
-        { time: '9:30 PM', endTime: '10 PM', event: 'Cup Stacking', location: 'ITE 102' },
-        { time: '10 PM', endTime: '11 pm', event: 'Late Night Snack', location: 'ITE SECOND FLOOR' },
-        { time: '11 PM', endTime: '12 AM', event: 'Karaoke / Just Dance', location: 'ITE 102' }
-    ];
-
-    // schedule data for day 2
-    const day2Schedule = [
-        { time: '9 AM', endTime: '11 AM', event: 'Breakfast', location: 'ENGINEERING ATRIUM' },
-        { time: '11 AM', endTime: '12 PM', event: 'Begin Hacking Submission', location: 'ITE SECOND FLOOR' },
-        { time: '12 PM', endTime: '1 PM', event: 'Hacking Ends!', location: 'ITE SECOND FLOOR' },
-        { time: '1 PM', endTime: '2 PM', event: 'Lunch', location: 'ENGINEERING ATRIUM' },
-        { time: '2 PM', endTime: '3:10 PM', event: 'Judging Wave 1', location: 'UC BALLROOM' },
-        { time: '3:10 PM', endTime: '4:30 PM', event: 'Judging Wave 2', location: 'UC BALLROOM' },
-        { time: '4:30 PM', endTime: '5 PM', event: 'Closing Ceremony', location: 'UC BALLROOM LOUNGE' },
-    ]; */
-
-    //mini Hackathon schedule
-    const scheduleData = [
-    { time: '7:30 AM', endTime: '8:00 AM', event: 'TBD', location: 'TBD'},
-    { time: '8:00 AM', endTime: '8:15 AM', event: 'TBD', location: 'TBD' },
-    { time: '8:15 AM', endTime: '8:30 AM', event: 'TBD', location: 'TBD' },
-    { time: '10:00 AM', endTime: '11:00 AM', event: 'TBD', location: 'TBD'},
-    { time: '12:00 PM', endTime: '1:00 PM', event: 'TBD', location: 'TBD' },
-    { time: '1:00 PM', endTime: '3:00 PM', event: 'TBD', location: 'TBD' },
-    { time: '3:00 PM', endTime: '4:00 PM', event: 'TBD', location: 'TBD' },
-    { time: '6:00 PM', endTime: '7:00 PM', event: 'TBD', location: 'TBD' },
-    { time: '7:00 PM', endTime: '8:00 PM', event: 'TBD', location: 'TBD' },
-    { time: '8:00 PM', endTime: '9:00 PM', event: 'TBD', location: 'TBD' },
-];
-
-
     const renderTimeline = () => {
     return (
         <div className="timeline-container" ref={timelineRef}>
             <div className="timeline">
-                {scheduleData.map((item, index) => {
+                {currentSchedule.map((item, index) => {
                         const isCurrentlyHappening = isCurrentEvent(item.time, item.endTime);
                         const eventType = getEventType(item.event);
                         
                         return (
                             <div 
-                                key={index} 
+                                key={`${activeDay}-${index}`}
                                 className="timeline-item"
                                 ref={isCurrentlyHappening ? currentEventRef : null}
                                 data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
@@ -216,38 +214,29 @@ export default function Schedule() {
 
     return (
         <div className="schedule-page" style={{
-            // backgroundImage: "url('/hackumbc_bg_schedule.webp')",
-            backgroundColor: "transparent",
-           // backgroundSize: "cover",
-           // backgroundPosition: "center",
-            // backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
             position: "relative",
         }}>
-           {/*} <SvgTiler 
-                show={true}
-                topSrc={isMobile ? "/hackumbc_bg_mobile_schedule.svg" : "/hackumbc_bg_schedule1.svg"}
-                tileSrc={isMobile ? "/hackumbc_bg_mobile_schedule2.svg" : "/hackumbc_bg_schedule2.svg"}
-                aspectRatio={1.5}
-            /> */}
             <div className="schedule-content">
                 <div className="schedule-section-title" data-aos="fade-up">
                     <SectionTitle title="SCHEDULE"/>
                 </div>
                 
-              {/*  <div className="schedule-day-switch" data-aos="fade-up">
+              {  <div className="schedule-day-switch" data-aos="fade-up">
                     <button 
-                        className={`tab-button ${activeDay === 'September 28th' ? 'active-tab' : ''}`} 
-                        onClick={() => setActiveDay('September 28th')}
+                        className={`tab-button ${activeDay === 'Day 1' ? 'active-tab' : ''}`} 
+                        onClick={() => setActiveDay('Day 1')}
                     >
                         Day 1
                     </button>
                     <button 
-                        className={`tab-button ${activeDay === 'September 29th' ? 'active-tab' : ''}`} 
-                        onClick={() => setActiveDay('September 29th')}
+                        className={`tab-button ${activeDay === 'Day 2' ? 'active-tab' : ''}`} 
+                        onClick={() => setActiveDay('Day 2')}
                     >
                         Day 2
                     </button>
-                </div> */}
+                </div> }
                 
                 {renderTimeline()}
                 

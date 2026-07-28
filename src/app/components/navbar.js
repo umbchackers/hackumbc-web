@@ -13,7 +13,7 @@ export default function Navbar() {
   useEffect(() => {
     setCurrentPath(window.location.pathname);
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 900);
     };
 
     handleResize();
@@ -75,11 +75,6 @@ export default function Navbar() {
               Organizers
             </Link>
           </div>
-
-          <div className="nav-right light-mode-text">
-            {/* Add any additional right-side links or buttons here */}
-          </div>
-        </nav>
         {/*hamburger menu*/}
         <div id="hamburger-nav" className="hamburger-menu">
           <div
@@ -138,6 +133,7 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
+        </nav>
       </div>
     </>
   );

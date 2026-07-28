@@ -49,10 +49,6 @@ export default function Sponsors() {
                <SectionTitle title="SPONSORS"/>
                {/* <SectionTitle title="WORKSHOPS"/> */}
             </div>
-            <div className="sponsors-title-subheading relative z-10 text-black" data-aos="fade-up">
-                 Thank You to Our Incredible Sponsors!
-               {/* Check Out Our Workshops! */}
-            </div>
             <div className="sponsors-content relative z-10" data-aos="fade-up">
                 <div className="sponsors-unified-container" data-aos="fade-up">
                     <div className="sponsors-intro-text">

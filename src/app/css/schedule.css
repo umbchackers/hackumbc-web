@@ -1,6 +1,6 @@
 .schedule-page {
     padding: 2rem;
-    color: #fff;
+    color: #333;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -53,35 +53,43 @@
     justify-content: center;
     margin-bottom: 2rem;
     position: relative;
-    z-index: 2;
+    z-index: 10;
     gap: 1rem;
 }
 
 .schedule-day-switch button {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid transparent;
-    color: #444;
-    font-size: 1rem;
-    padding: 0.7rem 1.5rem;
+    background-color: #510E23;
+    border: 2px solid #690010;
+    color: #f6c78b;
+    font-size: 1.1rem;
+    padding: 0.6rem 1.8rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-radius: 30px;
-    font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    font-weight: 700;
+    font-family: 'MedievalSharp', serif, cursive; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    outline: none; 
+}
+
+
+.schedule-day-switch button:focus, .schedule-day-switch button:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 8px rgba(246, 199, 139, 0.6);
 }
 
 .schedule-day-switch button:hover {
-    border-color: #ba4126;
-    background-color: #ba4126;
-    color: white;
-    border-color: white;
+    background-color: #690010;
+    color: #ffffff;
+    border-color: #f6c78b;
+    transform: translateY(-2px);
 }
 
 .tab-button.active-tab {
-    background-color: #ba4126;
-    color: white;
-    border-color: white;
-    box-shadow: 0 4px 8px rgba(186, 65, 38, 0.3);
+    background-color: #690010;
+    color: #ffffff;
+    border: 2px solid #f6c78b !important;
+    box-shadow: 0 0 10px rgba(246, 199, 139, 0.4), inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Horizontal timeline styling */
@@ -155,7 +163,7 @@
     content: '';
     width: 14px;
     height: 14px;
-    background-color: #690010;
+    background-color: #f6c78b;
     border: 2px solid #690010;
     border-radius: 50%;
     position: absolute;
@@ -176,13 +184,13 @@
 }
 
 .timeline-card {
-    background-color: white;
+    background-color: #fdf6e7;
+    border: 1px solid #690010;
     border-radius: 8px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none !important;
     height: auto;
 }
 
@@ -192,8 +200,8 @@
 }
 
 .timeline-card-header {
-    background-color: #515128;
-    color: white;
+    background-color: #690010;
+    color: #f6c78b;
     padding: 0.4rem 0.7rem;
     font-weight: 600;
     display: flex;
@@ -415,12 +423,13 @@
 .timeline-help-text {
     display: inline-block;
     padding: 8px 16px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #fdf6e7;
     color: #333 !important;
     border-radius: 20px;
     font-weight: 500 !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-top: 1.5rem !important;
     font-style: normal !important;
-    border: 1px solid rgba(186, 65, 38, 0.3);
+    border: 1px solid;
+    border-color: #690010;
 }

@@ -68,7 +68,7 @@ export default function Team() {
         { name: "Hero Emenalom", role: "Tech Team", image: "/organizers/hero.webp", linkedin: "https://www.linkedin.com/in/heroemenalom/" },
         { name: "Marianne Nguyen", role: "Tech Team", image: "/organizers/marianne.webp", linkedin: "https://www.linkedin.com/in/marianne-p-nguyen/" },
         { name: "Connor Wu", role: "Tech Team", image: "/organizers/connor.webp", linkedin: "https://www.linkedin.com/in/connor-wu-776551291/" },
-        { name: "Shrikant Bhatnagar", role: "Tech Team", image: "/organizers/shrikant.webp", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
+        //{ name: "Shrikant Bhatnagar", role: "Tech Team", image: "/organizers/shrikant.webp", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
         
         // marketing team
         { name: "Emma Hurd", role: "Marketing Team", image: "/organizers/emma.webp", linkedin: "https://www.linkedin.com/in/emma-hurd/" },

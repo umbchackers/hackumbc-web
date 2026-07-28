@@ -1,21 +1,19 @@
 .home-page {
-    overflow-x: hidden;
     min-height: auto;
     position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .home-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
     align-items: center;
     min-height: auto;
-    text-align: center;
-    position: relative;
     width: 100%;
 }
 
@@ -31,8 +29,16 @@
     text-align: center;
     position: absolute;
     bottom: 100px;
+    margin-bottom: 3.5rem;
     padding: 1rem;
     z-index: 10;
+}
+
+.hack-logo {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 /* register button with frame image */
@@ -41,11 +47,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 350px;
+    width: 100%;
+    max-width: 360px;
     aspect-ratio: 1024 / 287;
     height: auto;
     margin: 4px 0;
-    transform: scale(1.04);
 }
 
 .register-link-bg {
@@ -169,33 +175,15 @@
 
 @media (max-width: 768px) {
     .home-page {
-        width: 100%;
-        min-height: auto;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
         justify-content: flex-start;
     }
 
     .home-container {
         flex-direction: column;
-        min-height: auto;
-        justify-content: center;
-        width: 100%;
-        padding: 0;
-    }
-    
-    .hack-logo {
-        width: 240px; 
-        height: auto;
-        margin-bottom: 20px;
-        scale: 1.2;
     }
 
     .footer {
-        display: flex;
         flex-direction: column; 
-        align-items: center;
         position: relative;
         bottom: auto;
         width: 90%;
@@ -204,78 +192,8 @@
         gap: 2px;
     }
 
-    .register-link-box {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
-        aspect-ratio: 1024 / 287;
-        margin: 0;
-    }
-
-    .register-link-content {
-        padding: 0 2.75rem;
-        max-width: 84%;
-    }
-
-    .register-link-content h2 {
-        font-size: 1rem;
-        padding-bottom: 5px;
-    }
-
-    .register-link-content h2 span {
-        display: none;
-    }
-
-    .register-link-content p {
-        font-size: 0.7rem;
-    }
-
-    .link-box-container {
-        position: relative;
-        top: auto !important; 
-        scale: 1;
-        height: auto;
-        min-height: 120px;
-        width: 100% !important;
-        max-width: 300px;
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        border-radius: 5rem !important;
-        justify-content: center;
-        margin: 8px 0;
-        background-color: #690010 !important;
-        border: 2px solid #510E23 !important;
-        padding: 15px;
-    }
-    
-    .link-box-container a {
-        text-decoration: none;
-        color: white !important;
-        display: block; 
-        width: 100%; 
-    }
-
-    .link-box-container p {
-        font-size: 0.85rem;
-        text-align: center;
-        width: 100%;
-        color: white !important;
-        margin-top: 5px;
-    }
-
-    .link-box-container h2 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        text-align: center;
-        padding-bottom: 5px;
-        color: white !important;
-    }
-
-    .link-box-container span {
-        display: none;
-    }
-
+    .register-link-content h2 span,
+    .link-box-container span,
     .hide-on-mobile {
         display: none;
     }
