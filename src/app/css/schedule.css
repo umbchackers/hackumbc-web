@@ -123,8 +123,9 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    padding: 100px 0;
+    padding: 120px 0;
     min-width: max-content;
+    align-items: center;
 }
 
 /* Horizontal line */
@@ -133,10 +134,11 @@
     position: absolute;
     height: 3px;
     background-color: #690010;
-    top: 40%;
+    top: 50%;
     left: 0;
     right: 0;
     z-index: 9;
+    transform: translateY(-50%);
 }
 
 .timeline-item {
@@ -145,6 +147,8 @@
     width: 280px;
     min-width: 280px;
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
 }
 
 /* Remove old odd/even margin-top from .timeline-item.
@@ -169,18 +173,25 @@
     position: absolute;
     z-index: 10;
     left: 50%;
-    top: 34%; 
+    top: 50%; 
     transform: translate(-50%, -50%);
 }
 
 /* Now stagger the CARD, not the entire item */
 .timeline-item:nth-child(odd) .timeline-card {
-    margin-top: 140px; /* push cards below the timeline slightly further down */
+    transform: translateY(90px); /* push cards below the timeline slightly further down */
 }
 
 .timeline-item:nth-child(even) .timeline-card {
-    margin-top: -80px;
-    margin-bottom: 120px;
+    transform: translateY(-90px);
+}
+
+.timeline-item:nth-child(odd) .timeline-card:hover {
+    transform: translateY(85px);
+}
+
+.timeline-item:nth-child(even) .timeline-card:hover {
+    transform: translateY(-95px);
 }
 
 .timeline-card {
@@ -302,23 +313,8 @@
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-    .timeline-item:nth-child(odd) .timeline-card {
-        margin-top: 80px; /* push down a bit more on mobile */
-    }
-
-    .timeline-item:nth-child(even) .timeline-card {
-        margin-top: -60px;
-        margin-bottom: 60px;
-    }
-
-    .timeline-item::before {
-        width: 12px;
-        height: 12px;
-        top: 35%;
-    }
-
     .timeline {
-        padding: 65px 0;
+        padding: 90px 0;
     }
 
     .timeline-container {
@@ -368,25 +364,8 @@
 }
 
 @media (max-width: 480px) {
-    .timeline-item:nth-child(odd) .timeline-card {
-        margin-top: 120px; /* push down a bit more on small phones */
-    }
-
-    .timeline-item:nth-child(even) .timeline-card {
-        margin-top: -50px;
-        margin-bottom: 40px;
-    }
-
     .timeline {
-        padding: 50px 0;
-    }
-
-.timeline-item::before {
-    top: 35%;
-}
-
-    .timeline::after {
-        top: 35%;
+        padding: 80px 0;
     }
 
     .timeline-item {
