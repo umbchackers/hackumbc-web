@@ -135,7 +135,7 @@ export async function POST(request) {
           role: { S: "student" },
           points: { N: "0" },
           tshirtSize: { S: data.tshirtSize},
-          dietaryRestriction: { S: data.dietaryRestriction || "None"},
+          dietaryRestriction: { S: data.dietaryRestrictions || "None"},
           meals: {
             M: {
               day1_lunch: { BOOL: false },
