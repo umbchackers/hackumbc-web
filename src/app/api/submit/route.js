@@ -136,7 +136,6 @@ export async function POST(request) {
           points: { N: "0" },
           tshirtSize: { S: data.tshirtSize},
           dietaryRestriction: { S: data.dietaryRestriction || "None"},
-          profilePic: { S: "assets/profile.png" },
           meals: {
             M: {
               day1_lunch: { BOOL: false },
