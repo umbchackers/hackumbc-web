@@ -100,9 +100,11 @@ export async function POST(request) {
     const userId = uuidv4();
     params.Item["user_id"] = { S: userId.toString() };
 
-    const email = data["email"]; // email as the sort key
 
-    params.Item["email"] = { S: email };
+    const rawEmail = data["email"] || "";
+    const cleanEmail = rawEmail.toLowerCase().trim();
+    data["email"] = cleanEmail;
+    params.Item["email"] = { S: cleanEmail };
 
     // write item
     try {
@@ -126,21 +128,21 @@ export async function POST(request) {
       const pwaParams = {
         TableName: PwaTable,
         Item: {
-          pk: { S: `USER#${email}` },
+          pk: { S: `USER#${cleanEmail}` },
           sk: { S: "METADATA" },
-          email: { S: email },
-          name: { S: `${data.firstName} ${data.lastName}`.trim() },
+          email: { S: cleanEmail },
+          name: { S: `${data.firstName || ''} ${data.lastName || ''}`.trim() || "HackUMBC Participant" },
           checkedIn: { BOOL: false },
           createdAt: { S: new Date().toISOString() },
           role: { S: "student" },
           points: { N: "0" },
-          tshirtSize: { S: data.tshirtSize},
-          dietaryRestriction: { S: data.dietaryRestrictions || "None"},
+          tshirtSize: { S: data.tshirtSize || data.tshirt || "Unknown" },
+          dietaryRestriction: { S: data.dietaryRestrictions || data.dietaryRestriction || "None" },
           meals: {
             M: {
               day1_lunch: { BOOL: false },
               day1_dinner: { BOOL: false },
-              day1_midnight_snack: { BOOL: false},
+              day1_midnight_snack: { BOOL: false },
               day2_breakfast: { BOOL: false },
               day2_lunch: { BOOL: false },
             },
@@ -149,10 +151,10 @@ export async function POST(request) {
             M: {
               tshirt: { BOOL: false },
               frisbee: { BOOL: false },
-              spinner: { BOOL: false},
-              toy: {BOOL: false},
-              sword: {BOOL: false},
-              bottle: {BOOL: false},
+              spinner: { BOOL: false },
+              toy: { BOOL: false },
+              sword: { BOOL: false },
+              bottle: { BOOL: false },
             },
           },
         },
@@ -176,8 +178,8 @@ export async function POST(request) {
 
       const response = await brevo.transactionalEmails.sendTransacEmail({
         templateId: 2,
-        to: [{ email: data.email, name: `${data.firstName} ${data.lastName}` }],
-        params: {FIRSTNAME: data.firstName, EMAIL: data.email},
+        to: [{ email: cleanEmail, name: `${data.firstName} ${data.lastName}` }],
+        params: {FIRSTNAME: data.firstName, EMAIL: cleanEmail},
       })
 
       return NextResponse.json(
@@ -185,7 +187,7 @@ export async function POST(request) {
         { status: 200 },
       );
     } catch (emailErr) {
-      console.error("Failed to send email", error);
+      console.error("Failed to send email", emailErr);
       return NextResponse.json(
         { error: "Failed to send email" },
         { status: 500 },
