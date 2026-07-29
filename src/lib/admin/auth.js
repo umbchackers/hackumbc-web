@@ -1,9 +1,9 @@
 /**
  * Admin auth for registration analytics.
  *
- * Login exchanges ADMIN_DASHBOARD_PASSWORD for an HttpOnly signed session
+ * Login exchanges NEXT_ADMIN_DASHBOARD_PASSWORD for an HttpOnly signed session
  * cookie (not the raw password in the browser). EventBridge/cron uses
- * CRON_SECRET via the x-cron-secret header instead.
+ * NEXT_CRON_SECRET via the x-cron-secret header instead.
  */
 
 import { createHash, createHmac, randomBytes, timingSafeEqual } from "crypto";
@@ -13,12 +13,14 @@ export const SESSION_COOKIE = "hackumbc_admin_session";
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000; // 12 hours
 
 export function getAdminPassword() {
-  return process.env.ADMIN_DASHBOARD_PASSWORD || "";
+  return (process.env.NEXT_ADMIN_DASHBOARD_PASSWORD || "").trim();
 }
 
 /** Prefer a dedicated signing secret; fall back to the dashboard password. */
 function getSigningKey() {
-  return process.env.ADMIN_SESSION_SECRET || getAdminPassword();
+  return (
+    process.env.NEXT_ADMIN_SESSION_SECRET || getAdminPassword()
+  ).trim();
 }
 
 /** Constant-time string compare that does not leak length. */
@@ -92,12 +94,12 @@ export function isAuthorized(request) {
   return verifySessionToken(token);
 }
 
-/** True if x-cron-secret matches CRON_SECRET (EventBridge / scheduled jobs). */
+/** True if x-cron-secret matches NEXT_CRON_SECRET. */
 export function isCronAuthorized(request) {
-  const cronSecret = process.env.CRON_SECRET;
+  const cronSecret = (process.env.NEXT_CRON_SECRET || "").trim();
   if (!cronSecret) return false;
 
-  const header = request.headers.get("x-cron-secret") || "";
+  const header = (request.headers.get("x-cron-secret") || "").trim();
   return safeEqualString(header, cronSecret);
 }
 
@@ -111,7 +113,7 @@ export function checkAuthConfigured() {
     return NextResponse.json(
       {
         error:
-          "ADMIN_DASHBOARD_PASSWORD is not set. Add it to your environment variables.",
+          "NEXT_ADMIN_DASHBOARD_PASSWORD is not set. Add it to your environment variables.",
       },
       { status: 503 },
     );
