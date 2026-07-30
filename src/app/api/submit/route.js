@@ -149,12 +149,11 @@ export async function POST(request) {
           },
           merch: {
             M: {
-              tshirt: { BOOL: false },
-              frisbee: { BOOL: false },
-              spinner: { BOOL: false },
-              toy: { BOOL: false },
-              sword: { BOOL: false },
-              bottle: { BOOL: false },
+              frisbee: { N: "0" },
+              spinner: { N: "0" },
+              "stress toy": { N: "0" },
+              sword: { N: "0" },
+              bottle: { N: "0" },
             },
           },
         },
