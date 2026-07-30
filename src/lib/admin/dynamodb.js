@@ -13,18 +13,18 @@ import {
   PutItemCommand,
 } from "@aws-sdk/client-dynamodb";
 
-const region = process.env.NEXT_PUBLIC_AWS_REGION;
+const region = process.env.HACKUMBC_AWS_REGION;
 const credentials = {
-  accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
+  accessKeyId: process.env.HACKUMBC_AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.HACKUMBC_AWS_SECRET_ACCESS_KEY,
 };
 
 export const dynamodb = new DynamoDBClient({ region, credentials });
 
 export const REGISTRATIONS_TABLE =
-  process.env.NEXT_PUBLIC_AWS_TABLE_NAME || "hackumbc_registration_2026";
+  process.env.HACKUMBC_AWS_TABLE_NAME || "hackumbc_registration_2026";
 export const METRICS_TABLE =
-  process.env.AWS_METRICS_TABLE_NAME || "RegistrationMetrics";
+  process.env.HACKUMBC_AWS_METRICS_TABLE_NAME || "RegistrationMetrics";
 
 function missingTableError(err) {
   if (err?.name === "ResourceNotFoundException") {

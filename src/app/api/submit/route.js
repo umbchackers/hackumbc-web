@@ -7,24 +7,24 @@ import { v4 as uuidv4 } from "uuid";
 import { Resend } from "resend";
 import { BrevoClient } from "@getbrevo/brevo";
 
-//const resend = new Resend(process.env.NEXT_PUBLIC_AWS_RESEND_API_KEY);
-const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
-const Table = process.env.NEXT_PUBLIC_AWS_TABLE_NAME;
-const PwaTable = process.env.NEXT_PUBLIC_AWS_PWA_TABLE_NAME;
+//const resend = new Resend(process.env.RESEND_API_KEY);
+const Bucket = process.env.HACKUMBC_AWS_BUCKET_NAME;
+const Table = process.env.HACKUMBC_AWS_TABLE_NAME;
+const PwaTable = process.env.HACKUMBC_AWS_PWA_TABLE_NAME;
 
 const s3 = new S3Client({
-  region: process.env.NEXT_PUBLIC_AWS_REGION,
+  region: process.env.HACKUMBC_AWS_REGION,
   credentials: {
-    accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.HACKUMBC_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.HACKUMBC_AWS_SECRET_ACCESS_KEY,
   },
 });
 
 const dynamodb = new DynamoDBClient({
-  region: process.env.NEXT_PUBLIC_AWS_REGION,
+  region: process.env.HACKUMBC_AWS_REGION,
   credentials: {
-    accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.HACKUMBC_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.HACKUMBC_AWS_SECRET_ACCESS_KEY,
   },
 });
 
@@ -35,7 +35,7 @@ export async function POST(request) {
     "https://challenges.cloudflare.com/turnstile/v0/siteverify";
   // In local dev, use Cloudflare's dummy "always passes" secret so a real
   // Turnstile challenge isn't required. Production uses the real secret.
-  const secret = process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY || "1x0000000000000000000000000000000AA";
+  const secret = process.env.TURNSTILE_SECRET_KEY || "1x0000000000000000000000000000000AA";
   try {
     const formData = await request.formData();
     const token = formData.get("cf-turnstile-response");
@@ -166,7 +166,7 @@ export async function POST(request) {
     }
 
     try {
-      const apiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY;
+      const apiKey = process.env.BREVO_API_KEY;
       if (!apiKey) {
         console.error("BREVO_API_KEY is not defined in environment variables!");
         return NextResponse.json(

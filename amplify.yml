@@ -8,7 +8,18 @@ frontend:
         - export NODE_OPTIONS="--max-old-space-size=4096"
     build:
       commands:
-        - env | grep -E '^ADMIN_DASHBOARD_PASSWORD=' >> .env.production
+        - env | grep -E '^ADMIN_DASHBOARD_PASSWORD=' > .env.production
+        - env | grep -E '^CRON_SECRET=' >> .env.production
+        - env | grep -E '^HACKUMBC_AWS_ACCESS_KEY_ID=' >> .env.production
+        - env | grep -E '^HACKUMBC_AWS_SECRET_ACCESS_KEY=' >> .env.production
+        - env | grep -E '^HACKUMBC_AWS_BUCKET_NAME=' >> .env.production
+        - env | grep -E '^HACKUMBC_AWS_REGION=' >> .env.production
+        - env | grep -E '^HACKUMBC_AWS_TABLE_NAME=' >> .env.production
+        - env | grep -E '^HACKUMBC_AWS_PWA_TABLE_NAME=' >> .env.production
+        - env | grep -E '^HACKUMBC_AWS_METRICS_TABLE_NAME=' >> .env.production
+        - env | grep -E '^BREVO_API_KEY=' >> .env.production
+        - env | grep -E '^TURNSTILE_SECRET_KEY=' >> .env.production
+        - env | grep -E '^NEXT_PUBLIC_TURNSTILE_SITE_KEY=' >> .env.production
         - npm test -- --ci --watchman=false --runInBand
         - npm run build
   artifacts:
