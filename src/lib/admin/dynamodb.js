@@ -1,7 +1,7 @@
 /**
  * DynamoDB access for registration analytics.
  *
- * - REGISTRATIONS_TABLE: live signup records (COUNT only; never modified here)
+ * - REGISTRATIONS_TABLE: live signup records (read-only; never modified here)
  * - METRICS_TABLE: time-series snapshots { timestamp, totalRegistrations }
  *
  * Tables must already exist in AWS (no runtime CreateTable).
@@ -109,6 +109,64 @@ export async function getLatestMetricSnapshot() {
   // Simple approach: reuse full history (table stays small for a 2-month season)
   const snapshots = await getMetricSnapshots();
   return snapshots.length ? snapshots[snapshots.length - 1] : null;
+}
+
+function bump(map, key) {
+  const label = key || "Unknown";
+  map[label] = (map[label] || 0) + 1;
+}
+
+/**
+ * On-demand tallies of t-shirt sizes and dietary restrictions from the
+ * registrations table. Dietary values may be comma-separated lists.
+ * Returns sorted { label, count } arrays — not polled automatically.
+ */
+export async function getEventPrepTallies() {
+  const tshirtCounts = {};
+  const dietaryCounts = {};
+  let scanned = 0;
+  let ExclusiveStartKey;
+
+  do {
+    const result = await dynamodb.send(
+      new ScanCommand({
+        TableName: REGISTRATIONS_TABLE,
+        ProjectionExpression: "tshirtSize, dietaryRestrictions",
+        ExclusiveStartKey,
+      }),
+    );
+
+    for (const item of result.Items || []) {
+      scanned += 1;
+      bump(tshirtCounts, item.tshirtSize?.S?.trim());
+
+      const raw = item.dietaryRestrictions?.S?.trim() || "";
+      if (!raw || /^none$/i.test(raw)) continue;
+
+      const parts = raw
+        .split(",")
+        .map((part) => part.trim())
+        .filter((part) => part && !/^none$/i.test(part));
+
+      for (const part of parts) {
+        bump(dietaryCounts, part);
+      }
+    }
+
+    ExclusiveStartKey = result.LastEvaluatedKey;
+  } while (ExclusiveStartKey);
+
+  const toSortedList = (map) =>
+    Object.entries(map)
+      .map(([label, count]) => ({ label, count }))
+      .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+
+  return {
+    scanned,
+    tshirtSizes: toSortedList(tshirtCounts),
+    dietaryRestrictions: toSortedList(dietaryCounts),
+    generatedAt: new Date().toISOString(),
+  };
 }
 
 /**

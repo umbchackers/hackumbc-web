@@ -154,6 +154,161 @@ function RegistrationChart({ history, rangeId }) {
   );
 }
 
+const TSHIRT_ORDER = ["small", "medium", "large", "xl", "xxl"];
+
+function formatTallyLabel(label) {
+  if (!label) return "Unknown";
+  if (label === "None" || label === "Unknown") return label;
+  return label
+    .split(/[\s_-]+/)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(" ");
+}
+
+function sortTshirtRows(rows) {
+  return [...rows].sort((a, b) => {
+    const ai = TSHIRT_ORDER.indexOf(String(a.label).toLowerCase());
+    const bi = TSHIRT_ORDER.indexOf(String(b.label).toLowerCase());
+    const aRank = ai === -1 ? TSHIRT_ORDER.length : ai;
+    const bRank = bi === -1 ? TSHIRT_ORDER.length : bi;
+    if (aRank !== bRank) return aRank - bRank;
+    return String(a.label).localeCompare(String(b.label));
+  });
+}
+
+function TallyTable({ title, rows, emptyLabel, footerLabel }) {
+  if (!rows?.length) {
+    return (
+      <div className="tally-block">
+        <h3>{title}</h3>
+        <p className="admin-empty tally-empty">{emptyLabel}</p>
+      </div>
+    );
+  }
+
+  const total = rows.reduce((sum, row) => sum + row.count, 0);
+
+  return (
+    <div className="tally-block">
+      <h3>{title}</h3>
+      <table className="tally-table">
+        <thead>
+          <tr>
+            <th scope="col">Option</th>
+            <th scope="col">Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.label}>
+              <td>{formatTallyLabel(row.label)}</td>
+              <td>{row.count}</td>
+            </tr>
+          ))}
+        </tbody>
+        {footerLabel ? (
+          <tfoot>
+            <tr>
+              <td>{footerLabel}</td>
+              <td>{total}</td>
+            </tr>
+          </tfoot>
+        ) : null}
+      </table>
+    </div>
+  );
+}
+
+function EventPrepPanel({ onLogout }) {
+  const [tallies, setTallies] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function loadTallies() {
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/admin/tallies", fetchOpts);
+      if (res.status === 401) {
+        onLogout();
+        return;
+      }
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.detail || data.error || "Failed to load tallies");
+      }
+      setTallies(data);
+    } catch (err) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const shirtRows = tallies ? sortTshirtRows(tallies.tshirtSizes || []) : [];
+
+  return (
+    <section className="admin-panel">
+      <div className="admin-panel-header">
+        <div>
+          <h2>Event prep tallies</h2>
+          <p className="panel-sub">
+            T-shirt sizes & dietary restrictions · load only when you ask
+          </p>
+        </div>
+        <button
+          className="admin-btn primary"
+          type="button"
+          onClick={loadTallies}
+          disabled={loading}
+        >
+          {loading ? "Scanning…" : tallies ? "Recalculate" : "Load tallies"}
+        </button>
+      </div>
+
+      {error ? <div className="admin-error">{error}</div> : null}
+
+      {!tallies && !loading && !error ? (
+        <p className="admin-empty">
+          Press <strong>Load tallies</strong> to scan registrations for
+          t-shirt and dietary counts. This is not refreshed automatically.
+        </p>
+      ) : null}
+
+      {loading && !tallies ? (
+        <p className="admin-empty">Scanning registrations table…</p>
+      ) : null}
+
+      {tallies ? (
+        <>
+          <p className="range-summary">
+            Scanned <strong>{tallies.scanned}</strong> registrations
+            {tallies.generatedAt ? (
+              <>
+                {" "}
+                · As of <strong>{formatTime(tallies.generatedAt)}</strong>
+              </>
+            ) : null}
+          </p>
+          <div className="tally-grid">
+            <TallyTable
+              title="T-shirt sizes"
+              rows={shirtRows}
+              emptyLabel="No t-shirt sizes found."
+            />
+            <TallyTable
+              title="Dietary restrictions"
+              rows={tallies.dietaryRestrictions}
+              emptyLabel="No dietary restrictions found."
+              footerLabel="Total selections"
+            />
+          </div>
+        </>
+      ) : null}
+    </section>
+  );
+}
+
 function Dashboard({ onLogout }) {
   const [stats, setStats] = useState(null);
   const [history, setHistory] = useState([]);
@@ -315,6 +470,8 @@ function Dashboard({ onLogout }) {
 
           <RegistrationChart history={sliced.points} rangeId={rangeId} />
         </section>
+
+        <EventPrepPanel onLogout={onLogout} />
       </div>
     </div>
   );

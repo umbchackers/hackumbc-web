@@ -267,6 +267,64 @@
   background: rgba(110, 168, 254, 0.25);
 }
 
+.tally-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.tally-block h3 {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--admin-faint);
+}
+
+.tally-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tally-table th,
+.tally-table td {
+  padding: 0.45rem 0.35rem;
+  border-bottom: 1px solid var(--admin-border);
+  text-align: left;
+}
+
+.tally-table th {
+  color: var(--admin-faint);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tally-table td:last-child,
+.tally-table th:last-child {
+  text-align: right;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.tally-table tfoot td {
+  border-bottom: none;
+  padding-top: 0.6rem;
+  color: var(--admin-muted);
+  font-weight: 600;
+}
+
+.tally-table tfoot td:last-child {
+  color: var(--admin-text);
+}
+
+.tally-empty {
+  padding: 1rem 0;
+}
+
 .admin-empty {
   color: var(--admin-muted);
   font-size: 0.85rem;
@@ -394,6 +452,10 @@
 @media (max-width: 900px) {
   .admin-metrics {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tally-grid {
+    grid-template-columns: 1fr;
   }
 }
 
