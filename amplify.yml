@@ -8,6 +8,7 @@ frontend:
         - export NODE_OPTIONS="--max-old-space-size=4096"
     build:
       commands:
+        - env | grep -E '^ADMIN_DASHBOARD_PASSWORD=' >> .env.production
         - npm test -- --ci --watchman=false --runInBand
         - npm run build
   artifacts:

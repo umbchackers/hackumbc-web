@@ -44,6 +44,7 @@
     "react-phone-input-2": "^2.15.1",
     "react-phone-number-input": "^3.4.5",
     "react-scroll": "^1.9.0",
+    "recharts": "^3.10.1",
     "resend": "^4.0.0",
     "tailwind-merge": "^3.5.0",
     "tailwindcss-animate": "^1.0.7"
