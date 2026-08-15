@@ -57,9 +57,9 @@ export default function Sponsors() {
                     </div>
 
                     {/* SPONSOR LOGOS ── */}
-                    {/*
+                     
                     <div className="sponsors-all-logos">
-                        <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer">
+                        {/* <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/coeit.webp"
                                 alt="COEIT"
@@ -186,7 +186,7 @@ export default function Sponsors() {
                                 className="sponsors-logo"
                                 loading="eager"
                             />
-                        </a>
+                        </a> */}
                         <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/pure-buttons.webp"
@@ -195,7 +195,7 @@ export default function Sponsors() {
                                 loading="eager"
                             />
                         </a>
-                        <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer">
+                        {/* <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png"
                                 alt="MLH"
@@ -210,9 +210,9 @@ export default function Sponsors() {
                                 className="sponsors-logo"
                                 loading="eager"
                             />
-                        </a>
+                        </a> */}
                     </div>
-                    */}
+                     
                      {/* ── WORKSHOPS ── */}
                     {/* <div className="workshops-list">
                         {workshops.map((workshop, index) => (
