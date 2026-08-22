@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { useEffect } from 'react';
 import SectionTitle from "../components/title";
+import MasterSiteBackground from "../components/master-site-background";
 
 export default function PrivacyPolicy() {
 
@@ -17,7 +18,9 @@ export default function PrivacyPolicy() {
     }, []);
 
     return (
-        <>
+        <main className="relative min-h-screen min-h-[100dvh] w-full">
+        <MasterSiteBackground />
+        <div className="relative z-[1] w-full">
         <Navbar />
         <div className="privacy-policy-page">
             <div className="privacy-policy-title" data-aos="fade-in">
@@ -60,6 +63,7 @@ export default function PrivacyPolicy() {
                 </div>
             </div>
         </div>
-    </>
+        </div>
+        </main>
     );
 }

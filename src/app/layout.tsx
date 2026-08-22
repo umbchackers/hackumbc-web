@@ -10,16 +10,16 @@ export const metadata = {
   description:
     "Register now for hackUMBC 2026, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
   keywords:
-    "hackUMBC 2025, hackathon, UMBC, tech event, coding competition, innovation, collaboration, registration",
+    "hackUMBC 2026, hackathon, UMBC, tech event, coding competition, innovation, collaboration, registration",
   author: "hackUMBC Organizers",
   robots: "index, follow",
   charset: "UTF-8",
   openGraph: {
     type: "website",
     url: "https://hackumbc.tech",
-    title: "hackUMBC 2025",
+    title: "hackUMBC 2026",
     description:
-      "Register now for hackUMBC 2025, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
+      "Register now for hackUMBC 2026, the premier hackathon event at UMBC. Collaborate, innovate, and showcase your skills with fellow tech enthusiasts. Don't miss out on this incredible opportunity!",
     image: "/hackumbcdog2025.webp",
   },
   twitter: {

@@ -92,6 +92,8 @@ body {
     transition: transform 0.3s ease;
     box-shadow: none;
     margin: -6% -5%;
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 .organizer-card:hover {
@@ -110,6 +112,8 @@ body {
     position: relative;
     aspect-ratio: 1;
     overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 /* Photo sits in the frame's transparent opening */

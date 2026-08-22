@@ -1,21 +1,19 @@
 .home-page {
-    overflow-x: hidden;
-    min-height: 100vh;
+    min-height: auto;
     position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .home-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    text-align: center;
-    position: relative;
+    min-height: auto;
     width: 100%;
 }
 
@@ -31,8 +29,71 @@
     text-align: center;
     position: absolute;
     bottom: 100px;
+    margin-bottom: 3.5rem;
     padding: 1rem;
     z-index: 10;
+}
+
+.hack-logo {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* register button with frame image */
+.register-link-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 1024 / 287;
+    height: auto;
+    margin: 4px 0;
+}
+
+.register-link-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.register-link-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 3.5rem;
+    max-width: 82%;
+    font-weight: 600;
+}
+
+.register-link-content h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.register-link-content h2 span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.register-link-content p {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    color: #ffffff;
 }
 
 /* link box component*/ 
@@ -114,86 +175,25 @@
 
 @media (max-width: 768px) {
     .home-page {
-        width: 100%;
-        min-height: 100vh;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
         justify-content: flex-start;
     }
 
     .home-container {
         flex-direction: column;
-        min-height: 100vh;
-        justify-content: center;
-        width: 100%;
-        padding: 0;
-    }
-    
-    .hack-logo {
-        width: 240px; 
-        height: auto;
-        margin-bottom: 20px;
-        scale: 1.2;
     }
 
     .footer {
-        display: flex;
         flex-direction: column; 
-        align-items: center;
         position: relative;
         bottom: auto;
         width: 90%;
         margin: 0 auto;
-        padding: 10px 0;
+        padding: 4px 0;
+        gap: 2px;
     }
 
-    .link-box-container {
-        position: relative;
-        top: auto !important; 
-        scale: 1;
-        height: auto;
-        min-height: 120px;
-        width: 100% !important;
-        max-width: 300px;
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        border-radius: 5rem !important;
-        justify-content: center;
-        margin: 8px 0;
-        background-color: #690010 !important;
-        border: 2px solid #510E23 !important;
-        padding: 15px;
-    }
-    
-    .link-box-container a {
-        text-decoration: none;
-        color: white !important;
-        display: block; 
-        width: 100%; 
-    }
-
-    .link-box-container p {
-        font-size: 0.85rem;
-        text-align: center;
-        width: 100%;
-        color: white !important;
-        margin-top: 5px;
-    }
-
-    .link-box-container h2 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        text-align: center;
-        padding-bottom: 5px;
-        color: white !important;
-    }
-
-    .link-box-container span {
-        display: none;
-    }
-
+    .register-link-content h2 span,
+    .link-box-container span,
     .hide-on-mobile {
         display: none;
     }

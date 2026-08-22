@@ -17,12 +17,11 @@ function Frame({ imgPath, eager = false }: { imgPath: string; eager?: boolean })
 
 export default function AnalyticFrames() {
   return (
-    <section className="bg-transparent py-10 px-4">
-      <div className="flex flex-col items-center text-center mb-8">
-        <SectionTitle title="LAST YEAR'S STATS" />
-        <p className="text-black text-lg font-medium mt-3 max-w-xl">
-          Highlights from hackUMBC 2025
-        </p>
+    <section className="bg-transparent py-3 pb-10 px-4">
+      <div className="flex flex-col items-center text-center mb-1">
+        <div className="about-section-title">
+          <SectionTitle title="LAST YEAR'S HIGHLIGHTS" />
+        </div>
       </div>
       <div className="flex justify-center items-center flex-wrap gap-6">
         <Frame imgPath="/p-analyt-cropped.svg" />

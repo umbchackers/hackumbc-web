@@ -3,7 +3,7 @@ import "../css/faq.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import SectionTitle from "../components/title";
+import SectionTitle from "../components/title"; 
 import useIsMobile from '../../lib/use_is_mobile';
 import SvgTiler from '../components/svg-tiler';
 
@@ -21,11 +21,13 @@ export default function FAQ() {
     }, []);
 
     function FAQItem({ question, answer }) {
+        const slugId = question.toLowerCase().replace(/[^a-z0-9]/g, '-');
+
         return (
         <div className="faq-item" data-aos="fade-up">
-            <input type="checkbox" opacity="0" id={`faq-${question}`} className="faq-toggle" 
+            <input type="checkbox" id={`faq-${slugId}`} className="faq-toggle" 
             style={{opacity: 0}}/>
-            <label htmlFor={`faq-${question}`} className="faq-question">
+            <label htmlFor={`faq-${slugId}`} className="faq-question">
             {question}
             </label>
             <div className="faq-answer">
@@ -127,10 +129,18 @@ export default function FAQ() {
             /> */}
             {showContent && (
                 <>
-            <div className="faq-section-title relative z-10 text-black" data-aos="fade-up">
+            {/* Text header */}
+            {/* <div className="faq-section-title relative z-10 text-black" data-aos="fade-up">
                 <SectionTitle title="FAQ"/>
+            </div> */}
+           
+            <div className="faq-section-title relative z-10" data-aos="fade-up">
+                <img
+                    src="/faq_header.png"
+                    alt="Frequently Asked Questions"
+                    className="faq-header-img"
+                />
             </div>
-            <div className="faq-title-subheading relative z-10 text-black" data-aos="fade-up">Frequently Asked Questions</div>
             <div className="faq-content relative z-10">
                 <div className="faq-columns">
                     <div className="faq-column">

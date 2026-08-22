@@ -9,7 +9,6 @@ import MasterSiteBackground from "../components/master-site-background";
 import Image from 'next/image';
 
 export default function Team() {
-    const pageRef = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -22,79 +21,73 @@ export default function Team() {
       
         // initialize AOS with mobile-specific settings
         AOS.init({
-          duration: isMobile ? 800 : 1400,
+          duration: 800,
           easing: 'ease-in-out',
           once: true,
-          disable: isMobile ? 'phone' : false, // disable animations on mobile
-          startEvent: 'DOMContentLoaded',
+          disable: 'mobile', // disable animations on mobile
         });
       
-        if (typeof window !== 'undefined') {
-          window.scrollTo(0, 0);
-          document.body.style.overflow = 'auto';
-          document.body.style.height = 'auto';
-          document.documentElement.style.overflow = 'auto';
-          document.documentElement.style.height = 'auto';
-          document.body.style.position = 'relative';
+        // if (typeof window !== 'undefined') {
+        //   window.scrollTo(0, 0);
+        //   document.body.style.overflow = 'auto';
+        //   document.body.style.height = 'auto';
+        //   document.documentElement.style.overflow = 'auto';
+        //   document.documentElement.style.height = 'auto';
+        //   document.body.style.position = 'relative';
       
-          // instead of forcing a redraw on the body, only update the minHeight of your container
-          setTimeout(() => {
-            if (pageRef.current) {
-              const height = pageRef.current.scrollHeight;
-              pageRef.current.style.minHeight = height + 'px';
-            }
-          }, 100);
-        }
+        //   // instead of forcing a redraw on the body, only update the minHeight of your container
+        //   setTimeout(() => {
+        //     if (pageRef.current) {
+        //       const height = pageRef.current.scrollHeight;
+        //       pageRef.current.style.minHeight = height + 'px';
+        //     }
+        //   }, 100);
+        // }
       
         return () => {
-          document.body.style.overflow = '';
-          document.body.style.height = '';
-          document.documentElement.style.overflow = '';
-          document.documentElement.style.height = '';
-          document.body.style.position = '';
           window.removeEventListener('resize', checkMobile);
         };
       }, [isMobile]);
           
 
     const organizers = useMemo(() => [
-        // row 1
-        { name: "Bella Goltser", role: "President", image: "/organizers/thumb/bella.webp", linkedin: "https://www.linkedin.com/in/isabella-goltser-bb1b21284" },
-        { name: "Pahal Dave", role: "External Vice President", image: "/organizers/thumb/pahal.webp", linkedin: "https://www.linkedin.com/in/pahaldave/" },
-        { name: "Jack Winkler", role: "Internal Vice President", image: "/organizers/thumb/jack.webp", linkedin: "https://www.linkedin.com/in/jack-winkler-159575276/" },
-        { name: "Esther Adekola", role: "Executive Assistant", image: "/organizers/thumb/esther.webp", linkedin: "https://www.linkedin.com/in/esther-adekola-a685ba352/" },
+        // eboard
+        { name: "Bella Goltser", role: "President", image: "/organizers/bella.webp", linkedin: "https://www.linkedin.com/in/isabella-goltser-bb1b21284" },
+        { name: "Pahal Dave", role: "External Vice President", image: "/organizers/pahal.webp", linkedin: "https://www.linkedin.com/in/pahaldave/" },
+        { name: "Jack Winkler", role: "Internal Vice President", image: "/organizers/jack.webp", linkedin: "https://www.linkedin.com/in/jack-winkler-159575276/" },
+        { name: "Esther Adekola", role: "Executive Assistant", image: "/organizers/esther.webp", linkedin: "https://www.linkedin.com/in/esther-adekola-a685ba352/" },
+        { name: "Tirth Patel", role: "Advisor", image: "/organizers/tirth.webp", linkedin: "https://www.linkedin.com/in/tirthofficials/" },
+
+        // directors
+        { name: "Natalie Watson", role: "Marketing Team Director", image: "/organizers/natalie.webp", linkedin: "https://www.linkedin.com/in/natalie-w-17a7a3242/" },
+        { name: "Shakib Chowdhury", role: "Tech Team Director", image: "/organizers/shakib.webp", linkedin: "https://www.linkedin.com/in/shakib-chowdhury-6bbbb2284/" },
+        { name: "Jay Gepilano", role: "Design Team Director", image: "/organizers/jay.webp", linkedin: "https://www.linkedin.com/in/julianna-gepilano-686b22284/" },
+        { name: "Jaebrel Santos", role: "Sponsorship Team Director", image: "/organizers/jaebrel.webp", linkedin: "https://www.linkedin.com/in/jaebrel-santos-310752352" },
+        // tech team
+        { name: "Nareh Avagyan", role: "Tech Team", image: "/organizers/nareh.webp", linkedin: "https://www.linkedin.com/in/nareh-avagyan/"},
+        { name: "Hero Emenalom", role: "Tech Team", image: "/organizers/hero.webp", linkedin: "https://www.linkedin.com/in/heroemenalom/" },
+        { name: "Marianne Nguyen", role: "Tech Team", image: "/organizers/marianne.webp", linkedin: "https://www.linkedin.com/in/marianne-p-nguyen/" },
+        { name: "Connor Wu", role: "Tech Team", image: "/organizers/connor.webp", linkedin: "https://www.linkedin.com/in/connor-wu-776551291/" },
+        //{ name: "Shrikant Bhatnagar", role: "Tech Team", image: "/organizers/shrikant.webp", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
         
-        // row 2
-        { name: "Natalie Watson", role: "Marketing Team Director", image: "/organizers/thumb/natalie.webp", linkedin: "https://www.linkedin.com/in/natalie-w-17a7a3242/" },
-        { name: "Shakib Chowdhury", role: "Tech Team Director", image: "/organizers/thumb/shakib.webp", linkedin: "https://www.linkedin.com/in/shakib-chowdhury-6bbbb2284/" },
-        { name: "Jay Gepilano", role: "Design Team Director", image: "/organizers/thumb/jay.webp", linkedin: "https://www.linkedin.com/in/julianna-gepilano-686b22284/" },
-        { name: "Jaebrel Santos", role: "Sponsorship Team Director", image: "/organizers/thumb/jaebrel.webp", linkedin: "https://www.linkedin.com/in/jaebrel-santos-310752352" },
+        // marketing team
+        { name: "Emma Hurd", role: "Marketing Team", image: "/organizers/emma.webp", linkedin: "https://www.linkedin.com/in/emma-hurd/" },
+        //{ name: "Cullen Pepper", role: "Marketing Team", image: "/organizers/cullen.webp", linkedin: "https://www.linkedin.com/in/cullen-pepper-10aa22379/" },
+        { name: "Angel Pham", role: "Marketing Team", image: "/organizers/angel.webp", linkedin: "https://www.linkedin.com/in/duyen-pham-b60465290/" },
+        // { name: "Hafsah Khan", role: "Marketing Team", image: "/organizers/hafsah.webp", linkedin: "https://www.linkedin.com/in/hafsah-khan-468b06310/" },
+        //{ name: "Adriel Beckley", role: "Marketing Team", image: "/organizers/adriel.webp", linkedin: "https://www.linkedin.com/in/adrielbeckley/" },
         
-        // row 3
-        { name: "Nareh Avagyan", role: "Tech Team", image: "/organizers/thumb/nareh.webp", linkedin: "https://www.linkedin.com/in/nareh-avagyan/"},
-        { name: "Hero Emenalom", role: "Tech Team", image: "/organizers/thumb/hero.webp", linkedin: "https://www.linkedin.com/in/heroemenalom/" },
-        { name: "Marianne Nguyen", role: "Tech Team", image: "/organizers/thumb/marianne.webp", linkedin: "https://www.linkedin.com/in/marianne-p-nguyen/" },
-        { name: "Connor Wu", role: "Tech Team", image: "/organizers/thumb/connor.webp", linkedin: "https://www.linkedin.com/in/connor-wu-776551291/" },
-        { name: "Shrikant Bhatnagar", role: "Tech Team", image: "/organizers/thumb/shrikant.webp", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
+        // design team
+        { name: "Jolin Jiang", role: "Design Team", image: "/organizers/jolin.webp", linkedin: "https://www.linkedin.com/in/jolin-jiang-a018a02b6/" },
+        { name: "Sydney Spradlin", role: "Design Team", image: "/organizers/sydney.webp", linkedin: "https://www.linkedin.com/in/sydney-spradlin-7186052b1/" },
+        { name: "Andrew Shindle", role: "Design Team", image: "/organizers/andrew.webp", linkedin: "https://www.linkedin.com/in/ashindle/" },
+        { name: "Deborah Olunuga", role: "Design Team", image: "/organizers/deborah.webp", linkedin: "https://www.linkedin.com/in/deborah-olunuga-706534390/" },
         
-        // row 4
-        { name: "Emma Hurd", role: "Marketing Team", image: "/organizers/thumb/emma.webp", linkedin: "https://www.linkedin.com/in/emma-hurd/" },
-        { name: "Cullen Pepper", role: "Marketing Team", image: "/organizers/thumb/cullen.webp", linkedin: "https://www.linkedin.com/in/cullen-pepper-10aa22379/" },
-        { name: "Angel Pham", role: "Marketing Team", image: "/organizers/thumb/angel.webp", linkedin: "https://www.linkedin.com/in/duyen-pham-b60465290/" },
-        // { name: "Hafsah Khan", role: "Marketing Team", image: "/organizers/thumb/hafsah.webp", linkedin: "https://www.linkedin.com/in/hafsah-khan-468b06310/" },
-        { name: "Adriel Beckly", role: "Marketing Team", image: "/organizers/thumb/adriel.webp", linkedin: "https://www.linkedin.com/in/adrielbeckley/" },
-        
-        // row 5
-        { name: "Jolin Jiang", role: "Design Team", image: "/organizers/thumb/jolin.webp", linkedin: "https://www.linkedin.com/in/jolin-jiang-a018a02b6/" },
-        { name: "Sydney Spradlin", role: "Design Team", image: "/organizers/thumb/sydney.webp", linkedin: "https://www.linkedin.com/in/sydney-spradlin-7186052b1/" },
-        { name: "Andrew Shindle", role: "Design Team", image: "/organizers/thumb/andrew.webp", linkedin: "https://www.linkedin.com/in/ashindle/" },
-        { name: "Deborah Olunuga", role: "Design Team", image: "/organizers/thumb/deborah.webp", linkedin: "https://www.linkedin.com/in/deborah-olunuga-706534390/" },
-        
-        // row 6
-        { name: "Fiona Acquah", role: "Sponsorship Team", image: "/organizers/thumb/fiona.webp", linkedin: "https://www.linkedin.com/in/fiona-acquah/" },
-        { name: "Romain Dzeinse", role: "Sponsorship Team", image: "/organizers/thumb/romain.webp", linkedin: "https://www.linkedin.com/in/romaindzeinse/" },
-        // { name: "Andy Cruz", role: "Sponsorship Team", image: "/organizers/thumb/andy.webp", linkedin: "https://www.linkedin.com/in/cruz-andy/" },
-        { name: "Jagrat Patel", role: "Sponsorship Team", image: "/organizers/thumb/jagrat.webp", linkedin: "https://www.linkedin.com/in/stayjagrat/" },
+        // sponsorship team
+        { name: "Fiona Acquah", role: "Sponsorship Team", image: "/organizers/fiona.webp", linkedin: "https://www.linkedin.com/in/fiona-acquah/" },
+        { name: "Romain Dzeinse", role: "Sponsorship Team", image: "/organizers/romain.webp", linkedin: "https://www.linkedin.com/in/romaindzeinse/" },
+        // { name: "Andy Cruz", role: "Sponsorship Team", image: "/organizers/andy.webp", linkedin: "https://www.linkedin.com/in/cruz-andy/" },
+        { name: "Jagrat Patel", role: "Sponsorship Team", image: "/organizers/jagrat.webp", linkedin: "https://www.linkedin.com/in/stayjagrat/" },
     ], []);
 
     
@@ -145,37 +138,32 @@ export default function Team() {
             </div>
         ));
     };
-
+        
     return (
-    <main id="team" className="relative min-h-screen min-h-[100dvh] w-full">
-        <MasterSiteBackground />
-        <div className="team-page-wrapper relative z-[1]" ref={pageRef} style={{ 
-            minHeight: '100vh',
-            width: '100%', 
-            position: 'relative', 
-            overflowY: 'auto',
-            overflowX: 'hidden',
-            WebkitOverflowScrolling: 'touch'
-        }}>
-            <Navbar />
-            <div className="team-page">
-                <div className="team-content">
-                    <div className="team-title-container" data-aos={isMobile ? "" : "fade-down"}>
-                        <SectionTitle title="Our Team" color="text-white" />
-                        <p className="team-title-subheading text-white">
-                            Meet the amazing people behind hackUMBC!
-                        </p>
-                        <p className="team-subtitle text-white">
-                            Click specific cards to learn more about our Organizers!
-                        </p>
-                    </div>
-                    
-                    <div className="organizers-grid">
-                        {renderOrganizerCards()}
+        <main id="team" className="relative min-h-screen min-h-[100dvh] w-full">
+            <MasterSiteBackground />
+            <div className="team-page-wrapper relative z-[1] w-full min-h-screen">
+                <Navbar />
+                <div className="team-page">
+                    <div className="team-content">
+                        <div className="team-title-container" data-aos={isMobile ? "" : "fade-down"}>
+                            <div className="about-section-title">
+                                <SectionTitle title="Our Team" color="text-white" />
+                            </div>
+                            <p className="team-title-subheading text-white">
+                                Meet the amazing people behind hackUMBC!
+                            </p>
+                            <p className="team-subtitle text-white">
+                                Click specific cards to learn more about our organizers!
+                            </p>
+                        </div>
+                        
+                        <div className="organizers-grid">
+                            {renderOrganizerCards()}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </main>
     );
 } 

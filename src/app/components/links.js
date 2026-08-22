@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../css/home.css";
 
-export default function LinkBox({ href, title, desc }) {
+export default function LinkBox({ href, title, desc, bgImage }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -22,6 +22,31 @@ export default function LinkBox({ href, title, desc }) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  if (bgImage) {
+    return (
+      <a
+        href={href}
+        rel="noopener noreferrer"
+        className="register-link-box"
+        data-aos="fade-in"
+      >
+        <img
+          src={bgImage}
+          alt=""
+          className="register-link-bg"
+          aria-hidden="true"
+        />
+        <div className="register-link-content">
+          <h2>
+            {title}
+            <span>-&gt;</span>
+          </h2>
+          <p>{desc}</p>
+        </div>
+      </a>
+    );
+  }
 
   return (
     <div

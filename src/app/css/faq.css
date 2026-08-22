@@ -6,15 +6,25 @@
     width: 100%;
     padding: 20px;
     min-height: 100vh;
-    padding-bottom: 20vh;
+    padding-bottom: 15vh;
     background-color: transparent !important;
     /* background: radial-gradient(125% 125% at 50% 90%, #000 40%, #005f73 100%); for blend */
+  }
+
+  .faq-toggle {
+      display: none !important;
   }
   
   .faq-section-title {
     text-align: center;
     margin-bottom: 15px;
     color: #000;
+  }
+
+  .faq-header-img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
   
   .faq-title-subheading {
@@ -24,15 +34,11 @@
     font-size: 1.2rem;
   }
 
-  .text-black {
-    color: #000 !important;
-  }
-
   .faq-content {
     max-width: 1200px;
     width: 100%;
     padding: 30px;
-    background-color: #690010; /*matching background*/
+    background: linear-gradient(to bottom, #a4502c, #dc9a44, #a4502c);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3),
                 inset 0 0 10px rgba(255, 255, 255, 0.15); 
@@ -70,16 +76,16 @@
     display: block;
     padding: 16px 20px;
     font-size: 1.1rem;
-    color: #ffffff;
+    color: #f6c78b;
     cursor: pointer;
     font-weight: bold;
     position: relative;
     user-select: none;
-    border: none;
-    background-color: #964c57; /* Darker rust color for questions */
+    background: #690010;
     text-align: left;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
   }
   
   .faq-question::after {
@@ -87,32 +93,32 @@
     position: absolute;
     right: 20px;
     font-size: 0.9rem;
-    transition: transform 0.3s, color 0.3s;
-    opacity: 0.8;
-    color: #E9D8A6;
-  }
-  
-  .faq-toggle:checked + .faq-question::after {
-    transform: rotate(180deg);
+    transition: transform 0.3s, color 0.3s ease;
+    opacity: 0.9;
+    color: #f6c78b;
   }
   
   .faq-question:hover {
-    background-color: #E9D8A6; /* Even darker on hover */
-    color: #000000;
+    background: #510E23;
+    color: #ffffff;
+    border-color: #f6c78b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   .faq-question:hover::after {
-    color: #000000;
+    color: #E9D8A6;
   }
   
   .faq-toggle:checked + .faq-question {
-    background-color: #E9D8A6; /* Match hover color when active */
-    color: #000000;
-    border-bottom: 1px solid #E9D8A6;
+    background: #690010;
+    color: #f6c89b;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 1px solid rgba(246, 199, 139, 0.4);
   }
 
   .faq-toggle:checked + .faq-question::after {
-    color: #000000;
+    color: #ffffff;
     transform: rotate(180deg);
   }
 
@@ -121,9 +127,12 @@
     display: none;
     font-size: 1rem;
     line-height: 1.5;
-    color: #ffffff;
-    background-color: #b47f87; /* Lighter rust color for answers */
-    border-top: 3px solid rgba(233, 216, 166, 0.3);
+    color: #391C36;
+    background: #E9D8A6;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid rgba(246, 199, 139, 0.3);
+    border-top: none;
   }
   
   .faq-toggle:checked + .faq-question + .faq-answer {
@@ -137,21 +146,18 @@
   }
   
   .faq-answer a {
-    color: #E9D8A6;
+    color: #690010;
     text-decoration: underline;
     transition: color 0.3s;
     font-weight: bold;
   }
 
   .faq-answer a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    color: #a4502c;
+    text-shadow: none;
   }
   
   @media (max-width: 768px) {
-    .title {
-      font-size: 1.5rem;
-    }
     .faq-content {
       padding: 15px;
       margin: 0 10px;
@@ -172,9 +178,18 @@
       padding: 15px;
     }
 
-    .faq-section-title,
-    .faq-title-subheading {
+    .faq-section-title {
       color: #000;
+      margin: 0 -28px 8px;
+      padding: 0;
+      width: calc(100% + 56px);
+      max-width: none;
+    }
+
+    .faq-header-img {
+      width: 100%;
+      transform: scale(1.2);
+      transform-origin: center;
     }
   }
   
