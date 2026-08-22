@@ -113,6 +113,17 @@ body {
 }
 
 /* Photo sits in the frame's transparent opening */
+.organizer-image-wrapper {
+    position: absolute;
+    top: 17.5%;
+    left: 20%;
+    width: 60%;
+    height: 100%;
+    
+    overflow: hidden;
+    z-index: 1;
+}
+
 .organizer-image {
     position: absolute;
     left: 29.9%;
@@ -276,6 +287,16 @@ body {
     .organizer-portrait {
         aspect-ratio: auto;
         overflow: visible;
+    }
+
+    .organizer-image-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 80%;
+        width: 80%;
+        height: 80%;
+        
+        z-index: 1;
     }
 
     .organizer-image {
