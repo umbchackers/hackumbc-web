@@ -93,6 +93,7 @@ export default function Team() {
     
     // Optimized frame image reference
     const frameImage = useMemo(() => "/headshot-frame.webp", []);
+    const frameImageC = useMemo(() => "/headshot-frameC.webp", []);
 
     // function to create organizer cards
     const renderOrganizerCards = () => {
@@ -119,7 +120,7 @@ export default function Team() {
 
                         {/* Frame overlaid directly on top */}
                         <Image 
-                            src={frameImage} 
+                            src={index < 9 ? frameImageC : frameImage} 
                             alt="" 
                             fill
                             className="organizer-frame"
