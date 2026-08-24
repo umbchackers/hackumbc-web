@@ -84,11 +84,6 @@ export default function Home() {
           bottom: "auto",
         }}>
           {/* <LinkBox
-            href="https://hackumbc.typeform.com/to/qM9YbL6E"
-            desc="Apply to be an Organizer for hackUMBC 2026! Applications are open until 10/25."
-            title="Apply to Organize"
-          /> */}
-          {/* <LinkBox
             href="/sign-up"
             desc="Registration for hackUMBC 2026 is now open! Click this button to go to the sign up page!"
             title="Register"
@@ -106,10 +101,16 @@ export default function Home() {
             title="Sign-Up"
             bgImage="/register_button.png"
           />
-          <LinkBox
+          {/* <LinkBox
             href="hackumbc@gmail.com"
             desc="Want to sponsor hackUMBC? Click this button to learn more!"
             title="Sponsor"
+            bgImage="/devpost_sponsor_button.png"
+          /> */}
+          <LinkBox
+            href="https://hackumbc.typeform.com/to/ozmi28Sy"
+            desc="Volunteer sign-ups for hackUMBC are officially open! Click this button to apply!"
+            title="Volunteer"
             bgImage="/devpost_sponsor_button.png"
           />
         </div>
