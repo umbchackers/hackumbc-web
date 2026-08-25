@@ -106,7 +106,6 @@ export default function Team() {
             >
                 <a href={organizer.linkedin} target="_blank" rel="noopener noreferrer">
                     <div className="organizer-portrait">
-                        {/* Inner wrapper dynamically scales the inner photo inside the frame */}
                         <div className="organizer-image-wrapper">
                             <Image 
                                 src={organizer.image} 
@@ -114,11 +113,10 @@ export default function Team() {
                                 fill
                                 className="organizer-image"
                                 priority={index < 4}
-                                sizes="(max-width: 748px) 150px, 200px"
+                                sizes="(max-width: 350px) 90vw, (max-width: 768px) 45vw, 200px"
                             />
                         </div>
 
-                        {/* Frame overlaid directly on top */}
                         <Image 
                             src={index < 9 ? frameImageC : frameImage} 
                             alt="" 
@@ -127,7 +125,7 @@ export default function Team() {
                             aria-hidden="true"
                             draggable={false}
                             priority={index < 4}
-                            sizes="(max-width: 748px) 150px, 200px"
+                            sizes="(max-width: 350px) 90vw, (max-width: 768px) 45vw, 200px"
                         />
 
                         <div className="organizer-nameplate">
