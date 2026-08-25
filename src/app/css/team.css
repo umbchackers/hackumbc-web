@@ -117,12 +117,18 @@ body {
 }
 
 /* Photo sits in the frame's transparent opening */
-.organizer-image {
+.organizer-image-wrapper {
     position: absolute;
     left: 29.9%;
-    top: 26%;
-    width: 41.1%;
-    height: 52%;
+    right: 29%;
+    top: 25.5%;
+    bottom: 20%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.organizer-image {
+    position: absolute;
     object-fit: cover;
     object-position: center top;
     z-index: 1;
@@ -282,6 +288,16 @@ body {
         overflow: visible;
     }
 
+    .organizer-image-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 80%;
+        width: 80%;
+        height: 80%;
+        
+        z-index: 1;
+    }
+
     .organizer-image {
         position: relative;
         left: auto;
@@ -290,7 +306,7 @@ body {
         height: auto;
         aspect-ratio: 1;
         display: block;
-        object-fit: cover;
+        object-fit: contain;
         object-position: center top;
         border-radius: 5px 5px 0 0;
         transform: none;

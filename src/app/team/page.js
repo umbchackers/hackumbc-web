@@ -1,11 +1,12 @@
 "use client";
 import "../css/team.css";
 import Navbar from "../components/navbar";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SectionTitle from "../components/title";
 import MasterSiteBackground from "../components/master-site-background";
+import Image from 'next/image';
 
 export default function Team() {
     const [isMobile, setIsMobile] = useState(false);
@@ -46,11 +47,10 @@ export default function Team() {
         return () => {
           window.removeEventListener('resize', checkMobile);
         };
-      }, []);
-         
+      }, [isMobile]);
+          
 
-    // create array of 30 organizers with unique names and roles
-    const organizers = [
+    const organizers = useMemo(() => [
         // eboard
         { name: "Bella Goltser", role: "President", image: "/organizers/bella.webp", linkedin: "https://www.linkedin.com/in/isabella-goltser-bb1b21284" },
         { name: "Pahal Dave", role: "External Vice President", image: "/organizers/pahal.webp", linkedin: "https://www.linkedin.com/in/pahaldave/" },
@@ -88,7 +88,57 @@ export default function Team() {
         { name: "Romain Dzeinse", role: "Sponsorship Team", image: "/organizers/romain.webp", linkedin: "https://www.linkedin.com/in/romaindzeinse/" },
         // { name: "Andy Cruz", role: "Sponsorship Team", image: "/organizers/andy.webp", linkedin: "https://www.linkedin.com/in/cruz-andy/" },
         { name: "Jagrat Patel", role: "Sponsorship Team", image: "/organizers/jagrat.webp", linkedin: "https://www.linkedin.com/in/stayjagrat/" },
-    ];
+    ], []);
+
+    
+    // Optimized frame image reference
+    const frameImage = useMemo(() => "/headshot-frame.webp", []);
+    const frameImageC = useMemo(() => "/headshot-frameC.webp", []);
+
+    // function to create organizer cards
+    const renderOrganizerCards = () => {
+        return organizers.map((organizer, index) => (
+            <div 
+                className="organizer-card" 
+                key={organizer.id || organizer.name || index} 
+                data-aos={isMobile ? undefined : "fade-up"} 
+                data-aos-delay={isMobile ? undefined : (100 + (index % 5) * 100)}
+            >
+                <a href={organizer.linkedin} target="_blank" rel="noopener noreferrer">
+                    <div className="organizer-portrait">
+                        {/* Inner wrapper dynamically scales the inner photo inside the frame */}
+                        <div className="organizer-image-wrapper">
+                            <Image 
+                                src={organizer.image} 
+                                alt={organizer.name}
+                                fill
+                                className="organizer-image"
+                                priority={index < 4}
+                                sizes="(max-width: 748px) 150px, 200px"
+                            />
+                        </div>
+
+                        {/* Frame overlaid directly on top */}
+                        <Image 
+                            src={index < 9 ? frameImageC : frameImage} 
+                            alt="" 
+                            fill
+                            className="organizer-frame"
+                            aria-hidden="true"
+                            draggable={false}
+                            priority={index < 4}
+                            sizes="(max-width: 748px) 150px, 200px"
+                        />
+
+                        <div className="organizer-nameplate">
+                            <h3 className="organizer-name">{organizer.name}</h3>
+                            <p className="organizer-role">{organizer.role}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        ));
+    };
         
     return (
         <main id="team" className="relative min-h-screen min-h-[100dvh] w-full">
@@ -110,36 +160,7 @@ export default function Team() {
                         </div>
                         
                         <div className="organizers-grid">
-                            {organizers.map((organizer, index) => (
-                                <div 
-                                    className="organizer-card" 
-                                    key={organizer.name} 
-                                    data-aos={isMobile ? "" : "fade-up"} 
-                                    data-aos-delay={isMobile ? "0" : `${(index % 4) * 100}`}
-                                >
-                                    <a href={organizer.linkedin} target="_blank" rel="noopener noreferrer">
-                                        <div className="organizer-portrait">
-                                            <img 
-                                                src={organizer.image} 
-                                                alt={organizer.name}
-                                                className="organizer-image"
-                                                loading={index < 8 ? "eager" : "lazy"}
-                                            />
-                                            <img 
-                                                src={index < 9 ? "/headshot-frameC.webp" : "/headshot-frame.webp"} 
-                                                alt="" 
-                                                className="organizer-frame"
-                                                aria-hidden="true"
-                                                draggable="false"
-                                            />
-                                            <div className="organizer-nameplate">
-                                                <h3 className="organizer-name">{organizer.name}</h3>
-                                                <p className="organizer-role">{organizer.role}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            ))}
+                            {renderOrganizerCards()}
                         </div>
                     </div>
                 </div>
