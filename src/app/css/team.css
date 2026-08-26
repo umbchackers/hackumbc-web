@@ -284,33 +284,40 @@ body {
     }
 
     .organizer-portrait {
-        aspect-ratio: auto;
+        width: 100%;
+        position: relative;
         overflow: visible;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
     }
 
     .organizer-image-wrapper {
-        position: absolute;
-        top: 50%;
-        left: 80%;
-        width: 80%;
-        height: 80%;
-        
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        width: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
         z-index: 1;
+        flex-shrink: 0;
     }
 
     .organizer-image {
-        position: relative;
-        left: auto;
-        top: auto;
+        position: absolute;
+        left: 0;
+        top: 0;
         width: 100%;
-        height: auto;
-        aspect-ratio: 1;
-        display: block;
-        object-fit: contain;
+        height: 100%;
+        object-fit: cover;
         object-position: center top;
-        border-radius: 5px 5px 0 0;
         transform: none;
-        z-index: auto;
+        margin: 0;
+        padding: 0;
     }
 
     .organizer-card:hover .organizer-image {
@@ -323,7 +330,7 @@ body {
         top: auto;
         width: 100%;
         height: auto;
-        padding: 10px;
+        padding: 3vw;
         background-color: #fff;
         border-radius: 0 0 10px 10px;
         overflow: visible;
@@ -332,13 +339,13 @@ body {
     }
     
     .organizer-name {
-        font-size: 0.9rem;
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
         font-weight: 600;
         color: #690010;
     }
 
     .organizer-role {
-        font-size: 0.8rem;
+        font-size: clamp(0.7rem, 2vw, 0.8rem);
         margin-top: 0;
         color: #666;
     }
@@ -373,8 +380,9 @@ body {
 
     .team-content {
         padding: 15px 10px;
-        width: 92%;
-        max-width: 92%;
+        width: 94%;
+        max-width: 94%;
+        margin: 0 auto;
         margin-top: 50px;
     }
     
@@ -394,56 +402,54 @@ body {
 
     .organizers-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 3vw;
     }
     
     .organizer-card {
-        border-radius: 12px;
+        border-radius: 10px;
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     }
 
     .organizer-nameplate {
-        padding: 8px 5px;
-        border-radius: 0 0 12px 12px;
+        padding: 3vw 1.5vw;
+        border-radius: 0 0 10px 10px;
     }
     
     .organizer-name {
-        font-size: 0.8rem;
+        font-size: clamp(0.7rem, 2.5vw, 0.8rem);
     }
     
     .organizer-role {
-        font-size: 0.7rem;
+        font-size: clamp(0.6rem, 2vw, 0.7rem);
     }
 
     .organizer-image {
-        border-radius: 6px 6px 0 0;
+        border-radius: 10px 10px 0 0;
     }
 }
 
-/* Additional small phone optimization */
-@media (max-width: 380px) {
+/* Single column for very small screens */
+@media (max-width: 350px) {
     .organizers-grid {
         grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
+        gap: 4vw;
     }
     
     .organizer-card {
-        border-radius: 12px;
-        max-width: 260px;
-        margin: 0 auto;
+        border-radius: 10px;
     }
-    
+
     .organizer-nameplate {
-        padding: 8px;
-        border-radius: 0 0 12px 12px;
+        padding: 4vw 2vw;
+        border-radius: 0 0 10px 10px;
     }
     
     .organizer-name {
-        font-size: 0.85rem;
+        font-size: clamp(0.75rem, 3vw, 0.9rem);
     }
     
     .organizer-role {
-        font-size: 0.75rem;
+        font-size: clamp(0.65rem, 2.5vw, 0.8rem);
     }
 }
 
