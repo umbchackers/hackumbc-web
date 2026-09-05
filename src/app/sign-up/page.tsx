@@ -207,8 +207,11 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Ups Are OPEN!
+              Sign Ups Closing September 23rd!
             </h2>
+            <p className="text-sm italic mb-6 text-center text-white">
+              In-Person • Retriever Activity Center
+            </p>
             <p className="text-sm italic mb-6 text-center text-white">
               Fields marked by <span className="text-red-500">*</span> are
               required
