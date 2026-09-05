@@ -106,6 +106,9 @@ export async function POST(request) {
     data["email"] = cleanEmail;
     params.Item["email"] = { S: cleanEmail };
 
+    const ageNum = Number(data.age);
+    const hasAge = Number.isFinite(ageNum);
+
     // write item
     try {
       await dynamodb.send(new PutItemCommand(params));
@@ -133,6 +136,12 @@ export async function POST(request) {
           email: { S: cleanEmail },
           name: { S: `${data.firstName || ''} ${data.lastName || ''}`.trim() || "HackUMBC Participant" },
           checkedIn: { BOOL: false },
+          ...(hasAge
+            ? {
+                age: { N: String(Math.trunc(ageNum)) },
+                isMinor: { BOOL: ageNum < 18 },
+              }
+            : {}),
           createdAt: { S: new Date().toISOString() },
           role: { S: "student" },
           points: { N: "0" },

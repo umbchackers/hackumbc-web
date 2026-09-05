@@ -449,13 +449,140 @@
   margin: 0 0 0.85rem;
 }
 
+/* Venue presence */
+.venue-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.venue-badge.in {
+  background: rgba(63, 185, 80, 0.15);
+  color: #3fb950;
+  border: 1px solid rgba(63, 185, 80, 0.35);
+}
+
+.venue-badge.out {
+  background: rgba(248, 81, 73, 0.12);
+  color: #f85149;
+  border: 1px solid rgba(248, 81, 73, 0.35);
+}
+
+.venue-feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 420px;
+  overflow: auto;
+}
+
+.venue-feed-item {
+  display: grid;
+  grid-template-columns: 7.5rem auto 1fr;
+  gap: 0.65rem;
+  align-items: start;
+  padding: 0.65rem 0.15rem;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.venue-feed-item:last-child {
+  border-bottom: none;
+}
+
+.venue-feed-item time {
+  color: var(--admin-faint);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.15rem;
+}
+
+.venue-feed-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.venue-feed-body strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--admin-text);
+}
+
+.venue-feed-body span {
+  font-size: 0.78rem;
+  color: var(--admin-muted);
+  overflow-wrap: anywhere;
+}
+
+.venue-minors-panel {
+  margin-top: 1rem;
+}
+
+.venue-minors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.venue-table-wrap {
+  overflow-x: auto;
+}
+
+.venue-table th:last-child,
+.venue-table td:last-child,
+.venue-table th:nth-child(3),
+.venue-table td:nth-child(3) {
+  text-align: left;
+  font-family: inherit;
+}
+
+.venue-table td:nth-child(3) {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.admin-header-actions a.admin-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
 @media (max-width: 900px) {
   .admin-metrics {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .tally-grid {
+  .tally-grid,
+  .venue-minors-grid {
     grid-template-columns: 1fr;
+  }
+
+  .venue-feed-item {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "time badge"
+      "body body";
+  }
+
+  .venue-feed-item time {
+    grid-area: time;
+  }
+
+  .venue-feed-item .venue-badge {
+    grid-area: badge;
+    justify-self: end;
+  }
+
+  .venue-feed-item .venue-feed-body {
+    grid-area: body;
   }
 }
 

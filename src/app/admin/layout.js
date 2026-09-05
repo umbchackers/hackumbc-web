@@ -3,7 +3,7 @@
  * Access control is enforced by API auth + the page login gate (not middleware).
  */
 export const metadata = {
-  title: "Registration Analytics · hackUMBC",
+  title: "Admin · hackUMBC",
   robots: {
     index: false,
     follow: false,
