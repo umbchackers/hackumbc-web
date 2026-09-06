@@ -1,12 +1,14 @@
 "use client";
 import "../css/team.css";
 import Navbar from "../components/navbar";
-import { useEffect, useRef, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SectionTitle from "../components/title";
 import MasterSiteBackground from "../components/master-site-background";
-import Image from 'next/image';
+
+const frameImage = "/headshot-frame.webp";
+const frameImageC = "/headshot-frameC.webp";
 
 const organizers = [
         // eboard
@@ -46,6 +48,44 @@ const organizers = [
         { name: "Jagrat Patel", role: "Sponsorship Team", image: "/organizers/jagrat.webp", linkedin: "https://www.linkedin.com/in/stayjagrat/" },
     ];
 
+// function to create organizer cards
+function OrganizerCard({ organizer, index}) {
+    const frame = index < 9 ? frameImageC : frameImage;
+
+    return ( 
+        <div className="organizer-card" >
+            <a href={organizer.linkedin} target="_blank" rel="noopener noreferrer">
+                <div className="organizer-portrait">
+                    <div className="organizer-image-wrapper">
+                        <img
+                            src={organizer.image} 
+                            alt={organizer.name}
+                            className="organizer-image object-cover w-full h-full absolute inset-0"
+                            loading={index < 4 ? "eager" : "lazy"}
+                            decoding="async"
+                        />
+                    </div>
+
+                    <img
+                        src={frame}
+                        alt="" 
+                        className="organizer-frame absolute inset-0 w-full h-full pointer-events-none"
+                        aria-hidden="true"
+                        draggable={false}
+                        loading={"lazy"}
+                        decoding="async"
+                    />
+
+                    <div className="organizer-nameplate">
+                        <h3 className="organizer-name">{organizer.name}</h3>
+                        <p className="organizer-role">{organizer.role}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    );
+}
+
 export default function Team() {
     const [isMobile, setIsMobile] = useState(false);
 
@@ -72,55 +112,6 @@ export default function Team() {
         };
       }, []);
 
-    
-    // Optimized frame image reference
-    const frameImage = "/headshot-frame.webp";
-    const frameImageC = "/headshot-frameC.webp";
-
-    // function to create organizer cards
-    const renderOrganizerCards = () => {
-        return organizers.map((organizer, index) => {
-            const isPriority = index < 4;
-            const frame = index < 9 ? frameImageC : frameImage;
-
-            return ( 
-                <div 
-                    className="organizer-card" 
-                    key={organizer.id || organizer.name || index} 
-                >
-                    <a href={organizer.linkedin} target="_blank" rel="noopener noreferrer">
-                        <div className="organizer-portrait">
-                            <div className="organizer-image-wrapper">
-                                <img
-                                    src={organizer.image} 
-                                    alt={organizer.name}
-                                    className="organizer-image object-cover w-full h-full absolute inset-0"
-                                    loading={index < 4 ? "eager" : "lazy"}
-                                    decoding="async"
-                                />
-                            </div>
-
-                            <img
-                                src={frame}
-                                alt="" 
-                                className="organizer-frame absolute inset-0 w-full h-full pointer-events-none"
-                                aria-hidden="true"
-                                draggable={false}
-                                loading={index < 4 ? "eager" : "lazy"}
-                                decoding="async"
-                            />
-
-                            <div className="organizer-nameplate">
-                                <h3 className="organizer-name">{organizer.name}</h3>
-                                <p className="organizer-role">{organizer.role}</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            );
-        });
-    };
-        
     return (
         <main id="team" className="relative min-h-screen min-h-[100dvh] w-full">
             <MasterSiteBackground />
@@ -141,7 +132,13 @@ export default function Team() {
                         </div>
                         
                         <div className="organizers-grid" data-aos={isMobile ? undefined : "fade-up"} >
-                            {renderOrganizerCards()}
+                            {organizers.map((organizer, index) => (
+                                <OrganizerCard 
+                                    key={organizer.name} 
+                                    organizer={organizer} 
+                                    index={index} 
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
