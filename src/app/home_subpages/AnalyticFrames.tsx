@@ -8,7 +8,7 @@ function Frame({ imgPath, eager = false }: { imgPath: string; eager?: boolean })
       height={5630}
       alt="Analytic frame"
       src={imgPath}
-      loading={eager ? "eager" : "lazy"}
+      loading="eager"
       style={{ width: "250px", height: "auto" }}
       className=""
     />

@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../css/home.css";
 
-export default function LinkBox({ href, title, desc, bgImage }) {
+export default function LinkBox({ href, title, desc, bgImage,children }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -43,6 +43,7 @@ export default function LinkBox({ href, title, desc, bgImage }) {
             <span>-&gt;</span>
           </h2>
           <p>{desc}</p>
+          <p>{children}</p>
         </div>
       </a>
     );

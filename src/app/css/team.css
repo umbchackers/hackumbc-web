@@ -92,7 +92,6 @@ body {
     transition: transform 0.3s ease;
     box-shadow: none;
     margin: -6% -5%;
-    will-change: transform, opacity;
     transform: translateZ(0);
 }
 
@@ -129,6 +128,9 @@ body {
 
 .organizer-image {
     position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center top;
     z-index: 1;
