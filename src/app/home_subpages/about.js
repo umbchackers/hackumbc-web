@@ -67,19 +67,19 @@ export function About() {
                     </div>
                     <div className="about-text text-black" style={{paddingLeft: isMobile ? "10px" : "0px", width: isMobile ? "90%" : "auto", maxWidth: "700px" }}>
                         <p>
-                        Join us in-person at UMBC for a 24-hour hackathon at the Retriever Activities Center (RAC) happening <span style={{color: "rgba(105, 0, 16, 0.8)",
+                        Join us in-person at UMBC for a 24-hour hackathon at the Retriever Activities Center (RAC), happening <span style={{color: "rgba(105, 0, 16, 0.8)",
                             fontWeight: 700, textDecoration: "underline"}}>September 26th-27th</span>. Work alongside fellow students,
-                            bring your ideas to life, and develop your skills through engaging workshops!
+                            bring your ideas to life, and level up your skills through engaging workshops.
                         </p>
                         <br />
                         <p>
-                            With lots of fun activities, amazing prizes, and swag for all participants, you'll be in for an exciting day!
+                            With lots of fun activities, amazing prizes, and swag for all participants, you're in for an exciting weekend!
                         </p>
                         <br />
                         <p>
                             Curious about the team that makes hackUMBC possible?
                             <a
-                                href="/team"
+                                href="/team" prefetch="false"
                                 className="team-link rainbow-ripple"
                                 style={{
                                     WebkitTextStroke: "0.5px rgba(0,0,0,0.1)",

@@ -198,7 +198,7 @@ export default function Survey() {
           <div className="w-full max-w-2xl p-6 sm:p-8 rounded-lg formBox mt-8">
             <div className="flex justify-center mb-4">
               <Image
-                className="hack-logo dark:drop-shadow-[0_0_0.3rem_#ffffff70] light:invert"
+                className="hack-logo dark:drop-shadow-[0_0_0.4rem_rgba(255, 255, 255, 0.4)] light:invert"
                 src="/hackumbc 2026 text.svg"
                 alt="hackUMBC Logo"
                 width={480}
@@ -207,10 +207,10 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Ups are Open! Closes September 23rd @ 11:59 PM EDT!
+              Sign Ups are Open!
             </h2>
             <p className="text-sm italic mb-6 text-center text-white">
-              In-Person • Retriever Activities Center
+              Closes September 23rd @ 11:59 PM EDT! In-Person Hackathon
             </p>
             <p className="text-sm italic mb-6 text-center text-white">
               Fields marked by <span className="text-red-500">*</span> are
