@@ -101,18 +101,18 @@ export default function Home() {
             title="Sign-Up"
             bgImage="/register_button.png"
           ><b>Closes September 23rd @ 11:59 PM EDT</b></LinkBox>
-          {/* <LinkBox
+          <LinkBox
             href="hackumbc@gmail.com"
             desc="Want to sponsor hackUMBC? Click this button to learn more!"
             title="Sponsor"
             bgImage="/devpost_sponsor_button.png"
-          /> */}
-          <LinkBox
+          />
+          {/* <LinkBox
             href="https://hackumbc.typeform.com/to/ozmi28Sy"
             desc="Volunteer sign-ups for hackUMBC are officially open! Click this button to apply!"
             title="Volunteer"
             bgImage="/devpost_sponsor_button.png"
-          />
+          />*/}
         </div>
       </div>
     </div>
