@@ -1,11 +1,8 @@
-"use client";
 import "../css/team.css";
 import Navbar from "../components/navbar";
-import { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import SectionTitle from "../components/title";
 import MasterSiteBackground from "../components/master-site-background";
+import AosInit from "../components/AosInit";
 
 const frameImage = "/headshot-frame.webp";
 const frameImageC = "/headshot-frameC.webp";
@@ -87,39 +84,15 @@ function OrganizerCard({ organizer, index}) {
 }
 
 export default function Team() {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => {
-          setIsMobile(window.innerWidth <= 768);
-        };
-      
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-      
-        // initialize AOS with mobile-specific settings
-        AOS.init({
-          duration: 400,
-          easing: 'ease-in-out',
-          once: true,
-          disable: 'mobile', // disable animations on mobile
-          throttleDelay: 99,
-          debounceDelay: 50,
-        });
-      
-        return () => {
-          window.removeEventListener('resize', checkMobile);
-        };
-      }, []);
-
     return (
         <main id="team" className="relative min-h-screen min-h-[100dvh] w-full">
+            <AosInit />
             <MasterSiteBackground />
             <div className="team-page-wrapper relative z-[1] w-full min-h-screen">
                 <Navbar />
                 <div className="team-page">
                     <div className="team-content">
-                        <div className="team-title-container" data-aos={isMobile ? "" : "fade-down"}>
+                        <div className="team-title-container" data-aos="fade-down">
                             <div className="about-section-title">
                                 <SectionTitle title="Our Team" color="text-white" />
                             </div>
@@ -131,7 +104,7 @@ export default function Team() {
                             </p>
                         </div>
                         
-                        <div className="organizers-grid" data-aos={isMobile ? undefined : "fade-up"} >
+                        <div className="organizers-grid" data-aos="fade-up" >
                             {organizers.map((organizer, index) => (
                                 <OrganizerCard 
                                     key={organizer.name} 
