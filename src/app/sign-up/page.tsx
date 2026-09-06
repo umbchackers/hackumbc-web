@@ -210,7 +210,7 @@ export default function Survey() {
               Sign Ups are Open! Closes September 23rd @ 11:59 PM EDT!
             </h2>
             <p className="text-sm italic mb-6 text-center text-white">
-              In-Person • Retriever Activity Center
+              In-Person • Retriever Activities Center
             </p>
             <p className="text-sm italic mb-6 text-center text-white">
               Fields marked by <span className="text-red-500">*</span> are
