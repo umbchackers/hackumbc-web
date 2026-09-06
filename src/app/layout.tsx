@@ -31,7 +31,7 @@ export const metadata = {
     image: "",
   },
   icons: {
-    icon: "/hackumbcdog2025.webp",
+    icon: "/hackumbc2026logo.svg",
   },
 };
 
