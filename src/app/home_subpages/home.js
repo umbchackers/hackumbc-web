@@ -100,7 +100,7 @@ export default function Home() {
             desc="Click this button to sign up for hackUMBC 2026!"
             title="Sign-Up"
             bgImage="/register_button.png"
-          ><b>Closing September 23rd</b></LinkBox>
+          ><b>Closes September 23rd @ 11:59 PM EDT</b></LinkBox>
           {/* <LinkBox
             href="hackumbc@gmail.com"
             desc="Want to sponsor hackUMBC? Click this button to learn more!"
