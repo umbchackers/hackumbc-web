@@ -70,7 +70,7 @@ export default function Navbar() {
             </Link>
             <Link
               className="nav-link light-mode-text"
-              href="/team"
+              href="/team"prefetch={false}
             >
               Organizers
             </Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link 
-                href="/team" 
+                href="/team" prefetch={false}
                 className="light-mode-text"
                 onClick={() => setIsMenuOpen(false)}
               >

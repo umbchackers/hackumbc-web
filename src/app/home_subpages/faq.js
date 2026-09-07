@@ -62,6 +62,9 @@ export default function FAQ() {
         {
             question: "Will there be FREE FOOD provided?",
             answer: "Yes, and we accommodate all dietary restrictions, including vegan, vegetarian, halal, gluten free, and common allergies. Just let us know on the registration form!"
+        },
+        { question: "Is parking free at the hackathon?", 
+            answer: "Yes, parking is completely free on the weekends! The two closest garages to our venue are the Administrative and Commons Drive Garages."
         }
     ];
 

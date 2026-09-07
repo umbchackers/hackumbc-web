@@ -78,7 +78,7 @@
 }
 
 .register-link-content h2 {
-    margin: 0 0 0.35rem;
+    margin: 0 0 0.1rem;
     font-size: 1.1rem;
     font-weight: bold;
     color: #ffffff;
@@ -96,7 +96,7 @@
     color: #ffffff;
 }
 
-/* link box component*/ 
+/* link box component*/
 .link-box-container {
     display: flex;
     justify-content: center;
@@ -107,7 +107,7 @@
     width: 300px;
     height: 140px;
     box-sizing: border-box;
-    background-color: #690010 !important; 
+    background-color: #690010 !important;
     border: 2px solid #510E23 !important;
     border-radius: 5rem !important;
     color: white !important;
@@ -149,7 +149,7 @@
 
 @media (prefers-color-scheme: light) {
     .light-mode-text {
-        color: #fff; 
+        color: #fff;
     }
 }
 
@@ -183,7 +183,7 @@
     }
 
     .footer {
-        flex-direction: column; 
+        flex-direction: column;
         position: relative;
         bottom: auto;
         width: 90%;
@@ -198,5 +198,3 @@
         display: none;
     }
 }
-
-

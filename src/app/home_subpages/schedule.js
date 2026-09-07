@@ -19,27 +19,29 @@ export default function Schedule() {
     
     // Schedule Data for Day 1
     const day1Schedule = [
-        { time: '7:30 AM', endTime: '8:00 AM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '8:00 AM', endTime: '8:15 AM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '8:15 AM', endTime: '8:30 AM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '10:00 AM', endTime: '11:00 AM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '12:00 PM', endTime: '1:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '1:00 PM', endTime: '3:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '3:00 PM', endTime: '4:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '6:00 PM', endTime: '7:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '7:00 PM', endTime: '8:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '8:00 PM', endTime: '9:00 PM', event: 'TBD', location: 'TBD', type: 'event' }
+        { time: '9:00 AM', endTime: '10:00 AM', event: 'Check-In', location: 'RAC Lobby', type: 'event' },
+        { time: '10:00 AM', endTime: '11:00 AM', event: 'Opening Ceremony', location: 'RAC Arena', type: 'event' },
+        { time: '11:00 AM', endTime: '12:00 PM', event: 'Networking Fair', location: 'RAC Arena', type: 'event' },
+        { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Begins/Team Formation', location: 'RAC', type: 'event' },
+        { time: '12:30 PM', endTime: '1:30 PM', event: 'Lunch', location: 'RAC Arena', type: 'event' },
+        { time: '1:00 PM', endTime: '1:45 PM', event: 'Fireside Chat with UMBC Alums', location: 'RAC Classroom', type: 'event' },
+        { time: '2:00 PM', endTime: '7:00 PM', event: 'Workshops', location: 'RAC Classroom', type: 'event' },
+        { time: '7:00 PM', endTime: '8:00 PM', event: 'Dinner', location: 'RAC Arena', type: 'event' },
+        { time: '8:00 PM', endTime: '8:40 PM', event: 'Potion Making + MLH', location: 'RAC Studio', type: 'event' },
+        { time: '8:45 PM', endTime: '9:25 PM', event: 'Jousting Tournament', location: 'RAC Studio', type: 'event' },
+        { time: '9:30 PM', endTime: '10:30 PM', event: 'Smash Tournament', location: 'RAC Classroom', type: 'event' },
+        { time: '10:00 PM', endTime: '10:45 PM', event: 'Late Night Snack', location: 'RAC Arena', type: 'event' },
+        { time: '11:00 PM', endTime: '11:30 PM', event: 'Cup Stacking', location: 'RAC Studio', type: 'event' }
     ];
 
     // Schedule Data for Day 2
     const day2Schedule = [
-        { time: '8:00 AM', endTime: '9:00 AM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '9:00 AM', endTime: '11:00 AM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '11:00 AM', endTime: '12:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '12:00 PM', endTime: '1:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '1:00 PM', endTime: '2:30 PM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '2:30 PM', endTime: '4:00 PM', event: 'TBD', location: 'TBD', type: 'event' },
-        { time: '4:00 PM', endTime: '5:00 PM', event: 'TBD', location: 'TBD', type: 'event' }
+        { time: '9:00 AM', endTime: '10:00 AM', event: 'Breakfast', location: 'RAC Arena', type: 'event' },
+        { time: '11:00 AM', endTime: '12:00 PM', event: 'Begin Hack Submission', location: 'RAC Arena', type: 'event' },
+        { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Ends!', location: 'RAC Arena', type: 'event' },
+        { time: '12:30 PM', endTime: '1:00 PM', event: 'Lunch', location: 'RAC Arena', type: 'event' },
+        { time: '1:45 PM', endTime: '3:45 PM', event: 'Judging', location: 'RAC Arena', type: 'event' },
+        { time: '4:30 PM', endTime: '5:00 PM', event: 'Closing Ceremony', location: 'RAC Arena', type: 'event' }
     ];
 
         //mini Hackathon schedule

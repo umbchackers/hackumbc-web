@@ -58,7 +58,7 @@ export default function Home() {
     {/* Basic medieval background - placeholder until full bg is ready */}
     <div className="absolute top-0 left-0 w-full h-full z-0 bg-transparent" />
 
-      <div className="home-container" style={{ 
+      <div className="home-container" style={{
         zIndex: 10,
         display: "flex",
         alignItems: "center",
@@ -69,14 +69,14 @@ export default function Home() {
         paddingBottom: isMobile ? "40px" : "60px"
       }}>
         <div className="pointer-events-none" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <object 
-            data="/hackumbc 2026 text.svg" 
-            alt="hackUMBC 2026" 
+          <object
+            data="/hackumbc 2026 text.svg"
+            alt="hackUMBC 2026"
             style={{ width: isMobile ? '90%' : 'clamp(420px, 58vw, 800px)', maxWidth: '800px', height: 'auto' }}
           />
         </div>
-        <div className="footer" style={{ 
-          width: isMobile ? "90%" : "100%", 
+        <div className="footer" style={{
+          width: isMobile ? "90%" : "100%",
           flexWrap: isMobile ? "nowrap" : "wrap",
           flexDirection: isMobile ? "column" : "row",
           gap: isMobile ? "2px" : "4px",
@@ -97,22 +97,22 @@ export default function Home() {
           />
           <LinkBox
             href="https://hackumbc.tech/sign-up"
-            desc="Click this button to sign up for hackUMBC 2026!"
+            desc="Click this button to sign up for hackUMBC 2026! Closes Sept 23rd @ 11:59 PM EDT!"
             title="Sign-Up"
             bgImage="/register_button.png"
           />
-          {/* <LinkBox
+          <LinkBox
             href="hackumbc@gmail.com"
             desc="Want to sponsor hackUMBC? Click this button to learn more!"
             title="Sponsor"
             bgImage="/devpost_sponsor_button.png"
-          /> */}
-          <LinkBox
+          />
+          {/* <LinkBox
             href="https://hackumbc.typeform.com/to/ozmi28Sy"
             desc="Volunteer sign-ups for hackUMBC are officially open! Click this button to apply!"
             title="Volunteer"
             bgImage="/devpost_sponsor_button.png"
-          />
+          />*/}
         </div>
       </div>
     </div>

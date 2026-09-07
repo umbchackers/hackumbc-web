@@ -134,7 +134,8 @@ export async function POST(request) {
           pk: { S: `USER#${cleanEmail}` },
           sk: { S: "METADATA" },
           email: { S: cleanEmail },
-          name: { S: `${data.firstName || ''} ${data.lastName || ''}`.trim() || "HackUMBC Participant" },
+          name: { S: `${data.firstName || ''} ${data.lastName || ''}`.trim() || "hackUMBC Participant" },
+          age: { N: String(data.age || 0) },
           checkedIn: { BOOL: false },
           ...(hasAge
             ? {
@@ -178,9 +179,9 @@ export async function POST(request) {
           merch: {
             M: {
               frisbee: { N: "0" },
-              fidget_spinner: { N: "0" },
+              spinner: { N: "0" },
               toy: { N: "0" },
-              water_bottle: { N: "0" },
+              bottle: { N: "0" },
               mousepad: { N: "0" },
             },
           },

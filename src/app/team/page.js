@@ -1,56 +1,13 @@
-"use client";
 import "../css/team.css";
 import Navbar from "../components/navbar";
-import { useEffect, useRef, useState, useMemo } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import SectionTitle from "../components/title";
 import MasterSiteBackground from "../components/master-site-background";
-import Image from 'next/image';
+import AosInit from "../components/AosInit";
 
-export default function Team() {
-    const [isMobile, setIsMobile] = useState(false);
+const frameImage = "/headshot-frame.webp";
+const frameImageC = "/headshot-frameC.webp";
 
-    useEffect(() => {
-        const checkMobile = () => {
-          setIsMobile(window.innerWidth <= 768);
-        };
-      
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-      
-        // initialize AOS with mobile-specific settings
-        AOS.init({
-          duration: 800,
-          easing: 'ease-in-out',
-          once: true,
-          disable: 'mobile', // disable animations on mobile
-        });
-      
-        // if (typeof window !== 'undefined') {
-        //   window.scrollTo(0, 0);
-        //   document.body.style.overflow = 'auto';
-        //   document.body.style.height = 'auto';
-        //   document.documentElement.style.overflow = 'auto';
-        //   document.documentElement.style.height = 'auto';
-        //   document.body.style.position = 'relative';
-      
-        //   // instead of forcing a redraw on the body, only update the minHeight of your container
-        //   setTimeout(() => {
-        //     if (pageRef.current) {
-        //       const height = pageRef.current.scrollHeight;
-        //       pageRef.current.style.minHeight = height + 'px';
-        //     }
-        //   }, 100);
-        // }
-      
-        return () => {
-          window.removeEventListener('resize', checkMobile);
-        };
-      }, [isMobile]);
-          
-
-    const organizers = useMemo(() => [
+const organizers = [
         // eboard
         { name: "Bella Goltser", role: "President", image: "/organizers/bella.webp", linkedin: "https://www.linkedin.com/in/isabella-goltser-bb1b21284" },
         { name: "Pahal Dave", role: "External Vice President", image: "/organizers/pahal.webp", linkedin: "https://www.linkedin.com/in/pahaldave/" },
@@ -68,14 +25,13 @@ export default function Team() {
         { name: "Hero Emenalom", role: "Tech Team", image: "/organizers/hero.webp", linkedin: "https://www.linkedin.com/in/heroemenalom/" },
         { name: "Marianne Nguyen", role: "Tech Team", image: "/organizers/marianne.webp", linkedin: "https://www.linkedin.com/in/marianne-p-nguyen/" },
         { name: "Connor Wu", role: "Tech Team", image: "/organizers/connor.webp", linkedin: "https://www.linkedin.com/in/connor-wu-776551291/" },
-        //{ name: "Shrikant Bhatnagar", role: "Tech Team", image: "/organizers/shrikant.webp", linkedin: "https://www.linkedin.com/in/shrikant-bhatnagar-85b59a346/" },
-        
+
         // marketing team
         { name: "Emma Hurd", role: "Marketing Team", image: "/organizers/emma.webp", linkedin: "https://www.linkedin.com/in/emma-hurd/" },
-        //{ name: "Cullen Pepper", role: "Marketing Team", image: "/organizers/cullen.webp", linkedin: "https://www.linkedin.com/in/cullen-pepper-10aa22379/" },
+        { name: "Cullen Pepper", role: "Marketing Team", image: "/organizers/cullen.webp", linkedin: "https://www.linkedin.com/in/cullen-pepper-10aa22379/" },
         { name: "Angel Pham", role: "Marketing Team", image: "/organizers/angel.webp", linkedin: "https://www.linkedin.com/in/duyen-pham-b60465290/" },
         // { name: "Hafsah Khan", role: "Marketing Team", image: "/organizers/hafsah.webp", linkedin: "https://www.linkedin.com/in/hafsah-khan-468b06310/" },
-        //{ name: "Adriel Beckley", role: "Marketing Team", image: "/organizers/adriel.webp", linkedin: "https://www.linkedin.com/in/adrielbeckley/" },
+        { name: "Adriel Beckley", role: "Marketing Team", image: "/organizers/adriel.webp", linkedin: "https://www.linkedin.com/in/adrielbeckley/" },
         
         // design team
         { name: "Jolin Jiang", role: "Design Team", image: "/organizers/jolin.webp", linkedin: "https://www.linkedin.com/in/jolin-jiang-a018a02b6/" },
@@ -86,66 +42,57 @@ export default function Team() {
         // sponsorship team
         { name: "Fiona Acquah", role: "Sponsorship Team", image: "/organizers/fiona.webp", linkedin: "https://www.linkedin.com/in/fiona-acquah/" },
         { name: "Romain Dzeinse", role: "Sponsorship Team", image: "/organizers/romain.webp", linkedin: "https://www.linkedin.com/in/romaindzeinse/" },
-        // { name: "Andy Cruz", role: "Sponsorship Team", image: "/organizers/andy.webp", linkedin: "https://www.linkedin.com/in/cruz-andy/" },
         { name: "Jagrat Patel", role: "Sponsorship Team", image: "/organizers/jagrat.webp", linkedin: "https://www.linkedin.com/in/stayjagrat/" },
-    ], []);
+    ];
 
-    
-    // Optimized frame image reference
-    const frameImage = useMemo(() => "/headshot-frame.webp", []);
-    const frameImageC = useMemo(() => "/headshot-frameC.webp", []);
+// function to create organizer cards
+function OrganizerCard({ organizer, index}) {
+    const frame = index < 9 ? frameImageC : frameImage;
 
-    // function to create organizer cards
-    const renderOrganizerCards = () => {
-        return organizers.map((organizer, index) => (
-            <div 
-                className="organizer-card" 
-                key={organizer.id || organizer.name || index} 
-                data-aos={isMobile ? undefined : "fade-up"} 
-                data-aos-delay={isMobile ? undefined : (100 + (index % 5) * 100)}
-            >
-                <a href={organizer.linkedin} target="_blank" rel="noopener noreferrer">
-                    <div className="organizer-portrait">
-                        <div className="organizer-image-wrapper">
-                            <Image 
-                                src={organizer.image} 
-                                alt={organizer.name}
-                                fill
-                                className="organizer-image"
-                                priority={index < 4}
-                                sizes="(max-width: 350px) 90vw, (max-width: 768px) 45vw, 200px"
-                            />
-                        </div>
-
-                        <Image 
-                            src={index < 9 ? frameImageC : frameImage} 
-                            alt="" 
-                            fill
-                            className="organizer-frame"
-                            aria-hidden="true"
-                            draggable={false}
-                            priority={index < 4}
-                            sizes="(max-width: 350px) 90vw, (max-width: 768px) 45vw, 200px"
+    return ( 
+        <div className="organizer-card" >
+            <a href={organizer.linkedin} target="_blank" rel="noopener noreferrer">
+                <div className="organizer-portrait">
+                    <div className="organizer-image-wrapper">
+                        <img
+                            src={organizer.image} 
+                            alt={organizer.name}
+                            className="organizer-image object-cover w-full h-full absolute inset-0"
+                            loading={index < 4 ? "eager" : "lazy"}
+                            decoding="async"
                         />
-
-                        <div className="organizer-nameplate">
-                            <h3 className="organizer-name">{organizer.name}</h3>
-                            <p className="organizer-role">{organizer.role}</p>
-                        </div>
                     </div>
-                </a>
-            </div>
-        ));
-    };
-        
+
+                    <img
+                        src={frame}
+                        alt="" 
+                        className="organizer-frame absolute inset-0 w-full h-full pointer-events-none"
+                        aria-hidden="true"
+                        draggable={false}
+                        loading={"lazy"}
+                        decoding="async"
+                    />
+
+                    <div className="organizer-nameplate">
+                        <h3 className="organizer-name">{organizer.name}</h3>
+                        <p className="organizer-role">{organizer.role}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    );
+}
+
+export default function Team() {
     return (
         <main id="team" className="relative min-h-screen min-h-[100dvh] w-full">
+            <AosInit />
             <MasterSiteBackground />
             <div className="team-page-wrapper relative z-[1] w-full min-h-screen">
                 <Navbar />
                 <div className="team-page">
                     <div className="team-content">
-                        <div className="team-title-container" data-aos={isMobile ? "" : "fade-down"}>
+                        <div className="team-title-container" data-aos="fade-down">
                             <div className="about-section-title">
                                 <SectionTitle title="Our Team" color="text-white" />
                             </div>
@@ -157,8 +104,14 @@ export default function Team() {
                             </p>
                         </div>
                         
-                        <div className="organizers-grid">
-                            {renderOrganizerCards()}
+                        <div className="organizers-grid" data-aos="fade-up" >
+                            {organizers.map((organizer, index) => (
+                                <OrganizerCard 
+                                    key={organizer.name} 
+                                    organizer={organizer} 
+                                    index={index} 
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
