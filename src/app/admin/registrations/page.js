@@ -7,6 +7,7 @@
  */
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import {
   LineChart,
   Line,
@@ -380,6 +381,9 @@ function Dashboard({ onLogout }) {
             <p>Internal · DynamoDB snapshots</p>
           </div>
           <div className="admin-header-actions">
+            <Link className="admin-btn secondary" href="/admin/venue">
+              Venue presence
+            </Link>
             <button className="admin-btn secondary" type="button" onClick={load}>
               Refresh
             </button>

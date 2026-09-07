@@ -106,6 +106,9 @@ export async function POST(request) {
     data["email"] = cleanEmail;
     params.Item["email"] = { S: cleanEmail };
 
+    const ageNum = Number(data.age);
+    const hasAge = Number.isFinite(ageNum);
+
     // write item
     try {
       await dynamodb.send(new PutItemCommand(params));
@@ -134,6 +137,12 @@ export async function POST(request) {
           name: { S: `${data.firstName || ''} ${data.lastName || ''}`.trim() || "hackUMBC Participant" },
           age: { N: String(data.age || 0) },
           checkedIn: { BOOL: false },
+          ...(hasAge
+            ? {
+                age: { N: String(Math.trunc(ageNum)) },
+                isMinor: { BOOL: ageNum < 18 },
+              }
+            : {}),
           createdAt: { S: new Date().toISOString() },
           role: { S: "student" },
           points: { N: "0" },
@@ -143,9 +152,28 @@ export async function POST(request) {
             M: {
               day1_lunch: { BOOL: false },
               day1_dinner: { BOOL: false },
-              day1_midnight_snack: { BOOL: false },
+              midnight_snack: { BOOL: false },
               day2_breakfast: { BOOL: false },
               day2_lunch: { BOOL: false },
+            },
+          },
+          workshops: {
+            M: {
+              workshop_1: { BOOL: false },
+              workshop_2: { BOOL: false },
+              workshop_3: { BOOL: false },
+              workshop_4: { BOOL: false },
+              workshop_5: { BOOL: false },
+              workshop_6: { BOOL: false },
+              fireside_chat_with_umbc_alums: { BOOL: false },
+            },
+          },
+          miniEvents: {
+            M: {
+              mlh_session_potion_making: { BOOL: false },
+              jousting_tournament: { BOOL: false },
+              smash_tournament: { BOOL: false },
+              cup_stacking_tournament: { BOOL: false },
             },
           },
           merch: {
