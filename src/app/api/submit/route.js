@@ -132,6 +132,7 @@ export async function POST(request) {
           sk: { S: "METADATA" },
           email: { S: cleanEmail },
           name: { S: `${data.firstName || ''} ${data.lastName || ''}`.trim() || "hackUMBC Participant" },
+          age: { N: String(data.age || 0) },
           checkedIn: { BOOL: false },
           createdAt: { S: new Date().toISOString() },
           role: { S: "student" },
