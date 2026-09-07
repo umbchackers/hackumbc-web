@@ -9,7 +9,7 @@ import { getVenueAnalytics } from "@/lib/admin/dynamodb";
 /**
  * GET /api/admin/venue
  * Auth: admin session cookie.
- * Scans PWA METADATA rows for venue presence + lastVenueScanAt activity.
+ * Scans PWA METADATA rows for venue presence analytics.
  */
 export async function GET(request) {
   const configError = checkAuthConfigured();

@@ -273,6 +273,10 @@
   gap: 1rem;
 }
 
+.venue-tally-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .tally-block h3 {
   margin: 0 0 0.55rem;
   font-size: 0.78rem;
@@ -561,6 +565,7 @@
   }
 
   .tally-grid,
+  .venue-tally-grid,
   .venue-minors-grid {
     grid-template-columns: 1fr;
   }

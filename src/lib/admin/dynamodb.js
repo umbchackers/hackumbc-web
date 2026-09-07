@@ -265,7 +265,6 @@ async function getRegistrationAgesByEmail() {
 /**
  * Venue presence analytics from PWA METADATA rows.
  * Inside/outside use venueStatus (IN / OUT) only.
- * Live gate activity is the 30 most recent lastVenueScanAt values.
  */
 export async function getVenueAnalytics() {
   const items = [];
@@ -335,7 +334,6 @@ export async function getVenueAnalytics() {
   let totalCheckedIn = 0;
   const minorsInside = [];
   const minorsOutside = [];
-  const recentActivity = [];
 
   for (const user of items) {
     if (user.checkedIn) totalCheckedIn += 1;
@@ -359,22 +357,8 @@ export async function getVenueAnalytics() {
       currentlyOutside += 1;
       if (minorRow) minorsOutside.push(minorRow);
     }
-
-    if (user.lastVenueScanAt) {
-      recentActivity.push({
-        name: user.name,
-        email: user.email,
-        status: user.venueStatus || "IN",
-        timestamp: user.lastVenueScanAt,
-        operator: user.lastVenueScannedBy || "—",
-      });
-    }
   }
 
-  recentActivity.sort(
-    (a, b) =>
-      new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
-  );
   const byMostRecentScan = (a, b) =>
     new Date(b.lastScannedAt || 0).getTime() -
     new Date(a.lastScannedAt || 0).getTime();
@@ -397,7 +381,219 @@ export async function getVenueAnalytics() {
     },
     minorsInside,
     minorsOutside,
-    recentActivity: recentActivity.slice(0, 30),
+    generatedAt: new Date().toISOString(),
+  };
+}
+
+function dynamoMapEntries(attr) {
+  if (!attr?.M || typeof attr.M !== "object") return [];
+  return Object.entries(attr.M);
+}
+
+function dynamoMapValueCount(attr) {
+  if (!attr) return 0;
+  if (attr.BOOL === true) return 1;
+  if (attr.BOOL === false) return 0;
+  if (attr.N !== undefined) {
+    const n = Number(attr.N);
+    return Number.isFinite(n) && n > 0 ? n : 0;
+  }
+  if (attr.S !== undefined) {
+    const raw = String(attr.S).trim().toLowerCase();
+    if (raw === "true" || raw === "1" || raw === "yes") return 1;
+    if (raw === "false" || raw === "0" || raw === "no" || raw === "") return 0;
+    // Non-empty string (e.g. an event id / timestamp) counts as one attendance
+    return 1;
+  }
+  // Nested map from PWA event scans: { attended, claimed, count, scanned, ... }
+  if (attr.M && typeof attr.M === "object") {
+    const nested = attr.M;
+    for (const key of [
+      "count",
+      "attended",
+      "claimed",
+      "scanned",
+      "redeemed",
+      "value",
+    ]) {
+      if (nested[key] !== undefined) {
+        return dynamoMapValueCount(nested[key]);
+      }
+    }
+    // Any nested true/positive value counts as attendance
+    for (const value of Object.values(nested)) {
+      const n = dynamoMapValueCount(value);
+      if (n > 0) return n;
+    }
+    return 0;
+  }
+  return 0;
+}
+
+function addMapCounts(target, attr, { allowedKeys = null, aliases = null } = {}) {
+  for (const [rawKey, value] of dynamoMapEntries(attr)) {
+    const key = (aliases && aliases[rawKey]) || rawKey;
+    if (allowedKeys && !allowedKeys.has(key)) continue;
+    const n = dynamoMapValueCount(value);
+    target[key] = (target[key] || 0) + n;
+  }
+}
+
+function seedCounts(keys) {
+  const counts = {};
+  for (const key of keys) counts[key] = 0;
+  return counts;
+}
+
+/** Meals shown in tallies / seeded on signup. */
+const MEAL_KEYS = [
+  "day1_lunch",
+  "day1_dinner",
+  "midnight_snack",
+  "day2_breakfast",
+  "day2_lunch",
+];
+const MEAL_KEY_SET = new Set(MEAL_KEYS);
+const MEAL_KEY_ALIASES = {
+  day1_midnight_snack: "midnight_snack",
+};
+const MEAL_LABELS = {
+  day1_lunch: "Day 1 Lunch",
+  day1_dinner: "Day 1 Dinner",
+  midnight_snack: "Midnight Snack",
+  day2_breakfast: "Day 2 Breakfast",
+  day2_lunch: "Day 2 Lunch",
+};
+
+/** Workshops + mini-events (read from workshops / events / miniEvents maps). */
+const EVENT_KEYS = [
+  "workshop_1",
+  "workshop_2",
+  "workshop_3",
+  "workshop_4",
+  "workshop_5",
+  "workshop_6",
+  "fireside_chat_with_umbc_alums",
+  "mlh_session_potion_making",
+  "jousting_tournament",
+  "smash_tournament",
+  "cup_stacking_tournament",
+];
+const EVENT_KEY_SET = new Set(EVENT_KEYS);
+const EVENT_LABELS = {
+  workshop_1: "Workshop 1",
+  workshop_2: "Workshop 2",
+  workshop_3: "Workshop 3",
+  workshop_4: "Workshop 4",
+  workshop_5: "Workshop 5",
+  workshop_6: "Workshop 6",
+  fireside_chat_with_umbc_alums: "Fireside Chat with UMBC Alums",
+  mlh_session_potion_making: "MLH Session + Potion Making",
+  jousting_tournament: "Jousting Tournament",
+  smash_tournament: "Smash Tournament",
+  cup_stacking_tournament: "Cup Stacking Tournament",
+};
+
+/** Prize / merch keys. Legacy names fold into the current set. */
+const PRIZE_KEYS = [
+  "frisbee",
+  "fidget_spinner",
+  "toy",
+  "water_bottle",
+  "mousepad",
+];
+const PRIZE_KEY_SET = new Set(PRIZE_KEYS);
+const PRIZE_KEY_ALIASES = {
+  spinner: "fidget_spinner",
+  "fidget spinner": "fidget_spinner",
+  "stress toy": "toy",
+  bottle: "water_bottle",
+  "water bottle": "water_bottle",
+};
+const PRIZE_LABELS = {
+  frisbee: "Frisbee",
+  fidget_spinner: "Fidget Spinner",
+  toy: "Toy",
+  water_bottle: "Water Bottle",
+  mousepad: "Mousepad",
+};
+
+function countsToSortedRows(counts, labelMap = null) {
+  return Object.entries(counts)
+    .map(([key, count]) => ({
+      key,
+      label: (labelMap && labelMap[key]) || key,
+      count,
+    }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+}
+
+/**
+ * On-demand event tallies from PWA METADATA.
+ * Only known meal / event / prize keys are counted (no arbitrary DynamoDB keys).
+ */
+export async function getVenueEventTallies() {
+  const mealCounts = seedCounts(MEAL_KEYS);
+  const eventCounts = seedCounts(EVENT_KEYS);
+  const prizeCounts = seedCounts(PRIZE_KEYS);
+  let scanned = 0;
+  let totalCheckedIn = 0;
+  let ExclusiveStartKey;
+
+  try {
+    do {
+      const result = await dynamodb.send(
+        new ScanCommand({
+          TableName: PWA_TABLE,
+          ProjectionExpression:
+            "checkedIn, meals, workshops, events, miniEvents, mini_events, merch, sk",
+          FilterExpression: "sk = :sk",
+          ExpressionAttributeValues: {
+            ":sk": { S: "METADATA" },
+          },
+          ExclusiveStartKey,
+        }),
+      );
+
+      for (const item of result.Items || []) {
+        scanned += 1;
+        if (dynamoBool(item.checkedIn)) totalCheckedIn += 1;
+
+        addMapCounts(mealCounts, item.meals, {
+          allowedKeys: MEAL_KEY_SET,
+          aliases: MEAL_KEY_ALIASES,
+        });
+        for (const attr of [
+          item.workshops,
+          item.events,
+          item.miniEvents,
+          item.mini_events,
+        ]) {
+          addMapCounts(eventCounts, attr, { allowedKeys: EVENT_KEY_SET });
+        }
+        addMapCounts(prizeCounts, item.merch, {
+          allowedKeys: PRIZE_KEY_SET,
+          aliases: PRIZE_KEY_ALIASES,
+        });
+      }
+
+      ExclusiveStartKey = result.LastEvaluatedKey;
+    } while (ExclusiveStartKey);
+  } catch (err) {
+    if (err?.name === "ResourceNotFoundException") {
+      throw new Error(
+        `DynamoDB table "${PWA_TABLE}" was not found. Confirm HACKUMBC_AWS_PWA_TABLE_NAME and retry.`,
+      );
+    }
+    throw err;
+  }
+
+  return {
+    scanned,
+    totalCheckedIn,
+    meals: countsToSortedRows(mealCounts, MEAL_LABELS),
+    workshops: countsToSortedRows(eventCounts, EVENT_LABELS),
+    prizes: countsToSortedRows(prizeCounts, PRIZE_LABELS),
     generatedAt: new Date().toISOString(),
   };
 }

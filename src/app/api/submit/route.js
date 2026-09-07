@@ -151,18 +151,37 @@ export async function POST(request) {
             M: {
               day1_lunch: { BOOL: false },
               day1_dinner: { BOOL: false },
-              day1_midnight_snack: { BOOL: false },
+              midnight_snack: { BOOL: false },
               day2_breakfast: { BOOL: false },
               day2_lunch: { BOOL: false },
+            },
+          },
+          workshops: {
+            M: {
+              workshop_1: { BOOL: false },
+              workshop_2: { BOOL: false },
+              workshop_3: { BOOL: false },
+              workshop_4: { BOOL: false },
+              workshop_5: { BOOL: false },
+              workshop_6: { BOOL: false },
+              fireside_chat_with_umbc_alums: { BOOL: false },
+            },
+          },
+          miniEvents: {
+            M: {
+              mlh_session_potion_making: { BOOL: false },
+              jousting_tournament: { BOOL: false },
+              smash_tournament: { BOOL: false },
+              cup_stacking_tournament: { BOOL: false },
             },
           },
           merch: {
             M: {
               frisbee: { N: "0" },
-              spinner: { N: "0" },
-              "stress toy": { N: "0" },
-              sword: { N: "0" },
-              bottle: { N: "0" },
+              fidget_spinner: { N: "0" },
+              toy: { N: "0" },
+              water_bottle: { N: "0" },
+              mousepad: { N: "0" },
             },
           },
         },

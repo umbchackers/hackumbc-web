@@ -10,7 +10,6 @@ import Link from "next/link";
 import "../../css/admin.css";
 
 const fetchOpts = { credentials: "include" };
-const POLL_MS = 30 * 1000;
 
 function MetricCard({ label, value, hint }) {
   return (
@@ -37,15 +36,6 @@ function formatScanTime(iso) {
     hour: "numeric",
     minute: "2-digit",
   });
-}
-
-function StatusBadge({ status }) {
-  const isIn = status === "IN";
-  return (
-    <span className={`venue-badge ${isIn ? "in" : "out"}`}>
-      {isIn ? "IN" : "OUT"}
-    </span>
-  );
 }
 
 function LoginGate({ onSuccess }) {
@@ -102,37 +92,6 @@ function LoginGate({ onSuccess }) {
   );
 }
 
-function ActivityFeed({ rows }) {
-  if (!rows?.length) {
-    return (
-      <p className="admin-empty">
-        No venue scans yet. Activity appears once lastVenueScanAt is set.
-      </p>
-    );
-  }
-
-  return (
-    <ul className="venue-feed">
-      {rows.map((row, index) => (
-        <li
-          key={`${row.email || "unknown"}-${row.timestamp || "t"}-${index}`}
-          className="venue-feed-item"
-        >
-          <time dateTime={row.timestamp}>{formatScanTime(row.timestamp)}</time>
-          <StatusBadge status={row.status} />
-          <div className="venue-feed-body">
-            <strong>{row.name || "Participant"}</strong>
-            <span>
-              scanned {row.status === "IN" ? "IN" : "OUT"} by{" "}
-              {row.operator || "—"}
-            </span>
-          </div>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 function MinorsTable({ title, rows, emptyLabel, scannedAtLabel }) {
   return (
     <div className="tally-block">
@@ -173,6 +132,150 @@ function MinorsTable({ title, rows, emptyLabel, scannedAtLabel }) {
   );
 }
 
+function TallyTable({ title, rows, emptyLabel, footerLabel }) {
+  const total = (rows || []).reduce((sum, row) => sum + (row.count || 0), 0);
+
+  return (
+    <div className="tally-block">
+      <h3>{title}</h3>
+      {!rows?.length ? (
+        <p className="admin-empty tally-empty">{emptyLabel}</p>
+      ) : (
+        <table className="tally-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.key || row.label}>
+                <td>{row.label}</td>
+                <td>{row.count}</td>
+              </tr>
+            ))}
+          </tbody>
+          {footerLabel ? (
+            <tfoot>
+              <tr>
+                <td>{footerLabel}</td>
+                <td>{total}</td>
+              </tr>
+            </tfoot>
+          ) : null}
+        </table>
+      )}
+    </div>
+  );
+}
+
+function EventTalliesPanel({ onLogout }) {
+  const [tallies, setTallies] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function loadTallies() {
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/admin/venue/tallies", fetchOpts);
+      if (res.status === 401) {
+        onLogout();
+        return;
+      }
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.detail || data.error || "Failed to load tallies");
+      }
+      setTallies(data);
+    } catch (err) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <section className="admin-panel">
+      <div className="admin-panel-header">
+        <div>
+          <h2>Event tallies</h2>
+          <p className="panel-sub">
+            Check-ins, meals, events &amp; shop prizes · load only when you ask
+          </p>
+        </div>
+        <button
+          className="admin-btn primary"
+          type="button"
+          onClick={loadTallies}
+          disabled={loading}
+        >
+          {loading ? "Scanning…" : tallies ? "Recalculate" : "Load tallies"}
+        </button>
+      </div>
+
+      {error ? <div className="admin-error">{error}</div> : null}
+
+      {!tallies && !loading && !error ? (
+        <p className="admin-empty">
+          Press <strong>Load tallies</strong> to scan PWA users for attendance,
+          meal claims, event scans, and prize redemptions. This is not
+          refreshed automatically.
+        </p>
+      ) : null}
+
+      {loading && !tallies ? (
+        <p className="admin-empty">Scanning PWA users table…</p>
+      ) : null}
+
+      {tallies ? (
+        <>
+          <p className="range-summary">
+            Scanned <strong>{tallies.scanned}</strong> PWA users ·{" "}
+            <strong>{tallies.totalCheckedIn}</strong> checked in
+            {tallies.generatedAt ? (
+              <>
+                {" "}
+                · As of <strong>{formatScanTime(tallies.generatedAt)}</strong>
+              </>
+            ) : null}
+          </p>
+
+          <section className="admin-metrics" style={{ marginBottom: "1rem" }}>
+            <MetricCard
+              label="Checked in"
+              value={tallies.totalCheckedIn}
+              hint="Desk check-in (attended)"
+            />
+          </section>
+
+          <div className="tally-grid venue-tally-grid">
+            <TallyTable
+              title="Meals"
+              rows={tallies.meals}
+              emptyLabel="No meal claims found."
+              footerLabel="Total meal claims"
+            />
+            <TallyTable
+              title="Events"
+              rows={tallies.workshops}
+              emptyLabel="No event scans found."
+              footerLabel="Total scans"
+            />
+            <TallyTable
+              title="Prizes & merch"
+              rows={tallies.prizes}
+              emptyLabel="No prize redemptions found."
+              footerLabel="Total redemptions"
+            />
+          </div>
+        </>
+      ) : null}
+    </section>
+  );
+}
+
 function Dashboard({ onLogout }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
@@ -180,6 +283,7 @@ function Dashboard({ onLogout }) {
 
   const load = useCallback(async () => {
     setError("");
+    setLoading(true);
     try {
       const res = await fetch("/api/admin/venue", fetchOpts);
 
@@ -205,8 +309,6 @@ function Dashboard({ onLogout }) {
 
   useEffect(() => {
     load();
-    const id = setInterval(load, POLL_MS);
-    return () => clearInterval(id);
   }, [load]);
 
   if (loading && !data) {
@@ -236,8 +338,13 @@ function Dashboard({ onLogout }) {
             <Link className="admin-btn secondary" href="/admin/registrations">
               Registrations
             </Link>
-            <button className="admin-btn secondary" type="button" onClick={load}>
-              Refresh
+            <button
+              className="admin-btn secondary"
+              type="button"
+              onClick={load}
+              disabled={loading}
+            >
+              {loading ? "Refreshing…" : "Refresh"}
             </button>
             <button className="admin-logout" type="button" onClick={onLogout}>
               Sign out
@@ -270,18 +377,7 @@ function Dashboard({ onLogout }) {
           />
         </section>
 
-        <section className="admin-panel">
-          <div className="admin-panel-header">
-            <div>
-              <h2>Live gate activity</h2>
-              <p className="panel-sub">
-                30 most recent lastVenueScanAt values, newest first.
-                Auto-refreshes every 30s.
-              </p>
-            </div>
-          </div>
-          <ActivityFeed rows={data?.recentActivity} />
-        </section>
+        <EventTalliesPanel onLogout={onLogout} />
 
         <section className="admin-panel venue-minors-panel">
           <div className="admin-panel-header">
