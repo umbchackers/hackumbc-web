@@ -102,7 +102,7 @@ export default function Home() {
             bgImage="/register_button.png"
           />
           <LinkBox
-            href="hackumbc@gmail.com"
+            href="mailto:hackumbc@gmail.com"
             desc="Want to sponsor hackUMBC? Click this button to learn more!"
             title="Sponsor"
             bgImage="/devpost_sponsor_button.png"
