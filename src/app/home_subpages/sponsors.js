@@ -55,178 +55,75 @@ export default function Sponsors() {
             </div>
             <div className="sponsors-content relative z-10" data-aos="fade-up">
                 <div className="sponsors-unified-container" data-aos="fade-up">
-                    <div className="sponsors-intro-text">
-                       hackUMBC wouldn't be possible without the generous support of our sponsors, click on their logos to check them out!
-                       {/* Explore our workshops below! */}
-                    </div>
+                    <div className="sponsors-frame-wrapper">
+                        <img
+                            src="/sponsor_frame.png"
+                            className="sponsors-frame"
+                            alt=""
+                        />
 
-                    {/* SPONSOR LOGOS ── */}
-                    {/*
-                    <div className="sponsors-all-logos">
-                        <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/coeit.webp"
-                                alt="COEIT"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://www.troweprice.com/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/trowepricelogo.webp"
-                                alt="T. Rowe Price"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://doit.umbc.edu/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/doit.webp"
-                                alt="DoIT"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://www.lockheedmartin.com/en-us/index.html" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/lockheedmartin.webp"
-                                alt="Lockheed Martin"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://nightwing.us/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/nightwing.webp"
-                                alt="Nightwing"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://base44.com/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/base44.webp"
-                                alt="Base44"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/apl.webp"
-                                alt="Johns Hopkins APL"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://www.ertcorp.com/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/ert.webp"
-                                alt="ERT"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://entrepreneurship.umbc.edu/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/alexbrowncenter.webp"
-                                alt="Alex Brown Center"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://boozallen.com/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/BAH.webp"
-                                alt="Booz Allen Hamilton"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://cwit.umbc.edu/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/CWIT.webp"
-                                alt="CWIT"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://csee.umbc.edu/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/CSEE.webp"
-                                alt="CSEE"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://www.bestgateeng.com/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/bestgate.webp"
-                                alt="Bestgate"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://www.nex-sys.tech/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/Nexsys.webp"
-                                alt="Nexsys Labs"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://firaxis.com/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/Firaxis.webp"
-                                alt="Firaxis Games"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://www.clipstudio.net/en/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/clip-studio.webp"
-                                alt="Clip Studio Paint"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/pure-buttons.webp"
-                                alt="Pure Buttons"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png"
-                                alt="MLH"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                        <a href="https://northropgrumman.com/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="/northrop.webp"
-                                alt="Northrop Grumman"
-                                className="sponsors-logo"
-                                loading="eager"
-                            />
-                        </a>
-                    </div>
-                    */}
-                     {/* ── WORKSHOPS ── */}
-                    {/* <div className="workshops-list">
-                        {workshops.map((workshop, index) => (
-                            <div className="workshop-card" key={index} data-aos="fade-up">
-                                <h3 className="workshop-title">{workshop.title}</h3>
-                                <p className="workshop-host">Hosted by: {workshop.host}</p>
-                                <p className="workshop-description">{workshop.description}</p>
+                        <div className="sponsors-all-logos">
+                            <div className="sponsors-row sponsors-row-large sponsors-row-dual">
+                                <a href="https://coeit.umbc.edu/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/coeit.png" alt="COEIT" className="sponsors-logo" loading="eager" />
+                                </a>
+                                <a href="https://doit.umbc.edu/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/doit.png" alt="DoIT" className="sponsors-logo" loading="eager" />
+                                </a>
                             </div>
-                        ))}
-                    </div> */}
+
+                            <div className="sponsors-row sponsors-row-large sponsors-row-solo">
+                                <a href="https://www.troweprice.com/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/troweprice.png" alt="T. Rowe Price" className="sponsors-logo" loading="eager" />
+                                </a>
+                            </div>
+
+                            <div className="sponsors-row sponsors-row-medium sponsors-row-triple">
+                                <a href="https://www.jhuapl.edu/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/apl.png" alt="Johns Hopkins APL" className="sponsors-logo" loading="eager" />
+                                </a>
+                                <a href="https://nightwing.us/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/nightwing.png" alt="Nightwing" className="sponsors-logo" loading="eager" />
+                                </a>
+                                <a href="https://www.bwtechumbc.com/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/bwtech.webp" alt="bwTECH" className="sponsors-logo sponsors-logo-bwtech" loading="eager" />
+                                </a>
+                            </div>
+
+                            <div className="sponsors-row sponsors-row-small sponsors-row-five">
+                                <a href="https://csee.umbc.edu/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/csee.png" alt="CSEE" className="sponsors-logo" loading="eager" />
+                                </a>
+                                <a href="https://entrepreneurship.umbc.edu/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/alex-brown-center.png" alt="Alex Brown Center" className="sponsors-logo sponsors-logo-alex" loading="eager" />
+                                </a>
+                                <a href="https://firaxis.com/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/firaxis.webp" alt="Firaxis Games" className="sponsors-logo" loading="eager" />
+                                </a>
+                                <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/mlh.svg" alt="MLH" className="sponsors-logo sponsors-logo-mlh" loading="eager" />
+                                </a>
+                                <a href="https://www.realmone.com/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/realmone.png" alt="RealmOne" className="sponsors-logo sponsors-logo-realmone" loading="eager" />
+                                </a>
+                            </div>
+
+                            <div className="sponsors-row sponsors-row-partner sponsors-row-quad">
+                                <a href="https://www.celsius.com/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/celsius.webp" alt="Celsius" className="sponsors-logo sponsors-logo-celsius" loading="eager" />
+                                </a>
+                                <a href="https://loveablaze.org/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/love-ablaze.png" alt="Love Ablaze" className="sponsors-logo" loading="eager" />
+                                </a>
+                                <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" rel="noopener noreferrer">
+                                    <img src="/purebuttons.png" alt="Pure Buttons" className="sponsors-logo" loading="eager" />
+                                </a>
+                                <a href="https://www.redbull.com/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/redbull.svg" alt="Red Bull" className="sponsors-logo" loading="eager" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

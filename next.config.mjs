@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Allow phone / LAN access to hot-reload in development
+  allowedDevOrigins: [
+    '192.168.1.247',
+    'http://192.168.1.247',
+    'http://192.168.1.247:3000',
+    '127.0.0.1',
+    'localhost',
+  ],
   // Add image optimization settings
   images: {
     remotePatterns: [
