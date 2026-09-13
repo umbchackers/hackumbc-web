@@ -1,12 +1,12 @@
 .privacy-policy-page {
-    /* background-image: url('/hackumbc_bg.webp'); */
-    background: linear-gradient(to bottom, #E8C48D, #C68A5C, #A34F2B);
+    background: transparent;
     color: #000000;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .privacy-policy-content {

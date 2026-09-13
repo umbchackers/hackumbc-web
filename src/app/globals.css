@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -8,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 140px;
   overflow-x: hidden;
 }
 

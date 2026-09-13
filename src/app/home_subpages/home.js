@@ -38,9 +38,10 @@ export default function Home() {
   return (
     <div className="home-page" style={{       //allows scrolling on mobile
   position: "relative",
-  height: isMobile ? "auto" : "100vh",
-  overflow: isMobile ? "visible" : "hidden",
-  minHeight: "100vh"
+  width: "100%",
+  minhHeight: isMobile ? "auto" : "fit-content",
+  height: "auto",
+  overflow: "visible"
 }}>
       {/* isMobile !== null && <video
         autoPlay
@@ -57,56 +58,61 @@ export default function Home() {
     {/* Basic medieval background - placeholder until full bg is ready */}
     <div className="absolute top-0 left-0 w-full h-full z-0 bg-transparent" />
 
-      <div className="home-container" style={{ 
+      <div className="home-container" style={{
         zIndex: 10,
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         flexDirection: "column",
-        gap: isMobile ? "12px" : "clamp(12px, 2.5vh, 28px)",
-        paddingTop: isMobile ? "72px" : "clamp(96px, 14vh, 150px)",
-        paddingBottom: isMobile ? "0" : "clamp(24px, 8vh, 100px)"
+        gap: isMobile ? "16px" : "24px",
+        paddingTop: isMobile ? "110px" : "120px",
+        paddingBottom: isMobile ? "40px" : "60px"
       }}>
         <div className="pointer-events-none" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <object 
-            data="/hackumbc 2026 text.svg" 
-            alt="hackUMBC 2026" 
+          <object
+            data="/hackumbc 2026 text.svg"
+            alt="hackUMBC 2026"
             style={{ width: isMobile ? '90%' : 'clamp(420px, 58vw, 800px)', maxWidth: '800px', height: 'auto' }}
           />
         </div>
-        <div className="footer" style={{ 
-          width: isMobile ? "90%" : "100%", 
+        <div className="footer" style={{
+          width: isMobile ? "90%" : "100%",
           flexWrap: isMobile ? "nowrap" : "wrap",
           flexDirection: isMobile ? "column" : "row",
-          gap: isMobile ? "10px" : "20px",
+          gap: isMobile ? "2px" : "4px",
           position: "relative",
           bottom: "auto",
         }}>
           {/* <LinkBox
-            href="https://hackumbc.typeform.com/to/qM9YbL6E"
-            desc="Apply to be an Organizer for hackUMBC 2026! Applications are open until 10/25."
-            title="Apply to Organize"
-          /> */}
-          {/* <LinkBox
             href="/sign-up"
-            desc="Registration for hackUMBC 2026 mini-hackathon is now open! Click this button to go to the sign up page!"
-            title="Registration"
+            desc="Registration for hackUMBC 2026 is now open! Click this button to go to the sign up page!"
+            title="Register"
+            bgImage="/register_button.png"
           /> */}
-          <LinkBox
-            href="https://forms.gle/MeqFXxhzQoa87ffo6"
-            desc="Click this button to fill out the interest form for hackUMBC 2026 hackathon!"
-            title="Interest Form"
-          />
           <LinkBox
             href="https://hackumbc-minihackathon.devpost.com/"
             desc="Visit hackUMBC's Devpost to see project logistics, teams, and prizes!"
             title="Devpost"
+            bgImage="/devpost_sponsor_button.png"
           />
           <LinkBox
-            href="#sponsors"
+            href="https://hackumbc.tech/sign-up"
+            desc="Click this button to sign up for hackUMBC 2026! Closes Sept 23rd @ 11:59 PM EDT!"
+            title="Sign-Up"
+            bgImage="/register_button.png"
+          />
+          <LinkBox
+            href="mailto:hackumbc@gmail.com"
             desc="Want to sponsor hackUMBC? Click this button to learn more!"
             title="Sponsor"
+            bgImage="/devpost_sponsor_button.png"
           />
+          {/* <LinkBox
+            href="https://hackumbc.typeform.com/to/ozmi28Sy"
+            desc="Volunteer sign-ups for hackUMBC are officially open! Click this button to apply!"
+            title="Volunteer"
+            bgImage="/devpost_sponsor_button.png"
+          />*/}
         </div>
       </div>
     </div>

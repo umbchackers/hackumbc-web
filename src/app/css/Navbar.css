@@ -1,80 +1,75 @@
 .nav-bar-container {
     background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, 0));
-    width: 100vw;
+    width: 100%;
+    max-width: 100vw;
+    top: 0;
+    left: 0;
     position: fixed;
     z-index: 1000000;
     justify-content: center;
     display: flex;
-}
-
-.nav-left {
-    display: flex;
     align-items: center;
 }
 
-.nav-right {
+.nav-left, .nav-right {
     display: flex;
     align-items: center;
 }
 
 .nav-desktop {
-    width: 89vw;
-    height: 13.3vh;
+    width: 100%;
+    max-width: 1400px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* padding: 0 4vw; */
-    top: 0;
-    padding-right: 4vw;
+    padding: 0 2rem;
 }
 
 .nav-logo {
-    width: 105px;
+    width: 85px;
     height: auto;
     margin-right: 1.4vw;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .nav-logo:hover {
-    transform: scale(1.15);
-    /* box-shadow:0 0 50px #4fc3f7; */
-
-    -webkit-filter: drop-shadow(0px 0px 8px #f6c78b);
+    transform: scale(1.1);
     filter: drop-shadow(0px 0px 8px #f6c78b);
 }
 
 .nav-link, .nav-link-dark {
-    font-size: 1.1vw;
-    transition: 0.3s;
-    margin: 0 1vw;
+    color: #000000 !important;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin: 0 1.2rem;
     text-transform: uppercase;
     cursor: pointer;
-    font-weight: bolder;
+    font-weight: 700;
     text-align: center;
+    letter-spacing: 0.05em;
 }
 
 .nav-link::before, .nav-link-dark::before {
     content: " { ";
     color: #f6c78b;
     opacity: 0;
-    padding: 0 7px;
-    transition: 0.3s;
-    position: relative;
+    padding: 0 5px;
+    transition: opacity 0.3s ease;
 }
 
 .nav-link-dark::after, .nav-link::after {
     content: " } ";
     color: #f6c78b;
     opacity: 0;
-    padding: 0 7px;
-    transition: 0.3s;
-    position: relative;
+    padding: 0 5px;
+    transition: opacity 0.3s ease;
 }
 
 .nav-link:hover, .nav-link-dark:hover {
-    color: #f6c78b;
-    transform: scale(1.1);
+    color: #fff !important;
+    transform: scale(1.05);
 }
 
 .nav-link:hover::before, .nav-link:hover::after,
@@ -101,56 +96,68 @@
 /* hamburger menu */
 #hamburger-nav {
     display: none;
+    z-index: 1000002;
 }
 
 .hamburger-menu {
     position: relative;
-    top: 10px;
-    padding: 20px;
-    display: inline-block;
-    transition: transform 0.3s ease-in-out; /* Smooth transition effect */
-    /*deleted transform cuz not needed, plus keeps menu hidden*/
-    z-index: 10;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .hamburger-icon {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 24px;
-    width: 30px;
+    height: 20px !important;
+    width: 28px !important;
     cursor: pointer;
-    margin: 0 auto;
-    margin-right: 10px;
+    padding: 2px;
+    box-sizing: border-box;
 }
 
 .hamburger-icon span {
-    width: 100%;
-    height: 2px;
-    background-color: #f6c78b;
-    transition: all 0.3 ease-in-out;
+    display: block;
+    width: 28px !important;
+    height: 3px !important;
+    background-color: #f6c78b !important;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
 }
 
 .menu-links {
     position: absolute;
-    top: 100%;
-    left: 50%; 
-    transform: translateX(-50%); 
-    background-color: #ba4126; 
-    width: fit-content;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: #510E23;
+    border: none;
+    border-radius: 8px;
+    width: 200px;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3 ease-in-out;
+    transition: max-height 0.3s ease-in-out;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
 }
 
 .menu-links a {
     display: block;
-    padding: 10px;
+    padding: 12px 16px;
     text-align: center;
-    font-size: 1.5rem;
-    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    color: #f6c78b;
     text-decoration: none;
-    transition: all 0.3 ease-in-out;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.menu-links a:hover {
+    background-color: #690010;
+    color: #ffffff;
 }
 
 .menu-links li {
@@ -158,11 +165,13 @@
 }
 
 .menu-links.open {
-    max-height: 300px;
+    max-height: 350px;
+    border: 2px solid #f6c78b;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .hamburger-icon.open span:first-child {
-    transform: rotate(45deg) translate(10px, 5px);
+    transform: rotate(45deg) translateY(8.5px);
 }
 
 .hamburger-icon.open span:nth-child(2) {
@@ -170,65 +179,22 @@
 }
 
 .hamburger-icon.open span:last-child {
-    transform: rotate(-45deg) translate(10px, -5px);
+    transform: rotate(-45deg) translateX(-8.5px);
 }
 
-.light-mode-text {
-    color: #fff;
-}
-
-@media (prefers-color-scheme: light) {
-    .light-mode-text {
-        color: #fff; 
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .light-mode-text {
-        color: inherit;
-    }
-}
-
-/*added light mode text coloring*/
-
-@media (max-width: 1400px) {
-    .hamburger-menu {
-        right: 10px; /*spacing fixes*/
-    }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
     .nav-link, .nav-link-dark {
         display: none;
     }
 
-    .nav-logo {
-        padding-right: 0px;
-    }
-
     #hamburger-nav {
         display: block;
     }
-    .hamburger-menu {
-        right: 10px; /*more spacing adjustments*/
-        margin-bottom: 100px;
-        margin-right: 15px;
-        /*spacing fixed on hamburger menu*/
-    }
-    .menu-links {
-        scale: 0.85;
-        top: 75%;
-        left: 35%;
-        /*fixed hamburger menu spacing*/
-    }
 
+    #mlh-trust-badge {
+        right: 15px;
+        width: 70px;
+    }
 }
 
-@media (max-width: 530px) {
-
-    .menu-links {
-        transform: translateX(-50%);
-    }
-    /*this is my workaround for centering the menu links with the hamburger menu but this could def be better written*/
-}
