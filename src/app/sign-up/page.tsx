@@ -387,91 +387,84 @@ export default function Survey() {
                   What is your level of study?{" "}
                   <span className="text-red-500">*</span>
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <label className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="levelOfStudy"
-                      value="less_than_secondary"
-                      required
-                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
-                    />
-                    <span className="text-white">
-                      Less than Secondary / High School
-                    </span>
-                  </label>
-                  <label className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="levelOfStudy"
-                      value="secondary"
-                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
-                    />
-                    <span className="text-white">Secondary / High School</span>
-                  </label>
-                  <label className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="levelOfStudy"
-                      value="undergrad_2year"
-                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
-                    />
-                    <span className="text-white">
-                      Undergraduate University (2 year - community college)
-                    </span>
-                  </label>
-                  <label className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="levelOfStudy"
-                      value="undergrad_3year"
-                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
-                    />
-                    <span className="text-white">
-                      Undergraduate University (3+ year)
-                    </span>
-                  </label>
-                  <label className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="levelOfStudy"
-                      value="graduate"
-                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
-                    />
-                    <span className="text-white">
-                      Graduate University (Masters, Professional, Doctoral,
-                      etc.)
-                    </span>
-                  </label>
-                  <label className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="levelOfStudy"
-                      value="vocational"
-                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
-                    />
-                    <span className="text-white">
-                      Other Vocational / Trade Program or Apprenticeship
-                    </span>
-                  </label>
-                  <label className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="levelOfStudy"
-                      value="other"
-                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
-                    />
-                    <span className="text-white">Other</span>
-                  </label>
-                  <label className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="levelOfStudy"
-                      value="prefNotToAnswer"
-                      className="form-radio text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
-                    />
-                    <span className="text-white">Prefer not to answer</span>
-                  </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
+                  <div className="flex flex-col gap-3">
+                    <label className="flex items-start space-x-2">
+                      <input
+                        type="radio"
+                        name="levelOfStudy"
+                        value="secondary"
+                        required
+                        className="form-radio mt-1 text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                      />
+                      <span className="text-white">Secondary / High School</span>
+                    </label>
+                    <label className="flex items-start space-x-2">
+                      <input
+                        type="radio"
+                        name="levelOfStudy"
+                        value="undergrad_3year"
+                        className="form-radio mt-1 text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                      />
+                      <span className="text-white">
+                        Undergraduate University (3+ year)
+                      </span>
+                    </label>
+                    <label className="flex items-start space-x-2">
+                      <input
+                        type="radio"
+                        name="levelOfStudy"
+                        value="vocational"
+                        className="form-radio mt-1 text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                      />
+                      <span className="text-white">
+                        Other Vocational / Trade Program or Apprenticeship
+                      </span>
+                    </label>
+                    <label className="flex items-start space-x-2">
+                      <input
+                        type="radio"
+                        name="levelOfStudy"
+                        value="prefNotToAnswer"
+                        className="form-radio mt-1 text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                      />
+                      <span className="text-white">Prefer not to answer</span>
+                    </label>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <label className="flex items-start space-x-2">
+                      <input
+                        type="radio"
+                        name="levelOfStudy"
+                        value="undergrad_2year"
+                        className="form-radio mt-1 text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                      />
+                      <span className="text-white">
+                        Undergraduate University (2 year - community college)
+                      </span>
+                    </label>
+                    <label className="flex items-start space-x-2">
+                      <input
+                        type="radio"
+                        name="levelOfStudy"
+                        value="graduate"
+                        className="form-radio mt-1 text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                      />
+                      <span className="text-white">
+                        Graduate University (Masters, Professional, Doctoral,
+                        etc.)
+                      </span>
+                    </label>
+                    <label className="flex items-start space-x-2">
+                      <input
+                        type="radio"
+                        name="levelOfStudy"
+                        value="other"
+                        className="form-radio mt-1 text-blue-600 bg-gray-800 border-gray-600 focus:ring-blue-500"
+                      />
+                      <span className="text-white">Other</span>
+                    </label>
+                  </div>
                 </div>
               </div>
               {/* Age Field */}
@@ -480,7 +473,7 @@ export default function Survey() {
                   className="block text-white text-sm font-bold mb-2"
                   htmlFor="age"
                 >
-                  Age <span className="text-red-500">*</span>
+                  Age (Must be 18+, unless you’re a UMBC student) <span className="text-red-500">*</span>
                 </label>
                 <input
                   className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
