@@ -45,7 +45,7 @@ export default function FAQ() {
         },
         {
             question: "Who can attend the hackathon?",
-            answer: "You don’t need to be a UMBC student to participate! Any university student 18+ is welcome. Minors under 18 may attend only if they are UMBC students (IDs will be checked)."
+            answer:"To participate, you must be a current UMBC student or at least 18 years of age if attending from another university."
         },
         {
             question: "How do I register?",
