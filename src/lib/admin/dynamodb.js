@@ -29,21 +29,6 @@ export const METRICS_TABLE =
 export const PWA_TABLE =
   process.env.HACKUMBC_AWS_PWA_TABLE_NAME || "PWA-2026-Users";
 
-function dynamoString(attr) {
-  if (!attr) return "";
-  if (attr.S !== undefined) return String(attr.S);
-  if (attr.N !== undefined) return String(attr.N);
-  return "";
-}
-
-function dynamoNumber(attr) {
-  if (!attr) return null;
-  const raw = attr.N !== undefined ? attr.N : attr.S;
-  if (raw === undefined || raw === "") return null;
-  const n = Number(raw);
-  return Number.isFinite(n) ? n : null;
-}
-
 function dynamoBool(attr) {
   if (!attr) return false;
   if (attr.BOOL === true) return true;
@@ -52,25 +37,6 @@ function dynamoBool(attr) {
     .trim()
     .toLowerCase();
   return raw === "true" || raw === "1" || raw === "yes";
-}
-
-function toIsoTimestamp(attr) {
-  if (!attr) return null;
-  if (attr.S !== undefined) {
-    const s = String(attr.S).trim();
-    if (!s) return null;
-    if (/^\d+$/.test(s)) return toIsoTimestamp({ N: s });
-    const d = new Date(s);
-    return Number.isNaN(d.getTime()) ? s : d.toISOString();
-  }
-  if (attr.N !== undefined) {
-    const n = Number(attr.N);
-    if (!Number.isFinite(n) || n <= 0) return null;
-    const ms = n < 1e12 ? n * 1000 : n;
-    const d = new Date(ms);
-    return Number.isNaN(d.getTime()) ? null : d.toISOString();
-  }
-  return null;
 }
 
 function missingTableError(err) {
@@ -236,38 +202,13 @@ export async function maybeTakeSnapshot(minIntervalMs = 5 * 60 * 1000) {
   return { skipped: false, snapshot };
 }
 
-/** Registration ages keyed by lowercase email (age is stored as a string on signup). */
-async function getRegistrationAgesByEmail() {
-  const ages = new Map();
-  let ExclusiveStartKey;
-
-  do {
-    const result = await dynamodb.send(
-      new ScanCommand({
-        TableName: REGISTRATIONS_TABLE,
-        ProjectionExpression: "email, age",
-        ExclusiveStartKey,
-      }),
-    );
-
-    for (const item of result.Items || []) {
-      const email = dynamoString(item.email).toLowerCase().trim();
-      const age = dynamoNumber(item.age);
-      if (email && age !== null) ages.set(email, age);
-    }
-
-    ExclusiveStartKey = result.LastEvaluatedKey;
-  } while (ExclusiveStartKey);
-
-  return ages;
-}
-
 /**
  * Venue presence analytics from PWA METADATA rows.
- * Inside/outside use venueStatus (IN / OUT) only.
+ * Counts total users and desk check-ins only.
  */
 export async function getVenueAnalytics() {
-  const items = [];
+  let totalUsers = 0;
+  let totalCheckedIn = 0;
   let ExclusiveStartKey;
 
   try {
@@ -275,12 +216,7 @@ export async function getVenueAnalytics() {
       const result = await dynamodb.send(
         new ScanCommand({
           TableName: PWA_TABLE,
-          ProjectionExpression:
-            "pk, email, #nm, checkedIn, venueStatus, lastVenueScanAt, lastVenueScannedBy, isMinor, age, #rl, sk",
-          ExpressionAttributeNames: {
-            "#nm": "name",
-            "#rl": "role",
-          },
+          ProjectionExpression: "checkedIn, sk",
           FilterExpression: "sk = :sk",
           ExpressionAttributeValues: {
             ":sk": { S: "METADATA" },
@@ -290,24 +226,8 @@ export async function getVenueAnalytics() {
       );
 
       for (const item of result.Items || []) {
-        const emailFromPk = dynamoString(item.pk).replace(/^USER#/i, "");
-        const venueStatusRaw = dynamoString(item.venueStatus).toUpperCase();
-        const venueStatus =
-          venueStatusRaw === "IN" || venueStatusRaw === "OUT"
-            ? venueStatusRaw
-            : null;
-
-        items.push({
-          email: dynamoString(item.email) || emailFromPk,
-          name: dynamoString(item.name) || "Participant",
-          role: dynamoString(item.role),
-          checkedIn: dynamoBool(item.checkedIn),
-          venueStatus,
-          lastVenueScanAt: toIsoTimestamp(item.lastVenueScanAt),
-          lastVenueScannedBy: dynamoString(item.lastVenueScannedBy) || null,
-          isMinor: dynamoBool(item.isMinor),
-          age: dynamoNumber(item.age),
-        });
+        totalUsers += 1;
+        if (dynamoBool(item.checkedIn)) totalCheckedIn += 1;
       }
 
       ExclusiveStartKey = result.LastEvaluatedKey;
@@ -321,51 +241,6 @@ export async function getVenueAnalytics() {
     throw err;
   }
 
-  const registrationAges = await getRegistrationAgesByEmail();
-  for (const user of items) {
-    if (user.age === null) {
-      const fromReg = registrationAges.get(user.email.toLowerCase().trim());
-      if (fromReg !== undefined) user.age = fromReg;
-    }
-  }
-
-  let currentlyInside = 0;
-  let currentlyOutside = 0;
-  let totalCheckedIn = 0;
-  const minorsInside = [];
-  const minorsOutside = [];
-
-  for (const user of items) {
-    if (user.checkedIn) totalCheckedIn += 1;
-
-    const ageNum = Number.isFinite(user.age) ? user.age : null;
-    const isMinor = user.isMinor || (ageNum !== null && ageNum < 18);
-    const minorRow = isMinor
-      ? {
-          name: user.name,
-          email: user.email,
-          age: ageNum,
-          lastScannedAt: user.lastVenueScanAt,
-          scannedBy: user.lastVenueScannedBy,
-        }
-      : null;
-
-    if (user.venueStatus === "IN") {
-      currentlyInside += 1;
-      if (minorRow) minorsInside.push(minorRow);
-    } else if (user.venueStatus === "OUT") {
-      currentlyOutside += 1;
-      if (minorRow) minorsOutside.push(minorRow);
-    }
-  }
-
-  const byMostRecentScan = (a, b) =>
-    new Date(b.lastScannedAt || 0).getTime() -
-    new Date(a.lastScannedAt || 0).getTime();
-  minorsInside.sort(byMostRecentScan);
-  minorsOutside.sort(byMostRecentScan);
-
-  const totalUsers = items.length;
   const occupancyRate =
     totalUsers > 0
       ? `${((totalCheckedIn / totalUsers) * 100).toFixed(1)}%`
@@ -375,12 +250,8 @@ export async function getVenueAnalytics() {
     summary: {
       totalUsers,
       totalCheckedIn,
-      currentlyInside,
-      currentlyOutside,
       occupancyRate,
     },
-    minorsInside,
-    minorsOutside,
     generatedAt: new Date().toISOString(),
   };
 }
