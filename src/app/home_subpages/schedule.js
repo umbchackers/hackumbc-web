@@ -21,17 +21,17 @@ export default function Schedule() {
     const day1Schedule = [
         { time: '9:00 AM', endTime: '10:00 AM', event: 'Check-In', location: 'RAC Lobby', type: 'event' },
         { time: '10:00 AM', endTime: '11:00 AM', event: 'Opening Ceremony', location: 'RAC Arena', type: 'event' },
-        { time: '11:00 AM', endTime: '12:00 PM', event: 'Networking Fair', location: 'RAC Arena', type: 'event' },
-        { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Begins/Team Formation', location: 'RAC', type: 'event' },
+        { time: '11:00 AM', endTime: '12:00 PM', event: 'Networking Fair', location: 'RAC Arena Track', type: 'event' },
+        { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Begins/Team Formation', location: 'RAC Arena/Courts', type: 'event' },
         { time: '12:30 PM', endTime: '1:30 PM', event: 'Lunch', location: 'RAC Arena', type: 'event' },
-        { time: '1:00 PM', endTime: '1:45 PM', event: 'Fireside Chat with UMBC Alums', location: 'RAC Classroom', type: 'event' },
-        { time: '2:00 PM', endTime: '7:00 PM', event: 'Workshops', location: 'RAC Classroom', type: 'event' },
+        { time: '1:00 PM', endTime: '1:45 PM', event: 'Fireside Chat with UMBC Alums + MLH Workshop', location: 'RAC 106/144', type: 'event' },
+        { time: '2:00 PM', endTime: '7:00 PM', event: 'Workshops', location: 'RAC 106/144', type: 'event' },
         { time: '7:00 PM', endTime: '8:00 PM', event: 'Dinner', location: 'RAC Arena', type: 'event' },
-        { time: '8:00 PM', endTime: '8:40 PM', event: 'Potion Making + MLH', location: 'RAC Studio', type: 'event' },
-        { time: '8:45 PM', endTime: '9:25 PM', event: 'Jousting Tournament', location: 'RAC Studio', type: 'event' },
-        { time: '9:30 PM', endTime: '10:30 PM', event: 'Smash Tournament', location: 'RAC Classroom', type: 'event' },
+        { time: '8:00 PM', endTime: '8:40 PM', event: 'Potion Making', location: 'RAC 106', type: 'event' },
+        { time: '8:45 PM', endTime: '9:25 PM', event: 'Jousting Tournament', location: 'RAC 106', type: 'event' },
+        { time: '9:30 PM', endTime: '10:30 PM', event: 'Smash Tournament', location: 'RAC 106', type: 'event' },
         { time: '10:00 PM', endTime: '10:45 PM', event: 'Late Night Snack', location: 'RAC Arena', type: 'event' },
-        { time: '11:00 PM', endTime: '11:30 PM', event: 'Cup Stacking', location: 'RAC Studio', type: 'event' }
+        { time: '11:00 PM', endTime: '11:30 PM', event: 'Cup Stacking', location: 'RAC 144', type: 'event' }
     ];
 
     // Schedule Data for Day 2
