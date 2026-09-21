@@ -94,7 +94,7 @@ export default function Sponsors() {
                                     <img src="/alex-brown-center.png" alt="Alex Brown Center" className="sponsors-logo sponsors-logo-alex" loading="eager" />
                                 </a>
                                 <a href="https://firaxis.com/" target="_blank" rel="noopener noreferrer">
-                                    <img src="/firaxis.webp" alt="Firaxis Games" className="sponsors-logo" loading="eager" />
+                                    <img src="/firaxis-logo.webp" alt="Firaxis Games" className="sponsors-logo" loading="eager" />
                                 </a>
                                 <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer">
                                     <img src="/mlh.svg" alt="MLH" className="sponsors-logo sponsors-logo-mlh" loading="eager" />
