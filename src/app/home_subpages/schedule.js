@@ -8,14 +8,20 @@ import useIsMobile from '../../lib/use_is_mobile';
 import SvgTiler from '../components/svg-tiler';
 
 export default function Schedule() {
-    // Update this in one place when the event date changes (YYYY-MM-DD).
-    const EVENT_DATE = '2026-09-26';
+    // Update these in one place when the event dates change (YYYY-MM-DD).
+    const EVENT_DATES = {
+        'Day 1': '2026-09-22',
+        'Day 2': '2026-09-23',
+    };
     const [activeDay, setActiveDay] = useState('Day 1');
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
     const timelineRef = useRef(null);
     const currentEventRef = useRef(null);
     const [currentEventIndex, setCurrentEventIndex] = useState(-1);
     const isMobile = useIsMobile();
+
+    const toDateKey = (date) =>
+        `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
     
     // Schedule Data for Day 1
     const day1Schedule = [
@@ -24,11 +30,23 @@ export default function Schedule() {
         { time: '11:00 AM', endTime: '12:00 PM', event: 'Networking Fair', location: 'RAC Arena Track', type: 'event' },
         { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Begins/Team Formation', location: 'RAC Arena/Courts', type: 'event' },
         { time: '12:30 PM', endTime: '1:30 PM', event: 'Lunch', location: 'RAC Arena', type: 'event' },
-        { time: '1:00 PM', endTime: '1:45 PM', event: 'Fireside Chat with UMBC Alums + MLH Workshop', location: 'RAC 106/144', type: 'event' },
-        { time: '2:00 PM', endTime: '7:00 PM', event: 'Workshops', location: 'RAC 106/144', type: 'event' },
+        { time: '1:00 PM', endTime: '1:45 PM', event: 'Fireside Chat with UMBC Alums', location: 'RAC 144', type: 'event' },
+        { time: '1:00 PM', endTime: '2:00 PM', event: 'MLH Workshop', location: 'RAC 106', type: 'event' },
+        { time: '2:00 PM', endTime: '2:45 PM', event: 'Nightwing Workshop', location: 'RAC 144', type: 'event' },
+        { time: '2:00 PM', endTime: '3:00 PM', event: 'DoIT Workshop', location: 'RAC 106', type: 'event' },
+        { time: '2:50 PM', endTime: '3:35 PM', event: 'SWE Workshop', location: 'RAC 144', type: 'event' },
+        { time: '3:00 PM', endTime: '3:40 PM', event: 'CyberDawgs Workshop', location: 'RAC 106', type: 'event' },
+        { time: '3:40 PM', endTime: '4:25 PM', event: 'ETF Workshop', location: 'RAC 144', type: 'event' },
+        { time: '3:40 PM', endTime: '4:25 PM', event: 'GDC Workshop', location: 'RAC 106', type: 'event' },
+        { time: '4:30 PM', endTime: '5:15 PM', event: 'GESCoM Workshop', location: 'RAC 144', type: 'event' },
+        { time: '4:30 PM', endTime: '5:15 PM', event: 'SAD Workshop', location: 'RAC 106', type: 'event' },
+        { time: '5:20 PM', endTime: '6:05 PM', event: 'STARS Workshop', location: 'RAC 144', type: 'event' },
+        { time: '5:20 PM', endTime: '6:05 PM', event: 'NSBE Workshop', location: 'RAC 106', type: 'event' },
+        { time: '6:10 PM', endTime: '6:55 PM', event: 'Pre-Med Society Workshop', location: 'RAC 144', type: 'event' },
+        { time: '6:10 PM', endTime: '6:55 PM', event: 'GDG Workshop', location: 'RAC 106', type: 'event' },
         { time: '7:00 PM', endTime: '8:00 PM', event: 'Dinner', location: 'RAC Arena', type: 'event' },
         { time: '8:00 PM', endTime: '8:40 PM', event: 'Potion Making', location: 'RAC 106', type: 'event' },
-        { time: '8:45 PM', endTime: '9:25 PM', event: 'Jousting Tournament', location: 'RAC 106', type: 'event' },
+        { time: '8:45 PM', endTime: '9:25 PM', event: 'Jousting Tournament', location: 'RAC 144', type: 'event' },
         { time: '9:30 PM', endTime: '10:30 PM', event: 'Smash Tournament', location: 'RAC 106', type: 'event' },
         { time: '10:00 PM', endTime: '10:45 PM', event: 'Late Night Snack', location: 'RAC Arena', type: 'event' },
         { time: '11:00 PM', endTime: '11:30 PM', event: 'Cup Stacking', location: 'RAC 144', type: 'event' }
@@ -41,7 +59,7 @@ export default function Schedule() {
         { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Ends!', location: 'RAC Arena', type: 'event' },
         { time: '12:30 PM', endTime: '1:00 PM', event: 'Lunch', location: 'RAC Arena', type: 'event' },
         { time: '1:45 PM', endTime: '3:45 PM', event: 'Judging', location: 'RAC Arena', type: 'event' },
-        { time: '4:30 PM', endTime: '5:00 PM', event: 'Closing Ceremony', location: 'RAC Arena', type: 'event' }
+        { time: '4:30 PM', endTime: '11:00 PM', event: 'Closing Ceremony', location: 'RAC Arena', type: 'event' }
     ];
 
         //mini Hackathon schedule
@@ -75,6 +93,17 @@ export default function Schedule() {
         
         return () => clearInterval(timer);
     }, []);
+
+    // Auto-select the schedule tab when the calendar day matches an event date.
+    // Depend on the date key (not the full timestamp) so manual tab switches aren't overwritten each minute.
+    const todayKey = toDateKey(currentDateTime);
+    useEffect(() => {
+        if (todayKey === EVENT_DATES['Day 2']) {
+            setActiveDay('Day 2');
+        } else if (todayKey === EVENT_DATES['Day 1']) {
+            setActiveDay('Day 1');
+        }
+    }, [todayKey]);
     
     useEffect(() => {
         AOS.refresh();
@@ -94,10 +123,9 @@ export default function Schedule() {
         if(!startTime || !endTime) return false;
         
         const now = currentDateTime;
-        const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
         
-        // Check if today is the event date
-        if(todayKey === EVENT_DATE) 
+        // Only highlight events for the active day's calendar date
+        if(todayKey === EVENT_DATES[activeDay]) 
         {
             const [startHour, startMinutes] = getTimeComponents(startTime);
             const [endHour, endMinutes] = getTimeComponents(endTime);
