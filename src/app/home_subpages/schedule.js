@@ -10,8 +10,8 @@ import SvgTiler from '../components/svg-tiler';
 export default function Schedule() {
     // Update these in one place when the event dates change (YYYY-MM-DD).
     const EVENT_DATES = {
-        'Day 1': '2026-09-22',
-        'Day 2': '2026-09-23',
+        'Day 1': '2026-09-26',
+        'Day 2': '2026-09-27',
     };
     const [activeDay, setActiveDay] = useState('Day 1');
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -59,7 +59,7 @@ export default function Schedule() {
         { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Ends!', location: 'RAC Arena', type: 'event' },
         { time: '12:30 PM', endTime: '1:00 PM', event: 'Lunch', location: 'RAC Arena', type: 'event' },
         { time: '1:45 PM', endTime: '3:45 PM', event: 'Judging', location: 'RAC Arena', type: 'event' },
-        { time: '4:30 PM', endTime: '11:00 PM', event: 'Closing Ceremony', location: 'RAC Arena', type: 'event' }
+        { time: '4:30 PM', endTime: '5:00 PM', event: 'Closing Ceremony', location: 'RAC Arena', type: 'event' }
     ];
 
         //mini Hackathon schedule
