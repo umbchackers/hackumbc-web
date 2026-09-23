@@ -8,14 +8,20 @@ import useIsMobile from '../../lib/use_is_mobile';
 import SvgTiler from '../components/svg-tiler';
 
 export default function Schedule() {
-    // Update this in one place when the event date changes (YYYY-MM-DD).
-    const EVENT_DATE = '2026-09-26';
+    // Update these in one place when the event dates change (YYYY-MM-DD).
+    const EVENT_DATES = {
+        'Day 1': '2026-09-22',
+        'Day 2': '2026-09-23',
+    };
     const [activeDay, setActiveDay] = useState('Day 1');
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
     const timelineRef = useRef(null);
     const currentEventRef = useRef(null);
     const [currentEventIndex, setCurrentEventIndex] = useState(-1);
     const isMobile = useIsMobile();
+
+    const toDateKey = (date) =>
+        `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
     
     // Schedule Data for Day 1
     const day1Schedule = [
@@ -53,7 +59,7 @@ export default function Schedule() {
         { time: '12:00 PM', endTime: '12:30 PM', event: 'Hacking Ends!', location: 'RAC Arena', type: 'event' },
         { time: '12:30 PM', endTime: '1:00 PM', event: 'Lunch', location: 'RAC Arena', type: 'event' },
         { time: '1:45 PM', endTime: '3:45 PM', event: 'Judging', location: 'RAC Arena', type: 'event' },
-        { time: '4:30 PM', endTime: '5:00 PM', event: 'Closing Ceremony', location: 'RAC Arena', type: 'event' }
+        { time: '4:30 PM', endTime: '11:00 PM', event: 'Closing Ceremony', location: 'RAC Arena', type: 'event' }
     ];
 
         //mini Hackathon schedule
@@ -87,6 +93,17 @@ export default function Schedule() {
         
         return () => clearInterval(timer);
     }, []);
+
+    // Auto-select the schedule tab when the calendar day matches an event date.
+    // Depend on the date key (not the full timestamp) so manual tab switches aren't overwritten each minute.
+    const todayKey = toDateKey(currentDateTime);
+    useEffect(() => {
+        if (todayKey === EVENT_DATES['Day 2']) {
+            setActiveDay('Day 2');
+        } else if (todayKey === EVENT_DATES['Day 1']) {
+            setActiveDay('Day 1');
+        }
+    }, [todayKey]);
     
     useEffect(() => {
         AOS.refresh();
@@ -106,10 +123,9 @@ export default function Schedule() {
         if(!startTime || !endTime) return false;
         
         const now = currentDateTime;
-        const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
         
-        // Check if today is the event date
-        if(todayKey === EVENT_DATE) 
+        // Only highlight events for the active day's calendar date
+        if(todayKey === EVENT_DATES[activeDay]) 
         {
             const [startHour, startMinutes] = getTimeComponents(startTime);
             const [endHour, endMinutes] = getTimeComponents(endTime);
