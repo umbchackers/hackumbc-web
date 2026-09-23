@@ -92,46 +92,6 @@ function LoginGate({ onSuccess }) {
   );
 }
 
-function MinorsTable({ title, rows, emptyLabel, scannedAtLabel }) {
-  return (
-    <div className="tally-block">
-      <h3>
-        {title} ({rows?.length ?? 0})
-      </h3>
-      {!rows?.length ? (
-        <p className="admin-empty tally-empty">{emptyLabel}</p>
-      ) : (
-        <div className="venue-table-wrap">
-          <table className="tally-table venue-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>{scannedAtLabel}</th>
-                <th>Scanned by</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, index) => (
-                <tr
-                  key={`${row.email || "unknown"}-${row.lastScannedAt || "none"}-${index}`}
-                >
-                  <td>{row.name || "—"}</td>
-                  <td>{row.email || "—"}</td>
-                  <td>{row.age ?? "—"}</td>
-                  <td>{formatScanTime(row.lastScannedAt)}</td>
-                  <td>{row.scannedBy || "—"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </div>
-  );
-}
-
 function TallyTable({ title, rows, emptyLabel, footerLabel }) {
   const total = (rows || []).reduce((sum, row) => sum + (row.count || 0), 0);
 
@@ -202,7 +162,7 @@ function EventTalliesPanel({ onLogout }) {
         <div>
           <h2>Event tallies</h2>
           <p className="panel-sub">
-            Check-ins, meals, events &amp; shop prizes · load only when you ask
+            Meals, events &amp; shop prizes · load only when you ask
           </p>
         </div>
         <button
@@ -219,9 +179,9 @@ function EventTalliesPanel({ onLogout }) {
 
       {!tallies && !loading && !error ? (
         <p className="admin-empty">
-          Press <strong>Load tallies</strong> to scan PWA users for attendance,
-          meal claims, event scans, and prize redemptions. This is not
-          refreshed automatically.
+          Press <strong>Load tallies</strong> to scan PWA users for meal
+          claims, event scans, and prize redemptions. This is not refreshed
+          automatically.
         </p>
       ) : null}
 
@@ -232,8 +192,7 @@ function EventTalliesPanel({ onLogout }) {
       {tallies ? (
         <>
           <p className="range-summary">
-            Scanned <strong>{tallies.scanned}</strong> PWA users ·{" "}
-            <strong>{tallies.totalCheckedIn}</strong> checked in
+            Scanned <strong>{tallies.scanned}</strong> PWA users
             {tallies.generatedAt ? (
               <>
                 {" "}
@@ -241,14 +200,6 @@ function EventTalliesPanel({ onLogout }) {
               </>
             ) : null}
           </p>
-
-          <section className="admin-metrics" style={{ marginBottom: "1rem" }}>
-            <MetricCard
-              label="Checked in"
-              value={tallies.totalCheckedIn}
-              hint="Desk check-in (attended)"
-            />
-          </section>
 
           <div className="tally-grid venue-tally-grid">
             <TallyTable
@@ -356,19 +307,14 @@ function Dashboard({ onLogout }) {
 
         <section className="admin-metrics">
           <MetricCard
-            label="Inside venue"
-            value={summary?.currentlyInside}
-            hint="venueStatus = IN"
-          />
-          <MetricCard
-            label="Outside venue"
-            value={summary?.currentlyOutside}
-            hint="venueStatus = OUT"
-          />
-          <MetricCard
             label="Total PWA users"
             value={summary?.totalUsers}
             hint="All METADATA profiles"
+          />
+          <MetricCard
+            label="Checked in"
+            value={summary?.totalCheckedIn}
+            hint="Desk check-in (attended)"
           />
           <MetricCard
             label="Turnout"
@@ -378,33 +324,6 @@ function Dashboard({ onLogout }) {
         </section>
 
         <EventTalliesPanel onLogout={onLogout} />
-
-        <section className="admin-panel venue-minors-panel">
-          <div className="admin-panel-header">
-            <div>
-              <h2>Minor safety watchlist</h2>
-              <p className="panel-sub">
-                Organizers only ·{" "}
-                {data?.minorsInside?.length ?? 0} inside ·{" "}
-                {data?.minorsOutside?.length ?? 0} outside
-              </p>
-            </div>
-          </div>
-          <div className="venue-minors-grid">
-            <MinorsTable
-              title="Inside"
-              rows={data?.minorsInside}
-              emptyLabel="No minors currently marked inside the venue."
-              scannedAtLabel="Entered at"
-            />
-            <MinorsTable
-              title="Outside"
-              rows={data?.minorsOutside}
-              emptyLabel="No minors currently marked outside the venue."
-              scannedAtLabel="Exited at"
-            />
-          </div>
-        </section>
       </div>
     </div>
   );
