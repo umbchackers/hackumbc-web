@@ -82,7 +82,7 @@ export default function Sponsors() {
                                     <img src="/nightwing.png" alt="Nightwing" className="sponsors-logo" loading="eager" />
                                 </a>
                                 <a href="https://www.bwtechumbc.com/" target="_blank" rel="noopener noreferrer">
-                                    <img src="/bwtech.webp" alt="bwTECH" className="sponsors-logo sponsors-logo-bwtech" loading="eager" />
+                                    <img src="/bwtech.svg" alt="bwTECH" className="sponsors-logo sponsors-logo-bwtech" loading="eager" />
                                 </a>
                             </div>
 
@@ -100,7 +100,7 @@ export default function Sponsors() {
                                     <img src="/mlh.svg" alt="MLH" className="sponsors-logo sponsors-logo-mlh" loading="eager" />
                                 </a>
                                 <a href="https://www.realmone.com/" target="_blank" rel="noopener noreferrer">
-                                    <img src="/realmone.png" alt="RealmOne" className="sponsors-logo sponsors-logo-realmone" loading="eager" />
+                                    <img src="/realmone.svg" alt="RealmOne" className="sponsors-logo sponsors-logo-realmone" loading="eager" />
                                 </a>
                             </div>
 
@@ -115,7 +115,7 @@ export default function Sponsors() {
                                     <img src="/purebuttons.png" alt="Pure Buttons" className="sponsors-logo" loading="eager" />
                                 </a>
                                 <a href="https://www.redbull.com/" target="_blank" rel="noopener noreferrer">
-                                    <img src="/redbull.svg" alt="Red Bull" className="sponsors-logo" loading="eager" />
+                                    <img src="/redbull.webp" alt="Red Bull" className="sponsors-logo" loading="eager" />
                                 </a>
                             </div>
                         </div>

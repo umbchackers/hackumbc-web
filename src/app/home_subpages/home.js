@@ -97,7 +97,7 @@ export default function Home() {
           />
           <LinkBox
             href="https://hackumbc.tech/sign-up"
-            desc="Click this button to sign up for hackUMBC 2026! Closes Sept 23rd @ 11:59 PM EDT!"
+            desc="Click this button to sign up for hackUMBC 2026! Closes Sept 25th @ 11:59 PM EDT!"
             title="Sign-Up"
             bgImage="/register_button.png"
           />

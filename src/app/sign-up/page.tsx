@@ -210,7 +210,7 @@ export default function Survey() {
               Sign Ups are Open!
             </h2>
             <p className="text-sm italic text-center text-white">
-              Closes September 23rd @ 11:59 PM EDT! This is a fully in-person hackathon.
+              Closes September 25th @ 11:59 PM EDT! This is a fully in-person hackathon.
             </p>
             <p className="text-sm italic mt-3 mb-6 text-center text-white">
               Please Note: Participants under 18 years of age must be enrolled at UMBC to attend. Non-UMBC students under 18 are not eligible to register.
