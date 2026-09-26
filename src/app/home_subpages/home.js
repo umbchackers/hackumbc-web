@@ -90,7 +90,7 @@ export default function Home() {
             bgImage="/register_button.png"
           /> */}
           <LinkBox
-            href="https://hackumbc-minihackathon.devpost.com/"
+            href="https://hackumbc-2026.devpost.com/"
             desc="Visit hackUMBC's Devpost to see project logistics, teams, and prizes!"
             title="Devpost"
             bgImage="/devpost_sponsor_button.png"
