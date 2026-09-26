@@ -207,7 +207,7 @@ export default function Survey() {
             </div>
 
             <h2 className="text-2xl font-bold mb-6 text-center text-white">
-              Sign Ups are Open!
+              Sign Ups are CLOSED!
             </h2>
             <p className="text-sm italic text-center text-white">
               Closes September 25th @ 11:59 PM EDT! This is a fully in-person hackathon.
@@ -1089,7 +1089,7 @@ export default function Survey() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                 {
+                 {/* {
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -1101,7 +1101,7 @@ export default function Survey() {
                   >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
-                }
+                } */}
               </div>
               {/* every year hide this^^ submit button so you dont need to delete entire file,
               that way if someone types in exact url and finds the page, they cant submit */}

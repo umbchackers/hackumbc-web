@@ -95,12 +95,12 @@ export default function Home() {
             title="Devpost"
             bgImage="/devpost_sponsor_button.png"
           />
-          <LinkBox
+          {/* <LinkBox
             href="https://hackumbc.tech/sign-up"
             desc="Click this button to sign up for hackUMBC 2026! Closes Sept 25th @ 11:59 PM EDT!"
             title="Sign-Up"
             bgImage="/register_button.png"
-          />
+          /> */}
           <LinkBox
             href="mailto:hackumbc@gmail.com"
             desc="Want to sponsor hackUMBC? Click this button to learn more!"
