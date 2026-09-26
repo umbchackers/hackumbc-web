@@ -81,7 +81,7 @@ export default function Sponsors() {
                                 <a href="https://nightwing.us/" target="_blank" rel="noopener noreferrer">
                                     <img src="/nightwing.png" alt="Nightwing" className="sponsors-logo" loading="eager" />
                                 </a>
-                                <a href="https://www.bwtechumbc.com/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://bwtech.umbc.edu/" target="_blank" rel="noopener noreferrer">
                                     <img src="/bwtech.svg" alt="bwTECH" className="sponsors-logo sponsors-logo-bwtech" loading="eager" />
                                 </a>
                             </div>
