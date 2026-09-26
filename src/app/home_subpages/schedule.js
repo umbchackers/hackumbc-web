@@ -45,7 +45,7 @@ export default function Schedule() {
         { time: '6:10 PM', endTime: '6:55 PM', event: 'Pre-Med Society Workshop: CODE BLUE: Can AI Make the Right Call?', location: 'RAC 144', type: 'event' },
         { time: '7:00 PM', endTime: '8:00 PM', event: 'Dinner', location: 'RAC Arena', type: 'event' },
         { time: '8:00 PM', endTime: '8:40 PM', event: 'Potion Making', location: 'RAC 106', type: 'event' },
-        { time: '8:45 PM', endTime: '9:25 PM', event: 'Jousting Tournament', location: 'RAC 144', type: 'event' },
+        { time: '8:45 PM', endTime: '9:25 PM', event: 'Type Jousting', location: 'RAC 144', type: 'event' },
         { time: '9:30 PM', endTime: '10:30 PM', event: 'Smash Tournament', location: 'RAC 106', type: 'event' },
         { time: '10:00 PM', endTime: '10:45 PM', event: 'Late Night Snack', location: 'RAC Arena', type: 'event' },
         { time: '11:00 PM', endTime: '11:30 PM', event: 'Cup Stacking', location: 'RAC 144', type: 'event' }
